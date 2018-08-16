@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
 
-<AnchorPane prefHeight="363.0" prefWidth="693.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PersonOverviewController">
+<AnchorPane prefHeight="500.0" prefWidth="914.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PersonOverviewController">
    <children>
-      <SplitPane dividerPositions="0.4126984126984127" layoutX="153.0" layoutY="70.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.4759036144578313" layoutX="265.0" layoutY="1.0" prefHeight="499.0" prefWidth="650.0" style="-fx-background-color: #666465;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="-15.0" AnchorPane.topAnchor="1.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #666465;">
                <children>
-                  <TableView fx:id="personTable" layoutX="-12.0" layoutY="49.0" prefHeight="298.0" prefWidth="175.0" style="-fx-background-color: #2F3349;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="personTable" layoutX="-12.0" layoutY="135.0" prefHeight="363.0" prefWidth="437.0" style="-fx-background-color: #666465;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="135.0">
                     <columns>
                       <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="First Name" />
                       <TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="Last Name" />
@@ -26,12 +33,17 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <AnchorPane layoutX="-40.0" layoutY="22.0" prefHeight="42.0" prefWidth="241.0" AnchorPane.rightAnchor="180.0">
+                     <children>
+                        <CustomTextField fx:id="txtSearch" layoutX="50.0" layoutY="10.0" onMouseClicked="#sortPerson" onMouseEntered="#sortPerson" onTouchMoved="#sortPerson" prefHeight="35.0" prefWidth="237.0" promptText="Search" style="-fx-background-color: #E0E3D2;" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="386.0" style="-fx-background-color: #6664;" styleClass="background">
                <children>
-                  <Label layoutX="104.0" layoutY="51.0" styleClass="label-header" text="Person Details" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-                  <GridPane layoutX="43.0" layoutY="87.0" prefHeight="173.0" prefWidth="393.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="87.0">
+                  <Label layoutX="5.0" layoutY="134.0" styleClass="label-header" text="Person Details" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="134.0" />
+                  <GridPane layoutX="5.0" layoutY="234.0" prefHeight="173.0" prefWidth="393.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="234.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -59,16 +71,48 @@
                         <Label fx:id="birthdayLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
-                  <ButtonBar layoutX="54.0" layoutY="250.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <ButtonBar layoutX="-40.0" layoutY="5.0" prefHeight="33.0" prefWidth="333.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="5.0">
                     <buttons>
-                      <Button mnemonicParsing="false" onAction="#handleNewPerson" style="-fx-background-color: #2F3349;" text="New..." />
-                        <Button mnemonicParsing="false" onAction="#handleEditPerson" style="-fx-background-color: #2F3349;" text="Edit..." />
-                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #2F3349;" text="Delete" />
+                      <Button mnemonicParsing="false" onAction="#handleNewPerson" prefWidth="100.0" text="New..." />
+                        <Button mnemonicParsing="false" onAction="#handleEditPerson" prefWidth="100.0" text="Edit..." />
+                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="33.0" prefWidth="100.0" text="Delete" />
                     </buttons>
                   </ButtonBar>
+                  <HBox alignment="CENTER_LEFT" layoutX="44.0" layoutY="59.0" prefHeight="33.0" prefWidth="279.0">
+                     <children>
+                        <ComboBox prefHeight="33.0" prefWidth="136.0" promptText="Classes" />
+                        <Label text="Label">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="labelCount" layoutX="30.0" layoutY="453.0" prefHeight="21.0" prefWidth="111.0" text="Amount" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
+      <VBox layoutY="1.0" prefHeight="498.0" prefWidth="245.0" style="-fx-background-color: #E0E3D2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.0">
+         <children>
+            <Pane prefHeight="112.0" prefWidth="245.0" />
+            <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="254.0" text="Classes">
+               <VBox.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="254.0" text="Vaccine">
+               <VBox.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="246.0" text="Statistics">
+               <VBox.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Separator layoutX="245.0" layoutY="2.0" orientation="VERTICAL" prefHeight="498.0" prefWidth="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="1.0" />
    </children>
 </AnchorPane>

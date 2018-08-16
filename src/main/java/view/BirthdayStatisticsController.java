@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.XYChart;
-import model.Person;
+import model.Person; 
 import util.DateUtil;
 
 public class BirthdayStatisticsController {

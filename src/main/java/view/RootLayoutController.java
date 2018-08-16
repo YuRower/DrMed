@@ -5,6 +5,7 @@ import java.io.File;
 import org.apache.log4j.Logger;
 
 import application.MainApp;
+import application.SchoolCollection;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -16,6 +17,7 @@ public class RootLayoutController {
 	private MainApp mainApp;
 	private Status status;
 	private final static Logger LOGGER = Logger.getLogger(RootLayoutController.class);
+	SchoolCollection schoolStorage = new SchoolCollection();
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
@@ -23,15 +25,13 @@ public class RootLayoutController {
 
 	@FXML
 	private void handleNew() {
-		 MainApp.getPersonData().clear();
-		// mainApp.setPersonFilePath(null);
+		SchoolCollection.getPersonData().clear();
+		 mainApp.setPersonFilePath(null);
 	}
 
 	@FXML
 	private void handleOpen() {
-		//handleNew() ;
-		 MainApp.getPersonData().clear();// check
-
+		handleNew() ;
 		FileChooser fileChooser = new FileChooser();
 		LOGGER.info("Set extension filter XLS , XLSX files ");
 
@@ -45,7 +45,7 @@ public class RootLayoutController {
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "\nStatus " + status);
 			status = Status.LOAD;
-			mainApp.commonFactoryMethod(file, status);
+			schoolStorage.commonFactoryMethod(file, status);
 		}
 	}
 
@@ -56,7 +56,7 @@ LOGGER.debug("HANDLE SAVE " + personFile);
 		if (personFile != null) {
 			status = Status.SAVE;
 			LOGGER.debug("Load " + personFile.getPath() + "\nStatus " + status);
-			mainApp.commonFactoryMethod(personFile, status);
+			schoolStorage.commonFactoryMethod(personFile, status);
 		} else {
 			handleSaveAs();
 		}
@@ -85,7 +85,7 @@ LOGGER.debug("HANDLE SAVE " + personFile);
 			status = Status.SAVE;
 			LOGGER.debug("Load " + file.getPath() + "\nStatus " + status);
 
-			mainApp.commonFactoryMethod(file, status);
+			schoolStorage.commonFactoryMethod(file, status);
 		}
 	}
 
@@ -108,6 +108,6 @@ LOGGER.debug("HANDLE SAVE " + personFile);
 	@FXML
 	private void handleShowBirthdayStatistics() {
 		LOGGER.info("Show Birthday Statistics ");
-		mainApp.showBirthdayStatistics();
+		schoolStorage.showBirthdayStatistics();
 	}
 }

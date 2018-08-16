@@ -32,16 +32,11 @@ public class MainApp extends Application {
 	private Status status;
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+	SchoolCollection schoolStorage = new SchoolCollection();
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
-
-	private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
 	public MainApp() {
 
-	}
-
-	public static ObservableList<Person> getPersonData() {
-		return personData;
 	}
 
 	@Override
@@ -74,7 +69,7 @@ public class MainApp extends Application {
 		if (file != null) {
 			status = Status.LOAD;
 			LOGGER.debug("Load " + file.getPath() + "\nStatus " + status);
-			commonFactoryMethod(file, status);
+			schoolStorage.commonFactoryMethod(file, status);
 		}
 	}
 
@@ -91,6 +86,7 @@ public class MainApp extends Application {
 			controller.setMainApp(this);
 
 		} catch (IOException e) {
+			e.printStackTrace();
 			LOGGER.error(e);
 		}
 	}
@@ -125,32 +121,6 @@ public class MainApp extends Application {
 		}
 	}
 
-	public void showBirthdayStatistics() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("/view/BirthdayStatistics.fxml"));
-			AnchorPane page = (AnchorPane) loader.load();
-			LOGGER.info("Load BirthdayStatistics.fxml");
-
-			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Birthday Statistics");
-			dialogStage.initModality(Modality.WINDOW_MODAL);
-			dialogStage.initOwner(primaryStage);
-			Scene scene = new Scene(page);
-			dialogStage.setScene(scene);
-
-			dialogStage.getIcons().add(new Image("/images/calendar.png"));
-
-			BirthdayStatisticsController controller = loader.getController();
-			
-
-			dialogStage.show();
-
-		} catch (IOException e) {
-			LOGGER.error(e);
-		}
-	}
-
 	public File getPersonFilePath() {
 		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
 		String filePath = prefs.get("filePath", null);
@@ -172,36 +142,6 @@ public class MainApp extends Application {
 		} else {
 			prefs.remove("filePath");
 			primaryStage.setTitle("AddressApp");
-		}
-	}
-	
-	public void commonFactoryMethod(File file, Status marker) {
-		try {
-			LOGGER.info("File location " + file + "Status" + marker);
-			WriteExcel write;
-			LoadExcel load;
-			if (marker == Status.SAVE) {
-				write = new WriteExcel();
-				write.writeToExcel(file);
-				LOGGER.debug("Write file " + file + " to " + file.getAbsolutePath());
-
-			} else if (marker == Status.LOAD) {
-				load = new LoadExcel();
-				List<Person> listPerson = load.readBooksFromExcelFile(file);
-				LOGGER.debug("Read from file " + file + "  " + file.getAbsolutePath());
-				personData.addAll(listPerson);
-				LOGGER.info("added  list " + personData);
-			} else {
-				LOGGER.error("file not found");
-				throw new RuntimeException();
-			}
-		} catch (Exception e) {
-			LOGGER.error(e);
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Error");
-			alert.setHeaderText("Could not load data");
-			alert.setContentText("Could not load data from file:\n" + file.getPath());
-			alert.showAndWait();
 		}
 	}
 

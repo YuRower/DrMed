@@ -21,17 +21,19 @@ import model.Person;
 import processing.LoadExcel;
 import processing.Status;
 import processing.WriteExcel;
+import util.DialogManager;
 import view.BirthdayStatisticsController;
 
 public class SchoolCollection {
 	private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
 	private final static Logger LOGGER = Logger.getLogger(SchoolCollection.class);
-   MainApp app ; //new MainApp();
+	MainApp app; // new MainApp();
+
 	public static ObservableList<Person> getPersonData() {
 		return personData;
 	}
-	
+
 	public void showBirthdayStatistics() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -49,7 +51,7 @@ public class SchoolCollection {
 			dialogStage.getIcons().add(new Image("/images/calendar.png"));
 
 			BirthdayStatisticsController controller = loader.getController();
-	        controller.setPersonData(personData);
+			controller.setPersonData(personData);
 
 			dialogStage.show();
 
@@ -57,7 +59,7 @@ public class SchoolCollection {
 			LOGGER.error(e);
 		}
 	}
-	
+
 	public void commonFactoryMethod(File file, Status marker) {
 		try {
 			LOGGER.info("File location " + file + "Status" + marker);
@@ -73,7 +75,7 @@ public class SchoolCollection {
 				List<Person> listPerson = load.readBooksFromExcelFile(file);
 				LOGGER.debug("Read from file " + file + "  " + file.getAbsolutePath());
 				personData.addAll(listPerson);
-				Classes cls= new Classes(1,"A",personData);
+				Classes cls = new Classes(0, "A", personData);
 				LOGGER.info("added  list " + personData);
 			} else {
 				LOGGER.error("file not found");
@@ -81,11 +83,8 @@ public class SchoolCollection {
 			}
 		} catch (Exception e) {
 			LOGGER.error(e);
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Error");
-			alert.setHeaderText("Could not load data");
-			alert.setContentText("Could not load data from file:\n" + file.getPath());
-			alert.showAndWait();
+			DialogManager.showErrorDialog("Error", "Could not load data from file:\n" + file.getPath());
+
 		}
 	}
 }

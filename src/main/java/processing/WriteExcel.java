@@ -18,6 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.log4j.Logger;
 
 import application.MainApp;
+import application.SchoolCollection;
 import model.Person;
 import util.Style;
 
@@ -28,8 +29,8 @@ public class WriteExcel {
 		Workbook workbook = getWorkbook(excelFilePath);
 		Sheet sheet = workbook.createSheet();
 
-		List<Person> list = MainApp.getPersonData();// EmployeeDAO.listEmployees();
-		LOGGER.info("check returned list " + list + " & acctPrefix=" + MainApp.getPersonData());
+		List<Person> list = SchoolCollection.getPersonData();// EmployeeDAO.listEmployees();
+		LOGGER.info("check returned list " + list + " & acctPrefix=" + SchoolCollection.getPersonData());
 
 
 		int rownum = 0;

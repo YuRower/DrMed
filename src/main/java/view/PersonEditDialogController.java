@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Person;
 import util.DateUtil;
+import util.DialogManager;
 
 public class PersonEditDialogController {
 	private final static Logger LOGGER = Logger.getLogger(PersonEditDialogController.class);
@@ -131,6 +132,7 @@ public class PersonEditDialogController {
 		if (errorMessage.length() == 0) {
 			return true;
 		} else {
+
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.initOwner(dialogStage);
 			alert.setTitle("Invalid Fields");
