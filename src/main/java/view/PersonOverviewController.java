@@ -1,31 +1,31 @@
 package view;
 
 import java.text.ParseException;
+import java.util.AbstractList;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 import org.controlsfx.control.textfield.CustomTextField;
 
 import application.MainApp;
 import application.SchoolCollection;
-import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.collections.ListChangeListener.Change;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
+import model.Classes;
 import model.Person;
+import processing.LoadExcel;
+import util.ClassesManager;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
 
 public class PersonOverviewController {
 	@FXML
@@ -52,7 +52,7 @@ public class PersonOverviewController {
 	private CustomTextField txtSearch;
 
 	@FXML
-	public ComboBox comboLocales;
+	public ComboBox<Classes> comboClass;
 
 	private MainApp mainApp;
 	SchoolCollection schoolStorage;
@@ -168,9 +168,25 @@ public class PersonOverviewController {
 
 	}
 
+	private void fillComboBox() {
+		ObservableList<Classes>  liist = LoadExcel.classList ;
+		LOGGER.debug(liist + "(states.toString(");
+	
+		comboClass.getItems().addAll(liist);
+
+			
+			if (ClassesManager.getCurrentClass() == null) {
+															
+				comboClass.getSelectionModel().select(0);
+			} else {
+				comboClass.getSelectionModel().select(ClassesManager.getCurrentClass().getSchoolClass());
+			}
+		}
+	
+
 	private void updateCountLabel() {
 		labelCount.setText("count" + ": " + SchoolCollection.getPersonData().size());
-
+		 fillComboBox();
 	}
 
 	@FXML

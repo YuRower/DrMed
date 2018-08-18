@@ -75,7 +75,7 @@ public class SchoolCollection {
 				List<Person> listPerson = load.readBooksFromExcelFile(file);
 				LOGGER.debug("Read from file " + file + "  " + file.getAbsolutePath());
 				personData.addAll(listPerson);
-				Classes cls = new Classes(0, "A", personData);
+			//	Classes cls = new Classes(0, "A", personData);
 				LOGGER.info("added  list " + personData);
 			} else {
 				LOGGER.error("file not found");

@@ -14,6 +14,12 @@ import javafx.beans.property.StringProperty;
 import view.RootLayoutController;
 
 public class Person {
+	@Override
+	public String toString() {
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", street=" + street + ", postalCode="
+				+ postalCode + ", city=" + city + ", birthday=" + birthday + ", currentLocale=" + currentLocale + "]";
+	}
+
 	private final static Logger LOGGER = Logger.getLogger(Person.class);
 
 	private StringProperty firstName;

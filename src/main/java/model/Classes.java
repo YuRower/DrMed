@@ -3,21 +3,39 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Classes {
 	private int schoolClass;
 	private String letter;
-	ObservableList<Person> classListData;// = new ArrayList<>();
+	public static ObservableList<Person> classListData;// = new ArrayList<>();
+	private final static Logger LOGGER = Logger.getLogger(Classes.class);
+
+	public Classes() {
+
+	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Classes [schoolClass=" + schoolClass + ", letter=" + letter + ", classListData=" + classListData + "]";
+	}
 
 
 
-	public Classes(int i, String string, ObservableList<Person> personData) {
+	public Classes(int schoolClass, String letter, List<Person> personData) {
 		classListData = FXCollections.observableArrayList();
+		classListData.addAll(personData);
+		LOGGER.info(classListData.toString()+"Class list");
 		this.schoolClass = schoolClass;
 		this.letter = letter;
 	}
+
+	
 
 	public ObservableList<Person> getClassListData() {
 		return classListData;
@@ -43,5 +61,4 @@ public class Classes {
 		this.schoolClass = schoolClass;
 	}
 
-	
 }
