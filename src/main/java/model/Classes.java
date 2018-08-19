@@ -22,7 +22,7 @@ public class Classes {
 
 	@Override
 	public String toString() {
-		return "Classes [schoolClass=" + schoolClass + ", letter=" + letter + ", classListData=" + classListData + "]";
+		return  schoolClass + "-" + letter ;
 	}
 
 

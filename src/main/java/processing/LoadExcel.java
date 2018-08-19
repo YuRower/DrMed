@@ -30,17 +30,23 @@ public class LoadExcel {
 	String[] array;
 	public static ObservableList<Classes> classList = FXCollections.observableArrayList();// = new ArrayList<>();
 
-
 	public int getNumOfSheet() {
 		return numOfSheet;
 	}
 
-	public List<Person> readBooksFromExcelFile(File excelFilePath) throws IOException {
+	public List<Person> readBooksFromExcelFile(File excelFilePath, String sheet) throws IOException {
 		List<Person> listPerson = new ArrayList<>();
 		FileInputStream inputStream = new FileInputStream(excelFilePath);
-
+		Sheet firstSheet ;
 		Workbook workbook = getWorkbook(inputStream, excelFilePath);
-		Sheet firstSheet = workbook.getSheetAt(0);
+		LOGGER.info("name of sheet::" + sheet);
+
+		if (sheet == null) {
+			 firstSheet = workbook.getSheetAt(0);
+
+		} else {
+			 firstSheet = workbook.getSheet(sheet);
+		}
 		numOfSheet = workbook.getNumberOfSheets();
 
 		LOGGER.info("number of sheet::" + workbook.getNumberOfSheets());
@@ -89,7 +95,7 @@ public class LoadExcel {
 				}
 				listPerson.add(personList);
 			}
-			
+
 			workbook.close();
 			inputStream.close();
 		}
@@ -99,11 +105,10 @@ public class LoadExcel {
 			array = parseSting(s);
 			LOGGER.info("load" + Arrays.toString(array));
 
-			Classes cls = new Classes(Integer.parseInt(array[0]), array[1], listPerson);
+			Classes cls = new Classes(Integer.parseInt(array[0]),array[1], listPerson);
 			classList.add(cls);
 			LOGGER.info("Our class" + cls.toString());
 			LOGGER.info("Our class" + classList.toString());
-
 
 		}
 		LOGGER.info(listPerson.toString());
@@ -113,6 +118,7 @@ public class LoadExcel {
 	}
 
 	private String[] parseSting(String s) {
+
 		Pattern p3 = Pattern.compile("\\-");
 		String[] words = p3.split(s);
 		LOGGER.info("parseeeeeee" + Arrays.toString(words));

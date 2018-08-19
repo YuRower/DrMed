@@ -1,8 +1,10 @@
 package view;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.AbstractList;
 import java.util.Iterator;
+import java.util.Observable;
 
 import org.apache.log4j.Logger;
 import org.controlsfx.control.textfield.CustomTextField;
@@ -13,6 +15,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -22,12 +25,13 @@ import javafx.scene.input.MouseEvent;
 import model.Classes;
 import model.Person;
 import processing.LoadExcel;
+
 import util.ClassesManager;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class PersonOverviewController {
+public class PersonOverviewController extends Observable {
 	@FXML
 	private TableView<Person> personTable;
 	@FXML
@@ -102,6 +106,7 @@ public class PersonOverviewController {
 		personTable.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
 		initListeners();
+		// fillComboBox();
 
 	}
 
@@ -150,6 +155,7 @@ public class PersonOverviewController {
 			@Override
 			public void onChanged(Change<? extends Person> c) {
 				updateCountLabel();
+				fillComboBox();
 			}
 		});
 
@@ -165,28 +171,49 @@ public class PersonOverviewController {
 				}
 			}
 		});
+		comboClass.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				// comboClass.getSelectionModel().select(0);
+
+				Classes selectedClass = (Classes) comboClass.getSelectionModel().getSelectedItem();
+				ClassesManager.setCurrentClass(selectedClass);
+				String str = String.valueOf(selectedClass);
+				LOGGER.info(str + "////sortedData///////////");
+				schoolStorage = new SchoolCollection ();
+				try {
+					schoolStorage.update(str);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				LOGGER.info(selectedClass + "////sortedData///////////");
+
+				// setChanged();
+				// notifyObservers(selectedClass);
+			}
+		});
 
 	}
 
 	private void fillComboBox() {
-		ObservableList<Classes>  liist = LoadExcel.classList ;
+		ObservableList<Classes> liist = LoadExcel.classList;
 		LOGGER.debug(liist + "(states.toString(");
-	
+
 		comboClass.getItems().addAll(liist);
 
-			
-			if (ClassesManager.getCurrentClass() == null) {
-															
-				comboClass.getSelectionModel().select(0);
-			} else {
-				comboClass.getSelectionModel().select(ClassesManager.getCurrentClass().getSchoolClass());
-			}
+		if (ClassesManager.getCurrentClass() == null) {
+
+			comboClass.getSelectionModel().select(0);
+		} else {
+			comboClass.getSelectionModel().select(ClassesManager.getCurrentClass().getSchoolClass());
 		}
-	
+	}
 
 	private void updateCountLabel() {
 		labelCount.setText("count" + ": " + SchoolCollection.getPersonData().size());
-		 fillComboBox();
+		// fillComboBox();
 	}
 
 	@FXML

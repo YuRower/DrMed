@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.prefs.Preferences;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -15,12 +17,15 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Classes;
 import model.Person;
 import processing.LoadExcel;
 import processing.Status;
 import processing.WriteExcel;
+import util.ClassesManager;
 import view.BirthdayStatisticsController;
 import view.PersonEditDialogController;
 import view.PersonOverviewController;
@@ -28,7 +33,7 @@ import view.RootLayoutController;
 
 import org.apache.log4j.Logger;
 
-public class MainApp extends Application {
+public class MainApp extends Application  {
 	private Status status;
 	private Stage primaryStage;
 	private BorderPane rootLayout;
@@ -83,6 +88,9 @@ public class MainApp extends Application {
 			rootLayout.setCenter(personOverview);
 
 			PersonOverviewController controller = loader.getController();
+			//controller.addObserver(this);
+			LOGGER.info("////////////// addobserver//////////////// ");
+
 			controller.setMainApp(this);
 
 		} catch (IOException e) {
@@ -153,4 +161,15 @@ public class MainApp extends Application {
 		LOGGER.info("////////////// Start//////////////// ");
 		launch(args);
 	}
+
+	/*@Override
+	public void update(Observable o, Object arg) {
+		LOGGER.info("////////////// Update//////////////// ");
+
+		Classes lang = (Classes) arg;
+		Classes oldClass = ClassesManager.getCurrentClass();
+		oldClass=lang;
+		showPersonOverview();       
+		//currentRoot.getChildren().setAll(newNode.getChildren());// заменить старые дочерник компонента на новые - с другой локалью		
+	}*/
 }

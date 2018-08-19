@@ -16,6 +16,7 @@ public class RootLayoutController {
 
 	private MainApp mainApp;
 	private Status status;
+	public static File currentFile;
 	private final static Logger LOGGER = Logger.getLogger(RootLayoutController.class);
 	SchoolCollection schoolStorage = new SchoolCollection();
 
@@ -44,10 +45,12 @@ public class RootLayoutController {
 
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "\nStatus " + status);
+			currentFile=file;
 			status = Status.LOAD;
 			schoolStorage.commonFactoryMethod(file, status);
 		}
 	}
+
 
 	@FXML
 	private void handleSave() {
