@@ -9,6 +9,7 @@ import application.SchoolCollection;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.stage.FileChooser;
 import processing.Status;
 
@@ -19,6 +20,7 @@ public class RootLayoutController {
 	public static File currentFile;
 	private final static Logger LOGGER = Logger.getLogger(RootLayoutController.class);
 	SchoolCollection schoolStorage = new SchoolCollection();
+
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;

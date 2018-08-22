@@ -1,16 +1,21 @@
 package view;
 
 import java.io.IOException;
+import java.net.URL;
 import java.text.ParseException;
-import java.util.AbstractList;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Observable;
+import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 import org.controlsfx.control.textfield.CustomTextField;
 
 import application.MainApp;
 import application.SchoolCollection;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -18,20 +23,26 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
+import javafx.util.StringConverter;
 import model.Classes;
+import model.Lang;
 import model.Person;
 import processing.LoadExcel;
+import processing.ReportGenerator;
 
 import util.ClassesManager;
+import util.LocaleManager;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class PersonOverviewController extends Observable {
+public class PersonOverviewController extends Observable implements Initializable {
 	@FXML
 	private TableView<Person> personTable;
 	@FXML
@@ -53,8 +64,11 @@ public class PersonOverviewController extends Observable {
 	private Label birthdayLabel;
 
 	@FXML
-	private CustomTextField txtSearch;
+	public ComboBox comboLocales;
 
+	@FXML
+	private CustomTextField txtSearch;
+	ReportGenerator rg;
 	@FXML
 	public ComboBox<Classes> comboClass;
 
@@ -63,9 +77,25 @@ public class PersonOverviewController extends Observable {
 
 	@FXML
 	private Label labelCount;
+	private ResourceBundle resourceBundle;
+
+	private static final String RU_CODE = "ru";
+	private static final String UK_CODE = "uk";
 	private final static Logger LOGGER = Logger.getLogger(PersonOverviewController.class);
 
 	public PersonOverviewController() {
+
+	}
+
+	@FXML
+
+	public void generDOCX() {
+		rg = new ReportGenerator();
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("Key", "test");
+		map.put("Key1", "test2");
+
+		rg.generateAndSendDocx("063-O.docx", map);
 
 	}
 
@@ -98,21 +128,62 @@ public class PersonOverviewController extends Observable {
 
 	}
 
-	@FXML
-	private void initialize() {
+	private void fillLangComboBox() {
+		Lang langRU = new Lang(0, RU_CODE, resourceBundle.getString("ru"), LocaleManager.RU_LOCALE);
+		Lang langUK = new Lang(1, UK_CODE, resourceBundle.getString("uk"), LocaleManager.UK_LOCALE);
+
+		comboLocales.getItems().add(langRU);
+		comboLocales.getItems().add(langUK);
+		/*comboLocales.setConverter(new StringConverter<Locale>() {
+			@Override
+			public String toString(Locale object) {
+				return object.getDisplayLanguage();
+			}
+
+			@Override
+			public Locale fromString(String string) {
+				return null;
+			}
+		});
+		comboLocales.setCellFactory(p -> new LanguageListCell());
+		comboLocales.getSelectionModel().selectFirst();*/
+
+		if (LocaleManager.getCurrentLang() == null) {
+
+			comboLocales.getSelectionModel().select(0);
+		} else {
+			comboLocales.getSelectionModel().select(LocaleManager.getCurrentLang().getIndex());
+		}
+	}
+
+		class LanguageListCell extends ListCell<Locale> {
+		@Override
+		protected void updateItem(Locale item, boolean empty) {
+			super.updateItem(item, empty);
+			if (item != null) {
+				setText(item.getDisplayLanguage());
+			}
+		}
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		this.resourceBundle = resources;
+		LOGGER.info("////initialize///////////");
+
 		firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
 		lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
 		showPersonDetails(null);
 		personTable.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
 		initListeners();
+		fillLangComboBox();
 		// fillComboBox();
 
 	}
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
-
+		LOGGER.info(SchoolCollection.getPersonData());
 		personTable.setItems(SchoolCollection.getPersonData());
 	}
 
@@ -156,6 +227,7 @@ public class PersonOverviewController extends Observable {
 			public void onChanged(Change<? extends Person> c) {
 				updateCountLabel();
 				fillComboBox();
+				// fillLangComboBox();
 			}
 		});
 
@@ -174,28 +246,44 @@ public class PersonOverviewController extends Observable {
 		comboClass.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				// comboClass.getSelectionModel().select(0);
 
 				Classes selectedClass = (Classes) comboClass.getSelectionModel().getSelectedItem();
+				int index = selectedClass.getIndex();
+				LOGGER.info(index + "////sortedData///////////");
+
 				ClassesManager.setCurrentClass(selectedClass);
+				ClassesManager.setCurrentIndex(index);
+
 				String str = String.valueOf(selectedClass);
 				LOGGER.info(str + "////sortedData///////////");
-				schoolStorage = new SchoolCollection ();
+				schoolStorage = new SchoolCollection();
+				ObservableList<Person> updatedClass = null;
 				try {
-					schoolStorage.update(str);
+					updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				LOGGER.info(selectedClass + "////sortedData///////////");
-
-				// setChanged();
-				// notifyObservers(selectedClass);
+				personTable.setItems(updatedClass);
+				updateCountLabel();
 			}
 		});
+		
+		 comboLocales.setOnAction(new EventHandler<ActionEvent>() {
+		  
+		  @Override public void handle(ActionEvent event) { Lang selectedLang = (Lang)
+		 comboLocales.getSelectionModel().getSelectedItem();
+		  LocaleManager.setCurrentLang(selectedLang);
+		  
+		  // уведомить всех слушателей, что произошла смена языка setChanged();
+		  LOGGER.info("selectedLang" + selectedLang);
+		  
+		  notifyObservers(selectedLang); } });
+		 
 
 	}
+
+	
 
 	private void fillComboBox() {
 		ObservableList<Classes> liist = LoadExcel.classList;
@@ -207,13 +295,12 @@ public class PersonOverviewController extends Observable {
 
 			comboClass.getSelectionModel().select(0);
 		} else {
-			comboClass.getSelectionModel().select(ClassesManager.getCurrentClass().getSchoolClass());
+			comboClass.getSelectionModel().select(ClassesManager.getCurrentClass().getIndex());
 		}
 	}
 
 	private void updateCountLabel() {
-		labelCount.setText("count" + ": " + SchoolCollection.getPersonData().size());
-		// fillComboBox();
+		labelCount.setText(resourceBundle.getString("count") + ": " + SchoolCollection.getPersonData().size());
 	}
 
 	@FXML
@@ -243,5 +330,26 @@ public class PersonOverviewController extends Observable {
 
 			alert.showAndWait();
 		}
+	}
+
+	public void updateTable(Classes customer) {
+		LOGGER.debug(customer + "1 ");
+		// List<Person> list = customer.getClassListData();
+		// LOGGER.debug(list + "1 ");
+		// initialize();
+		LOGGER.debug(personTable + "1 ");
+		/*
+		 * personTable.getSelectionModel().selectedItemProperty()
+		 * .addListener((observable, oldValue, newValue) ->
+		 * showPersonDetails(newValue));
+		 */
+		LOGGER.debug(personTable + "1 ");
+		personTable = new TableView<Person>();
+		LOGGER.debug(personTable + "1 ");
+		// initListeners();
+		LOGGER.debug(personTable + "1 ");
+
+		// personTable.setItems(list);
+
 	}
 }

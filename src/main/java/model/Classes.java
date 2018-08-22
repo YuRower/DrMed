@@ -9,56 +9,52 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Classes {
-	private int schoolClass;
-	private String letter;
-	public static ObservableList<Person> classListData;// = new ArrayList<>();
-	private final static Logger LOGGER = Logger.getLogger(Classes.class);
-
-	public Classes() {
-
-	}
-
-	
-
-	@Override
-	public String toString() {
-		return  schoolClass + "-" + letter ;
-	}
-
-
-
-	public Classes(int schoolClass, String letter, List<Person> personData) {
-		classListData = FXCollections.observableArrayList();
-		classListData.addAll(personData);
-		LOGGER.info(classListData.toString()+"Class list");
-		this.schoolClass = schoolClass;
-		this.letter = letter;
-	}
-
-	
-
-	public ObservableList<Person> getClassListData() {
+	private int index;
+	private String schoolClass;
+	public  List<Person> classListData =FXCollections.observableArrayList();// = new ArrayList<>();
+	public List<Person> getClassListData() {
 		return classListData;
 	}
 
-	public void setClassListData(ObservableList<Person> classListData) {
-		this.classListData = classListData;
+	private final static Logger LOGGER = Logger.getLogger(Classes.class);
+	
+
+
+	public Classes(int index, String schoolClass, List<Person> classData) {
+		this.classListData = classData;
+		this.schoolClass = schoolClass;
+		this.index = index;
 	}
 
-	public String getLetter() {
-		return letter;
+	
+
+	public Classes() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setLetter(String letter) {
-		this.letter = letter;
+
+
+	@Override
+	public String toString() {
+		return schoolClass;//classListData.toString()  ;
+	}
+	
+
+	public int getIndex() {
+		return index;
 	}
 
-	public int getSchoolClass() {
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
+	public String getSchoolClass() {
 		return schoolClass;
 	}
 
-	public void setSchoolClass(int schoolClass) {
+	public void setSchoolClass(String schoolClass) {
 		this.schoolClass = schoolClass;
 	}
 
+	
 }

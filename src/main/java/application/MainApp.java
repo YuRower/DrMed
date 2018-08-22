@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
+import java.util.Locale;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -21,11 +23,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Classes;
+import model.Lang;
 import model.Person;
 import processing.LoadExcel;
 import processing.Status;
 import processing.WriteExcel;
 import util.ClassesManager;
+import util.LocaleManager;
 import view.BirthdayStatisticsController;
 import view.PersonEditDialogController;
 import view.PersonOverviewController;
@@ -33,10 +37,23 @@ import view.RootLayoutController;
 
 import org.apache.log4j.Logger;
 
-public class MainApp extends Application  {
+public class MainApp extends Application implements Observer {
+
+	private static final String FXML_MAIN = "/view/PersonOverview.fxml";
+	public static final String BUNDLES_FOLDER = "property.text";
 	private Status status;
+	private FXMLLoader fxmlLoader;
+
 	private Stage primaryStage;
+
+	public BorderPane getRootLayout() {
+		return rootLayout;
+	}
+
+	PersonOverviewController personController;
 	private BorderPane rootLayout;
+	private AnchorPane page;
+	AnchorPane personOverview ;
 	SchoolCollection schoolStorage = new SchoolCollection();
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
 
@@ -46,25 +63,33 @@ public class MainApp extends Application  {
 
 	@Override
 	public void start(Stage primaryStage) {
+		//System.out.println(ResourceBundle.getBundle(BUNDLES_FOLDER).getString("firstName"));
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("AddressApp");
 		this.primaryStage.getIcons().add(new Image("/images/address_book_32.png"));
+		Lang langRU = new Lang(0, "ru", "Русский", LocaleManager.RU_LOCALE);
+		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UK_LOCALE);
+		LocaleManager.setCurrentLang(langRU);
+		LOGGER.info("setCurrentLang(langRU");
+
+//(LocaleManager.RU_LOCALE);
 		initRootLayout();
-		showPersonOverview();
+		showPersonOverview(LocaleManager.UK_LOCALE);
 	}
 
 	public void initRootLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/RootLayout.fxml"));
+			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER));
 			rootLayout = (BorderPane) loader.load();
 
 			LOGGER.info("Load RootLayout.fxml");
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
-			RootLayoutController controller = loader.getController();
+			RootLayoutController rootController = loader.getController();
 
-			controller.setMainApp(this);
+			rootController.setMainApp(this);
 			primaryStage.show();
 		} catch (IOException e) {
 			LOGGER.error(e);
@@ -78,20 +103,23 @@ public class MainApp extends Application  {
 		}
 	}
 
-	public void showPersonOverview() {
+	public void showPersonOverview(Locale locale) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
+			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER,locale));
 			loader.setLocation(MainApp.class.getResource("/view/PersonOverview.fxml"));
-			AnchorPane personOverview = (AnchorPane) loader.load();
+
+			 personOverview = (AnchorPane) loader.load();
+			
 			LOGGER.info("Load PersonOverview.fxml");
 
 			rootLayout.setCenter(personOverview);
 
-			PersonOverviewController controller = loader.getController();
-			//controller.addObserver(this);
+			personController = loader.getController();
+			personController.addObserver(this);
 			LOGGER.info("////////////// addobserver//////////////// ");
 
-			controller.setMainApp(this);
+			personController.setMainApp(this);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -104,7 +132,7 @@ public class MainApp extends Application  {
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/PersonEditDialog.fxml"));
-			AnchorPane page = (AnchorPane) loader.load();
+			 page = (AnchorPane) loader.load();
 			LOGGER.info("Load PersonEditDialog.fxml");
 
 			Stage dialogStage = new Stage();
@@ -162,14 +190,40 @@ public class MainApp extends Application  {
 		launch(args);
 	}
 
-	/*@Override
+	@Override
 	public void update(Observable o, Object arg) {
-		LOGGER.info("////////////// Update//////////////// ");
+		fxmlLoader = new FXMLLoader();
 
-		Classes lang = (Classes) arg;
-		Classes oldClass = ClassesManager.getCurrentClass();
-		oldClass=lang;
-		showPersonOverview();       
-		//currentRoot.getChildren().setAll(newNode.getChildren());// заменить старые дочерник компонента на новые - с другой локалью		
-	}*/
+		
+		Lang lang = (Lang) arg;
+		//fxmlLoader.setLocation(getClass().getResource(FXML_MAIN));
+		//fxmlLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, lang));
+		LOGGER.info("////////////// lang "+lang);
+
+		loadFXML(lang.getLocale()); 
+	//	personOverview.getChildren().setAll(newNode.getChildren());
+																
+	}
+
+	private AnchorPane loadFXML(Locale locale) {
+		fxmlLoader = new FXMLLoader();
+
+		fxmlLoader.setLocation(getClass().getResource(FXML_MAIN));
+		fxmlLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
+
+		AnchorPane node = null;
+
+		try {
+			node = (AnchorPane) fxmlLoader.load();
+
+			personController = fxmlLoader.getController();
+			personController.addObserver(this);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return node;
+	}
+
 }
