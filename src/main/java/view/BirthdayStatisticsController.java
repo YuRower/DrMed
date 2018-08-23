@@ -40,7 +40,7 @@ public class BirthdayStatisticsController {
 	}
 
 	
-	public void setPersonData(List<Person> persons) {
+	/*public void setPersonData(List<Person> persons) {
 		int[] monthCounter = new int[12];
 		for (Person p : persons) {
 			LOGGER.info(" PARSE birthday in a specific month. .");
@@ -59,5 +59,5 @@ public class BirthdayStatisticsController {
 		LOGGER.debug(" number of month " +monthCounter  );
 		barChart.getData().add(series);
 
-	}
+	}*/
 }

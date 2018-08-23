@@ -38,7 +38,7 @@
                         <CustomTextField fx:id="txtSearch" layoutX="50.0" layoutY="10.0" onMouseClicked="#sortPerson" onMouseEntered="#sortPerson" onTouchMoved="#sortPerson" prefHeight="35.0" prefWidth="237.0" promptText="Search" style="-fx-background-color: #E0E3D2;" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
-                  <Label fx:id="labelCount" layoutX="11.0" layoutY="474.0" prefHeight="21.0" prefWidth="111.0" text="Amount" />
+                  <Label fx:id="labelCount" layoutX="11.0" layoutY="474.0" prefHeight="21.0" prefWidth="111.0" text="%count" />
                   <ComboBox fx:id="comboLocales" layoutX="309.0" layoutY="434.0" prefHeight="50.0" prefWidth="158.0" promptText="Language" AnchorPane.rightAnchor="100.0" />
                </children>
             </AnchorPane>

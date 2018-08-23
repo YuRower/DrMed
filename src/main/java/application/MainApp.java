@@ -67,21 +67,26 @@ public class MainApp extends Application implements Observer {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("AddressApp");
 		this.primaryStage.getIcons().add(new Image("/images/address_book_32.png"));
-		Lang langRU = new Lang(0, "ru", "Русский", LocaleManager.RU_LOCALE);
-		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UK_LOCALE);
-		LocaleManager.setCurrentLang(langRU);
+		//Lang langRU = new Lang(0, "ru", "Русский", LocaleManager.RU_LOCALE);
+		
+		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UA_LOCALE);
+		LocaleManager.setCurrentLang(langUK);
 		LOGGER.info("setCurrentLang(langRU");
-
-//(LocaleManager.RU_LOCALE);
 		initRootLayout();
-		showPersonOverview(LocaleManager.UK_LOCALE);
+		String language_country = "uk";
+		String country = "UA";
+		Locale current = new Locale(language_country, country);
+		showPersonOverview(current);
 	}
 
 	public void initRootLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/RootLayout.fxml"));
-			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER));
+			String language_country = "uk";
+			String country = "UA";
+			Locale current = new Locale(language_country, country);
+			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER,current));
 			rootLayout = (BorderPane) loader.load();
 
 			LOGGER.info("Load RootLayout.fxml");
@@ -192,16 +197,21 @@ public class MainApp extends Application implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		LOGGER.info(arg + "////update///////////");
+
 		fxmlLoader = new FXMLLoader();
 
-		
-		Lang lang = (Lang) arg;
+		 Lang lang = (Lang) arg;
+		 AnchorPane newNode = loadFXML(lang.getLocale()); // получить новое дерево компонетов с нужной локалью
+		 personOverview.getChildren().setAll(newNode.getChildren());
+	   // Scene scene = personOverview.getScene();
+      
 		//fxmlLoader.setLocation(getClass().getResource(FXML_MAIN));
 		//fxmlLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, lang));
 		LOGGER.info("////////////// lang "+lang);
 
-		loadFXML(lang.getLocale()); 
-	//	personOverview.getChildren().setAll(newNode.getChildren());
+		//showPersonOverview(lang.getLocale()); 
+	//\\	personOverview.getChildren().setAll(newNode.getChildren());
 																
 	}
 

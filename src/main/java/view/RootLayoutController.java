@@ -9,8 +9,8 @@ import application.SchoolCollection;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ComboBox;
 import javafx.stage.FileChooser;
+import processing.LoadExcel;
 import processing.Status;
 
 public class RootLayoutController {
@@ -28,7 +28,15 @@ public class RootLayoutController {
 
 	@FXML
 	private void handleNew() {
+		LOGGER.info("newww");
+
 		SchoolCollection.getPersonData().clear();
+		/*if ((!(LoadExcel.outer==null) && ((LoadExcel.classList==null)) )){
+			LoadExcel.outer.clear();
+			LoadExcel.classList.clear();
+
+		}*/
+			
 		 mainApp.setPersonFilePath(null);
 	}
 
@@ -113,6 +121,6 @@ LOGGER.debug("HANDLE SAVE " + personFile);
 	@FXML
 	private void handleShowBirthdayStatistics() {
 		LOGGER.info("Show Birthday Statistics ");
-		schoolStorage.showBirthdayStatistics();
+	//	schoolStorage.showBirthdayStatistics();
 	}
 }

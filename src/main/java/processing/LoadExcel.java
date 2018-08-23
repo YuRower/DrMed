@@ -8,15 +8,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.CellValue;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -29,21 +33,19 @@ import model.Person;
 
 public class LoadExcel {
 	private final static Logger LOGGER = Logger.getLogger(LoadExcel.class);
-	int numOfSheet = 0;
+	static int numOfSheet ;
 	int j = 0;
 	static DateTimeFormatter VALIDATION = DateTimeFormatter.ofPattern("yyyy[-MM[-dd]]");
 
 	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
-	List<String> sheetName;
+	public static List<String> sheetName;
 	public static ObservableList<Classes> classList = FXCollections.observableArrayList();
 	public static ArrayList<ArrayList<Person>> outer ;//= new ArrayList<ArrayList<Person>>();
 	
 
 	ArrayList<Person> listPerson;
-	public int getNumOfSheet() {
-		return numOfSheet;
-	}
+	
 
 	public List<Person> getListPerson() {
 		return listPerson;
@@ -105,9 +107,20 @@ public class LoadExcel {
 							break;
 
 						case 5:
+							/*double dv = (double) getCellValue(nextCell);
+							if (DateUtil.isCellDateFormatted(nextCell)) {
+							    Date date = DateUtil.getJavaDate(dv);
 
+							    String dateFmt = nextCell.getCellStyle().getDataFormatString();
+							    /* strValue = new SimpleDateFormat(dateFmt).format(date); - won't work as 
+							    Java fmt differs from Excel fmt. If Excel date format is mm/dd/yyyy, Java 
+							    will always be 00 for date since "m" is minutes of the hour.*/
+
+							    // takes care of idiosyncrasies of Excel
+							
 							DataFormatter dataFormatter = new DataFormatter();
 							String cellStringValue = dataFormatter.formatCellValue(nextCell);
+							
 							// LOGGER.info("cellStringValue :" + cellStringValue);
 							// LOGGER.debug(String.valueOf(formatter.format(cellStringValue)) + " string was
 							// formatted ");
@@ -128,33 +141,7 @@ public class LoadExcel {
 			outer.add(listPerson);
 			listPerson = new ArrayList<Person>();
 
-			/*
-			 * Classes cls = new Classes(j++, sheetName.get(i), listPerson);
-			 * classList.add(cls);
-			 */
-			/*
-			 * LOGGER.info("Our class" + cls.toString()); LOGGER.info("Our class" +
-			 * classList.toString());
-			 */
-			/*
-			 * for (int i = 0; i < numOfSheet; i++) { LOGGER.info("name of :" +
-			 * workbook.getSheetName(i)); String s = workbook.getSheetName(i);
-			 * 
-			 * //array = parseSting(s); sheetName.add(s); LOGGER.info("sheetName"
-			 * +(sheetName));
-			 * 
-			 * LOGGER.info("load" + Arrays.toString(array)); /*if
-			 * (listPerson.containsAll(classList)) { LOGGER.info("contains"); } else {
-			 * LOGGER.info("create");
-			 * 
-			 * Classes cls = new Classes(i, s, listPerson);
-			 * 
-			 * classList.add(cls); LOGGER.info("Our class" + cls.toString());
-			 * LOGGER.info("Our class" + classList.toString());
-			 * 
-			 * 
-			 * }
-			 */
+		
 		}
 		LOGGER.info("outer" + outer.toString());
 
@@ -164,14 +151,7 @@ public class LoadExcel {
 
 	}
 
-	/*
-	 * private String[] parseSting(String s) {
-	 * 
-	 * Pattern p3 = Pattern.compile("\\-"); String[] words = p3.split(s);
-	 * LOGGER.info("parseeeeeee" + Arrays.toString(words)); return words;
-	 * 
-	 * }
-	 */
+	
 	private Object getCellValue(Cell cell) {
 		CellType cellType = cell.getCellTypeEnum();
 		switch (cellType) {

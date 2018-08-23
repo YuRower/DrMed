@@ -26,9 +26,13 @@ public class WriteExcel {
 
 	public void writeToExcel(File excelFilePath) throws IOException {
 		Workbook workbook = getWorkbook(excelFilePath);
-		Sheet sheet = workbook.createSheet();
+		for (int i = 0; i < LoadExcel.numOfSheet; i++) {
+			Sheet sheet = workbook.createSheet();
+			workbook.setSheetName(i, LoadExcel.sheetName.get(i));
+			LOGGER.info("number of sheet::" + LoadExcel.sheetName.get(i));
 
-		List<Person> list = SchoolCollection.getPersonData();// EmployeeDAO.listEmployees();
+		
+		List<Person> list = LoadExcel.outer.get( i);
 		LOGGER.info("check returned list " + list + " & acctPrefix=" + SchoolCollection.getPersonData());
 
 
@@ -86,7 +90,7 @@ public class WriteExcel {
 			cell = row.createCell(5);
 			cell.setCellValue(emp.getBirthday());
 			cell.setCellStyle(cellStyle);
-
+		}
 		}
 	//	File file = new File("C:/demo1/person123.xlsx");
 		excelFilePath.getParentFile().mkdirs();

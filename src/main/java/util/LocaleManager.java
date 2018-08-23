@@ -8,7 +8,7 @@ import model.Lang;
 public class LocaleManager{
 
     public static final Locale RU_LOCALE = new Locale("ru");
-    public static final Locale UK_LOCALE = new Locale("uk");
+    public static final Locale UA_LOCALE = new Locale("uk");
 
     private static Lang currentLang;
 

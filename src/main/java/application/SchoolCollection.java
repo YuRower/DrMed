@@ -43,7 +43,7 @@ public class SchoolCollection {
 		return personData;
 	}
 	List<Person> listPerson ;
-	public void showBirthdayStatistics() {
+	/*public void showBirthdayStatistics() {
 		try {
 			app= new MainApp();
 			FXMLLoader loader = new FXMLLoader();
@@ -68,7 +68,7 @@ public class SchoolCollection {
 		} catch (IOException e) {
 			LOGGER.error(e);
 		}
-	}
+	}*/
 
 	public void commonFactoryMethod(File file, Status marker) {
 		try {

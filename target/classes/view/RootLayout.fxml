@@ -10,7 +10,7 @@
    <top>
       <MenuBar style="-fx-background-color: #666465;" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="%file">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleNew" text="New">
                      <accelerator>
@@ -31,12 +31,12 @@
                   <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
                </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Statistics">
+          <Menu mnemonicParsing="false" text="%statistics">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleShowBirthdayStatistics" text="Show Statistics" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="%help">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
             </items>

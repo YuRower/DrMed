@@ -7,7 +7,7 @@
 {
     -fx-background: #B19A8A;    
     -fx-background-color: #B19A8A;
-       -fx-border-color: #e2e2e2;
+    -fx-border-color: #e2e2e2;
     -fx-border-width: 2.0;
  	-fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 11.0pt;
@@ -43,14 +43,7 @@
     -fx-text-fill: -fx-text-inner-color;
 }
 
-.combo-box-base  
-{
-    -fx-skin: "com.sun.javafx.scene.control.skin.ComboBoxBaseSkin";
-    -fx-background-color: white, white, white, white;
-    -fx-background-radius: 5.0, 5.0, 4.0, 3.0;
-    -fx-background-insets: 0.0 0.0 -1.0 0.0, 0.0, 1.0, 2.0;
-    -fx-padding: 0.0;
-}
+
 
 .combo-box-base:hover
 {

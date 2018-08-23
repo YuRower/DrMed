@@ -80,7 +80,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	private ResourceBundle resourceBundle;
 
 	private static final String RU_CODE = "ru";
-	private static final String UK_CODE = "uk";
+	private static final String UA_CODE = "uk";
 	private final static Logger LOGGER = Logger.getLogger(PersonOverviewController.class);
 
 	public PersonOverviewController() {
@@ -130,7 +130,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	private void fillLangComboBox() {
 		Lang langRU = new Lang(0, RU_CODE, resourceBundle.getString("ru"), LocaleManager.RU_LOCALE);
-		Lang langUK = new Lang(1, UK_CODE, resourceBundle.getString("uk"), LocaleManager.UK_LOCALE);
+		Lang langUK = new Lang(1, UA_CODE, resourceBundle.getString("uk"), LocaleManager.UA_LOCALE);
 
 		comboLocales.getItems().add(langRU);
 		comboLocales.getItems().add(langUK);
@@ -156,7 +156,28 @@ public class PersonOverviewController extends Observable implements Initializabl
 		}
 	}
 
-		class LanguageListCell extends ListCell<Locale> {
+	/*private ComboBox<Locale> createComboBox() {
+		ComboBox<Locale> comboBox = new ComboBox<>();
+		ObservableList<Locale> options = FXCollections.observableArrayList(Locale.ENGLISH, Locale.GERMAN);
+		comboBox.setItems(options);
+		comboBox.setConverter(new StringConverter<Locale>() {
+			@Override
+			public String toString(Locale object) {
+				return object.getDisplayLanguage();
+			}
+
+			@Override
+			public Locale fromString(String string) {
+				return null;
+			}
+		});
+		comboBox.setCellFactory(p -> new LanguageListCell());
+		comboBox.getSelectionModel().selectFirst();
+
+		/*comboBox.setOnAction(event -> loadView(comboBox.getSelectionModel().getSelectedItem()));
+		return comboBox;*/
+
+	class LanguageListCell extends ListCell<Locale> {
 		@Override
 		protected void updateItem(Locale item, boolean empty) {
 			super.updateItem(item, empty);
@@ -168,7 +189,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.resourceBundle = resources;
-		LOGGER.info("////initialize///////////");
+		LOGGER.info("////initialize///////////"+resources);
 
 		firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
 		lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
@@ -270,15 +291,19 @@ public class PersonOverviewController extends Observable implements Initializabl
 		});
 		
 		 comboLocales.setOnAction(new EventHandler<ActionEvent>() {
-		  
-		  @Override public void handle(ActionEvent event) { Lang selectedLang = (Lang)
-		 comboLocales.getSelectionModel().getSelectedItem();
-		  LocaleManager.setCurrentLang(selectedLang);
-		  
-		  // уведомить всех слушателей, что произошла смена языка setChanged();
-		  LOGGER.info("selectedLang" + selectedLang);
-		  
-		  notifyObservers(selectedLang); } });
+	            @Override
+
+	            public void handle(ActionEvent event) {
+					LOGGER.info( "////clicl box///////////");
+
+	                Lang selectedLang = (Lang) comboLocales.getSelectionModel().getSelectedItem();
+	                LocaleManager.setCurrentLang(selectedLang);
+
+	                // уведомить всех слушателей, что произошла смена языка
+	                setChanged();
+	                notifyObservers(selectedLang);
+	            }
+	        });
 		 
 
 	}
