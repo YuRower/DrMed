@@ -14,13 +14,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.CellValue;
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -33,30 +30,36 @@ import model.Person;
 
 public class LoadExcel {
 	private final static Logger LOGGER = Logger.getLogger(LoadExcel.class);
-	static int numOfSheet ;
+	static int numOfSheet;
 	int j = 0;
 	static DateTimeFormatter VALIDATION = DateTimeFormatter.ofPattern("yyyy[-MM[-dd]]");
 
 	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
-	public static List<String> sheetName;
-	public static ObservableList<Classes> classList = FXCollections.observableArrayList();
-	public static ArrayList<ArrayList<Person>> outer ;//= new ArrayList<ArrayList<Person>>();
-	
+	private static List<String> sheetName;
+	private static ObservableList<Classes> classList = FXCollections.observableArrayList();
+
+	public static ObservableList<Classes> getClassList() {
+		return classList;
+	}
+
+	public static List<String> getSheetName() {
+		return sheetName;
+	}
+
+	private static ArrayList<ArrayList<Person>> outer;// = new ArrayList<ArrayList<Person>>();
+
+	public static ArrayList<ArrayList<Person>> getOuter() {
+		return outer;
+	}
 
 	ArrayList<Person> listPerson;
-	
-
-	public List<Person> getListPerson() {
-		return listPerson;
-	}
 
 	Classes cls;
 
 	public List<Person> readBooksFromExcelFile(File excelFilePath, String sheet) throws IOException {
-		 outer = new ArrayList<ArrayList<Person>>();
+		outer = new ArrayList<ArrayList<Person>>();
 		listPerson = new ArrayList<Person>();
-	//	stubPerson=new ArrayList<Person>();
 		FileInputStream inputStream = new FileInputStream(excelFilePath);
 		Sheet firstSheet;
 		sheetName = new ArrayList<>();
@@ -107,20 +110,22 @@ public class LoadExcel {
 							break;
 
 						case 5:
-							/*double dv = (double) getCellValue(nextCell);
-							if (DateUtil.isCellDateFormatted(nextCell)) {
-							    Date date = DateUtil.getJavaDate(dv);
+							/*
+							 * double dv = (double) getCellValue(nextCell); if
+							 * (DateUtil.isCellDateFormatted(nextCell)) { Date date =
+							 * DateUtil.getJavaDate(dv);
+							 * 
+							 * String dateFmt = nextCell.getCellStyle().getDataFormatString(); /* strValue =
+							 * new SimpleDateFormat(dateFmt).format(date); - won't work as Java fmt differs
+							 * from Excel fmt. If Excel date format is mm/dd/yyyy, Java will always be 00
+							 * for date since "m" is minutes of the hour.
+							 */
 
-							    String dateFmt = nextCell.getCellStyle().getDataFormatString();
-							    /* strValue = new SimpleDateFormat(dateFmt).format(date); - won't work as 
-							    Java fmt differs from Excel fmt. If Excel date format is mm/dd/yyyy, Java 
-							    will always be 00 for date since "m" is minutes of the hour.*/
+							// takes care of idiosyncrasies of Excel
 
-							    // takes care of idiosyncrasies of Excel
-							
 							DataFormatter dataFormatter = new DataFormatter();
 							String cellStringValue = dataFormatter.formatCellValue(nextCell);
-							
+
 							// LOGGER.info("cellStringValue :" + cellStringValue);
 							// LOGGER.debug(String.valueOf(formatter.format(cellStringValue)) + " string was
 							// formatted ");
@@ -141,7 +146,6 @@ public class LoadExcel {
 			outer.add(listPerson);
 			listPerson = new ArrayList<Person>();
 
-		
 		}
 		LOGGER.info("outer" + outer.toString());
 
@@ -151,7 +155,6 @@ public class LoadExcel {
 
 	}
 
-	
 	private Object getCellValue(Cell cell) {
 		CellType cellType = cell.getCellTypeEnum();
 		switch (cellType) {

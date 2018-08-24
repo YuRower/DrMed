@@ -21,16 +21,41 @@ public class RootLayoutController {
 	private final static Logger LOGGER = Logger.getLogger(RootLayoutController.class);
 	SchoolCollection schoolStorage = new SchoolCollection();
 
-
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}
 
 	@FXML
 	private void handleNew() {
-		LOGGER.info("newww");
+		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " "+ 
+				LoadExcel.getOuter()+ " "+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
+		LOGGER.info(LoadExcel.getSheetName()== null );
+		LOGGER.info(LoadExcel.getClassList().isEmpty() );
+		LOGGER.info(LoadExcel.getOuter() == null );
+		LOGGER.info(SchoolCollection.getPersonData().isEmpty() );
+		LOGGER.info( PersonOverviewController.getComboClasslist()==null);
+		
 
-		SchoolCollection.getPersonData().clear();
+
+		if (!((LoadExcel.getSheetName()== null ) && (LoadExcel.getClassList().isEmpty()) 
+		&& (LoadExcel.getOuter() == null) 
+		&& (SchoolCollection.getPersonData().isEmpty())
+		&& (PersonOverviewController.getComboClasslist()==null 
+			))) {
+			LOGGER.info("ddelete");
+
+			LoadExcel.getClassList().clear();
+			LoadExcel.getOuter().clear();
+			LoadExcel.getSheetName().clear();
+			SchoolCollection.getPersonData().clear();
+			PersonOverviewController.getComboClasslist().clear();
+			LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " "+ 
+					LoadExcel.getOuter()+ " "+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
+		}
+		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " "+ 
+				LoadExcel.getOuter()+ " "+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
+
+		//SchoolCollection.getPersonData().clear();
 		/*if ((!(LoadExcel.outer==null) && ((LoadExcel.classList==null)) )){
 			LoadExcel.outer.clear();
 			LoadExcel.classList.clear();

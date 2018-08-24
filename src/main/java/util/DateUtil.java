@@ -8,12 +8,13 @@ import java.util.Locale;
 
 import org.apache.log4j.Logger;
 
-
 public class DateUtil {
 	static Locale currentLocale = Locale.getDefault();
+
 	static DateTimeFormatter VALIDATION = DateTimeFormatter.ofPattern("yyyy[-MM[-dd]]");
 
 	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", currentLocale);
+	
 	private final static Logger LOGGER = Logger.getLogger(DateUtil.class);
 
 	public static String format(LocalDate string) {
@@ -37,7 +38,7 @@ public class DateUtil {
 		}
 	}
 
-static TemporalAccessor parseDate(String dateAsString) {
+	static TemporalAccessor parseDate(String dateAsString) {
 		return VALIDATION.parseBest(dateAsString, LocalDate::from, LocalDate::from);
 	}
 

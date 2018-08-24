@@ -70,7 +70,15 @@ public class PersonOverviewController extends Observable implements Initializabl
 	private CustomTextField txtSearch;
 	ReportGenerator rg;
 	@FXML
-	public ComboBox<Classes> comboClass;
+	public ComboBox<Classes>  comboClass;
+	public ComboBox<Classes> getComboClass() {
+		return comboClass;
+	}
+
+	private static ObservableList<Classes> comboClasslist ;
+	public static ObservableList<Classes> getComboClasslist() {
+		return comboClasslist;
+	}
 
 	private MainApp mainApp;
 	SchoolCollection schoolStorage;
@@ -134,20 +142,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 		comboLocales.getItems().add(langRU);
 		comboLocales.getItems().add(langUK);
-		/*comboLocales.setConverter(new StringConverter<Locale>() {
-			@Override
-			public String toString(Locale object) {
-				return object.getDisplayLanguage();
-			}
-
-			@Override
-			public Locale fromString(String string) {
-				return null;
-			}
-		});
-		comboLocales.setCellFactory(p -> new LanguageListCell());
-		comboLocales.getSelectionModel().selectFirst();*/
-
 		if (LocaleManager.getCurrentLang() == null) {
 
 			comboLocales.getSelectionModel().select(0);
@@ -155,27 +149,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 			comboLocales.getSelectionModel().select(LocaleManager.getCurrentLang().getIndex());
 		}
 	}
-
-	/*private ComboBox<Locale> createComboBox() {
-		ComboBox<Locale> comboBox = new ComboBox<>();
-		ObservableList<Locale> options = FXCollections.observableArrayList(Locale.ENGLISH, Locale.GERMAN);
-		comboBox.setItems(options);
-		comboBox.setConverter(new StringConverter<Locale>() {
-			@Override
-			public String toString(Locale object) {
-				return object.getDisplayLanguage();
-			}
-
-			@Override
-			public Locale fromString(String string) {
-				return null;
-			}
-		});
-		comboBox.setCellFactory(p -> new LanguageListCell());
-		comboBox.getSelectionModel().selectFirst();
-
-		/*comboBox.setOnAction(event -> loadView(comboBox.getSelectionModel().getSelectedItem()));
-		return comboBox;*/
 
 	class LanguageListCell extends ListCell<Locale> {
 		@Override
@@ -198,8 +171,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 				.addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
 		initListeners();
 		fillLangComboBox();
-		// fillComboBox();
-
 	}
 
 	public void setMainApp(MainApp mainApp) {
@@ -267,7 +238,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 		comboClass.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-
 				Classes selectedClass = (Classes) comboClass.getSelectionModel().getSelectedItem();
 				int index = selectedClass.getIndex();
 				LOGGER.info(index + "////sortedData///////////");
@@ -297,9 +267,9 @@ public class PersonOverviewController extends Observable implements Initializabl
 					LOGGER.info( "////clicl box///////////");
 
 	                Lang selectedLang = (Lang) comboLocales.getSelectionModel().getSelectedItem();
+
 	                LocaleManager.setCurrentLang(selectedLang);
 
-	                // уведомить всех слушателей, что произошла смена языка
 	                setChanged();
 	                notifyObservers(selectedLang);
 	            }
@@ -308,13 +278,17 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	}
 
-	
+	public  void clearCombobox() {
+		comboClass.getItems().removeAll(comboClass.getItems());// = new ComboBox();
+	}
+
 
 	private void fillComboBox() {
-		ObservableList<Classes> liist = LoadExcel.classList;
-		LOGGER.debug(liist + "(states.toString(");
+		clearCombobox();
+		 comboClasslist = LoadExcel.getClassList();
+		LOGGER.debug(comboClasslist + "(states.toString(");
 
-		comboClass.getItems().addAll(liist);
+		comboClass.getItems().addAll(comboClasslist);
 
 		if (ClassesManager.getCurrentClass() == null) {
 
