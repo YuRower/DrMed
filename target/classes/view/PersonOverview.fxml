@@ -20,7 +20,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="914.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PersonOverviewController">
    <children>
-      <SplitPane dividerPositions="0.9382530120481928" layoutX="265.0" layoutY="1.0" prefHeight="499.0" prefWidth="650.0" style="-fx-background-color: #666465;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="-15.0" AnchorPane.topAnchor="1.0">
+      <SplitPane dividerPositions="0.7515060240963856" layoutX="265.0" layoutY="1.0" prefHeight="499.0" prefWidth="650.0" style="-fx-background-color: #666465;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="-15.0" AnchorPane.topAnchor="1.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #666465;">
                <children>
@@ -39,7 +39,7 @@
                      </children>
                   </AnchorPane>
                   <Label fx:id="labelCount" layoutX="11.0" layoutY="474.0" prefHeight="21.0" prefWidth="111.0" text="%count" />
-                  <ComboBox fx:id="comboLocales" layoutX="309.0" layoutY="434.0" prefHeight="50.0" prefWidth="158.0" promptText="Language" AnchorPane.rightAnchor="100.0" />
+                  <ComboBox fx:id="comboLocales" layoutX="235.0" layoutY="449.0" prefHeight="50.0" prefWidth="158.0" promptText="Language" AnchorPane.rightAnchor="101.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="386.0" style="-fx-background-color: #6664;" styleClass="background">

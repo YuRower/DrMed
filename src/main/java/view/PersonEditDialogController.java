@@ -10,8 +10,10 @@ import org.apache.log4j.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Person;
 import util.DateUtil;
@@ -33,7 +35,7 @@ public class PersonEditDialogController {
 	private TextField cityField;
 	@FXML
 	private TextField birthdayField;
-
+	
 	private Stage dialogStage;
 	private Person person;
 	private boolean okClicked = false;

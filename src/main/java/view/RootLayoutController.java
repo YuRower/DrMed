@@ -49,8 +49,7 @@ public class RootLayoutController {
 			LoadExcel.getSheetName().clear();
 			SchoolCollection.getPersonData().clear();
 			PersonOverviewController.getComboClasslist().clear();
-			LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " "+ 
-					LoadExcel.getOuter()+ " "+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
+			
 		}
 		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " "+ 
 				LoadExcel.getOuter()+ " "+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
@@ -75,6 +74,7 @@ public class RootLayoutController {
 		FileChooser.ExtensionFilter xlsFilter = new FileChooser.ExtensionFilter("XLS files (*.xls)", "*.xls");
 		fileChooser.getExtensionFilters().add(xlsxFilter);
 		fileChooser.getExtensionFilters().add(xlsFilter);
+
 
 		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 
@@ -146,6 +146,6 @@ LOGGER.debug("HANDLE SAVE " + personFile);
 	@FXML
 	private void handleShowBirthdayStatistics() {
 		LOGGER.info("Show Birthday Statistics ");
-	//	schoolStorage.showBirthdayStatistics();
+		schoolStorage.showBirthdayStatistics();
 	}
 }

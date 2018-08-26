@@ -9,12 +9,12 @@ import javafx.collections.FXCollections;
 public class Classes {
 	private int index;
 	private String schoolClass;
-	public List<Person> classListData = FXCollections.observableArrayList();
+	public static List<Person> classListData = FXCollections.observableArrayList();
 
 	private final static Logger LOGGER = Logger.getLogger(Classes.class);
 
 	public Classes(int index, String schoolClass, List<Person> classData) {
-		this.classListData = classData;
+		classListData.addAll(classData);
 		this.schoolClass = schoolClass;
 		this.index = index;
 	}

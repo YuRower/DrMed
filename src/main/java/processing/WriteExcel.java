@@ -3,7 +3,10 @@ package processing;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -82,8 +85,33 @@ public class WriteExcel {
 				cell.setCellValue(emp.getCity());
 
 				CellStyle cellStyle = workbook.createCellStyle();
-				CreationHelper createHelper = workbook.getCreationHelper();
-				cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd/mm/yyyy;@"));
+
+				 CreationHelper createHelper = workbook.getCreationHelper();
+				 DateFormat df = DateFormat.getDateInstance(DateFormat.DEFAULT,  Locale.getDefault());
+					
+
+
+				 cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd/mm/yyyy;@"));
+				// cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd.mm.yyyy"));
+
+			/*	Date today;
+				String dateOut;
+				DateFormat dateFormatter;
+				Locale currentLocale = Locale.getDefault();*/
+
+				/*System.out.println(currentLocale.getDisplayLanguage());
+				System.out.println(currentLocale.getDisplayCountry());
+
+				System.out.println(currentLocale.getLanguage());
+				System.out.println(currentLocale.getCountry());
+
+				System.out.println(System.getProperty("user.country"));
+				System.out.println(System.getProperty("user.language"));*/
+				//dateFormatter = DateFormat.getDateInstance(DateFormat.DEFAULT, currentLocale);
+				//today = new Date();
+				//dateOut = dateFormatter.format(emp.getBirthday());
+
+				//System.out.println(emp.getBirthday() + " " + currentLocale.toString());
 				cell = row.createCell(5);
 				cell.setCellValue(emp.getBirthday());
 				cell.setCellStyle(cellStyle);

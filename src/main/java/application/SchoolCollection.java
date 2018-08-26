@@ -9,12 +9,19 @@ import org.apache.log4j.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import model.Classes;
 import model.Person;
 import processing.LoadExcel;
 import processing.Status;
 import processing.WriteExcel;
 import util.DialogManager;
+import view.BirthdayStatisticsController;
 
 public class SchoolCollection {
 	private static ObservableList<Person> personData = FXCollections.observableArrayList();
@@ -23,34 +30,45 @@ public class SchoolCollection {
 	MainApp app;
 	WriteExcel write;
 	LoadExcel load;
-	private  ArrayList<Person> currClass ;
-	private  ObservableList<Person> personWrapper ;
+	private ArrayList<Person> currClass;
+	private ObservableList<Person> personWrapper;
+
 	public static ObservableList<Person> getPersonData() {
 		return personData;
 	}
 
 	private List<Person> listPerson;
-	/*
-	 * public void showBirthdayStatistics() { try { app= new MainApp(); FXMLLoader
-	 * loader = new FXMLLoader();
-	 * loader.setLocation(MainApp.class.getResource("/view/BirthdayStatistics.fxml")
-	 * ); AnchorPane page = (AnchorPane) loader.load();
-	 * LOGGER.info("Load BirthdayStatistics.fxml");
-	 * 
-	 * Stage dialogStage = new Stage(); dialogStage.setTitle("Birthday Statistics");
-	 * dialogStage.initModality(Modality.WINDOW_MODAL);
-	 * dialogStage.initOwner(app.getPrimaryStage()); Scene scene = new Scene(page);
-	 * dialogStage.setScene(scene);
-	 * 
-	 * dialogStage.getIcons().add(new Image("/images/calendar.png"));
-	 * 
-	 * BirthdayStatisticsController controller = loader.getController();
-	 * controller.setPersonData(personData);
-	 * 
-	 * dialogStage.show();
-	 * 
-	 * } catch (IOException e) { LOGGER.error(e); } }
-	 */
+
+	public void showBirthdayStatistics() {
+		try {
+			LOGGER.info("show BirthdayStatistics");
+
+			app = new MainApp();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("/view/BirthdayStatistics.fxml"));
+			AnchorPane page = (AnchorPane) loader.load();
+			LOGGER.info("Load BirthdayStatistics.fxml");
+
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Birthday Statistics");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(app.getPrimaryStage());
+			Scene scene = new Scene(page);
+			dialogStage.setScene(scene);
+
+			dialogStage.getIcons().add(new Image("/images/calendar.png"));
+
+			BirthdayStatisticsController controller = loader.getController();
+			LOGGER.info(Classes.classListData);
+
+			controller.setPersonData(Classes.classListData);
+
+			dialogStage.show();
+
+		} catch (IOException e) {
+			LOGGER.error(e);
+		}
+	}
 
 	public void commonFactoryMethod(File file, Status marker) {
 		try {
@@ -88,23 +106,10 @@ public class SchoolCollection {
 	}
 
 	public ObservableList<Person> update(int index) throws IOException {
-	    currClass = LoadExcel.getOuter().get(index);
+		currClass = LoadExcel.getOuter().get(index);
 		personWrapper = FXCollections.observableArrayList(currClass);
 		return personWrapper;
 
 	}
-	
-	/*public  void calledNewClass() {
-		LOGGER.error(currClass== null);
-		LOGGER.error(personWrapper == null);
-		if (!(currClass == null && personWrapper == null )) {
-		currClass.clear();
-		personWrapper.clear();
-		}
-		LOGGER.error(currClass);
-		LOGGER.error(personWrapper);
-
-
-	}*/
 
 }

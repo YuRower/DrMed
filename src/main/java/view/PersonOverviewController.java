@@ -1,5 +1,6 @@
 package view;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -28,13 +29,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
 import model.Classes;
 import model.Lang;
 import model.Person;
 import processing.LoadExcel;
 import processing.ReportGenerator;
-
+import processing.Status;
 import util.ClassesManager;
 import util.LocaleManager;
 import javafx.scene.control.Label;
@@ -70,12 +72,14 @@ public class PersonOverviewController extends Observable implements Initializabl
 	private CustomTextField txtSearch;
 	ReportGenerator rg;
 	@FXML
-	public ComboBox<Classes>  comboClass;
+	public ComboBox<Classes> comboClass;
+
 	public ComboBox<Classes> getComboClass() {
 		return comboClass;
 	}
 
-	private static ObservableList<Classes> comboClasslist ;
+	private static ObservableList<Classes> comboClasslist;
+
 	public static ObservableList<Classes> getComboClasslist() {
 		return comboClasslist;
 	}
@@ -98,12 +102,20 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@FXML
 
 	public void generDOCX() {
-		rg = new ReportGenerator();
+		FileChooser fileChooser = new FileChooser();
+		FileChooser.ExtensionFilter docFilter = new FileChooser.ExtensionFilter("Microsoft Word (*.doc, *.docx)", "doc", "docx");
+		fileChooser.getExtensionFilters().add(docFilter);
+		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
+
+		if (file != null) {
+			LOGGER.debug("Load " + file.getPath() + "Load doc ");
+		}
+		/*rg = new ReportGenerator();
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("Key", "test");
 		map.put("Key1", "test2");
 
-		rg.generateAndSendDocx("063-O.docx", map);
+		rg.generateAndSendDocx("063-O.docx", map);*/
 
 	}
 
@@ -142,6 +154,8 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 		comboLocales.getItems().add(langRU);
 		comboLocales.getItems().add(langUK);
+		LOGGER.info("fill locale into box ");
+
 		if (LocaleManager.getCurrentLang() == null) {
 
 			comboLocales.getSelectionModel().select(0);
@@ -159,10 +173,11 @@ public class PersonOverviewController extends Observable implements Initializabl
 			}
 		}
 	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.resourceBundle = resources;
-		LOGGER.info("////initialize///////////"+resources);
+		LOGGER.info("////initialize///////////" + resources.getLocale().getLanguage());
 
 		firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
 		lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
@@ -219,7 +234,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 			public void onChanged(Change<? extends Person> c) {
 				updateCountLabel();
 				fillComboBox();
-				// fillLangComboBox();
 			}
 		});
 
@@ -259,34 +273,32 @@ public class PersonOverviewController extends Observable implements Initializabl
 				updateCountLabel();
 			}
 		});
-		
-		 comboLocales.setOnAction(new EventHandler<ActionEvent>() {
-	            @Override
 
-	            public void handle(ActionEvent event) {
-					LOGGER.info( "////clicl box///////////");
+		comboLocales.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				LOGGER.info("combo Locales listener");
 
-	                Lang selectedLang = (Lang) comboLocales.getSelectionModel().getSelectedItem();
+				Lang selectedLang = (Lang) comboLocales.getSelectionModel().getSelectedItem();
 
-	                LocaleManager.setCurrentLang(selectedLang);
+				LocaleManager.setCurrentLang(selectedLang);
+				LOGGER.info("selected lang " + selectedLang);
 
-	                setChanged();
-	                notifyObservers(selectedLang);
-	            }
-	        });
-		 
+				setChanged();
+				notifyObservers(selectedLang);
+			}
+		});
 
 	}
 
-	public  void clearCombobox() {
-		comboClass.getItems().removeAll(comboClass.getItems());// = new ComboBox();
+	public void clearCombobox() {
+		comboClass.getItems().removeAll(comboClass.getItems());
 	}
-
 
 	private void fillComboBox() {
 		clearCombobox();
-		 comboClasslist = LoadExcel.getClassList();
-		LOGGER.debug(comboClasslist + "(states.toString(");
+		comboClasslist = LoadExcel.getClassList();
+		LOGGER.debug(comboClasslist + "boxOfClasses");
 
 		comboClass.getItems().addAll(comboClasslist);
 
@@ -329,26 +341,5 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 			alert.showAndWait();
 		}
-	}
-
-	public void updateTable(Classes customer) {
-		LOGGER.debug(customer + "1 ");
-		// List<Person> list = customer.getClassListData();
-		// LOGGER.debug(list + "1 ");
-		// initialize();
-		LOGGER.debug(personTable + "1 ");
-		/*
-		 * personTable.getSelectionModel().selectedItemProperty()
-		 * .addListener((observable, oldValue, newValue) ->
-		 * showPersonDetails(newValue));
-		 */
-		LOGGER.debug(personTable + "1 ");
-		personTable = new TableView<Person>();
-		LOGGER.debug(personTable + "1 ");
-		// initListeners();
-		LOGGER.debug(personTable + "1 ");
-
-		// personTable.setItems(list);
-
 	}
 }

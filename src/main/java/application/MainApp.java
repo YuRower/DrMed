@@ -28,7 +28,6 @@ import org.apache.log4j.Logger;
 
 public class MainApp extends Application implements Observer {
 
-	private static final String FXML_MAIN = "/view/PersonOverview.fxml";
 	public static final String BUNDLES_FOLDER = "property.text";
 	private Status status;
 	private FXMLLoader fxmlLoader;
@@ -60,13 +59,14 @@ public class MainApp extends Application implements Observer {
 		Lang langRU = new Lang(0, "ru", "Русский", LocaleManager.RU_LOCALE);
 		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UA_LOCALE);
 		LocaleManager.setCurrentLang(langUK);
-		LOGGER.info("setCurrentLang(langRU");
+		LOGGER.info("setCurrentLang " + langUK);
 		initRootLayout(LocaleManager.UA_LOCALE);
 		showPersonOverview(LocaleManager.UA_LOCALE);
 	}
 
 	public void initRootLayout(Locale locale) {
 		try {
+			LOGGER.info("init Root Layout");
 			getPrimaryStage().setFullScreen(true);
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/RootLayout.fxml"));
@@ -94,6 +94,8 @@ public class MainApp extends Application implements Observer {
 
 	public void showPersonOverview(Locale locale) {
 		try {
+			LOGGER.info("show Person Overview");
+
 			getPrimaryStage().setFullScreen(true);
 
 			FXMLLoader loader = new FXMLLoader();
@@ -108,7 +110,7 @@ public class MainApp extends Application implements Observer {
 
 			personController = loader.getController();
 			personController.addObserver(this);
-			LOGGER.info("////////////// addobserver//////////////// ");
+			LOGGER.info(" add observer ");
 
 			personController.setMainApp(this);
 
@@ -120,6 +122,8 @@ public class MainApp extends Application implements Observer {
 
 	public boolean showPersonEditDialog(Person person) throws ParseException {
 		try {
+			LOGGER.info("show Person Edit Dialogl");
+
 			getPrimaryStage().setFullScreen(true);
 
 			FXMLLoader loader = new FXMLLoader();
@@ -152,7 +156,7 @@ public class MainApp extends Application implements Observer {
 	public File getPersonFilePath() {
 		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
 		String filePath = prefs.get("filePath", null);
-		LOGGER.debug("get Person File Path//////////// " + filePath);
+		LOGGER.debug(" File Path = " + filePath);
 
 		if (filePath != null) {
 			return new File(filePath);
@@ -165,7 +169,7 @@ public class MainApp extends Application implements Observer {
 		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
 		if (file != null) {
 			prefs.put("filePath", file.getPath());
-			LOGGER.debug("set Person File Path /////////////////////" + file.getPath());
+			LOGGER.debug("set File Path = " + file.getPath());
 			primaryStage.setTitle("AddressApp - " + file.getName());
 		} else {
 			prefs.remove("filePath");
@@ -187,15 +191,22 @@ public class MainApp extends Application implements Observer {
 		Locale current = null;
 
 		Lang lang = (Lang) arg;
+		LOGGER.info("index  " + lang.getIndex());
+
 		if (lang.getIndex() == 0) {
-			current = LocaleManager.UA_LOCALE;
+			current = LocaleManager.RU_LOCALE;
+			LocaleManager.setCurrentLang(lang);
 
 		} else if (lang.getIndex() == 1) {
-			current = LocaleManager.RU_LOCALE;
+			current = LocaleManager.UA_LOCALE;
+			LocaleManager.setCurrentLang(lang);
+
 		}
+		LOGGER.info("setCurrentLang " + lang);
+		LOGGER.info("Locale " + current);
+
 		initRootLayout(current);
 		showPersonOverview(current);
-
 
 	}
 }
