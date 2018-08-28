@@ -1,7 +1,11 @@
 package view;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -10,8 +14,12 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Observable;
 import java.util.ResourceBundle;
+import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.controlsfx.control.textfield.CustomTextField;
 
 import application.MainApp;
@@ -34,8 +42,8 @@ import javafx.util.StringConverter;
 import model.Classes;
 import model.Lang;
 import model.Person;
+import processing.GenerateDocx;
 import processing.LoadExcel;
-import processing.ReportGenerator;
 import processing.Status;
 import util.ClassesManager;
 import util.LocaleManager;
@@ -70,7 +78,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 	private CustomTextField txtSearch;
-	ReportGenerator rg;
+	GenerateDocx rg;
 	@FXML
 	public ComboBox<Classes> comboClass;
 
@@ -102,21 +110,105 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@FXML
 
 	public void generDOCX() {
+		rg = new GenerateDocx();
+
 		FileChooser fileChooser = new FileChooser();
-		FileChooser.ExtensionFilter docFilter = new FileChooser.ExtensionFilter("Microsoft Word (*.doc, *.docx)", "doc", "docx");
+		FileChooser.ExtensionFilter docFilter = new FileChooser.ExtensionFilter("DOC files (*.doc", "*.doc");
+		FileChooser.ExtensionFilter docxFilter = new FileChooser.ExtensionFilter("DOCX files (*.docx", "*.docx");
+		fileChooser.getExtensionFilters().add(docxFilter);
+
 		fileChooser.getExtensionFilters().add(docFilter);
+
 		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "Load doc ");
 		}
-		/*rg = new ReportGenerator();
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("Key", "test");
-		map.put("Key1", "test2");
+		ArrayList<Person> listGen = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
+		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday" };
+		Map<String, Object> map = new HashMap<String, Object>();
+		String fileName ; 
+		String extension = null ;//  file.getName();
+        int pos = file.getName().lastIndexOf(".");
+        if (pos ==-1  ) {
+        	fileName= file.getName();
+        }else {
+        	fileName = file.getName().substring(0, pos);
+        	 extension =  file.getName().substring(pos, file.getName().length());
+			LOGGER.debug(fileName +  " -- " + extension);
 
-		rg.generateAndSendDocx("063-O.docx", map);*/
+        }
+  
+        LOGGER.info(pos);
+		for (Person person : listGen) {
+		
+			File temp =createDocFile(fileName+ person.getLastName()+extension,file.getPath());
+		try {
+				copyFileUsingStream(file,temp);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			/*
+			 * map.put(title[0], person.getFirstName()); map.put(title[1],
+			 * person.getLastName()); map.put(title[2], person.getStreet());
+			 * map.put(title[3], person.getPostalCode()); map.put(title[4],
+			 * person.getCity()); map.put(title[5], person.getBirthday());
+			 */
 
+			/*
+			 * LOGGER.debug(map ); boolean flag = rg.generateAndSendDocx(file.getPath(),
+			 * map); LOGGER.debug("Load " + flag + "Load doc ");
+			 */
+
+		}
+
+		/*
+		 * LOGGER.debug(map ); boolean flag = rg.generateAndSendDocx(file.getPath(),
+		 * map); LOGGER.debug("Load " + flag + "Load doc ");
+		 */
+
+		// schoolStorage.getPersonData();
+		// LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
+
+	}
+
+	public static File createDocFile(String path,String fileName) {
+		LOGGER.debug("Create");
+		try {
+			File file = new File(path);
+			LOGGER.debug("Create" + path);
+
+			FileOutputStream fos = new FileOutputStream(fileName);
+			XWPFDocument doc = new XWPFDocument();
+			doc.write(fos);
+			fos.close();
+			LOGGER.debug(file.getAbsolutePath());
+			return file ;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+
+	private static void copyFileUsingStream(File source, File dest) throws IOException {
+		LOGGER.debug("copy");
+		LOGGER.debug(source + "copy" +dest);
+
+		InputStream is = null;
+		OutputStream os = null;
+		try {
+			is = new FileInputStream(source);
+			os = new FileOutputStream(dest);
+			byte[] buffer = new byte[1024];
+			int length;
+			while ((length = is.read(buffer)) > 0) {
+				os.write(buffer, 0, length);
+			}
+		} finally {
+			is.close();
+			os.close();
+		}
 	}
 
 	@FXML

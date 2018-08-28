@@ -18,7 +18,6 @@ public class Person {
 	}
 
 	private final static Logger LOGGER = Logger.getLogger(Person.class);
-
 	private StringProperty firstName;
 	private StringProperty lastName;
 	private StringProperty street;
