@@ -44,7 +44,6 @@ public class GenerateDocx {
 	private final static Logger LOGGER = Logger.getLogger(GenerateDocx.class);
 
 	private static final String MAIN_DOCUMENT_PATH = "word/document.xml";
-	private static final String TEMPLATE_DIRECTORY_ROOT = "/Users/bigda/Desktop/temp/";
 
 	/* PUBLIC METHODS */
 
@@ -56,16 +55,16 @@ public class GenerateDocx {
 	 *                         represent substitution data
 	 * @return
 	 */
-	public static Boolean generateAndSendDocx(String templateName, Map<String, Object> substitutionData) {
-		templateName = "063-O.docx";
+	public static Boolean generateAndSendDocx(String templateName, Map<String, Object> substitutionData,
+			String TEMPLATE_DIRECTORY_ROOT) {
 		LOGGER.debug(substitutionData);
 		String templateLocation = TEMPLATE_DIRECTORY_ROOT + templateName;
 		LOGGER.debug(templateLocation);
 
-		String userTempDir = null ;//= UUID.randomUUID().toString();
-	//	LOGGER.debug(userTempDir);
-		 
-		userTempDir = TEMPLATE_DIRECTORY_ROOT  + "/";
+		String userTempDir = null;// = UUID.randomUUID().toString();
+		// LOGGER.debug(userTempDir);
+
+		userTempDir = TEMPLATE_DIRECTORY_ROOT + "/";
 		LOGGER.debug(userTempDir);
 
 		try {
@@ -80,7 +79,7 @@ public class GenerateDocx {
 			zip(new File(userTempDir), new File(userTempDir + templateName));
 
 			// Send HTTP response
-	//		sendDOCXResponse(new File(userTempDir + templateName), templateName);
+			// sendDOCXResponse(new File(userTempDir + templateName), templateName);
 
 			// Clean temp data
 			deleteTempData(new File(userTempDir));
@@ -139,7 +138,7 @@ public class GenerateDocx {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static void changeData(File targetFile, Map<String, Object> substitutionData) throws IOException {
-		LOGGER.debug(targetFile+ " " );
+		LOGGER.debug(targetFile + " ");
 
 		BufferedReader br = null;
 		String docxTemplate = "";

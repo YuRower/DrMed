@@ -27,21 +27,17 @@ public class RootLayoutController {
 
 	@FXML
 	private void handleNew() {
-		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " "+ 
-				LoadExcel.getOuter()+ " "+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
-		LOGGER.info(LoadExcel.getSheetName()== null );
-		LOGGER.info(LoadExcel.getClassList().isEmpty() );
-		LOGGER.info(LoadExcel.getOuter() == null );
-		LOGGER.info(SchoolCollection.getPersonData().isEmpty() );
-		LOGGER.info( PersonOverviewController.getComboClasslist()==null);
-		
+		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " " + LoadExcel.getOuter() + " "
+				+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
+		LOGGER.info(LoadExcel.getSheetName() == null);
+		LOGGER.info(LoadExcel.getClassList().isEmpty());
+		LOGGER.info(LoadExcel.getOuter() == null);
+		LOGGER.info(SchoolCollection.getPersonData().isEmpty());
+		LOGGER.info(PersonOverviewController.getComboClasslist() == null);
 
-
-		if (!((LoadExcel.getSheetName()== null ) && (LoadExcel.getClassList().isEmpty()) 
-		&& (LoadExcel.getOuter() == null) 
-		&& (SchoolCollection.getPersonData().isEmpty())
-		&& (PersonOverviewController.getComboClasslist()==null 
-			))) {
+		if (!((LoadExcel.getSheetName() == null) && (LoadExcel.getClassList().isEmpty())
+				&& (LoadExcel.getOuter() == null) && (SchoolCollection.getPersonData().isEmpty())
+				&& (PersonOverviewController.getComboClasslist() == null))) {
 			LOGGER.info("ddelete");
 
 			LoadExcel.getClassList().clear();
@@ -49,48 +45,37 @@ public class RootLayoutController {
 			LoadExcel.getSheetName().clear();
 			SchoolCollection.getPersonData().clear();
 			PersonOverviewController.getComboClasslist().clear();
-			
+
 		}
-		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " "+ 
-				LoadExcel.getOuter()+ " "+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
-
-		//SchoolCollection.getPersonData().clear();
-		/*if ((!(LoadExcel.outer==null) && ((LoadExcel.classList==null)) )){
-			LoadExcel.outer.clear();
-			LoadExcel.classList.clear();
-
-		}*/
-			
-		 mainApp.setPersonFilePath(null);
+		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " " + LoadExcel.getOuter() + " "
+				+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
+		mainApp.setPersonFilePath(null);
 	}
 
 	@FXML
 	private void handleOpen() {
-		handleNew() ;
+		handleNew();
 		FileChooser fileChooser = new FileChooser();
 		LOGGER.info("Set extension filter XLS , XLSX files ");
-
 		FileChooser.ExtensionFilter xlsxFilter = new FileChooser.ExtensionFilter("XLSX files (*.xlsx)", "*.xlsx");
 		FileChooser.ExtensionFilter xlsFilter = new FileChooser.ExtensionFilter("XLS files (*.xls)", "*.xls");
 		fileChooser.getExtensionFilters().add(xlsxFilter);
 		fileChooser.getExtensionFilters().add(xlsFilter);
 
-
 		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "\nStatus " + status);
-			currentFile=file;
+			currentFile = file;
 			status = Status.LOAD;
 			schoolStorage.commonFactoryMethod(file, status);
 		}
 	}
 
-
 	@FXML
 	private void handleSave() {
 		File personFile = mainApp.getPersonFilePath();
-LOGGER.debug("HANDLE SAVE " + personFile);
+		LOGGER.debug("HANDLE SAVE " + personFile);
 		if (personFile != null) {
 			status = Status.SAVE;
 			LOGGER.debug("Load " + personFile.getPath() + "\nStatus " + status);
@@ -103,7 +88,6 @@ LOGGER.debug("HANDLE SAVE " + personFile);
 	@FXML
 	private void handleSaveAs() {
 		FileChooser fileChooser = new FileChooser();
-
 		FileChooser.ExtensionFilter xlsxFilter = new FileChooser.ExtensionFilter("XLSX files (*.xlsx)", "*.xlsx");
 		FileChooser.ExtensionFilter xlsFilter = new FileChooser.ExtensionFilter("XLS files (*.xls)", "*.xls");
 		fileChooser.getExtensionFilters().add(xlsxFilter);
@@ -133,14 +117,20 @@ LOGGER.debug("HANDLE SAVE " + personFile);
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("MedicalApp");
 		alert.setHeaderText("About");
-		alert.setContentText("Copy Rigth");
+		alert.setContentText("add Copy Rigth and email feedback");
 		alert.showAndWait();
 	}
 
 	@FXML
 	private void handleExit() {
-		LOGGER.debug("Info ");
+		LOGGER.debug("handleExit ");
 		System.exit(0);
+	}
+
+	@FXML
+	private void handleLogOut() {
+		LOGGER.debug("handleLogOut ");
+		this.mainApp.authintication(false);
 	}
 
 	@FXML

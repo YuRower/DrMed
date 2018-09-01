@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -21,9 +22,11 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.controlsfx.control.textfield.CustomTextField;
+import org.controlsfx.control.textfield.TextFields;
 
 import application.MainApp;
 import application.SchoolCollection;
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -44,13 +47,16 @@ import model.Lang;
 import model.Person;
 import processing.GenerateDocx;
 import processing.LoadExcel;
+import processing.Report;
 import processing.Status;
 import util.ClassesManager;
+import util.DialogManager;
 import util.LocaleManager;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class PersonOverviewController extends Observable implements Initializable {
 	@FXML
@@ -109,9 +115,10 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 
-	public void generDOCX() {
-		rg = new GenerateDocx();
+	public void generDOCX() throws IOException, ParseException {
 
+		rg = new GenerateDocx();
+		int someIndex = 0;
 		FileChooser fileChooser = new FileChooser();
 		FileChooser.ExtensionFilter docFilter = new FileChooser.ExtensionFilter("DOC files (*.doc", "*.doc");
 		FileChooser.ExtensionFilter docxFilter = new FileChooser.ExtensionFilter("DOCX files (*.docx", "*.docx");
@@ -120,70 +127,92 @@ public class PersonOverviewController extends Observable implements Initializabl
 		fileChooser.getExtensionFilters().add(docFilter);
 
 		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
-
+		File parentFile = file.getParentFile();
+		
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "Load doc ");
 		}
 		ArrayList<Person> listGen = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
-		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday" };
 		Map<String, Object> map = new HashMap<String, Object>();
-		String fileName ; 
-		String extension = null ;//  file.getName();
-        int pos = file.getName().lastIndexOf(".");
-        if (pos ==-1  ) {
-        	fileName= file.getName();
-        }else {
-        	fileName = file.getName().substring(0, pos);
-        	 extension =  file.getName().substring(pos, file.getName().length());
-			LOGGER.debug(fileName +  " -- " + extension);
-
-        }
-  
-        LOGGER.info(pos);
-		for (Person person : listGen) {
-		
-			File temp =createDocFile(fileName+ person.getLastName()+extension,file.getPath());
-		try {
-				copyFileUsingStream(file,temp);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			/*
-			 * map.put(title[0], person.getFirstName()); map.put(title[1],
-			 * person.getLastName()); map.put(title[2], person.getStreet());
-			 * map.put(title[3], person.getPostalCode()); map.put(title[4],
-			 * person.getCity()); map.put(title[5], person.getBirthday());
-			 */
-
-			/*
-			 * LOGGER.debug(map ); boolean flag = rg.generateAndSendDocx(file.getPath(),
-			 * map); LOGGER.debug("Load " + flag + "Load doc ");
-			 */
+		String fileName;
+		String extension = null;// file.getName();
+		int pos = file.getName().lastIndexOf(".");
+		if (pos == -1) {
+			fileName = file.getName();
+		} else {
+			fileName = file.getName().substring(0, pos);
+			extension = file.getName().substring(pos, file.getName().length());
+			LOGGER.debug(fileName + " -- " + extension);
 
 		}
+		Report report = DialogManager.showOptionalDOCX();
 
-		/*
-		 * LOGGER.debug(map ); boolean flag = rg.generateAndSendDocx(file.getPath(),
-		 * map); LOGGER.debug("Load " + flag + "Load doc ");
-		 */
+		if (report == Report.ONE) {
+			DialogManager.selectPerson(" 1 ", " select person");
+			LOGGER.info(report);
+			Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
+			if (selectedPerson != null) {
+				boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+				if (okClicked) {
+					showPersonDetails(selectedPerson);
+				}
+			} else if (selectedPerson == null) {
+				DialogManager.selectPerson(" 1 ", " please select person");
+				return;
+			}
+			LOGGER.info(fileName + selectedPerson.getLastName() + extension + " " + file.getPath());
+			File temp = createDocFile(fileName + selectedPerson.getLastName() + ++someIndex + extension);
+			copyFileUsingStream(file, temp);
+			sentInfo(map, selectedPerson, file,parentFile);
 
-		// schoolStorage.getPersonData();
-		// LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
+		} else if (report == Report.MANY) {
+
+			LOGGER.info(report);
+			for (Person person : listGen) {
+
+				File temp = createDocFile(fileName + person.getLastName() + ++someIndex + extension);
+				copyFileUsingStream(file, temp);
+
+				sentInfo(map, person, file,parentFile);
+
+			}
+		}
 
 	}
 
-	public static File createDocFile(String path,String fileName) {
+	public void sentInfo(Map map, Person person, File file,File parentFile) {
+		LOGGER.debug("Load  sentInfo ");
+		LOGGER.debug("Load  sentInfo "+ parentFile);
+
+		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday" };
+
+		map.put(title[0], person.getFirstName());
+		map.put(title[1], person.getLastName());
+		map.put(title[2], person.getStreet());
+		map.put(title[3], person.getPostalCode());
+		map.put(title[4], person.getCity());
+		map.put(title[5], person.getBirthday());
+
+		LOGGER.debug(map);
+		boolean flag = rg.generateAndSendDocx("\\"+file.getName(), map,parentFile.getAbsolutePath());
+		LOGGER.debug("Load " + flag + "Load doc ");
+		LOGGER.debug("Load  sentInfo succesefully");
+
+	}
+
+	public static File createDocFile(String fileName) {
 		LOGGER.debug("Create");
 		try {
-			File file = new File(path);
-			LOGGER.debug("Create" + path);
 
-			FileOutputStream fos = new FileOutputStream(fileName);
+			File file = new File(fileName);
+			LOGGER.debug("file" + file);
+
+			FileOutputStream fos = new FileOutputStream(file.getAbsolutePath());
 			XWPFDocument doc = new XWPFDocument();
 			doc.write(fos);
 			fos.close();
 			LOGGER.debug(file.getAbsolutePath());
-			return file ;
+			return file;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -193,7 +222,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	private static void copyFileUsingStream(File source, File dest) throws IOException {
 		LOGGER.debug("copy");
-		LOGGER.debug(source + "copy" +dest);
+		LOGGER.debug(source + "copy" + dest);
 
 		InputStream is = null;
 		OutputStream os = null;
@@ -239,6 +268,15 @@ public class PersonOverviewController extends Observable implements Initializabl
 		personTable.setItems(sortedData);
 
 	}
+	 private void setupClearButtonField(CustomTextField customTextField) {
+	        try {
+	            Method m = TextFields.class.getDeclaredMethod("setupClearButtonField", TextField.class, ObjectProperty.class);
+	            m.setAccessible(true);
+	            m.invoke(null, customTextField, customTextField.rightProperty());
+	        }catch (Exception e){
+	            e.printStackTrace();
+	        }
+	    }
 
 	private void fillLangComboBox() {
 		Lang langRU = new Lang(0, RU_CODE, resourceBundle.getString("ru"), LocaleManager.RU_LOCALE);
@@ -276,6 +314,8 @@ public class PersonOverviewController extends Observable implements Initializabl
 		showPersonDetails(null);
 		personTable.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
+        setupClearButtonField(txtSearch);
+
 		initListeners();
 		fillLangComboBox();
 	}

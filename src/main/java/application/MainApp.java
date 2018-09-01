@@ -20,6 +20,8 @@ import model.Lang;
 import model.Person;
 import processing.Status;
 import util.LocaleManager;
+import util.LoginManager;
+import view.LoginController;
 import view.PersonEditDialogController;
 import view.PersonOverviewController;
 import view.RootLayoutController;
@@ -40,9 +42,12 @@ public class MainApp extends Application implements Observer {
 
 	PersonOverviewController personController;
 	RootLayoutController rootController;
+	LoginController loginController;
 	private BorderPane rootLayout;
 	private AnchorPane page;
+	boolean authinticated = false;
 	AnchorPane personOverview;
+	AnchorPane loginPage;
 	SchoolCollection schoolStorage = new SchoolCollection();
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
 
@@ -50,18 +55,61 @@ public class MainApp extends Application implements Observer {
 
 	}
 
+	
+
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		primaryStage.setMaximized(true);
-		this.primaryStage.setTitle("AddressApp");
+		this.primaryStage.setTitle("MedApp");
 		this.primaryStage.getIcons().add(new Image("/images/address_book_32.png"));
 		Lang langRU = new Lang(0, "ru", "Русский", LocaleManager.RU_LOCALE);
 		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UA_LOCALE);
 		LocaleManager.setCurrentLang(langUK);
 		LOGGER.info("setCurrentLang " + langUK);
-		initRootLayout(LocaleManager.UA_LOCALE);
-		showPersonOverview(LocaleManager.UA_LOCALE);
+		LOGGER.info("authinticated " + authinticated);
+		authintication(false);
+
+	}
+
+	public void authintication(boolean authinticated) {
+		if (authinticated) {
+			initRootLayout(LocaleManager.UA_LOCALE);
+			showPersonOverview(LocaleManager.UA_LOCALE);
+		} else {
+			initLoginController(LocaleManager.UA_LOCALE);
+		}
+	}
+
+	private void initLoginController(Locale locale) {
+		try {
+			LOGGER.info("initLoginController");
+			this.primaryStage.setTitle("MedApp");
+
+			getPrimaryStage().setFullScreen(true);
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("/view/UserAuthentication.fxml"));
+			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
+			loginPage = (AnchorPane) loader.load();
+			LOGGER.info("Load loginPage.fxml");
+			Scene scene = new Scene(loginPage);
+			primaryStage.setScene(scene);
+			loginController = loader.getController();
+			loginController.setMainApp(this);
+
+			// loginController.initManager(new LoginManager());// .setMainApp(this);
+			primaryStage.show();
+			// loginController.initManager();// .setMainApp(this);
+
+			// FXMLLoader loader = new
+			// FXMLLoader(getClass().getResource("/view/UserAuthentication.fxml"));
+			// scene.setRoot((Parent) loader.load());
+			// LoginController controller = loader.<LoginController>getController();
+			// controller.initManager(this);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+			// Logger.getLogger(LoginManager.class.getName()).log(Level.SEVERE, null, ex);
+		}
 	}
 
 	public void initRootLayout(Locale locale) {

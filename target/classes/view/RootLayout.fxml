@@ -28,6 +28,7 @@
                      </accelerator>
                   </MenuItem>
                   <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Save As..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLogOut" text="Log out" />
                   <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
                </items>
           </Menu>
