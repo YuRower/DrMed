@@ -76,13 +76,13 @@ public class GenerateDocx {
 			changeData(new File(userTempDir + MAIN_DOCUMENT_PATH), substitutionData);
 
 			// Rezip .docx file
-			zip(new File(userTempDir), new File(userTempDir + templateName));
+		//	zip(new File(userTempDir), new File(userTempDir + templateName));
 
 			// Send HTTP response
 			// sendDOCXResponse(new File(userTempDir + templateName), templateName);
 
 			// Clean temp data
-			deleteTempData(new File(userTempDir));
+			//deleteTempData(new File(userTempDir));
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 			System.out.println(ioe.getMessage());
@@ -223,45 +223,6 @@ public class GenerateDocx {
 		}
 	}
 
-	/**
-	 * Sends HTTP Response containing .docx file to Client
-	 * 
-	 * @param generatedFile Path to generated .docx file
-	 * @param fileName      File name of generated file that is being presented to
-	 *                      user
-	 * @throws IOException
-	 */
-	private static void sendDOCXResponse(File generatedFile, String fileName) throws IOException {
-		LOGGER.debug(generatedFile + " " + fileName);
-
-		FacesContext fc = FacesContext.getCurrentInstance();
-		ExternalContext ec = fc.getExternalContext();
-		HttpServletResponse response = (HttpServletResponse) ec.getResponse();
-
-		BufferedInputStream input = null;
-		BufferedOutputStream output = null;
-
-		response.reset();
-		response.setContentType("application/msword");
-		response.setHeader("Content-disposition", "attachment; filename=\"" + fileName + "\"");
-		response.setHeader("Content-Length", String.valueOf(generatedFile.length()));
-
-		input = new BufferedInputStream(new FileInputStream(generatedFile), 10240);
-		output = new BufferedOutputStream(response.getOutputStream(), 10240);
-
-		byte[] buffer = new byte[10240];
-		for (int length; (length = input.read(buffer)) > 0;) {
-			output.write(buffer, 0, length);
-			System.out.println("Writing to the Response!!");
-		}
-
-		output.flush();
-		input.close();
-		output.close();
-
-		// Inform JSF not to proceed with rest of life cycle
-		fc.responseComplete();
-	}
 
 	/**
 	 * Deletes directory and all its subdirectories

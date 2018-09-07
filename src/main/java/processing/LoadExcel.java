@@ -47,32 +47,34 @@ public class LoadExcel {
 		return sheetName;
 	}
 
-	private static ArrayList<ArrayList<Person>> outer;// = new ArrayList<ArrayList<Person>>();
+	private static ObservableList<ObservableList<Person>> outer;
 
-	public static ArrayList<ArrayList<Person>> getOuter() {
+	public static ObservableList<ObservableList<Person>> getOuter() {
+		LOGGER.info(outer);
 		return outer;
 	}
+	
 
-	ArrayList<Person> listPerson;
+	private ObservableList<Person> listPerson;
 
-	Classes cls;
+	private Classes cls;
 
 	public List<Person> readBooksFromExcelFile(File excelFilePath, String sheet) throws IOException {
-		outer = new ArrayList<ArrayList<Person>>();
-		listPerson = new ArrayList<Person>();
+		outer =FXCollections.observableArrayList();// new ArrayList<ArrayList<Person>>();
+		listPerson = FXCollections.observableArrayList();
 		FileInputStream inputStream = new FileInputStream(excelFilePath);
 		Sheet firstSheet;
 		sheetName = new ArrayList<>();
 
 		Workbook workbook = getWorkbook(inputStream, excelFilePath);
-		LOGGER.info("name of sheet::" + sheet);
+		LOGGER.info("name of sheet:" + sheet);
 
 		numOfSheet = workbook.getNumberOfSheets();
-		LOGGER.info("number of sheet::" + numOfSheet);
+		LOGGER.info("number of sheet:" + numOfSheet);
 		for (int i = 0; i < numOfSheet; i++) {
 			firstSheet = workbook.getSheetAt(i);
 			String s = workbook.getSheetName(i);
-			LOGGER.info("number of sheet::" + s);
+			LOGGER.info("current num of sheet" + s);
 			sheetName.add(s);
 
 			Iterator<Row> iterator = firstSheet.iterator();
@@ -80,7 +82,7 @@ public class LoadExcel {
 			while (iterator.hasNext()) {
 				Row nextRow = iterator.next();
 				if (nextRow.getRowNum() == 0) {
-					LOGGER.info("second row");
+					LOGGER.info("first row");
 
 				} else {
 					Iterator<Cell> cellIterator = nextRow.cellIterator();
@@ -144,8 +146,7 @@ public class LoadExcel {
 			cls = new Classes(j++, sheetName.get(i), listPerson);
 			classList.add(cls);
 			outer.add(listPerson);
-			listPerson = new ArrayList<Person>();
-
+			listPerson = FXCollections.observableArrayList();
 		}
 		LOGGER.info("outer" + outer.toString());
 
@@ -181,8 +182,10 @@ public class LoadExcel {
 		Workbook workbook = null;
 
 		if (excelFilePath.toString().endsWith("xlsx")) {
+			LOGGER.info("xlsx");
 			workbook = new XSSFWorkbook(inputStream);
 		} else if (excelFilePath.toString().endsWith("xls")) {
+			LOGGER.info("xls");
 			workbook = new HSSFWorkbook(inputStream);
 		} else {
 			throw new IllegalArgumentException("The specified file is not Excel file");

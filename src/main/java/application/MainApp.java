@@ -20,7 +20,6 @@ import model.Lang;
 import model.Person;
 import processing.Status;
 import util.LocaleManager;
-import util.LoginManager;
 import view.LoginController;
 import view.PersonEditDialogController;
 import view.PersonOverviewController;
@@ -32,7 +31,6 @@ public class MainApp extends Application implements Observer {
 
 	public static final String BUNDLES_FOLDER = "property.text";
 	private Status status;
-	private FXMLLoader fxmlLoader;
 
 	private Stage primaryStage;
 
@@ -142,7 +140,7 @@ public class MainApp extends Application implements Observer {
 
 	public void showPersonOverview(Locale locale) {
 		try {
-			LOGGER.info("show Person Overview");
+			LOGGER.info("Show Person Overview");
 
 			getPrimaryStage().setFullScreen(true);
 
@@ -158,7 +156,7 @@ public class MainApp extends Application implements Observer {
 
 			personController = loader.getController();
 			personController.addObserver(this);
-			LOGGER.info(" add observer ");
+			LOGGER.info(" add observer for person controller");
 
 			personController.setMainApp(this);
 

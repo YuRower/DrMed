@@ -1,19 +1,13 @@
 package util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
-import org.controlsfx.control.action.Action;
-import org.controlsfx.dialog.CommandLinksDialog;
-import org.controlsfx.dialog.CommandLinksDialog.CommandLinksButtonType;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar.ButtonData;
-import processing.GenerateDocx;
-import processing.Report;
 import javafx.scene.control.ButtonType;
+import processing.Report;
 
 public class DialogManager {
 	private final static Logger LOGGER = Logger.getLogger(DialogManager.class);
@@ -43,7 +37,7 @@ public class DialogManager {
 		ButtonType buttonTypeTwo = new ButtonType("Two");
 		ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
 
-		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo,  buttonTypeCancel);
+		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeCancel);
 
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == buttonTypeOne) {
@@ -56,12 +50,22 @@ public class DialogManager {
 		return null;
 
 	}
-     public static void selectPerson(String title, String text) {
-    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    	 alert.setTitle(title);
-    	 alert.setHeaderText(null);
-    	 alert.setContentText(text);
 
-    	 alert.showAndWait();
-     }
+	public static void selectPerson(String title, String text) {
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle(title);
+		alert.setHeaderText(null);
+		alert.setContentText(text);
+
+		alert.showAndWait();
+	}
+
+	public static void incorrectPassword(String title, String text) {
+		Alert alert = new Alert(Alert.AlertType.WARNING);
+		alert.setTitle(title);
+		alert.setHeaderText("Look, a Warning Dialog");
+		alert.setContentText(text);
+
+		alert.showAndWait();
+	}
 }

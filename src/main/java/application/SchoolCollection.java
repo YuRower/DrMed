@@ -24,13 +24,14 @@ import util.DialogManager;
 import view.BirthdayStatisticsController;
 
 public class SchoolCollection {
+	
 	private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
 	private final static Logger LOGGER = Logger.getLogger(SchoolCollection.class);
 	MainApp app;
 	WriteExcel write;
 	LoadExcel load;
-	private ArrayList<Person> currClass;
+	private ObservableList<Person> currClass;
 	private ObservableList<Person> personWrapper;
 
 	public static ObservableList<Person> getPersonData() {
@@ -41,7 +42,7 @@ public class SchoolCollection {
 
 	public void showBirthdayStatistics() {
 		try {
-			LOGGER.info("show BirthdayStatistics");
+			LOGGER.info("show Birthday Statistics");
 
 			app = new MainApp();
 			FXMLLoader loader = new FXMLLoader();
@@ -59,7 +60,7 @@ public class SchoolCollection {
 			dialogStage.getIcons().add(new Image("/images/calendar.png"));
 
 			BirthdayStatisticsController controller = loader.getController();
-			LOGGER.info(Classes.classListData);
+			LOGGER.info("classlistDate " + Classes.classListData);
 
 			controller.setPersonData(Classes.classListData);
 
@@ -72,7 +73,7 @@ public class SchoolCollection {
 
 	public void commonFactoryMethod(File file, Status marker) {
 		try {
-			LOGGER.info("File location " + file + "Status" + marker);
+			LOGGER.debug("File location " + file + "Status" + marker);
 
 			if (marker == Status.SAVE) {
 				write = new WriteExcel();
@@ -105,10 +106,22 @@ public class SchoolCollection {
 		return listPerson;
 	}
 
-	public ObservableList<Person> update(int index) throws IOException {
-		currClass = LoadExcel.getOuter().get(index);
+	public ObservableList<Person> update(int indexClass) throws IOException {
+		
+		LOGGER.info("update class ");
+
+		currClass = LoadExcel.getOuter().get(indexClass);
+		LOGGER.info(currClass);
 		personWrapper = FXCollections.observableArrayList(currClass);
 		return personWrapper;
+
+	}
+	public void  delete(int index) {
+		LOGGER.info(personWrapper);
+
+		personWrapper.remove(index);
+		LOGGER.info(personWrapper);
+
 
 	}
 

@@ -10,11 +10,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import util.DialogManager;
 import util.LoginManager;
 
 public class LoginController {
-	MainApp main ;//new MainApp();
+	MainApp main ;
 
 	 @FXML private JFXTextField user;
 	  @FXML private JFXPasswordField password;
@@ -34,6 +34,8 @@ public class LoginController {
 	        LOGGER.info(sessionID);
 	        if (sessionID != null) {
 	          loginManager.authenticated(sessionID,main);
+	        }else {
+	        	DialogManager.incorrectPassword("Incorrect Password or Login" ,"Please enter correct data" );
 	        }
 	   //  }
 	   // });
@@ -41,6 +43,7 @@ public class LoginController {
 	  public void setMainApp(MainApp mainApp) {
 			this.main = mainApp;
 		}
+	  
 	  /**
 	   * Check authorization credentials.
 	   * 

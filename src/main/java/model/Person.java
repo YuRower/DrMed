@@ -46,7 +46,6 @@ public class Person {
 	}
 
 	public void setFirstName(String firstName) {
-		System.out.println("set");
 		System.out.println(firstName);
 		this.firstName.set(firstName);
 	}
@@ -84,8 +83,6 @@ public class Person {
 	}
 
 	public void setPostalCode(int postalCode) {
-		LOGGER.debug(postalCode + " d setPostalCode ");
-
 		this.postalCode.set(postalCode);
 	}
 

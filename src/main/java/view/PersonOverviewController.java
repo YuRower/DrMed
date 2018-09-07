@@ -99,7 +99,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	private MainApp mainApp;
-	SchoolCollection schoolStorage;
+	SchoolCollection schoolStorage = new SchoolCollection() ;
 
 	@FXML
 	private Label labelCount;
@@ -108,6 +108,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	private static final String RU_CODE = "ru";
 	private static final String UA_CODE = "uk";
 	private final static Logger LOGGER = Logger.getLogger(PersonOverviewController.class);
+	ObservableList<Person> updatedClass = null;
 
 	public PersonOverviewController() {
 
@@ -132,7 +133,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "Load doc ");
 		}
-		ArrayList<Person> listGen = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
+		ObservableList<Person> listGen = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
 		Map<String, Object> map = new HashMap<String, Object>();
 		String fileName;
 		String extension = null;// file.getName();
@@ -322,8 +323,8 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
-		LOGGER.info(SchoolCollection.getPersonData());
-		personTable.setItems(SchoolCollection.getPersonData());
+	//	LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
+		personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
 	}
 
 	private void showPersonDetails(Person person) {
@@ -347,8 +348,20 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@FXML
 	private void handleDeletePerson() {
 		int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+		LOGGER.info("handleDeletePerson");
+		LOGGER.info(selectedIndex);
+
 		if (selectedIndex >= 0) {
-			personTable.getItems().remove(selectedIndex);
+	        personTable.getItems().remove(selectedIndex);
+			LOGGER.info(LoadExcel.getOuter());
+
+			//personTable.getItems().remove(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).get(selectedIndex));
+			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).remove(selectedIndex);
+			LOGGER.info(LoadExcel.getOuter());
+			updateCountLabel();
+
+		//	SchoolCollection.getPersonData().remove(selectedIndex);
+			
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
@@ -364,6 +377,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 		SchoolCollection.getPersonData().addListener(new ListChangeListener<Person>() {
 			@Override
 			public void onChanged(Change<? extends Person> c) {
+				LOGGER.info("error");
 				updateCountLabel();
 				fillComboBox();
 			}
@@ -384,6 +398,8 @@ public class PersonOverviewController extends Observable implements Initializabl
 		comboClass.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+				LOGGER.info("comboClass.setOnAction");
+
 				Classes selectedClass = (Classes) comboClass.getSelectionModel().getSelectedItem();
 				int index = selectedClass.getIndex();
 				LOGGER.info(index + "////sortedData///////////");
@@ -393,8 +409,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 				String str = String.valueOf(selectedClass);
 				LOGGER.info(str + "////sortedData///////////");
-				schoolStorage = new SchoolCollection();
-				ObservableList<Person> updatedClass = null;
+				//schoolStorage = new SchoolCollection();
 				try {
 					updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
 				} catch (IOException e) {
@@ -443,15 +458,21 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	private void updateCountLabel() {
-		labelCount.setText(resourceBundle.getString("count") + ": " + SchoolCollection.getPersonData().size());
+		LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+		labelCount.setText(resourceBundle.getString("count") + ": " + LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
 	}
 
 	@FXML
 	private void handleNewPerson() throws ParseException {
 		Person tempPerson = new Person();
 		boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+		LOGGER.debug(okClicked + "okClicked");
+
 		if (okClicked) {
 			SchoolCollection.getPersonData().add(tempPerson);
+			LOGGER.debug(tempPerson + "tempPerson");
+
+			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(tempPerson);
 		}
 	}
 
