@@ -99,7 +99,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	private MainApp mainApp;
-	SchoolCollection schoolStorage = new SchoolCollection() ;
+	SchoolCollection schoolStorage = new SchoolCollection();
 
 	@FXML
 	private Label labelCount;
@@ -129,7 +129,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 		File parentFile = file.getParentFile();
-		
+
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "Load doc ");
 		}
@@ -164,7 +164,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 			LOGGER.info(fileName + selectedPerson.getLastName() + extension + " " + file.getPath());
 			File temp = createDocFile(fileName + selectedPerson.getLastName() + ++someIndex + extension);
 			copyFileUsingStream(file, temp);
-			sentInfo(map, selectedPerson, file,parentFile);
+			sentInfo(map, selectedPerson, file, parentFile);
 
 		} else if (report == Report.MANY) {
 
@@ -174,16 +174,16 @@ public class PersonOverviewController extends Observable implements Initializabl
 				File temp = createDocFile(fileName + person.getLastName() + ++someIndex + extension);
 				copyFileUsingStream(file, temp);
 
-				sentInfo(map, person, file,parentFile);
+				sentInfo(map, person, file, parentFile);
 
 			}
 		}
 
 	}
 
-	public void sentInfo(Map map, Person person, File file,File parentFile) {
+	public void sentInfo(Map map, Person person, File file, File parentFile) {
 		LOGGER.debug("Load  sentInfo ");
-		LOGGER.debug("Load  sentInfo "+ parentFile);
+		LOGGER.debug("Load  sentInfo " + parentFile);
 
 		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday" };
 
@@ -195,7 +195,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 		map.put(title[5], person.getBirthday());
 
 		LOGGER.debug(map);
-		boolean flag = rg.generateAndSendDocx("\\"+file.getName(), map,parentFile.getAbsolutePath());
+		boolean flag = rg.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath());
 		LOGGER.debug("Load " + flag + "Load doc ");
 		LOGGER.debug("Load  sentInfo succesefully");
 
@@ -243,7 +243,8 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 	public void sortPerson() {
-		FilteredList<Person> filteredData = new FilteredList<>(SchoolCollection.getPersonData(), p -> true);
+		FilteredList<Person> filteredData = new FilteredList<>(
+				LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()), p -> true);
 
 		txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
 			filteredData.setPredicate(person -> {
@@ -269,15 +270,17 @@ public class PersonOverviewController extends Observable implements Initializabl
 		personTable.setItems(sortedData);
 
 	}
-	 private void setupClearButtonField(CustomTextField customTextField) {
-	        try {
-	            Method m = TextFields.class.getDeclaredMethod("setupClearButtonField", TextField.class, ObjectProperty.class);
-	            m.setAccessible(true);
-	            m.invoke(null, customTextField, customTextField.rightProperty());
-	        }catch (Exception e){
-	            e.printStackTrace();
-	        }
-	    }
+
+	private void setupClearButtonField(CustomTextField customTextField) {
+		try {
+			Method m = TextFields.class.getDeclaredMethod("setupClearButtonField", TextField.class,
+					ObjectProperty.class);
+			m.setAccessible(true);
+			m.invoke(null, customTextField, customTextField.rightProperty());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	private void fillLangComboBox() {
 		Lang langRU = new Lang(0, RU_CODE, resourceBundle.getString("ru"), LocaleManager.RU_LOCALE);
@@ -286,7 +289,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 		comboLocales.getItems().add(langRU);
 		comboLocales.getItems().add(langUK);
 		LOGGER.info("fill locale into box ");
-
+		updateCountLabel();
 		if (LocaleManager.getCurrentLang() == null) {
 
 			comboLocales.getSelectionModel().select(0);
@@ -315,7 +318,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 		showPersonDetails(null);
 		personTable.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
-        setupClearButtonField(txtSearch);
+		setupClearButtonField(txtSearch);
 
 		initListeners();
 		fillLangComboBox();
@@ -323,7 +326,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
-	//	LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
+		// LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
 		personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
 	}
 
@@ -342,33 +345,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 			postalCodeLabel.setText("");
 			cityLabel.setText("");
 			birthdayLabel.setText("");
-		}
-	}
-
-	@FXML
-	private void handleDeletePerson() {
-		int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
-		LOGGER.info("handleDeletePerson");
-		LOGGER.info(selectedIndex);
-
-		if (selectedIndex >= 0) {
-	        personTable.getItems().remove(selectedIndex);
-			LOGGER.info(LoadExcel.getOuter());
-
-			//personTable.getItems().remove(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).get(selectedIndex));
-			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).remove(selectedIndex);
-			LOGGER.info(LoadExcel.getOuter());
-			updateCountLabel();
-
-		//	SchoolCollection.getPersonData().remove(selectedIndex);
-			
-		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(mainApp.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
-			alert.showAndWait();
 		}
 	}
 
@@ -409,7 +385,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 				String str = String.valueOf(selectedClass);
 				LOGGER.info(str + "////sortedData///////////");
-				//schoolStorage = new SchoolCollection();
+				// schoolStorage = new SchoolCollection();
 				try {
 					updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
 				} catch (IOException e) {
@@ -458,8 +434,14 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	private void updateCountLabel() {
-		LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
-		labelCount.setText(resourceBundle.getString("count") + ": " + LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+		if (LoadExcel.getOuter() != null) {
+			LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+			labelCount.setText(resourceBundle.getString("count") + ": "
+					+ LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+		}else {
+			LOGGER.info("null");
+
+		}
 	}
 
 	@FXML
@@ -469,10 +451,41 @@ public class PersonOverviewController extends Observable implements Initializabl
 		LOGGER.debug(okClicked + "okClicked");
 
 		if (okClicked) {
-			SchoolCollection.getPersonData().add(tempPerson);
+			// SchoolCollection.getPersonData().add(tempPerson);
 			LOGGER.debug(tempPerson + "tempPerson");
 
 			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(tempPerson);
+			personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
+
+			updateCountLabel();
+
+		}
+	}
+
+	@FXML
+	private void handleDeletePerson() {
+		int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+		LOGGER.info("handleDeletePerson");
+		LOGGER.info(selectedIndex);
+
+		if (selectedIndex >= 0) {
+			personTable.getItems().remove(selectedIndex);
+			LOGGER.info(LoadExcel.getOuter());
+
+			// personTable.getItems().remove(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).get(selectedIndex));
+			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).remove(selectedIndex);
+			LOGGER.info(LoadExcel.getOuter());
+			updateCountLabel();
+
+			// SchoolCollection.getPersonData().remove(selectedIndex);
+
+		} else {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("No Selection");
+			alert.setHeaderText("No Person Selected");
+			alert.setContentText("Please select a person in the table.");
+			alert.showAndWait();
 		}
 	}
 
