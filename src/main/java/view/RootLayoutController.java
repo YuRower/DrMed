@@ -37,7 +37,7 @@ public class RootLayoutController {
 
 		if (!((LoadExcel.getSheetName() == null) && (LoadExcel.getClassList().isEmpty())
 				&& (LoadExcel.getOuter() == null) && (SchoolCollection.getPersonData().isEmpty())
-				&& (PersonOverviewController.getComboClasslist() == null))) {
+				)) {
 			LOGGER.info("ddelete");
 
 			LoadExcel.getClassList().clear();

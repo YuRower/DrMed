@@ -70,19 +70,26 @@ public class GenerateDocx {
 		try {
 
 			// Unzip .docx file
+			// LOGGER.debug("Unzip");
+
 			unzip(new File(templateLocation), new File(userTempDir));
 
 			// Change data
+			// LOGGER.debug("Change data");
+
 			changeData(new File(userTempDir + MAIN_DOCUMENT_PATH), substitutionData);
 
 			// Rezip .docx file
-		//	zip(new File(userTempDir), new File(userTempDir + templateName));
+			LOGGER.debug("zip");
+
+			zip(new File(userTempDir), new File(userTempDir + templateName));
 
 			// Send HTTP response
 			// sendDOCXResponse(new File(userTempDir + templateName), templateName);
+			LOGGER.debug("deleteTempData");
 
 			// Clean temp data
-			//deleteTempData(new File(userTempDir));
+		//	deleteTempData(new File(userTempDir));
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 			System.out.println(ioe.getMessage());
@@ -110,7 +117,7 @@ public class GenerateDocx {
 		while (entries.hasMoreElements()) {
 			ZipEntry entry = entries.nextElement();
 			File file = new File(directory, entry.getName());
-			LOGGER.debug(file);
+			LOGGER.debug(directory + " directory file" + file + "  entry.getName() " + entry.getName());
 
 			if (entry.isDirectory()) {
 				file.mkdirs();
@@ -146,7 +153,11 @@ public class GenerateDocx {
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(targetFile), "UTF-8"));
 			String temp;
 			while ((temp = br.readLine()) != null)
+				// LOGGER.debug(temp + "temp ");
+
 				docxTemplate = docxTemplate + temp;
+			LOGGER.debug(docxTemplate + "docxTemplate ");
+
 			br.close();
 			targetFile.delete();
 		} catch (IOException e) {
@@ -166,7 +177,11 @@ public class GenerateDocx {
 					LOGGER.debug(pair.getKey() + " " + pair.getValue());
 
 				} else
+					// LOGGER.debug(pair.getKey() + " NEDOSTAJE" + pair.getValue());
+
 					docxTemplate = docxTemplate.replace(pair.getKey(), "NEDOSTAJE");
+				// LOGGER.debug(docxTemplate + " NEDOSTAJE");
+
 			}
 		}
 
@@ -209,6 +224,8 @@ public class GenerateDocx {
 						queue.push(kid);
 						name = name.endsWith("/") ? name : name + "/";
 						zout.putNextEntry(new ZipEntry(name));
+						LOGGER.debug(" " + name);
+
 					} else {
 						if (kid.getName().contains(".docx"))
 							continue;
@@ -223,7 +240,6 @@ public class GenerateDocx {
 		}
 	}
 
-
 	/**
 	 * Deletes directory and all its subdirectories
 	 * 
@@ -235,9 +251,11 @@ public class GenerateDocx {
 		if (file.isDirectory()) {
 
 			// directory is empty, then delete it
-			if (file.list().length == 0)
+			if (file.list().length == 0) {
 				file.delete();
-			else {
+				LOGGER.debug( " 1" + file.list());
+
+			}else {
 				// list all the directory contents
 				String files[] = file.list();
 
@@ -251,10 +269,14 @@ public class GenerateDocx {
 				// check the directory again, if empty then delete it
 				if (file.list().length == 0)
 					file.delete();
+					LOGGER.debug( "2 " + file.list());
+
 			}
 		} else {
 			// if file, then delete it
-			file.delete();
+		file.delete();
+			LOGGER.debug( "3 " + file.list());
+
 		}
 	}
 

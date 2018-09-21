@@ -51,6 +51,22 @@ public class DialogManager {
 
 	}
 
+	public static ButtonType wantToDelete() {
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+		alert.setTitle("Confirmation Dialog");
+		alert.setHeaderText("Look, a Confirmation Dialog");
+		alert.setContentText("Are you ok with this?");
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.OK) {
+			return ButtonType.OK;
+		} else {
+			LOGGER.info("cancel");
+			return ButtonType.CANCEL;
+		}
+
+	}
+
 	public static void selectPerson(String title, String text) {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle(title);

@@ -39,6 +39,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
@@ -103,6 +104,9 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 	private Label labelCount;
+
+	// @FXML
+	// private Label currentClass;
 	private ResourceBundle resourceBundle;
 
 	private static final String RU_CODE = "ru";
@@ -117,6 +121,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@FXML
 
 	public void generDOCX() throws IOException, ParseException {
+		LOGGER.debug("generDOCX");
 
 		rg = new GenerateDocx();
 		int someIndex = 0;
@@ -202,7 +207,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	public static File createDocFile(String fileName) {
-		LOGGER.debug("Create");
+		LOGGER.debug("createDocFile");
 		try {
 
 			File file = new File(fileName);
@@ -222,7 +227,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	private static void copyFileUsingStream(File source, File dest) throws IOException {
-		LOGGER.debug("copy");
+		LOGGER.debug("copyFileUsingStream");
 		LOGGER.debug(source + "copy" + dest);
 
 		InputStream is = null;
@@ -322,12 +327,15 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 		initListeners();
 		fillLangComboBox();
+		fillComboBox();
 	}
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 		// LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
-		personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
+		if (LoadExcel.getOuter() != null) {
+			personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
+		}
 	}
 
 	private void showPersonDetails(Person person) {
@@ -384,7 +392,8 @@ public class PersonOverviewController extends Observable implements Initializabl
 				ClassesManager.setCurrentIndex(index);
 
 				String str = String.valueOf(selectedClass);
-				LOGGER.info(str + "////sortedData///////////");
+				// currentClass.setText(str);
+				LOGGER.info(str + "////selectedClass///////////");
 				// schoolStorage = new SchoolCollection();
 				try {
 					updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
@@ -438,7 +447,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 			LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
 			labelCount.setText(resourceBundle.getString("count") + ": "
 					+ LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
-		}else {
+		} else {
 			LOGGER.info("null");
 
 		}
@@ -464,18 +473,21 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 	private void handleDeletePerson() {
-		int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
-		LOGGER.info("handleDeletePerson");
-		LOGGER.info(selectedIndex);
+		ButtonType checkUserInputOnDelete = DialogManager.wantToDelete();
+		if (checkUserInputOnDelete == ButtonType.OK) {
+			int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+			LOGGER.info("handleDeletePerson");
+			LOGGER.info(selectedIndex);
 
-		if (selectedIndex >= 0) {
-			personTable.getItems().remove(selectedIndex);
-			LOGGER.info(LoadExcel.getOuter());
+			if (selectedIndex >= 0) {
+				personTable.getItems().remove(selectedIndex);
+				LOGGER.info(LoadExcel.getOuter());
 
-			// personTable.getItems().remove(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).get(selectedIndex));
-			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).remove(selectedIndex);
-			LOGGER.info(LoadExcel.getOuter());
-			updateCountLabel();
+				// personTable.getItems().remove(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).get(selectedIndex));
+				LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).remove(selectedIndex);
+				LOGGER.info(LoadExcel.getOuter());
+				updateCountLabel();
+			
 
 			// SchoolCollection.getPersonData().remove(selectedIndex);
 
@@ -486,6 +498,11 @@ public class PersonOverviewController extends Observable implements Initializabl
 			alert.setHeaderText("No Person Selected");
 			alert.setContentText("Please select a person in the table.");
 			alert.showAndWait();
+		}
+		}else {
+			LOGGER.info("Cancel");
+
+			return;
 		}
 	}
 
