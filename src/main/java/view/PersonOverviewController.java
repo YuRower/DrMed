@@ -25,7 +25,6 @@ import org.controlsfx.control.textfield.CustomTextField;
 import org.controlsfx.control.textfield.TextFields;
 
 import application.MainApp;
-import application.SchoolCollection;
 import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -46,10 +45,11 @@ import javafx.util.StringConverter;
 import model.Classes;
 import model.Lang;
 import model.Person;
+import model.Report;
+import model.Status;
 import processing.GenerateDocx;
 import processing.LoadExcel;
-import processing.Report;
-import processing.Status;
+import processing.DAO.SchoolDAO;
 import util.ClassesManager;
 import util.DialogManager;
 import util.LocaleManager;
@@ -100,7 +100,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	private MainApp mainApp;
-	SchoolCollection schoolStorage = new SchoolCollection();
+	SchoolDAO schoolStorage = new SchoolDAO();
 
 	@FXML
 	private Label labelCount;
@@ -118,8 +118,9 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	}
 
+	
+	
 	@FXML
-
 	public void generDOCX() throws IOException, ParseException {
 		LOGGER.debug("generDOCX");
 
@@ -358,7 +359,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	private void initListeners() {
 
-		SchoolCollection.getPersonData().addListener(new ListChangeListener<Person>() {
+		SchoolDAO.getPersonData().addListener(new ListChangeListener<Person>() {
 			@Override
 			public void onChanged(Change<? extends Person> c) {
 				LOGGER.info("error");
@@ -392,9 +393,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 				ClassesManager.setCurrentIndex(index);
 
 				String str = String.valueOf(selectedClass);
-				// currentClass.setText(str);
 				LOGGER.info(str + "////selectedClass///////////");
-				// schoolStorage = new SchoolCollection();
 				try {
 					updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
 				} catch (IOException e) {
@@ -460,7 +459,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 		LOGGER.debug(okClicked + "okClicked");
 
 		if (okClicked) {
-			// SchoolCollection.getPersonData().add(tempPerson);
 			LOGGER.debug(tempPerson + "tempPerson");
 
 			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(tempPerson);
@@ -470,6 +468,14 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 		}
 	}
+	
+	@FXML
+	private void showTables() {
+		
+		mainApp.showVaccinationTables(LocaleManager.UA_LOCALE,"/view/vaccination/Vaccination_against_diphtheria_pertussis_tetanus.fxml");
+		LOGGER.debug("show Tables()");
+	}
+
 
 	@FXML
 	private void handleDeletePerson() {

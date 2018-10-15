@@ -15,6 +15,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.control.ComboBox;
 import model.Person;
 import util.DateUtil;
 
@@ -24,8 +25,8 @@ public class BirthdayStatisticsController {
 	@FXML
 	private NumberAxis yAxis = new NumberAxis();;
 	@FXML
-	private BarChart<String, Number> barChart = new BarChart<String, Number>(xAxis, yAxis);;
-
+	private BarChart<String, Number> barChart = new BarChart<String, Number>(xAxis, yAxis);
+	
 	private ObservableList<String> monthNames = FXCollections.observableArrayList();
 
 	private final static Logger LOGGER = Logger.getLogger(BirthdayStatisticsController.class);

@@ -11,6 +11,7 @@ import java.util.prefs.Preferences;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -18,12 +19,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Lang;
 import model.Person;
-import processing.Status;
+import model.Status;
+import processing.DAO.SchoolDAO;
 import util.LocaleManager;
 import view.LoginController;
 import view.PersonEditDialogController;
 import view.PersonOverviewController;
 import view.RootLayoutController;
+import view.VaccineController;
 
 import org.apache.log4j.Logger;
 
@@ -31,29 +34,26 @@ public class MainApp extends Application implements Observer {
 
 	public static final String BUNDLES_FOLDER = "property.text";
 	private Status status;
-
 	private Stage primaryStage;
-
-	public BorderPane getRootLayout() {
-		return rootLayout;
-	}
-
+	
 	PersonOverviewController personController;
 	RootLayoutController rootController;
 	LoginController loginController;
+	VaccineController vaccineController;
+
 	private BorderPane rootLayout;
-	private AnchorPane page;
-	boolean authinticated = false;
+	private AnchorPane editPersonPage;
+	
 	AnchorPane personOverview;
 	AnchorPane loginPage;
-	SchoolCollection schoolStorage = new SchoolCollection();
+	BorderPane tablePage;
+	TableView vaccineTable;
+
+
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
 
 	public MainApp() {
-
 	}
-
-	
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -64,8 +64,7 @@ public class MainApp extends Application implements Observer {
 		Lang langRU = new Lang(0, "ru", "Русский", LocaleManager.RU_LOCALE);
 		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UA_LOCALE);
 		LocaleManager.setCurrentLang(langUK);
-		LOGGER.info("setCurrentLang " + langUK);
-		LOGGER.info("authinticated " + authinticated);
+		LOGGER.info("Current Lang " + langUK);
 		authintication(false);
 
 	}
@@ -81,36 +80,28 @@ public class MainApp extends Application implements Observer {
 
 	private void initLoginController(Locale locale) {
 		try {
-			LOGGER.info("initLoginController");
+			LOGGER.info("Init Login Controller");
 			this.primaryStage.setTitle("MedApp");
 
 			getPrimaryStage().setFullScreen(true);
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/UserAuthentication.fxml"));
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
-			loginPage = (AnchorPane) loader.load();
+			loginPage =  loader.load();
 			LOGGER.info("Load loginPage.fxml");
 			Scene scene = new Scene(loginPage);
 			primaryStage.setScene(scene);
 			loginController = loader.getController();
 			loginController.setMainApp(this);
-
-			// loginController.initManager(new LoginManager());// .setMainApp(this);
 			primaryStage.show();
-			// loginController.initManager();// .setMainApp(this);
-
-			// FXMLLoader loader = new
-			// FXMLLoader(getClass().getResource("/view/UserAuthentication.fxml"));
-			// scene.setRoot((Parent) loader.load());
-			// LoginController controller = loader.<LoginController>getController();
-			// controller.initManager(this);
 		} catch (IOException ex) {
 			ex.printStackTrace();
-			// Logger.getLogger(LoginManager.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
 
 	public void initRootLayout(Locale locale) {
+		SchoolDAO schoolStorage = new SchoolDAO();
+
 		try {
 			LOGGER.info("init Root Layout");
 			getPrimaryStage().setFullScreen(true);
@@ -118,7 +109,7 @@ public class MainApp extends Application implements Observer {
 			loader.setLocation(MainApp.class.getResource("/view/RootLayout.fxml"));
 
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
-			rootLayout = (BorderPane) loader.load();
+			rootLayout = loader.load();
 
 			LOGGER.info("Load RootLayout.fxml");
 			Scene scene = new Scene(rootLayout);
@@ -134,7 +125,7 @@ public class MainApp extends Application implements Observer {
 		if (file != null) {
 			status = Status.LOAD;
 			LOGGER.debug("Load " + file.getPath() + "\nStatus " + status);
-			schoolStorage.commonFactoryMethod(file, status);
+			schoolStorage.factoryStatusFile(file, status);
 		}
 	}
 
@@ -148,7 +139,7 @@ public class MainApp extends Application implements Observer {
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
 			loader.setLocation(MainApp.class.getResource("/view/PersonOverview.fxml"));
 
-			personOverview = (AnchorPane) loader.load();
+			personOverview =  loader.load();
 
 			LOGGER.info("Load PersonOverview.fxml");
 
@@ -165,6 +156,36 @@ public class MainApp extends Application implements Observer {
 			LOGGER.error(e);
 		}
 	}
+	
+	public void showVaccinationTables(Locale locale,String resource) {
+		try {
+			LOGGER.info("Show Vaccination Tables");
+			this.primaryStage.setTitle("MedApp");
+
+			getPrimaryStage().setFullScreen(true);
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("/view/VaccinationTables.fxml"));
+			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
+			tablePage = loader.load();
+			LOGGER.info("Load VaccinationTables.fxml");
+			rootLayout.setCenter(tablePage);
+			
+			/*SHOULD REFACTOR*/
+			FXMLLoader tableLoader = new FXMLLoader();
+			tableLoader.setLocation(MainApp.class.getResource(resource));
+			tableLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
+			vaccineTable = tableLoader.load();
+			tablePage.setCenter(vaccineTable);
+	
+			
+			vaccineController = loader.getController();
+			vaccineController.setMainApp(this);
+						
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+
 
 	public boolean showPersonEditDialog(Person person) throws ParseException {
 		try {
@@ -174,14 +195,14 @@ public class MainApp extends Application implements Observer {
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/PersonEditDialog.fxml"));
-			page = (AnchorPane) loader.load();
+			editPersonPage =  loader.load();
 			LOGGER.info("Load PersonEditDialog.fxml");
 
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Edit Person");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(primaryStage);
-			Scene scene = new Scene(page);
+			Scene scene = new Scene(editPersonPage);
 			dialogStage.setScene(scene);
 
 			PersonEditDialogController controller = loader.getController();
@@ -197,6 +218,30 @@ public class MainApp extends Application implements Observer {
 			LOGGER.error(e);
 			return false;
 		}
+	}
+	
+	@Override
+	public void update(Observable o, Object arg) {
+		Locale current = null;
+
+		Lang lang = (Lang) arg;
+		LOGGER.info("index  " + lang.getIndex());
+
+		if (lang.getIndex() == 0) {
+			current = LocaleManager.RU_LOCALE;
+			LocaleManager.setCurrentLang(lang);
+
+		} else if (lang.getIndex() == 1) {
+			current = LocaleManager.UA_LOCALE;
+			LocaleManager.setCurrentLang(lang);
+
+		}
+		LOGGER.info("setCurrentLang " + lang);
+		LOGGER.info("Locale " + current);
+
+		initRootLayout(current);
+		showPersonOverview(current);
+
 	}
 
 	public File getPersonFilePath() {
@@ -227,32 +272,12 @@ public class MainApp extends Application implements Observer {
 		return primaryStage;
 	}
 
+	public BorderPane getRootLayout() {
+		return rootLayout;
+	}
+	
 	public static void main(String[] args) {
 		LOGGER.info("////////////// Start//////////////// ");
 		launch(args);
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		Locale current = null;
-
-		Lang lang = (Lang) arg;
-		LOGGER.info("index  " + lang.getIndex());
-
-		if (lang.getIndex() == 0) {
-			current = LocaleManager.RU_LOCALE;
-			LocaleManager.setCurrentLang(lang);
-
-		} else if (lang.getIndex() == 1) {
-			current = LocaleManager.UA_LOCALE;
-			LocaleManager.setCurrentLang(lang);
-
-		}
-		LOGGER.info("setCurrentLang " + lang);
-		LOGGER.info("Locale " + current);
-
-		initRootLayout(current);
-		showPersonOverview(current);
-
 	}
 }

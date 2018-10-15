@@ -1,4 +1,4 @@
-package processing;
+package model;
 
 public enum Report {
     ONE,MANY;

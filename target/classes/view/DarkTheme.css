@@ -1,5 +1,4 @@
 
-
 .background {
     -fx-background-color: #666465;
 }
@@ -86,14 +85,54 @@
     -fx-text-fill: white;
     -fx-opacity: 1.0;
 }
+/* 
+.table-view{
+    -fx-background-color: transparent;
+}
 
-.table-view {
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: #262626;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: #0ed9e0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: #0ed9e0;
+    -fx-alignment: center;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #2b2a2a;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #262626;
+    -fx-background-insets: 0, 0 0 1 0;
+    
+    }*/
+ .table-view {
     -fx-base: #666465;
     -fx-control-inner-background: #666465;
     -fx-background-color: #666465;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
     -fx-padding: 5.0;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+    
 }
 
 .table-view .column-header-background {
@@ -102,7 +141,7 @@
 
 .table-view .column-header, .table-view .filler {
     -fx-size: 35.0;
-    -fx-border-width: 0.0 0.0 1.0 0.0;
+    -fx-border-width: 5.0 0.0 1.0 0.0;
     -fx-background-color: transparent;
     -fx-border-color: 
         transparent
@@ -113,7 +152,7 @@
 }
 
 .table-view .column-header .label {
-    -fx-font-size: 20.0pt;
+    -fx-font-size: 12.0pt;
     -fx-font-family: "Segoe UI Light";
     -fx-text-fill: white;
     -fx-alignment: center-left;
@@ -122,6 +161,7 @@
 
 .table-view:focused .table-row-cell:filled:focused:selected {
     -fx-background-color: -fx-focus-color;
+    
 }
 
 .split-pane:horizontal > .split-pane-divider {
@@ -205,3 +245,5 @@
 .button:default:hover {
     -fx-background-color: derive(-fx-focus-color,30.0%);
 }
+
+

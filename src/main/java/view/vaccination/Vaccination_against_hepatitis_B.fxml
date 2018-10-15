@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutY="26.0" prefHeight="454.0" prefWidth="740.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Вид щеплення" />
+            <TableColumn prefWidth="75.0" text="Вік" />
+            <TableColumn prefWidth="75.0" text="Дата" />
+            <TableColumn prefWidth="75.0" text="Доза" />
+            <TableColumn prefWidth="75.0" text="Серія" />
+            <TableColumn prefWidth="247.0" text="Реакція">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Загальна" />
+                  <TableColumn prefWidth="75.0" text="Місцева" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="289.0" text="Медичні противопоказання" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="14.0" layoutY="6.0" text="Щеплення проти гепатиту В" />
+   </children>
+</AnchorPane>

@@ -23,13 +23,9 @@ public class LoginController {
 
 	  public void initialize() {}
 	  
-	  
 	  @FXML
 	  public void initManager() {
 		  LoginManager loginManager = new LoginManager();
-		  
-		/*  confirmButton.setOnAction(new EventHandler<ActionEvent>() {
-	      @Override public void handle(ActionEvent event) {*/
 	        String sessionID = authorize();
 	        LOGGER.info(sessionID);
 	        if (sessionID != null) {
@@ -37,23 +33,13 @@ public class LoginController {
 	        }else {
 	        	DialogManager.incorrectPassword("Incorrect Password or Login" ,"Please enter correct data" );
 	        }
-	   //  }
-	   // });
 	  }
 	  public void setMainApp(MainApp mainApp) {
 			this.main = mainApp;
 		}
-	  
-	  /**
-	   * Check authorization credentials.
-	   * 
-	   * If accepted, return a sessionID for the authorized session
-	   * otherwise, return null.
-	   */   
+	     
 	  private String authorize() {
 	        LOGGER.info(user.getText() + " " + password.getText());
-
-		  
 	    return 
 	      "admin".equals(user.getText()) && "1234".equals(password.getText()) 
 	            ? generateSessionID() 

@@ -20,8 +20,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.log4j.Logger;
 
 import application.MainApp;
-import application.SchoolCollection;
 import model.Person;
+import processing.DAO.SchoolDAO;
 import util.Style;
 
 public class WriteExcel {
@@ -35,7 +35,7 @@ public class WriteExcel {
 			LOGGER.info("curr num of sheet" + LoadExcel.getSheetName().get(i));
 
 			List<Person> list = LoadExcel.getOuter().get(i);
-			LOGGER.info("check list " + list + " school collection" + SchoolCollection.getPersonData());
+			LOGGER.info("check list " + list + " school collection" + SchoolDAO.getPersonData());
 
 			int rownum = 0;
 			Cell cell;
@@ -90,29 +90,6 @@ public class WriteExcel {
 				DateFormat df = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault());
 
 				cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd/mm/yyyy;@"));
-				// cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd.mm.yyyy"));
-
-				/*
-				 * Date today; String dateOut; DateFormat dateFormatter; Locale currentLocale =
-				 * Locale.getDefault();
-				 */
-
-				/*
-				 * System.out.println(currentLocale.getDisplayLanguage());
-				 * System.out.println(currentLocale.getDisplayCountry());
-				 * 
-				 * System.out.println(currentLocale.getLanguage());
-				 * System.out.println(currentLocale.getCountry());
-				 * 
-				 * System.out.println(System.getProperty("user.country"));
-				 * System.out.println(System.getProperty("user.language"));
-				 */
-				// dateFormatter = DateFormat.getDateInstance(DateFormat.DEFAULT,
-				// currentLocale);
-				// today = new Date();
-				// dateOut = dateFormatter.format(emp.getBirthday());
-
-				// System.out.println(emp.getBirthday() + " " + currentLocale.toString());
 				cell = row.createCell(5);
 				cell.setCellValue(emp.getBirthday());
 				cell.setCellStyle(cellStyle);
@@ -137,7 +114,6 @@ public class WriteExcel {
 		} else {
 			throw new IllegalArgumentException("The specified file is not Excel file");
 		}
-
 		return workbook;
 
 	}

@@ -6,8 +6,8 @@ import org.apache.log4j.Logger;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar.ButtonData;
+import model.Report;
 import javafx.scene.control.ButtonType;
-import processing.Report;
 
 public class DialogManager {
 	private final static Logger LOGGER = Logger.getLogger(DialogManager.class);

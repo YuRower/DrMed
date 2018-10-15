@@ -112,27 +112,8 @@ public class LoadExcel {
 							break;
 
 						case 5:
-							/*
-							 * double dv = (double) getCellValue(nextCell); if
-							 * (DateUtil.isCellDateFormatted(nextCell)) { Date date =
-							 * DateUtil.getJavaDate(dv);
-							 * 
-							 * String dateFmt = nextCell.getCellStyle().getDataFormatString(); /* strValue =
-							 * new SimpleDateFormat(dateFmt).format(date); - won't work as Java fmt differs
-							 * from Excel fmt. If Excel date format is mm/dd/yyyy, Java will always be 00
-							 * for date since "m" is minutes of the hour.
-							 */
-
-							// takes care of idiosyncrasies of Excel
-
 							DataFormatter dataFormatter = new DataFormatter();
-							String cellStringValue = dataFormatter.formatCellValue(nextCell);
-
-							// LOGGER.info("cellStringValue :" + cellStringValue);
-							// LOGGER.debug(String.valueOf(formatter.format(cellStringValue)) + " string was
-							// formatted ");
-							// LocalDate.parse(cellStringValue, formatter);
-
+							String cellStringValue = dataFormatter.formatCellValue(nextCell);				
 							person.setBirthday(cellStringValue);
 							break;
 						}

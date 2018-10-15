@@ -5,13 +5,14 @@ import java.io.File;
 import org.apache.log4j.Logger;
 
 import application.MainApp;
-import application.SchoolCollection;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
+import model.Status;
+import processing.BirthdayStatistics;
 import processing.LoadExcel;
-import processing.Status;
+import processing.DAO.SchoolDAO;
 
 public class RootLayoutController {
 
@@ -19,7 +20,7 @@ public class RootLayoutController {
 	private Status status;
 	public static File currentFile;
 	private final static Logger LOGGER = Logger.getLogger(RootLayoutController.class);
-	SchoolCollection schoolStorage = new SchoolCollection();
+	SchoolDAO schoolStorage = new SchoolDAO();
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
@@ -28,27 +29,26 @@ public class RootLayoutController {
 	@FXML
 	private void handleNew() {
 		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " " + LoadExcel.getOuter() + " "
-				+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
+				+ SchoolDAO.getPersonData() + " " + PersonOverviewController.getComboClasslist());
 		LOGGER.info(LoadExcel.getSheetName() == null);
 		LOGGER.info(LoadExcel.getClassList().isEmpty());
 		LOGGER.info(LoadExcel.getOuter() == null);
-		LOGGER.info(SchoolCollection.getPersonData().isEmpty());
+		LOGGER.info(SchoolDAO.getPersonData().isEmpty());
 		LOGGER.info(PersonOverviewController.getComboClasslist() == null);
 
 		if (!((LoadExcel.getSheetName() == null) && (LoadExcel.getClassList().isEmpty())
-				&& (LoadExcel.getOuter() == null) && (SchoolCollection.getPersonData().isEmpty())
-				)) {
+				&& (LoadExcel.getOuter() == null) && (SchoolDAO.getPersonData().isEmpty()))) {
 			LOGGER.info("ddelete");
 
 			LoadExcel.getClassList().clear();
 			LoadExcel.getOuter().clear();
 			LoadExcel.getSheetName().clear();
-			SchoolCollection.getPersonData().clear();
+			SchoolDAO.getPersonData().clear();
 			PersonOverviewController.getComboClasslist().clear();
 
 		}
 		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " " + LoadExcel.getOuter() + " "
-				+ SchoolCollection.getPersonData() + " " + PersonOverviewController.getComboClasslist());
+				+ SchoolDAO.getPersonData() + " " + PersonOverviewController.getComboClasslist());
 		mainApp.setPersonFilePath(null);
 	}
 
@@ -68,7 +68,7 @@ public class RootLayoutController {
 			LOGGER.debug("Load " + file.getPath() + "\nStatus " + status);
 			currentFile = file;
 			status = Status.LOAD;
-			schoolStorage.commonFactoryMethod(file, status);
+			schoolStorage.factoryStatusFile(file, status);
 		}
 	}
 
@@ -79,7 +79,7 @@ public class RootLayoutController {
 		if (personFile != null) {
 			status = Status.SAVE;
 			LOGGER.debug("Load " + personFile.getPath() + "\nStatus " + status);
-			schoolStorage.commonFactoryMethod(personFile, status);
+			schoolStorage.factoryStatusFile(personFile, status);
 		} else {
 			handleSaveAs();
 		}
@@ -107,7 +107,7 @@ public class RootLayoutController {
 			status = Status.SAVE;
 			LOGGER.debug("Load " + file.getPath() + "\nStatus " + status);
 
-			schoolStorage.commonFactoryMethod(file, status);
+			schoolStorage.factoryStatusFile(file, status);
 		}
 	}
 
@@ -136,6 +136,6 @@ public class RootLayoutController {
 	@FXML
 	private void handleShowBirthdayStatistics() {
 		LOGGER.info("Show Birthday Statistics ");
-		schoolStorage.showBirthdayStatistics();
+		new BirthdayStatistics().showBirthdayStatistics();
 	}
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="505.0" prefWidth="859.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.VaccineController">
+   <top>
+      <AnchorPane prefHeight="55.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="comboVaccine" layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="427.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom> 
+      <AnchorPane prefHeight="52.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="14.0" layoutY="161.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="135.0" text="Назад" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+            <Button layoutX="671.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Сгенерировать отчет" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

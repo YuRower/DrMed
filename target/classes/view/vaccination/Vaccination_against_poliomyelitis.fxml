@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="22.0" layoutY="31.0" prefHeight="358.0" prefWidth="721.0">
+        <columns>
+          <TableColumn prefWidth="297.0" text="Вакцинація">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Вік" />
+                  <TableColumn prefWidth="75.0" text="Дата" />
+                  <TableColumn prefWidth="75.0" text="Доза" />
+                  <TableColumn prefWidth="75.0" text="Серія" />
+               </columns>
+            </TableColumn>
+          <TableColumn prefWidth="283.0" text="Ревакценація">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Вік " />
+                  <TableColumn prefWidth="75.0" text="Дата" />
+                  <TableColumn prefWidth="75.0" text="Доза" />
+                  <TableColumn prefWidth="75.0" text="Серія" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="140.0" text="Медичні противопоказання" />
+        </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="14.0" text="Щеплення проти поліумеліту" />
+   </children>
+</AnchorPane>
