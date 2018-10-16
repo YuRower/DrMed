@@ -20,8 +20,8 @@ import javafx.stage.Stage;
 import model.Lang;
 import model.Person;
 import model.Status;
+import model.manager.LocaleManager;
 import processing.DAO.SchoolDAO;
-import util.LocaleManager;
 import view.LoginController;
 import view.PersonEditDialogController;
 import view.PersonOverviewController;
@@ -47,7 +47,7 @@ public class MainApp extends Application implements Observer {
 	AnchorPane personOverview;
 	AnchorPane loginPage;
 	BorderPane tablePage;
-	TableView vaccineTable;
+	TableView<?> vaccineTable;
 
 
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);

@@ -1,15 +1,30 @@
 package model;
 
-import java.util.Locale;
 
-public class VaccinationType {
+public class VaccineTypeLocation {
 
 	private int index;
 	private String name;
+	private String resource;
 
-	public VaccinationType(int index, String name) {
+	public VaccineTypeLocation(int index, String name, String resource) {
 		this.name = name;
 		this.index = index;
+		this.resource = resource;
+	}
+
+	/**
+	 * @return the resource
+	 */
+	public String getResource() {
+		return resource;
+	}
+
+	/**
+	 * @param resource the resource to set
+	 */
+	public void setResource(String resource) {
+		this.resource = resource;
 	}
 
 	/**
@@ -40,12 +55,14 @@ public class VaccinationType {
 		this.name = name;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return  name ;
+		return name;
 	}
 
 }

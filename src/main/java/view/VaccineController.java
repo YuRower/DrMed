@@ -1,25 +1,36 @@
 package view;
 
+import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 
 import application.MainApp;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.collections.ListChangeListener.Change;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
+import model.Classes;
 import model.Lang;
-import model.VaccinationType;
+import model.Person;
+import model.VaccineTypeLocation;
+import model.manager.ClassesManager;
+import model.manager.LocaleManager;
+import model.manager.VaccineManager;
+import processing.DAO.SchoolDAO;
 import processing.DAO.VaccinationTypeDAO;
-import util.LocaleManager;
-import util.VaccineManager;
 
 public class VaccineController implements Initializable {
 	MainApp main;
 	@FXML
-	public ComboBox<VaccinationType> comboVaccine;
+	public ComboBox<VaccineTypeLocation> comboVaccine;
 	private final static Logger LOGGER = Logger.getLogger(VaccineController.class);
 
 	public void setMainApp(MainApp mainApp) {
@@ -27,10 +38,9 @@ public class VaccineController implements Initializable {
 	}
 
 	private void fillVaccineComboBox() {
-		ObservableList<VaccinationType> list = VaccinationTypeDAO.getVaccineList();
-		//Інші імунобіологічні препарати
+		ObservableList<VaccineTypeLocation> list = VaccinationTypeDAO.getVaccineList();
 
-		LOGGER.info("List of vaccine =  "+ list);
+		LOGGER.info("List of vaccine =  " + list);
 
 		comboVaccine.getItems().addAll(list);
 		LOGGER.info("fill vaccine  into box ");
@@ -41,11 +51,37 @@ public class VaccineController implements Initializable {
 			comboVaccine.getSelectionModel().select(VaccineManager.getCurrentVaccine().getIndex());
 		}
 	}
+	
+	@FXML
+	private void moveBack() {
+		LOGGER.info("moveBack");
+		main.showPersonOverview(LocaleManager.UA_LOCALE);
+	}
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		LOGGER.info("////initialize///////////" + arg1);
+		fillVaccineComboBox();
+		initListeners();
 
-		fillVaccineComboBox();		
+	}
+
+	private void initListeners() {
+
+		comboVaccine.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				LOGGER.info("combo vaccine setOnAction");
+
+				VaccineTypeLocation optionOfVaccine = comboVaccine.getSelectionModel().getSelectedItem();
+
+				VaccineManager.setCurrentVaccine(optionOfVaccine);
+				LOGGER.info("combo vaccine is "+VaccineManager.getCurrentVaccine() );
+				main.showVaccinationTables(LocaleManager.UA_LOCALE, VaccineManager.getCurrentVaccine().getResource());
+
+			}
+		});
+
 	}
 }

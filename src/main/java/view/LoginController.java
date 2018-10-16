@@ -10,8 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import util.DialogManager;
-import util.LoginManager;
+import model.manager.DialogManager;
+import model.manager.LoginManager;
 
 public class LoginController {
 	MainApp main ;

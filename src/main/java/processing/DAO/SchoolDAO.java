@@ -18,9 +18,9 @@ import javafx.stage.Stage;
 import model.Classes;
 import model.Person;
 import model.Status;
+import model.manager.DialogManager;
 import processing.LoadExcel;
 import processing.WriteExcel;
-import util.DialogManager;
 import view.BirthdayStatisticsController;
 
 public class SchoolDAO {

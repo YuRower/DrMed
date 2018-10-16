@@ -9,24 +9,15 @@ import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Observable;
 import java.util.ResourceBundle;
-import java.util.TreeMap;
-
 import org.apache.log4j.Logger;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.controlsfx.control.textfield.CustomTextField;
 import org.controlsfx.control.textfield.TextFields;
-
 import application.MainApp;
+import exception.ApplicationException;
 import javafx.beans.property.ObjectProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -40,19 +31,17 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.FileChooser;
-import javafx.util.StringConverter;
+
 import model.Classes;
 import model.Lang;
 import model.Person;
-import model.Report;
-import model.Status;
-import processing.GenerateDocx;
+import model.manager.ClassesManager;
+import model.manager.DialogManager;
+import model.manager.LocaleManager;
 import processing.LoadExcel;
 import processing.DAO.SchoolDAO;
-import util.ClassesManager;
-import util.DialogManager;
-import util.LocaleManager;
+import processing.DAO.VaccinationTypeDAO;
+import util.FileDocxGenerator;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
@@ -85,7 +74,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 	private CustomTextField txtSearch;
-	GenerateDocx rg;
 	@FXML
 	public ComboBox<Classes> comboClass;
 
@@ -118,133 +106,11 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	}
 
-	
-	
 	@FXML
-	public void generDOCX() throws IOException, ParseException {
+	public void generDOCX() throws IOException, ParseException, ApplicationException {
 		LOGGER.debug("generDOCX");
-
-		rg = new GenerateDocx();
-		int someIndex = 0;
-		FileChooser fileChooser = new FileChooser();
-		FileChooser.ExtensionFilter docFilter = new FileChooser.ExtensionFilter("DOC files (*.doc", "*.doc");
-		FileChooser.ExtensionFilter docxFilter = new FileChooser.ExtensionFilter("DOCX files (*.docx", "*.docx");
-		fileChooser.getExtensionFilters().add(docxFilter);
-
-		fileChooser.getExtensionFilters().add(docFilter);
-
-		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
-		File parentFile = file.getParentFile();
-
-		if (file != null) {
-			LOGGER.debug("Load " + file.getPath() + "Load doc ");
-		}
-		ObservableList<Person> listGen = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
-		Map<String, Object> map = new HashMap<String, Object>();
-		String fileName;
-		String extension = null;// file.getName();
-		int pos = file.getName().lastIndexOf(".");
-		if (pos == -1) {
-			fileName = file.getName();
-		} else {
-			fileName = file.getName().substring(0, pos);
-			extension = file.getName().substring(pos, file.getName().length());
-			LOGGER.debug(fileName + " -- " + extension);
-
-		}
-		Report report = DialogManager.showOptionalDOCX();
-
-		if (report == Report.ONE) {
-			DialogManager.selectPerson(" 1 ", " select person");
-			LOGGER.info(report);
-			Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
-			if (selectedPerson != null) {
-				boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
-				if (okClicked) {
-					showPersonDetails(selectedPerson);
-				}
-			} else if (selectedPerson == null) {
-				DialogManager.selectPerson(" 1 ", " please select person");
-				return;
-			}
-			LOGGER.info(fileName + selectedPerson.getLastName() + extension + " " + file.getPath());
-			File temp = createDocFile(fileName + selectedPerson.getLastName() + ++someIndex + extension);
-			copyFileUsingStream(file, temp);
-			sentInfo(map, selectedPerson, file, parentFile);
-
-		} else if (report == Report.MANY) {
-
-			LOGGER.info(report);
-			for (Person person : listGen) {
-
-				File temp = createDocFile(fileName + person.getLastName() + ++someIndex + extension);
-				copyFileUsingStream(file, temp);
-
-				sentInfo(map, person, file, parentFile);
-
-			}
-		}
-
-	}
-
-	public void sentInfo(Map map, Person person, File file, File parentFile) {
-		LOGGER.debug("Load  sentInfo ");
-		LOGGER.debug("Load  sentInfo " + parentFile);
-
-		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday" };
-
-		map.put(title[0], person.getFirstName());
-		map.put(title[1], person.getLastName());
-		map.put(title[2], person.getStreet());
-		map.put(title[3], person.getPostalCode());
-		map.put(title[4], person.getCity());
-		map.put(title[5], person.getBirthday());
-
-		LOGGER.debug(map);
-		boolean flag = rg.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath());
-		LOGGER.debug("Load " + flag + "Load doc ");
-		LOGGER.debug("Load  sentInfo succesefully");
-
-	}
-
-	public static File createDocFile(String fileName) {
-		LOGGER.debug("createDocFile");
-		try {
-
-			File file = new File(fileName);
-			LOGGER.debug("file" + file);
-
-			FileOutputStream fos = new FileOutputStream(file.getAbsolutePath());
-			XWPFDocument doc = new XWPFDocument();
-			doc.write(fos);
-			fos.close();
-			LOGGER.debug(file.getAbsolutePath());
-			return file;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-
-	}
-
-	private static void copyFileUsingStream(File source, File dest) throws IOException {
-		LOGGER.debug("copyFileUsingStream");
-		LOGGER.debug(source + "copy" + dest);
-
-		InputStream is = null;
-		OutputStream os = null;
-		try {
-			is = new FileInputStream(source);
-			os = new FileOutputStream(dest);
-			byte[] buffer = new byte[1024];
-			int length;
-			while ((length = is.read(buffer)) > 0) {
-				os.write(buffer, 0, length);
-			}
-		} finally {
-			is.close();
-			os.close();
-		}
+		FileDocxGenerator doc = new FileDocxGenerator();
+		doc.generateDOCX(mainApp, personTable, this);
 	}
 
 	@FXML
@@ -339,7 +205,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 		}
 	}
 
-	private void showPersonDetails(Person person) {
+	public void showPersonDetails(Person person) {
 		if (person != null) {
 			firstNameLabel.setText(person.getFirstName());
 			lastNameLabel.setText(person.getLastName());
@@ -468,14 +334,16 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 		}
 	}
-	
+
 	@FXML
 	private void showTables() {
-		
-		mainApp.showVaccinationTables(LocaleManager.UA_LOCALE,"/view/vaccination/Vaccination_against_diphtheria_pertussis_tetanus.fxml");
+
+		String resource = VaccinationTypeDAO.getVaccineList().get(0).getResource();
+		LOGGER.debug(resource);
+
+		mainApp.showVaccinationTables(LocaleManager.UA_LOCALE, resource);
 		LOGGER.debug("show Tables()");
 	}
-
 
 	@FXML
 	private void handleDeletePerson() {
@@ -493,19 +361,18 @@ public class PersonOverviewController extends Observable implements Initializabl
 				LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).remove(selectedIndex);
 				LOGGER.info(LoadExcel.getOuter());
 				updateCountLabel();
-			
 
-			// SchoolCollection.getPersonData().remove(selectedIndex);
+				// SchoolCollection.getPersonData().remove(selectedIndex);
 
+			} else {
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.initOwner(mainApp.getPrimaryStage());
+				alert.setTitle("No Selection");
+				alert.setHeaderText("No Person Selected");
+				alert.setContentText("Please select a person in the table.");
+				alert.showAndWait();
+			}
 		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(mainApp.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
-			alert.showAndWait();
-		}
-		}else {
 			LOGGER.info("Cancel");
 
 			return;

@@ -11,34 +11,21 @@ import java.util.Map;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URI;
 import java.util.Deque;
 import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Map;
-import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletResponse;
+
 
 import org.apache.log4j.Logger;
 
-import application.MainApp;
 
 public class GenerateDocx {
 	private final static Logger LOGGER = Logger.getLogger(GenerateDocx.class);
@@ -89,7 +76,7 @@ public class GenerateDocx {
 			LOGGER.debug("deleteTempData");
 
 			// Clean temp data
-		//	deleteTempData(new File(userTempDir));
+			deleteTempData(new File(userTempDir));
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 			System.out.println(ioe.getMessage());
@@ -156,7 +143,7 @@ public class GenerateDocx {
 				// LOGGER.debug(temp + "temp ");
 
 				docxTemplate = docxTemplate + temp;
-			LOGGER.debug(docxTemplate + "docxTemplate ");
+		//	LOGGER.debug(docxTemplate + "docxTemplate ");
 
 			br.close();
 			targetFile.delete();
@@ -174,7 +161,7 @@ public class GenerateDocx {
 				if (pair.getValue() != null) {
 					docxTemplate = docxTemplate.replace(pair.getKey(), pair.getValue());
 					System.out.println("Got somtinhg inside XML!!");
-					LOGGER.debug(pair.getKey() + " " + pair.getValue());
+				//	LOGGER.debug(pair.getKey() + " " + pair.getValue());
 
 				} else
 					// LOGGER.debug(pair.getKey() + " NEDOSTAJE" + pair.getValue());
@@ -224,7 +211,7 @@ public class GenerateDocx {
 						queue.push(kid);
 						name = name.endsWith("/") ? name : name + "/";
 						zout.putNextEntry(new ZipEntry(name));
-						LOGGER.debug(" " + name);
+						//LOGGER.debug(" " + name);
 
 					} else {
 						if (kid.getName().contains(".docx"))
@@ -252,7 +239,7 @@ public class GenerateDocx {
 
 			// directory is empty, then delete it
 			if (file.list().length == 0) {
-				file.delete();
+				//file.delete();
 				LOGGER.debug( " 1" + file.list());
 
 			}else {
@@ -268,13 +255,13 @@ public class GenerateDocx {
 
 				// check the directory again, if empty then delete it
 				if (file.list().length == 0)
-					file.delete();
+					//file.delete();
 					LOGGER.debug( "2 " + file.list());
 
 			}
 		} else {
 			// if file, then delete it
-		file.delete();
+		//file.delete();
 			LOGGER.debug( "3 " + file.list());
 
 		}
