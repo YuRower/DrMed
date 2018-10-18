@@ -176,7 +176,7 @@ public class GenerateDocx {
 			if (file.list().length == 0) {
 				LOGGER.debug(" 1 " + file);
 
-				 file.delete();
+				// file.delete();
 
 			} else {
 				// list all the directory contents
@@ -193,14 +193,14 @@ public class GenerateDocx {
 				if (file.list().length == 0)
 					LOGGER.debug("2 " + file);
 
-					 file.delete();
+					// file.delete();
 
 			}
 		} else {
 			// if file, then delete it
 			LOGGER.debug("3 " + file);
 
-		 file.delete();
+		// file.delete();
 
 		}
 	}

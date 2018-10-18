@@ -54,7 +54,7 @@ public class FileDocxGenerator {
 		fileChooser.getExtensionFilters().add(docxFilter);
 		fileChooser.getExtensionFilters().add(docFilter);*/
 
-		File file = new File("/docxFile/063-O.docx");//fileChooser.showOpenDialog(mainApp.getPrimaryStage());
+		File file = new File("docxFile//063-O.docx");//fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 		File parentFile = file.getParentFile();
 		LOGGER.debug("parentFile " + parentFile.getAbsolutePath() + "Load  ");
 		LOGGER.debug("file " + file.getAbsolutePath() + "Load  ");
@@ -93,19 +93,20 @@ public class FileDocxGenerator {
 				return;
 			}
 			LOGGER.info(fileName + selectedPerson.getLastName() + extension + " " + file.getPath());
-			File temp = createDocFile(selectedDirPath+fileName + selectedPerson.getLastName() + ++fileIndexUser + extension);
-			copyFileUsingStream(file, temp);
-			fillDocxInfo(map, selectedPerson, file, parentFile);
+			File userFile = createDocFile(selectedDirPath +"//"+fileName + selectedPerson.getLastName() + ++fileIndexUser + extension);
+			copyFileUsingStream(file.getAbsoluteFile(), userFile);
+			File userParentFile =userFile.getParentFile();
+			fillDocxInfo(map, selectedPerson, userFile, userParentFile);
 
 		} else if (report == Report.MANY) {
 
 			LOGGER.info(report);
-			for (Person person : listCurrentClass) {
+			for (Person persons : listCurrentClass) {
 
-				File temp = createDocFile(selectedDirPath+fileName + person.getLastName() + ++fileIndexUser + extension);
-				copyFileUsingStream(file, temp);
-
-				fillDocxInfo(map, person, file, parentFile);
+				File userFile = createDocFile(selectedDirPath +"//"+fileName + persons.getLastName() + ++fileIndexUser + extension);
+				copyFileUsingStream(file.getAbsoluteFile(), userFile);
+				File userParentFile =userFile.getParentFile();
+				fillDocxInfo(map, persons, userFile, userParentFile);
 
 			}
 		}
@@ -162,7 +163,11 @@ public class FileDocxGenerator {
 		OutputStream os = null;
 		try {
 			is = new FileInputStream(source);
+			LOGGER.debug(is);
+
 			os = new FileOutputStream(dest);
+			LOGGER.debug(is);
+
 			byte[] buffer = new byte[1024];//check
 			int length;
 			while ((length = is.read(buffer)) > 0) {
