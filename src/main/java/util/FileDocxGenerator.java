@@ -17,6 +17,7 @@ import application.MainApp;
 import exception.ApplicationException;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import model.Person;
 import model.Report;
@@ -27,37 +28,47 @@ import processing.LoadExcel;
 import view.PersonOverviewController;
 
 public class FileDocxGenerator {
-	GenerateDocx rg;
 
 	private final static Logger LOGGER = Logger.getLogger(FileDocxGenerator.class);
 
 	public void generateDOCX(MainApp mainApp, TableView<Person> personTable, PersonOverviewController personOverviewController) throws IOException, ParseException, ApplicationException {
-		LOGGER.debug("generDOCX");
+		LOGGER.debug("metod generateDOCX");
+		ObservableList<Person> listCurrentClass = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
+		LOGGER.debug("Current class " + listCurrentClass );
 
-		rg = new GenerateDocx();
-		int someIndex = 0;
-		FileChooser fileChooser = new FileChooser();
+		Map<String, Object> map = new HashMap<>();
+		int fileIndexUser = 0;//unique file index which addede to file
+		
+		DirectoryChooser dirChooser = new DirectoryChooser();
+
+	    dirChooser.setTitle("Select a folder");
+
+
+	    String selectedDirPath = dirChooser.showDialog(mainApp.getPrimaryStage()).getAbsolutePath();
+
+	//    File downloadedFile = new File(selectedDirPath + "/" + downloadedFileName);
+	    
+		/*FileChooser fileChooser = new FileChooser();
 		FileChooser.ExtensionFilter docFilter = new FileChooser.ExtensionFilter("DOC files (*.doc", "*.doc");
 		FileChooser.ExtensionFilter docxFilter = new FileChooser.ExtensionFilter("DOCX files (*.docx", "*.docx");
 		fileChooser.getExtensionFilters().add(docxFilter);
+		fileChooser.getExtensionFilters().add(docFilter);*/
 
-		fileChooser.getExtensionFilters().add(docFilter);
-
-		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
+		File file = new File("/docxFile/063-O.docx");//fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 		File parentFile = file.getParentFile();
+		LOGGER.debug("parentFile " + parentFile.getAbsolutePath() + "Load  ");
+		LOGGER.debug("file " + file.getAbsolutePath() + "Load  ");
 
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "Load doc ");
 		}
-		ObservableList<Person> listGen = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
-		Map<String, Object> map = new HashMap<>();
+		
 		String fileName;
 		String extension;// file.getName();
 		int pos = file.getName().lastIndexOf('.'); //get index of dot to divide name and extension
 		if (pos == -1) {
 			LOGGER.error(file.getName());
-
-			throw new ApplicationException("file withot extension");
+			throw new ApplicationException("file without extension");
 		} else {
 			fileName = file.getName().substring(0, pos);
 			extension = file.getName().substring(pos, file.getName().length());
@@ -67,29 +78,31 @@ public class FileDocxGenerator {
 		Report report = DialogManager.showOptionalDOCX();
 
 		if (report == Report.ONE) {
-			DialogManager.selectPerson(" 1 ", " select person");//should fix
+			DialogManager.selectPerson();
 			LOGGER.info(report);
 			Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
+			LOGGER.debug("selected Person from class " + listCurrentClass );
+
 			if (selectedPerson != null) {
 				boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
 				if (okClicked) {
 					personOverviewController.showPersonDetails(selectedPerson);
 				}
 			} else if (selectedPerson == null) {
-				DialogManager.selectPerson(" 1 ", " please select person");
+				DialogManager.selectPerson();
 				return;
 			}
 			LOGGER.info(fileName + selectedPerson.getLastName() + extension + " " + file.getPath());
-			File temp = createDocFile(fileName + selectedPerson.getLastName() + ++someIndex + extension);
+			File temp = createDocFile(selectedDirPath+fileName + selectedPerson.getLastName() + ++fileIndexUser + extension);
 			copyFileUsingStream(file, temp);
 			fillDocxInfo(map, selectedPerson, file, parentFile);
 
 		} else if (report == Report.MANY) {
 
 			LOGGER.info(report);
-			for (Person person : listGen) {
+			for (Person person : listCurrentClass) {
 
-				File temp = createDocFile(fileName + person.getLastName() + ++someIndex + extension);
+				File temp = createDocFile(selectedDirPath+fileName + person.getLastName() + ++fileIndexUser + extension);
 				copyFileUsingStream(file, temp);
 
 				fillDocxInfo(map, person, file, parentFile);
@@ -99,11 +112,11 @@ public class FileDocxGenerator {
 
 	}
 
-	public void fillDocxInfo(Map map, Person person, File file, File parentFile) {
-		LOGGER.debug("Load  sentInfo ");
-		LOGGER.debug("Load  sentInfo " + parentFile);
+	public void fillDocxInfo(Map<String, Object> map, Person person, File file, File parentFile) {
+		LOGGER.debug("Load  fillDocxInfo ");
+		LOGGER.debug(file + "---------------- " + parentFile);
 
-		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday" };
+		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday" ,"testdata" };
 
 		map.put(title[0], person.getFirstName());
 		map.put(title[1], person.getLastName());
@@ -111,16 +124,18 @@ public class FileDocxGenerator {
 		map.put(title[3], person.getPostalCode());
 		map.put(title[4], person.getCity());
 		map.put(title[5], person.getBirthday());
+		map.put(title[6], "");
+
 
 		LOGGER.debug(map);
-		boolean flag = rg.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath());
-		LOGGER.debug("Load " + flag + "Load doc ");
-		LOGGER.debug("Load  sentInfo succesefully");
+		boolean flag = GenerateDocx.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath());
+		LOGGER.debug("Status filling to file " + flag);
+		LOGGER.debug("File have written succesefully");
 
 	}
 
 	public static File createDocFile(String fileName) {
-		LOGGER.debug("createDocFile");
+		LOGGER.debug("method createDocFile");
 		try {
 			File file = new File(fileName);
 			LOGGER.debug("file" + file);
@@ -140,7 +155,7 @@ public class FileDocxGenerator {
 	}
 
 	private static void copyFileUsingStream(File source, File dest) throws IOException {
-		LOGGER.debug("copyFileUsingStream");
+		LOGGER.debug("method copyFileUsingStream");
 		LOGGER.debug(source + "copy" + dest);
 
 		InputStream is = null;

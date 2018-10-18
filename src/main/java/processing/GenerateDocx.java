@@ -22,79 +22,40 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
-
-
 import org.apache.log4j.Logger;
-
 
 public class GenerateDocx {
 	private final static Logger LOGGER = Logger.getLogger(GenerateDocx.class);
 
 	private static final String MAIN_DOCUMENT_PATH = "word/document.xml";
 
-	/* PUBLIC METHODS */
-
-	/**
-	 * Generates .docx document from given template and the substitution data
-	 * 
-	 * @param templateName     Template data
-	 * @param substitutionData Hash map with the set of key-value pairs that
-	 *                         represent substitution data
-	 * @return
-	 */
 	public static Boolean generateAndSendDocx(String templateName, Map<String, Object> substitutionData,
 			String TEMPLATE_DIRECTORY_ROOT) {
-		LOGGER.debug(substitutionData);
+		LOGGER.debug("method generateAndSendDocx ");
+		LOGGER.debug(" file for replacing data " + substitutionData);
+		LOGGER.debug("tmp file " + templateName);
+
 		String templateLocation = TEMPLATE_DIRECTORY_ROOT + templateName;
 		LOGGER.debug(templateLocation);
-
-		String userTempDir = null;// = UUID.randomUUID().toString();
-		// LOGGER.debug(userTempDir);
-
+		String userTempDir = null;
 		userTempDir = TEMPLATE_DIRECTORY_ROOT + "/";
 		LOGGER.debug(userTempDir);
 
 		try {
-
-			// Unzip .docx file
-			// LOGGER.debug("Unzip");
-
 			unzip(new File(templateLocation), new File(userTempDir));
-
-			// Change data
-			// LOGGER.debug("Change data");
-
 			changeData(new File(userTempDir + MAIN_DOCUMENT_PATH), substitutionData);
-
-			// Rezip .docx file
-			LOGGER.debug("zip");
-
 			zip(new File(userTempDir), new File(userTempDir + templateName));
-
-			// Send HTTP response
-			// sendDOCXResponse(new File(userTempDir + templateName), templateName);
-			LOGGER.debug("deleteTempData");
-
-			// Clean temp data
 			deleteTempData(new File(userTempDir));
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 			System.out.println(ioe.getMessage());
+			LOGGER.error(ioe);
 			return false;
 		}
 
 		return true;
 	}
 
-	/* PRIVATE METHODS */
-
-	/**
-	 * Unzipps specified ZIP file to specified directory
-	 * 
-	 * @param zipfile   Source ZIP file
-	 * @param directory Destination directory
-	 * @throws IOException
-	 */
 	private static void unzip(File zipfile, File directory) throws IOException {
 		LOGGER.debug(zipfile + " " + directory);
 
@@ -120,19 +81,11 @@ public class GenerateDocx {
 				}
 			}
 		}
-		System.out.println("Done Unziping!!");
+		LOGGER.info("Done Unziping!!");
 	}
 
-	/**
-	 * Substitutes keys found in target file with corresponding data
-	 * 
-	 * @param targetFile       Target file
-	 * @param substitutionData Map of key-value pairs of data
-	 * @throws IOException
-	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static void changeData(File targetFile, Map<String, Object> substitutionData) throws IOException {
-		LOGGER.debug(targetFile + " ");
+		LOGGER.debug("file wiche will be changed " + targetFile);
 
 		BufferedReader br = null;
 		String docxTemplate = "";
@@ -140,11 +93,7 @@ public class GenerateDocx {
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(targetFile), "UTF-8"));
 			String temp;
 			while ((temp = br.readLine()) != null)
-				// LOGGER.debug(temp + "temp ");
-
 				docxTemplate = docxTemplate + temp;
-		//	LOGGER.debug(docxTemplate + "docxTemplate ");
-
 			br.close();
 			targetFile.delete();
 		} catch (IOException e) {
@@ -152,7 +101,7 @@ public class GenerateDocx {
 			br.close();
 			throw e;
 		}
-
+		LOGGER.info("docx template" + docxTemplate );
 		Iterator substitutionDataIterator = substitutionData.entrySet().iterator();
 		while (substitutionDataIterator.hasNext()) {
 			Map.Entry<String, String> pair = (Map.Entry<String, String>) substitutionDataIterator.next();
@@ -160,14 +109,11 @@ public class GenerateDocx {
 			if (docxTemplate.contains(pair.getKey())) {
 				if (pair.getValue() != null) {
 					docxTemplate = docxTemplate.replace(pair.getKey(), pair.getValue());
-					System.out.println("Got somtinhg inside XML!!");
-				//	LOGGER.debug(pair.getKey() + " " + pair.getValue());
+					LOGGER.info("Got somtinhg inside XML!!" + pair.getKey() + pair.getValue());
 
-				} else
-					// LOGGER.debug(pair.getKey() + " NEDOSTAJE" + pair.getValue());
-
+				} else 
 					docxTemplate = docxTemplate.replace(pair.getKey(), "NEDOSTAJE");
-				// LOGGER.debug(docxTemplate + " NEDOSTAJE");
+				LOGGER.debug(docxTemplate + " NEDOSTAJE");
 
 			}
 		}
@@ -184,13 +130,7 @@ public class GenerateDocx {
 		}
 	}
 
-	/**
-	 * Zipps specified directory and all its subdirectories
-	 * 
-	 * @param directory Specified directory
-	 * @param zipfile   Output ZIP file name
-	 * @throws IOException
-	 */
+	
 	private static void zip(File directory, File zipfile) throws IOException {
 		LOGGER.debug(directory + " " + zipfile);
 
@@ -211,7 +151,7 @@ public class GenerateDocx {
 						queue.push(kid);
 						name = name.endsWith("/") ? name : name + "/";
 						zout.putNextEntry(new ZipEntry(name));
-						//LOGGER.debug(" " + name);
+						// LOGGER.debug(" " + name);
 
 					} else {
 						if (kid.getName().contains(".docx"))
@@ -227,22 +167,18 @@ public class GenerateDocx {
 		}
 	}
 
-	/**
-	 * Deletes directory and all its subdirectories
-	 * 
-	 * @param file Specified directory
-	 * @throws IOException
-	 */
+	
 	public static void deleteTempData(File file) throws IOException {
 
 		if (file.isDirectory()) {
 
 			// directory is empty, then delete it
 			if (file.list().length == 0) {
-				//file.delete();
-				LOGGER.debug( " 1" + file.list());
+				LOGGER.debug(" 1 " + file);
 
-			}else {
+				 file.delete();
+
+			} else {
 				// list all the directory contents
 				String files[] = file.list();
 
@@ -255,14 +191,16 @@ public class GenerateDocx {
 
 				// check the directory again, if empty then delete it
 				if (file.list().length == 0)
-					//file.delete();
-					LOGGER.debug( "2 " + file.list());
+					LOGGER.debug("2 " + file);
+
+					 file.delete();
 
 			}
 		} else {
 			// if file, then delete it
-		//file.delete();
-			LOGGER.debug( "3 " + file.list());
+			LOGGER.debug("3 " + file);
+
+		 file.delete();
 
 		}
 	}

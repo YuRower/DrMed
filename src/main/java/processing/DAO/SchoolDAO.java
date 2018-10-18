@@ -9,19 +9,11 @@ import org.apache.log4j.Logger;
 import application.MainApp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import model.Classes;
 import model.Person;
 import model.Status;
 import model.manager.DialogManager;
 import processing.LoadExcel;
 import processing.WriteExcel;
-import view.BirthdayStatisticsController;
 
 public class SchoolDAO {
 	

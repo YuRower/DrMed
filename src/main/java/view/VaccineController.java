@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import org.apache.log4j.Logger;
 
 import application.MainApp;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.ListChangeListener.Change;
@@ -24,14 +25,23 @@ import model.VaccineTypeLocation;
 import model.manager.ClassesManager;
 import model.manager.LocaleManager;
 import model.manager.VaccineManager;
-import processing.DAO.SchoolDAO;
+import model.vaccine.VaccineEntity;
 import processing.DAO.VaccinationTypeDAO;
+import view.vaccination.VaccineTableController;
 
 public class VaccineController implements Initializable {
 	MainApp main;
 	@FXML
 	public ComboBox<VaccineTypeLocation> comboVaccine;
 	private final static Logger LOGGER = Logger.getLogger(VaccineController.class);
+    private ObservableList<VaccineEntity> vaccineData = FXCollections.observableArrayList();
+
+	/**
+	 * @return the vaccineData
+	 */
+	public ObservableList<VaccineEntity> getVaccineData() {
+		return vaccineData;
+	}
 
 	public void setMainApp(MainApp mainApp) {
 		this.main = mainApp;
@@ -44,6 +54,7 @@ public class VaccineController implements Initializable {
 
 		comboVaccine.getItems().addAll(list);
 		LOGGER.info("fill vaccine  into box ");
+		
 		if (VaccineManager.getCurrentVaccine() == null) {
 
 			comboVaccine.getSelectionModel().select(0);
@@ -64,6 +75,7 @@ public class VaccineController implements Initializable {
 		LOGGER.info("////initialize///////////" + arg1);
 		fillVaccineComboBox();
 		initListeners();
+		
 
 	}
 

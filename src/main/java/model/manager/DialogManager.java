@@ -1,18 +1,34 @@
 package model.manager;
 
+import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar.ButtonData;
+import model.Lang;
 import model.Report;
 import javafx.scene.control.ButtonType;
 
 public class DialogManager {
 	private final static Logger LOGGER = Logger.getLogger(DialogManager.class);
+	public static final String BUNDLES_FOLDER = "property.text";
+	private static Locale currentLang = null;
+
+	public static void checkCinfirmationLang(Lang locale) {
+		if (locale.getIndex() == 0) {
+			currentLang = LocaleManager.RU_LOCALE;
+
+		} else if (locale.getIndex() == 1) {
+			currentLang = LocaleManager.UA_LOCALE;
+
+		}
+	}
 
 	public static void showErrorDialog(String title, String text) {
+		LOGGER.info("method showErrorDialog with " + title + " " + text);
 		Alert alert = new Alert(Alert.AlertType.ERROR);
 		alert.setTitle(title);
 		alert.setContentText(text);
@@ -21,6 +37,7 @@ public class DialogManager {
 	}
 
 	public static void showInfoDialog(String title, String text) {
+		LOGGER.info("method showInfoDialog with " + title + " " + text);
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle(title);
 		alert.setContentText(text);
@@ -29,6 +46,8 @@ public class DialogManager {
 	}
 
 	public static Report showOptionalDOCX() {
+		LOGGER.info(" method showOptionalDOCX");
+
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("Confirmation Dialog with Custom Actions");
 		alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
@@ -45,34 +64,45 @@ public class DialogManager {
 		} else if (result.get() == buttonTypeTwo) {
 			return Report.MANY;
 		} else {
-			LOGGER.info("cancel");
+			LOGGER.info("Cancel");
 		}
 		return null;
 
 	}
 
 	public static ButtonType wantToDelete() {
+		LOGGER.info("method wantToDelete  ");
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-
-		alert.setTitle("Confirmation Dialog");
+		Lang locale = LocaleManager.getCurrentLang();
+		checkCinfirmationLang(locale);
+		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+		String confirmationDialog = rb.getString("confirmationDialog");
+		alert.setTitle(confirmationDialog);
 		alert.setHeaderText("Look, a Confirmation Dialog");
 		alert.setContentText("Are you ok with this?");
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			return ButtonType.OK;
 		} else {
-			LOGGER.info("cancel");
+			LOGGER.info("Cancel");
 			return ButtonType.CANCEL;
 		}
 
 	}
 
-	public static void selectPerson(String title, String text) {
+	public static void selectPerson() {
+		
+		LOGGER.info("method selectPerson ");
+		Lang locale = LocaleManager.getCurrentLang();
+		checkCinfirmationLang(locale);
+		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+		String title = rb.getString("confirmationDialog");
+		String text = rb.getString("confirmationDialog");
+
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle(title);
 		alert.setHeaderText(null);
 		alert.setContentText(text);
-
 		alert.showAndWait();
 	}
 

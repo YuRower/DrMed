@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="505.0" prefWidth="859.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.VaccineController">
+<BorderPane prefHeight="505.0" prefWidth="859.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.VaccineController">
    <top>
       <AnchorPane prefHeight="55.0" prefWidth="850.0" BorderPane.alignment="CENTER">
          <children>

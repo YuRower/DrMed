@@ -1,0 +1,596 @@
+<log4j:event logger="application.MainApp" timestamp="1539859871340" level="INFO" thread="main">
+<log4j:message><![CDATA[////////////// Start//////////////// ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871421" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Start]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871447" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[locale was added,default UK]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871447" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Current Lang Украинский]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871447" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871447" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = false]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871448" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Init Login Controller]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871663" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871711" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to loginController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859871712" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show login page ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539859890356" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[admin 1234]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539859890359" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[session 1]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539859890359" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method authenticated curren session number session 1]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890359" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890359" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = true]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890360" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[init Root Layout]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890428" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890547" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to rootController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890548" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show Root header ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890548" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method getPersonFilePath]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890551" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ File Path = null]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890551" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method ShowPersonOverview]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539859890745" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[////initialize///////////uk]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539859890755" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[fill locale into box ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="processing.LoadExcel" timestamp="1539859890771" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539859890771" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[null]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539859890771" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[[]boxOfClasses]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890772" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890777" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ Add observer for person controller ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859890777" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to personController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="processing.LoadExcel" timestamp="1539859890777" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="model.manager.DialogManager" timestamp="1539859939756" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method wantToDelete  ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="model.manager.DialogManager" timestamp="1539859940928" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Cancel]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539859940929" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Cancel]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859989844" level="INFO" thread="main">
+<log4j:message><![CDATA[////////////// Start//////////////// ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859989875" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Start]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859989895" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[locale was added,default UK]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859989896" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Current Lang Украинский]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859989896" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859989896" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = false]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859989897" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Init Login Controller]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859990087" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859990136" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to loginController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539859990136" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show login page ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010622" level="INFO" thread="main">
+<log4j:message><![CDATA[////////////// Start//////////////// ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010655" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Start]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010676" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[locale was added,default UK]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010676" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Current Lang Украинский]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010676" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010676" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = false]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010676" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Init Login Controller]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010847" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010892" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to loginController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860010893" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show login page ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860020283" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[admin 1234]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860020305" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[session 1]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860020305" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method authenticated curren session number session 1]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020305" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020305" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = true]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020306" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[init Root Layout]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020356" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020454" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to rootController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020455" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show Root header ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020455" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method getPersonFilePath]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020458" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ File Path = null]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020459" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method ShowPersonOverview]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860020669" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[////initialize///////////uk]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860020676" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[fill locale into box ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="processing.LoadExcel" timestamp="1539860020691" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860020691" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[null]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860020691" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[[]boxOfClasses]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020692" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020696" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ Add observer for person controller ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860020696" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to personController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="processing.LoadExcel" timestamp="1539860020696" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860026792" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[generDOCX]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="util.FileDocxGenerator" timestamp="1539860026793" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[generDOCX]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169162" level="INFO" thread="main">
+<log4j:message><![CDATA[////////////// Start//////////////// ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169190" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Start]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169208" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[locale was added,default UK]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169208" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Current Lang Украинский]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169208" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169208" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = false]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169208" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Init Login Controller]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169389" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169437" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to loginController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860169438" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show login page ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860174309" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[admin 1234]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860174313" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[session 1]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860174313" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method authenticated curren session number session 1]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174313" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174313" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = true]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174314" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[init Root Layout]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174342" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174466" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to rootController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174466" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show Root header ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174466" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method getPersonFilePath]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174469" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ File Path = null]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174469" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method ShowPersonOverview]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860174685" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[////initialize///////////uk]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860174694" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[fill locale into box ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="processing.LoadExcel" timestamp="1539860174717" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860174717" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[null]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860174718" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[[]boxOfClasses]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174718" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174722" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ Add observer for person controller ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860174723" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to personController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="processing.LoadExcel" timestamp="1539860174723" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202565" level="INFO" thread="main">
+<log4j:message><![CDATA[////////////// Start//////////////// ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202594" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Start]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202617" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[locale was added,default UK]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202617" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Current Lang Украинский]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202617" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202617" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = false]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202617" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Init Login Controller]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202790" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202837" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to loginController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860202837" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show login page ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266461" level="INFO" thread="main">
+<log4j:message><![CDATA[////////////// Start//////////////// ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266495" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Start]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266514" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[locale was added,default UK]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266514" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Current Lang Украинский]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266514" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266514" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = false]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266514" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Init Login Controller]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266705" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266758" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to loginController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860266758" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show login page ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860271264" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[admin 1234]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860271269" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[session 1]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.LoginController" timestamp="1539860271270" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method authenticated curren session number session 1]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271271" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ method Authintication]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271271" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Authintication = true]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271272" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[init Root Layout]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271299" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271454" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to rootController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271454" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Show Root header ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271454" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method getPersonFilePath]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271457" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ File Path = null]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271457" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[method ShowPersonOverview]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860271645" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[////initialize///////////uk]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860271653" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[fill locale into box ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="processing.LoadExcel" timestamp="1539860271669" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860271669" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[null]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="view.PersonOverviewController" timestamp="1539860271669" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[[]boxOfClasses]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271670" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271674" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[ Add observer for person controller ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="application.MainApp" timestamp="1539860271675" level="DEBUG" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[Pass main object to personController ]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="processing.LoadExcel" timestamp="1539860271675" level="INFO" thread="JavaFX Application Thread">
+<log4j:message><![CDATA[]]></log4j:message>
+</log4j:event>
+

@@ -11,8 +11,6 @@ public class Classes {
 	private String schoolClass;
 	public static List<Person> classListData = FXCollections.observableArrayList();
 
-	
-	private final static Logger LOGGER = Logger.getLogger(Classes.class);
 
 	public Classes(int index, String schoolClass, List<Person> classData) {
 		classListData.addAll(classData);

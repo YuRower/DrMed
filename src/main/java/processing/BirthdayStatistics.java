@@ -12,7 +12,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Classes;
-import processing.DAO.SchoolDAO;
 import view.BirthdayStatisticsController;
 
 public class BirthdayStatistics {
@@ -20,13 +19,13 @@ public class BirthdayStatistics {
 	MainApp app;
 	public void showBirthdayStatistics() {
 		try {
-			LOGGER.info("show Birthday Statistics");
+			LOGGER.info("method showBirthdayStatistics");
 
 			app = new MainApp();
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/BirthdayStatistics.fxml"));
 			AnchorPane page = loader.load();
-			LOGGER.info("Load BirthdayStatistics.fxml");
+			LOGGER.info("Load " + loader.getLocation());
 
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Birthday Statistics");
@@ -38,10 +37,8 @@ public class BirthdayStatistics {
 			dialogStage.getIcons().add(new Image("/images/calendar.png"));
 
 			BirthdayStatisticsController controller = loader.getController();
-			LOGGER.info("classlistDate " + Classes.classListData);
-
+			LOGGER.info("list with current data classes" + Classes.classListData);
 			controller.setPersonData(Classes.classListData);
-
 			dialogStage.show();
 
 		} catch (IOException e) {

@@ -6,8 +6,6 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import application.MainApp;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import model.manager.DialogManager;
@@ -34,7 +32,8 @@ public class LoginController {
 	        	DialogManager.incorrectPassword("Incorrect Password or Login" ,"Please enter correct data" );
 	        }
 	  }
-	  public void setMainApp(MainApp mainApp) {
+
+	public void setMainApp(MainApp mainApp) {
 			this.main = mainApp;
 		}
 	     
@@ -50,7 +49,7 @@ public class LoginController {
 
 	  private String generateSessionID() {
 	    sessionID++;
-	    return "xyzzy - session " + sessionID;
+	    return "session " + sessionID;
 	  }
 	}
 

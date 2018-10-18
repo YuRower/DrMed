@@ -28,41 +28,46 @@ import view.PersonOverviewController;
 import view.RootLayoutController;
 import view.VaccineController;
 
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
 
 public class MainApp extends Application implements Observer {
 
 	public static final String BUNDLES_FOLDER = "property.text";
 	private Status status;
 	private Stage primaryStage;
-	
+
 	PersonOverviewController personController;
 	RootLayoutController rootController;
 	LoginController loginController;
 	VaccineController vaccineController;
-
 	private BorderPane rootLayout;
 	private AnchorPane editPersonPage;
-	
+
 	AnchorPane personOverview;
 	AnchorPane loginPage;
 	BorderPane tablePage;
 	TableView<?> vaccineTable;
 
-
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
+	/*static {
+		new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
+	}*/
 
 	public MainApp() {
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
+		LOGGER.debug(" method Start");
 		this.primaryStage = primaryStage;
 		primaryStage.setMaximized(true);
 		this.primaryStage.setTitle("MedApp");
 		this.primaryStage.getIcons().add(new Image("/images/address_book_32.png"));
 		Lang langRU = new Lang(0, "ru", "Русский", LocaleManager.RU_LOCALE);
 		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UA_LOCALE);
+		LOGGER.info("locale was added,default UK");
 		LocaleManager.setCurrentLang(langUK);
 		LOGGER.info("Current Lang " + langUK);
 		authintication(false);
@@ -70,6 +75,9 @@ public class MainApp extends Application implements Observer {
 	}
 
 	public void authintication(boolean authinticated) {
+		LOGGER.debug(" method Authintication");
+		LOGGER.debug("Authintication = " + authinticated);
+
 		if (authinticated) {
 			initRootLayout(LocaleManager.UA_LOCALE);
 			showPersonOverview(LocaleManager.UA_LOCALE);
@@ -87,36 +95,38 @@ public class MainApp extends Application implements Observer {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/UserAuthentication.fxml"));
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
-			loginPage =  loader.load();
-			LOGGER.info("Load loginPage.fxml");
+			loginPage = loader.load();
+			LOGGER.debug("Load " + loader.getLocation());
 			Scene scene = new Scene(loginPage);
 			primaryStage.setScene(scene);
 			loginController = loader.getController();
+			LOGGER.debug("Pass main object to loginController ");
 			loginController.setMainApp(this);
+			LOGGER.info("Show login page ");
 			primaryStage.show();
 		} catch (IOException ex) {
-			ex.printStackTrace();
+			LOGGER.error(ex);
 		}
 	}
 
 	public void initRootLayout(Locale locale) {
 		SchoolDAO schoolStorage = new SchoolDAO();
-
 		try {
 			LOGGER.info("init Root Layout");
 			getPrimaryStage().setFullScreen(true);
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/RootLayout.fxml"));
-
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
 			rootLayout = loader.load();
-
-			LOGGER.info("Load RootLayout.fxml");
+			LOGGER.debug("Load " + loader.getLocation());
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			rootController = loader.getController();
+			LOGGER.debug("Pass main object to rootController ");
 			rootController.setMainApp(this);
 			primaryStage.show();
+			LOGGER.info("Show Root header ");
+
 		} catch (IOException e) {
 			LOGGER.error(e);
 		}
@@ -131,72 +141,66 @@ public class MainApp extends Application implements Observer {
 
 	public void showPersonOverview(Locale locale) {
 		try {
-			LOGGER.info("Show Person Overview");
+			LOGGER.info("method ShowPersonOverview");
 
 			getPrimaryStage().setFullScreen(true);
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
 			loader.setLocation(MainApp.class.getResource("/view/PersonOverview.fxml"));
-
-			personOverview =  loader.load();
-
-			LOGGER.info("Load PersonOverview.fxml");
-
+			personOverview = loader.load();
+			LOGGER.debug("Load " + loader.getLocation());
 			rootLayout.setCenter(personOverview);
-
 			personController = loader.getController();
 			personController.addObserver(this);
-			LOGGER.info(" add observer for person controller");
-
+			LOGGER.info(" Add observer for person controller ");
+			LOGGER.debug("Pass main object to personController ");
 			personController.setMainApp(this);
 
 		} catch (IOException e) {
-			e.printStackTrace();
 			LOGGER.error(e);
 		}
 	}
-	
-	public void showVaccinationTables(Locale locale,String resource) {
-		try {
-			LOGGER.info("Show Vaccination Tables");
-			this.primaryStage.setTitle("MedApp");
 
+	public void showVaccinationTables(Locale locale, String resource) {
+		try {
+			LOGGER.info("method ShowVaccination Tables");
+			LOGGER.info("Locale " + locale.toString() + "Resource " + resource);
+
+			this.primaryStage.setTitle("MedApp");
 			getPrimaryStage().setFullScreen(true);
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/VaccinationTables.fxml"));
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
 			tablePage = loader.load();
-			LOGGER.info("Load VaccinationTables.fxml");
+			LOGGER.debug("Load " + loader.getLocation());
 			rootLayout.setCenter(tablePage);
-			
-			/*SHOULD REFACTOR*/
+
 			FXMLLoader tableLoader = new FXMLLoader();
 			tableLoader.setLocation(MainApp.class.getResource(resource));
 			tableLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
 			vaccineTable = tableLoader.load();
+			LOGGER.debug("Load " + loader.getLocation());
 			tablePage.setCenter(vaccineTable);
-	
-			
 			vaccineController = loader.getController();
+			LOGGER.debug("Pass main object to vaccineController ");
 			vaccineController.setMainApp(this);
-						
 		} catch (IOException ex) {
 			ex.printStackTrace();
+			LOGGER.error(ex);
 		}
 	}
 
-
 	public boolean showPersonEditDialog(Person person) throws ParseException {
 		try {
-			LOGGER.info("show Person Edit Dialogl");
+			LOGGER.info("method showPersonEditDialogl");
 
 			getPrimaryStage().setFullScreen(true);
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/PersonEditDialog.fxml"));
-			editPersonPage =  loader.load();
-			LOGGER.info("Load PersonEditDialog.fxml");
+			editPersonPage = loader.load();
+			LOGGER.debug("Load " + loader.getLocation());
 
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Edit Person");
@@ -204,26 +208,23 @@ public class MainApp extends Application implements Observer {
 			dialogStage.initOwner(primaryStage);
 			Scene scene = new Scene(editPersonPage);
 			dialogStage.setScene(scene);
-
 			PersonEditDialogController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setPerson(person);
-
 			dialogStage.getIcons().add(new Image("/images/edit.png"));
-
 			dialogStage.showAndWait();
-
 			return controller.isOkClicked();
 		} catch (IOException e) {
 			LOGGER.error(e);
 			return false;
 		}
 	}
-	
+
 	@Override
 	public void update(Observable o, Object arg) {
-		Locale current = null;
+		LOGGER.info("method update");
 
+		Locale current = null;
 		Lang lang = (Lang) arg;
 		LOGGER.info("index  " + lang.getIndex());
 
@@ -236,15 +237,17 @@ public class MainApp extends Application implements Observer {
 			LocaleManager.setCurrentLang(lang);
 
 		}
-		LOGGER.info("setCurrentLang " + lang);
+		LOGGER.info("CurrentLang " + lang);
 		LOGGER.info("Locale " + current);
-
+		LOGGER.info("init main controllers with new locale");
 		initRootLayout(current);
 		showPersonOverview(current);
 
 	}
 
 	public File getPersonFilePath() {
+		LOGGER.info("method getPersonFilePath");
+
 		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
 		String filePath = prefs.get("filePath", null);
 		LOGGER.debug(" File Path = " + filePath);
@@ -257,6 +260,8 @@ public class MainApp extends Application implements Observer {
 	}
 
 	public void setPersonFilePath(File file) {
+		LOGGER.info("method setPersonFilePath");
+
 		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
 		if (file != null) {
 			prefs.put("filePath", file.getPath());
@@ -275,7 +280,7 @@ public class MainApp extends Application implements Observer {
 	public BorderPane getRootLayout() {
 		return rootLayout;
 	}
-	
+
 	public static void main(String[] args) {
 		LOGGER.info("////////////// Start//////////////// ");
 		launch(args);
