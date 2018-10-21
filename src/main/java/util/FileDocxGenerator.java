@@ -31,30 +31,34 @@ public class FileDocxGenerator {
 
 	private final static Logger LOGGER = Logger.getLogger(FileDocxGenerator.class);
 
-	public void generateDOCX(MainApp mainApp, TableView<Person> personTable, PersonOverviewController personOverviewController) throws IOException, ParseException, ApplicationException {
+	public void generateDOCX(MainApp mainApp, TableView<Person> personTable,
+			PersonOverviewController personOverviewController)
+			throws IOException, ParseException, ApplicationException {
 		LOGGER.debug("metod generateDOCX");
 		ObservableList<Person> listCurrentClass = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
-		LOGGER.debug("Current class " + listCurrentClass );
+		LOGGER.debug("Current class " + listCurrentClass);
 
 		Map<String, Object> map = new HashMap<>();
-		int fileIndexUser = 0;//unique file index which addede to file
-		
+		int fileIndexUser = 0;// unique file index which addede to file
+
 		DirectoryChooser dirChooser = new DirectoryChooser();
 
-	    dirChooser.setTitle("Select a folder");
+		dirChooser.setTitle("Select a folder");
 
+		String selectedDirPath = dirChooser.showDialog(mainApp.getPrimaryStage()).getAbsolutePath();
 
-	    String selectedDirPath = dirChooser.showDialog(mainApp.getPrimaryStage()).getAbsolutePath();
+		// File downloadedFile = new File(selectedDirPath + "/" + downloadedFileName);
 
-	//    File downloadedFile = new File(selectedDirPath + "/" + downloadedFileName);
-	    
-		/*FileChooser fileChooser = new FileChooser();
-		FileChooser.ExtensionFilter docFilter = new FileChooser.ExtensionFilter("DOC files (*.doc", "*.doc");
-		FileChooser.ExtensionFilter docxFilter = new FileChooser.ExtensionFilter("DOCX files (*.docx", "*.docx");
-		fileChooser.getExtensionFilters().add(docxFilter);
-		fileChooser.getExtensionFilters().add(docFilter);*/
+		/*
+		 * FileChooser fileChooser = new FileChooser(); FileChooser.ExtensionFilter
+		 * docFilter = new FileChooser.ExtensionFilter("DOC files (*.doc", "*.doc");
+		 * FileChooser.ExtensionFilter docxFilter = new
+		 * FileChooser.ExtensionFilter("DOCX files (*.docx", "*.docx");
+		 * fileChooser.getExtensionFilters().add(docxFilter);
+		 * fileChooser.getExtensionFilters().add(docFilter);
+		 */
 
-		File file = new File("docxFile//063-O.docx");//fileChooser.showOpenDialog(mainApp.getPrimaryStage());
+		File file = new File("docxFile//063-O.docx");// fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 		File parentFile = file.getParentFile();
 		LOGGER.debug("parentFile " + parentFile.getAbsolutePath() + "Load  ");
 		LOGGER.debug("file " + file.getAbsolutePath() + "Load  ");
@@ -62,10 +66,10 @@ public class FileDocxGenerator {
 		if (file != null) {
 			LOGGER.debug("Load " + file.getPath() + "Load doc ");
 		}
-		
+
 		String fileName;
 		String extension;// file.getName();
-		int pos = file.getName().lastIndexOf('.'); //get index of dot to divide name and extension
+		int pos = file.getName().lastIndexOf('.'); // get index of dot to divide name and extension
 		if (pos == -1) {
 			LOGGER.error(file.getName());
 			throw new ApplicationException("file without extension");
@@ -81,7 +85,7 @@ public class FileDocxGenerator {
 			DialogManager.selectPerson();
 			LOGGER.info(report);
 			Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
-			LOGGER.debug("selected Person from class " + listCurrentClass );
+			LOGGER.debug("selected Person from class " + listCurrentClass);
 
 			if (selectedPerson != null) {
 				boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
@@ -93,19 +97,26 @@ public class FileDocxGenerator {
 				return;
 			}
 			LOGGER.info(fileName + selectedPerson.getLastName() + extension + " " + file.getPath());
-			File userFile = createDocFile(selectedDirPath +"//"+fileName + selectedPerson.getLastName() + ++fileIndexUser + extension);
+			selectedDirPath = makeDir(selectedDirPath);//create dir for saving user folder
+			LOGGER.debug("new  Dir Path" + selectedDirPath);
+
+			File userFile = createDocFile(
+					selectedDirPath + "//" + fileName + selectedPerson.getLastName() + ++fileIndexUser + extension);
+			
 			copyFileUsingStream(file.getAbsoluteFile(), userFile);
-			File userParentFile =userFile.getParentFile();
+			File userParentFile = userFile.getParentFile();
 			fillDocxInfo(map, selectedPerson, userFile, userParentFile);
 
 		} else if (report == Report.MANY) {
 
 			LOGGER.info(report);
 			for (Person persons : listCurrentClass) {
-
-				File userFile = createDocFile(selectedDirPath +"//"+fileName + persons.getLastName() + ++fileIndexUser + extension);
+				selectedDirPath = makeDir(selectedDirPath);//create dir for saving user folder
+				LOGGER.debug("new  Dir Path" + selectedDirPath);
+				File userFile = createDocFile(
+						selectedDirPath + "//" + fileName + persons.getLastName() + ++fileIndexUser + extension);
 				copyFileUsingStream(file.getAbsoluteFile(), userFile);
-				File userParentFile =userFile.getParentFile();
+				File userParentFile = userFile.getParentFile();
 				fillDocxInfo(map, persons, userFile, userParentFile);
 
 			}
@@ -117,7 +128,8 @@ public class FileDocxGenerator {
 		LOGGER.debug("Load  fillDocxInfo ");
 		LOGGER.debug(file + "---------------- " + parentFile);
 
-		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday" ,"testdata" };
+		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday",
+				"testdata" };
 
 		map.put(title[0], person.getFirstName());
 		map.put(title[1], person.getLastName());
@@ -126,7 +138,6 @@ public class FileDocxGenerator {
 		map.put(title[4], person.getCity());
 		map.put(title[5], person.getBirthday());
 		map.put(title[6], "");
-
 
 		LOGGER.debug(map);
 		boolean flag = GenerateDocx.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath());
@@ -148,7 +159,7 @@ public class FileDocxGenerator {
 			LOGGER.debug(file.getAbsolutePath());
 			return file;
 		} catch (Exception e) {
-			LOGGER.error("an error ocured" , e);
+			LOGGER.error("an error ocured", e);
 
 		}
 		return null;
@@ -168,7 +179,7 @@ public class FileDocxGenerator {
 			os = new FileOutputStream(dest);
 			LOGGER.debug(is);
 
-			byte[] buffer = new byte[1024];//check
+			byte[] buffer = new byte[1024];// check
 			int length;
 			while ((length = is.read(buffer)) > 0) {
 				os.write(buffer, 0, length);
@@ -177,5 +188,17 @@ public class FileDocxGenerator {
 			is.close();
 			os.close();
 		}
+	}
+
+	public String makeDir(String selectedDirPath) {
+		File file = new File(selectedDirPath+"//Directory1");
+		if (!file.exists()) {
+			if (file.mkdir()) {
+				LOGGER.info("Directory is created!");
+			} else {
+				LOGGER.info("Failed to create directory!");
+			}
+		}
+		return file.getAbsolutePath();
 	}
 }

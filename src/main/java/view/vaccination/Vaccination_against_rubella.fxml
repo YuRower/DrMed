@@ -9,6 +9,7 @@
       <TableColumn prefWidth="75.0" text="Дата" />
       <TableColumn prefWidth="75.0" text="Доза" />
       <TableColumn prefWidth="75.0" text="Серія" />
+      <TableColumn prefWidth="75.0" text="Назва препарату" />
       <TableColumn prefWidth="247.0" text="Реакція">
          <columns>
             <TableColumn prefWidth="75.0" text="Загальна" />

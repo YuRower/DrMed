@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.Map;
-
+import java.awt.Desktop;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -46,6 +46,7 @@ public class GenerateDocx {
 			changeData(new File(userTempDir + MAIN_DOCUMENT_PATH), substitutionData);
 			zip(new File(userTempDir), new File(userTempDir + templateName));
 			deleteTempData(new File(userTempDir));
+			openDocx(new File(userTempDir + templateName));
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 			System.out.println(ioe.getMessage());
@@ -54,6 +55,22 @@ public class GenerateDocx {
 		}
 
 		return true;
+	}
+
+	private static void openDocx(File file) {
+		LOGGER.info("method openDocx");
+		try {
+			if (Desktop.isDesktopSupported()) {
+				LOGGER.info("File will be opened");
+
+				Desktop.getDesktop().open(file);
+			}
+
+		} catch (IOException ioe) {
+			LOGGER.error(ioe.getCause());
+		}
+		LOGGER.debug(file.getAbsoluteFile());
+
 	}
 
 	private static void unzip(File zipfile, File directory) throws IOException {
@@ -74,7 +91,6 @@ public class GenerateDocx {
 				InputStream in = zfile.getInputStream(entry);
 				try {
 					LOGGER.debug(file);
-
 					copy(in, file);
 				} finally {
 					in.close();
@@ -101,7 +117,7 @@ public class GenerateDocx {
 			br.close();
 			throw e;
 		}
-		LOGGER.info("docx template" + docxTemplate );
+		LOGGER.info("docx template" + docxTemplate);
 		Iterator substitutionDataIterator = substitutionData.entrySet().iterator();
 		while (substitutionDataIterator.hasNext()) {
 			Map.Entry<String, String> pair = (Map.Entry<String, String>) substitutionDataIterator.next();
@@ -111,7 +127,7 @@ public class GenerateDocx {
 					docxTemplate = docxTemplate.replace(pair.getKey(), pair.getValue());
 					LOGGER.info("Got somtinhg inside XML!!" + pair.getKey() + pair.getValue());
 
-				} else 
+				} else
 					docxTemplate = docxTemplate.replace(pair.getKey(), "NEDOSTAJE");
 				LOGGER.debug(docxTemplate + " NEDOSTAJE");
 
@@ -130,7 +146,6 @@ public class GenerateDocx {
 		}
 	}
 
-	
 	private static void zip(File directory, File zipfile) throws IOException {
 		LOGGER.debug(directory + " " + zipfile);
 
@@ -151,7 +166,6 @@ public class GenerateDocx {
 						queue.push(kid);
 						name = name.endsWith("/") ? name : name + "/";
 						zout.putNextEntry(new ZipEntry(name));
-						// LOGGER.debug(" " + name);
 
 					} else {
 						if (kid.getName().contains(".docx"))
@@ -167,7 +181,6 @@ public class GenerateDocx {
 		}
 	}
 
-	
 	public static void deleteTempData(File file) throws IOException {
 
 		if (file.isDirectory()) {
@@ -176,7 +189,7 @@ public class GenerateDocx {
 			if (file.list().length == 0) {
 				LOGGER.debug(" 1 " + file);
 
-				// file.delete();
+				 file.delete();
 
 			} else {
 				// list all the directory contents
@@ -190,17 +203,20 @@ public class GenerateDocx {
 				}
 
 				// check the directory again, if empty then delete it
-				if (file.list().length == 0)
+				if (file.list().length == 0) {
 					LOGGER.debug("2 " + file);
-
-					// file.delete();
+					 file.delete();
+				}
 
 			}
 		} else {
 			// if file, then delete it
 			LOGGER.debug("3 " + file);
+			if (!file.getName().endsWith(".docx")) {
+				file.delete();
+				LOGGER.debug("deleted file " + file);
 
-		// file.delete();
+			}
 
 		}
 	}

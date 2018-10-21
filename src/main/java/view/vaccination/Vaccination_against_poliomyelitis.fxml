@@ -9,7 +9,6 @@
          <columns>
             <TableColumn prefWidth="75.0" text="Вік" />
             <TableColumn prefWidth="75.0" text="Дата" />
-            <TableColumn prefWidth="75.0" text="Доза" />
             <TableColumn prefWidth="75.0" text="Серія" />
          </columns>
       </TableColumn>
@@ -17,10 +16,12 @@
          <columns>
             <TableColumn prefWidth="75.0" text="Вік " />
             <TableColumn prefWidth="75.0" text="Дата" />
-            <TableColumn prefWidth="75.0" text="Доза" />
             <TableColumn prefWidth="75.0" text="Серія" />
          </columns>
       </TableColumn>
       <TableColumn prefWidth="140.0" text="Медичні противопоказання" />
    </columns>
+   <columnResizePolicy>
+      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+   </columnResizePolicy>
 </TableView>

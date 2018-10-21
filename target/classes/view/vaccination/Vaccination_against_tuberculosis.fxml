@@ -10,7 +10,7 @@
             <TableColumn prefWidth="26.0" text="Вік" />
             <TableColumn prefWidth="42.0" text="Дата" />
             <TableColumn prefWidth="88.0" text="Доза" />
-            <TableColumn prefWidth="214.0" text="реакція на щеплення (Місцева)" />
+            <TableColumn prefWidth="214.0" text="Реакція на щеплення (Місцева)" />
             <TableColumn text="Серія" />
             <TableColumn prefWidth="214.0" text="Медичні противопоказання" />
         </columns>
