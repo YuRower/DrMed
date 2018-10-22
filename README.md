@@ -1,2 +1,2 @@
 # DrMed
-refactoring project to help nurses
+project to optimize the work of nurses in schools
