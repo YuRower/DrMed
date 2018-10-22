@@ -2,7 +2,6 @@ package model;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
 import javafx.collections.FXCollections;
 

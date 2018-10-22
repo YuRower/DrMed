@@ -1111,3 +1111,2029 @@ Status null
 2018-10-20 11:21:30 DEBUG MainApp:99 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
 2018-10-20 11:21:30 DEBUG MainApp:103 - Pass main object to loginController 
 2018-10-20 11:21:30 INFO  MainApp:105 - Show login page 
+2018-10-22 20:07:58 INFO  MainApp:312 - ////////////// Start//////////////// 
+2018-10-22 20:07:58 DEBUG MainApp:63 -  method Start
+2018-10-22 20:07:58 INFO  MainApp:70 - locale was added,default UK
+2018-10-22 20:07:58 INFO  MainApp:72 - Current Lang Украинский
+2018-10-22 20:07:58 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:07:58 DEBUG MainApp:79 - Authintication = false
+2018-10-22 20:07:58 INFO  MainApp:91 - Init Login Controller
+2018-10-22 20:07:59 DEBUG MainApp:99 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:07:59 DEBUG MainApp:103 - Pass main object to loginController 
+2018-10-22 20:07:59 INFO  MainApp:105 - Show login page 
+2018-10-22 20:08:04 INFO  LoginController:41 - admin 1234
+2018-10-22 20:08:04 INFO  LoginController:28 - session 1
+2018-10-22 20:08:04 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:08:04 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:08:04 DEBUG MainApp:79 - Authintication = true
+2018-10-22 20:08:04 INFO  MainApp:115 - init Root Layout
+2018-10-22 20:08:05 DEBUG MainApp:121 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:08:05 DEBUG MainApp:125 - Pass main object to rootController 
+2018-10-22 20:08:05 INFO  MainApp:128 - Show Root header 
+2018-10-22 20:08:05 INFO  MainApp:276 - method getPersonFilePath
+2018-10-22 20:08:05 DEBUG MainApp:280 -  File Path = null
+2018-10-22 20:08:05 INFO  MainApp:144 - method ShowPersonOverview
+2018-10-22 20:08:05 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:08:05 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:08:05 INFO  LoadExcel:53 - 
+2018-10-22 20:08:05 INFO  PersonOverviewController:316 - null
+2018-10-22 20:08:05 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:08:05 DEBUG MainApp:152 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:08:05 INFO  MainApp:156 -  Add observer for person controller 
+2018-10-22 20:08:05 DEBUG MainApp:157 - Pass main object to personController 
+2018-10-22 20:08:05 INFO  LoadExcel:53 - 
+2018-10-22 20:08:18 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:08:18 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:08:18 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:08:18 INFO  VaccineController:114 - ////initialize///////////java.util.PropertyResourceBundle@7cceafa4
+2018-10-22 20:08:18 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:08:18 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:08:18 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:08:18 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:08:18 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:08:18 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:08:22 INFO  VaccineController:125 - combo vaccine setOnAction
+2018-10-22 20:08:22 INFO  VaccineController:130 - combo vaccine is Щеплення проти кору
+2018-10-22 20:08:22 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:08:22 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_measles.fxml
+2018-10-22 20:08:22 INFO  VaccineController:114 - ////initialize///////////java.util.PropertyResourceBundle@7cceafa4
+2018-10-22 20:08:22 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:08:22 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:08:22 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:08:23 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:08:23 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:08:27 INFO  VaccineController:108 - moveBack
+2018-10-22 20:08:27 INFO  MainApp:144 - method ShowPersonOverview
+2018-10-22 20:08:27 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:08:27 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:08:27 INFO  LoadExcel:53 - 
+2018-10-22 20:08:27 INFO  PersonOverviewController:316 - null
+2018-10-22 20:08:27 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:08:27 DEBUG MainApp:152 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:08:27 INFO  MainApp:156 -  Add observer for person controller 
+2018-10-22 20:08:27 DEBUG MainApp:157 - Pass main object to personController 
+2018-10-22 20:08:27 INFO  LoadExcel:53 - 
+2018-10-22 20:08:46 INFO  MainApp:312 - ////////////// Start//////////////// 
+2018-10-22 20:08:46 DEBUG MainApp:63 -  method Start
+2018-10-22 20:08:46 INFO  MainApp:70 - locale was added,default UK
+2018-10-22 20:08:46 INFO  MainApp:72 - Current Lang Украинский
+2018-10-22 20:08:46 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:08:46 DEBUG MainApp:79 - Authintication = false
+2018-10-22 20:08:46 INFO  MainApp:91 - Init Login Controller
+2018-10-22 20:08:46 DEBUG MainApp:99 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:08:46 DEBUG MainApp:103 - Pass main object to loginController 
+2018-10-22 20:08:46 INFO  MainApp:105 - Show login page 
+2018-10-22 20:08:51 INFO  LoginController:41 - admin 1234
+2018-10-22 20:08:51 INFO  LoginController:28 - session 1
+2018-10-22 20:08:51 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:08:51 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:08:51 DEBUG MainApp:79 - Authintication = true
+2018-10-22 20:08:51 INFO  MainApp:115 - init Root Layout
+2018-10-22 20:08:51 DEBUG MainApp:121 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:08:51 DEBUG MainApp:125 - Pass main object to rootController 
+2018-10-22 20:08:51 INFO  MainApp:128 - Show Root header 
+2018-10-22 20:08:51 INFO  MainApp:276 - method getPersonFilePath
+2018-10-22 20:08:51 DEBUG MainApp:280 -  File Path = null
+2018-10-22 20:08:51 INFO  MainApp:144 - method ShowPersonOverview
+2018-10-22 20:08:51 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:08:51 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:08:51 INFO  LoadExcel:53 - 
+2018-10-22 20:08:51 INFO  PersonOverviewController:316 - null
+2018-10-22 20:08:51 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:08:51 DEBUG MainApp:152 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:08:51 INFO  MainApp:156 -  Add observer for person controller 
+2018-10-22 20:08:51 DEBUG MainApp:157 - Pass main object to personController 
+2018-10-22 20:08:51 INFO  LoadExcel:53 - 
+2018-10-22 20:08:52 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:08:52 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:08:52 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:08:52 INFO  VaccineController:114 - ////initialize///////////java.util.PropertyResourceBundle@30c03145
+2018-10-22 20:08:52 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:08:52 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:08:52 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:08:52 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:08:52 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:08:52 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:08:57 INFO  VaccineController:125 - combo vaccine setOnAction
+2018-10-22 20:08:57 INFO  VaccineController:130 - combo vaccine is Щеплення проти поліомієліту
+2018-10-22 20:08:57 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:08:57 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_poliomyelitis.fxml
+2018-10-22 20:08:57 INFO  VaccineController:114 - ////initialize///////////java.util.PropertyResourceBundle@30c03145
+2018-10-22 20:08:57 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:08:57 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:08:57 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:08:57 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:08:57 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:09:00 INFO  VaccineController:125 - combo vaccine setOnAction
+2018-10-22 20:09:00 INFO  VaccineController:130 - combo vaccine is Щеплення проти кору
+2018-10-22 20:09:00 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:09:00 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_measles.fxml
+2018-10-22 20:09:00 INFO  VaccineController:114 - ////initialize///////////java.util.PropertyResourceBundle@30c03145
+2018-10-22 20:09:00 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:09:00 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:09:00 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:09:00 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:09:00 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:09:03 INFO  VaccineController:125 - combo vaccine setOnAction
+2018-10-22 20:09:03 INFO  VaccineController:130 - combo vaccine is Щеплення проти гепатиту В
+2018-10-22 20:09:03 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:09:03 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_hepatitis_B.fxml
+2018-10-22 20:09:04 INFO  VaccineController:114 - ////initialize///////////java.util.PropertyResourceBundle@30c03145
+2018-10-22 20:09:04 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:09:04 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:09:04 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:09:04 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:09:04 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:09:46 INFO  MainApp:312 - ////////////// Start//////////////// 
+2018-10-22 20:09:46 DEBUG MainApp:63 -  method Start
+2018-10-22 20:09:46 INFO  MainApp:70 - locale was added,default UK
+2018-10-22 20:09:46 INFO  MainApp:72 - Current Lang Украинский
+2018-10-22 20:09:46 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:09:46 DEBUG MainApp:79 - Authintication = false
+2018-10-22 20:09:46 INFO  MainApp:91 - Init Login Controller
+2018-10-22 20:09:46 DEBUG MainApp:99 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:09:46 DEBUG MainApp:103 - Pass main object to loginController 
+2018-10-22 20:09:46 INFO  MainApp:105 - Show login page 
+2018-10-22 20:09:50 INFO  LoginController:41 - admin 1234
+2018-10-22 20:09:50 INFO  LoginController:28 - session 1
+2018-10-22 20:09:50 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:09:50 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:09:50 DEBUG MainApp:79 - Authintication = true
+2018-10-22 20:09:50 INFO  MainApp:115 - init Root Layout
+2018-10-22 20:09:50 DEBUG MainApp:121 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:09:50 DEBUG MainApp:125 - Pass main object to rootController 
+2018-10-22 20:09:50 INFO  MainApp:128 - Show Root header 
+2018-10-22 20:09:50 INFO  MainApp:276 - method getPersonFilePath
+2018-10-22 20:09:50 DEBUG MainApp:280 -  File Path = null
+2018-10-22 20:09:50 INFO  MainApp:144 - method ShowPersonOverview
+2018-10-22 20:09:50 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:09:50 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:09:50 INFO  LoadExcel:53 - 
+2018-10-22 20:09:50 INFO  PersonOverviewController:316 - null
+2018-10-22 20:09:50 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:09:50 DEBUG MainApp:152 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:09:50 INFO  MainApp:156 -  Add observer for person controller 
+2018-10-22 20:09:50 DEBUG MainApp:157 - Pass main object to personController 
+2018-10-22 20:09:50 INFO  LoadExcel:53 - 
+2018-10-22 20:09:51 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:09:51 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:09:51 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:09:51 INFO  VaccineController:114 - ////initialize///////////java.util.PropertyResourceBundle@1f8accd7
+2018-10-22 20:09:51 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:09:51 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:09:51 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:09:51 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:09:51 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:09:51 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:09:52 INFO  VaccineController:96 - handleAdd
+2018-10-22 20:09:54 INFO  VaccineController:96 - handleAdd
+2018-10-22 20:10:05 INFO  VaccineController:125 - combo vaccine setOnAction
+2018-10-22 20:10:05 INFO  VaccineController:130 - combo vaccine is Щеплення проти поліомієліту
+2018-10-22 20:10:05 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:10:05 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_poliomyelitis.fxml
+2018-10-22 20:10:05 INFO  VaccineController:114 - ////initialize///////////java.util.PropertyResourceBundle@1f8accd7
+2018-10-22 20:10:05 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:10:05 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:10:05 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:10:05 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:10:05 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:10:06 INFO  VaccineController:96 - handleAdd
+2018-10-22 20:10:06 INFO  MainApp:224 - method showTableVaccineEditDialog
+2018-10-22 20:10:06 DEBUG MainApp:231 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1-2Table.fxml
+2018-10-22 20:12:14 INFO  MainApp:312 - ////////////// Start//////////////// 
+2018-10-22 20:12:14 DEBUG MainApp:63 -  method Start
+2018-10-22 20:12:14 INFO  MainApp:70 - locale was added,default UK
+2018-10-22 20:12:14 INFO  MainApp:72 - Current Lang Украинский
+2018-10-22 20:12:14 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:12:14 DEBUG MainApp:79 - Authintication = false
+2018-10-22 20:12:14 INFO  MainApp:91 - Init Login Controller
+2018-10-22 20:12:14 DEBUG MainApp:99 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:12:14 DEBUG MainApp:103 - Pass main object to loginController 
+2018-10-22 20:12:14 INFO  MainApp:105 - Show login page 
+2018-10-22 20:12:19 INFO  LoginController:41 - admin 1234
+2018-10-22 20:12:19 INFO  LoginController:28 - session 1
+2018-10-22 20:12:19 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:12:19 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:12:19 DEBUG MainApp:79 - Authintication = true
+2018-10-22 20:12:19 INFO  MainApp:115 - init Root Layout
+2018-10-22 20:12:19 DEBUG MainApp:121 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:12:20 DEBUG MainApp:125 - Pass main object to rootController 
+2018-10-22 20:12:20 INFO  MainApp:128 - Show Root header 
+2018-10-22 20:12:20 INFO  MainApp:276 - method getPersonFilePath
+2018-10-22 20:12:20 DEBUG MainApp:280 -  File Path = null
+2018-10-22 20:12:20 INFO  MainApp:144 - method ShowPersonOverview
+2018-10-22 20:12:20 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:12:20 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:12:20 INFO  LoadExcel:53 - 
+2018-10-22 20:12:20 INFO  PersonOverviewController:316 - null
+2018-10-22 20:12:20 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:12:20 DEBUG MainApp:152 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:12:20 INFO  MainApp:156 -  Add observer for person controller 
+2018-10-22 20:12:20 DEBUG MainApp:157 - Pass main object to personController 
+2018-10-22 20:12:20 INFO  LoadExcel:53 - 
+2018-10-22 20:12:21 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:12:21 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:12:21 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:12:21 INFO  VaccineController:124 - ////initialize///////////java.util.PropertyResourceBundle@7861b2e9
+2018-10-22 20:12:21 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:12:21 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:12:21 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:12:21 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:12:21 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:12:21 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:12:22 INFO  VaccineController:106 - handleAdd
+2018-10-22 20:12:22 INFO  MainApp:224 - method showTableVaccineEditDialog
+2018-10-22 20:12:22 DEBUG MainApp:231 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1-2Table.fxml
+2018-10-22 20:13:46 INFO  MainApp:312 - ////////////// Start//////////////// 
+2018-10-22 20:13:46 DEBUG MainApp:63 -  method Start
+2018-10-22 20:13:46 INFO  MainApp:70 - locale was added,default UK
+2018-10-22 20:13:46 INFO  MainApp:72 - Current Lang Украинский
+2018-10-22 20:13:46 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:13:46 DEBUG MainApp:79 - Authintication = false
+2018-10-22 20:13:46 INFO  MainApp:91 - Init Login Controller
+2018-10-22 20:13:46 DEBUG MainApp:99 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:13:46 DEBUG MainApp:103 - Pass main object to loginController 
+2018-10-22 20:13:46 INFO  MainApp:105 - Show login page 
+2018-10-22 20:13:50 INFO  LoginController:41 - admin 1234
+2018-10-22 20:13:50 INFO  LoginController:28 - session 1
+2018-10-22 20:13:50 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:13:50 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:13:50 DEBUG MainApp:79 - Authintication = true
+2018-10-22 20:13:50 INFO  MainApp:115 - init Root Layout
+2018-10-22 20:13:50 DEBUG MainApp:121 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:13:50 DEBUG MainApp:125 - Pass main object to rootController 
+2018-10-22 20:13:50 INFO  MainApp:128 - Show Root header 
+2018-10-22 20:13:50 INFO  MainApp:276 - method getPersonFilePath
+2018-10-22 20:13:50 DEBUG MainApp:280 -  File Path = null
+2018-10-22 20:13:50 INFO  MainApp:144 - method ShowPersonOverview
+2018-10-22 20:13:50 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:13:50 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:13:50 INFO  LoadExcel:53 - 
+2018-10-22 20:13:50 INFO  PersonOverviewController:316 - null
+2018-10-22 20:13:50 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:13:50 DEBUG MainApp:152 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:13:50 INFO  MainApp:156 -  Add observer for person controller 
+2018-10-22 20:13:50 DEBUG MainApp:157 - Pass main object to personController 
+2018-10-22 20:13:50 INFO  LoadExcel:53 - 
+2018-10-22 20:13:51 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:13:51 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:13:51 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:13:51 INFO  VaccineController:128 - ////initialize///////////java.util.PropertyResourceBundle@7861b2e9
+2018-10-22 20:13:51 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:13:51 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 20:13:51 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:13:51 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:13:51 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:13:51 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:13:52 INFO  VaccineController:108 - handleAdd
+2018-10-22 20:13:52 INFO  VaccineController:77 - method getResource
+2018-10-22 20:13:52 INFO  VaccineController:110 - /view/tableEditpages/edit1-2Table.fxml
+2018-10-22 20:13:52 INFO  MainApp:224 - method showTableVaccineEditDialog
+2018-10-22 20:13:52 DEBUG MainApp:231 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1-2Table.fxml
+2018-10-22 20:16:53 INFO  MainApp:312 - ////////////// Start//////////////// 
+2018-10-22 20:16:53 DEBUG MainApp:63 -  method Start
+2018-10-22 20:16:53 INFO  MainApp:70 - locale was added,default UK
+2018-10-22 20:16:53 INFO  MainApp:72 - Current Lang Украинский
+2018-10-22 20:16:53 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:16:53 DEBUG MainApp:79 - Authintication = false
+2018-10-22 20:16:53 INFO  MainApp:91 - Init Login Controller
+2018-10-22 20:16:53 DEBUG MainApp:99 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:16:53 DEBUG MainApp:103 - Pass main object to loginController 
+2018-10-22 20:16:53 INFO  MainApp:105 - Show login page 
+2018-10-22 20:16:58 INFO  LoginController:41 - admin 1234
+2018-10-22 20:16:58 INFO  LoginController:28 - session 1
+2018-10-22 20:16:58 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:16:58 DEBUG MainApp:78 -  method Authintication
+2018-10-22 20:16:58 DEBUG MainApp:79 - Authintication = true
+2018-10-22 20:16:58 INFO  MainApp:115 - init Root Layout
+2018-10-22 20:16:58 DEBUG MainApp:121 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:16:58 DEBUG MainApp:125 - Pass main object to rootController 
+2018-10-22 20:16:58 INFO  MainApp:128 - Show Root header 
+2018-10-22 20:16:58 INFO  MainApp:276 - method getPersonFilePath
+2018-10-22 20:16:58 DEBUG MainApp:280 -  File Path = null
+2018-10-22 20:16:58 INFO  MainApp:144 - method ShowPersonOverview
+2018-10-22 20:16:59 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:16:59 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:16:59 INFO  LoadExcel:53 - 
+2018-10-22 20:16:59 INFO  PersonOverviewController:316 - null
+2018-10-22 20:16:59 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:16:59 DEBUG MainApp:152 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:16:59 INFO  MainApp:156 -  Add observer for person controller 
+2018-10-22 20:16:59 DEBUG MainApp:157 - Pass main object to personController 
+2018-10-22 20:16:59 INFO  LoadExcel:53 - 
+2018-10-22 20:17:02 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:17:02 INFO  MainApp:167 - method ShowVaccination Tables
+2018-10-22 20:17:02 INFO  MainApp:168 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:17:02 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@352c720a
+2018-10-22 20:17:02 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:17:02 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:17:02 DEBUG MainApp:176 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:17:02 DEBUG MainApp:183 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:17:02 DEBUG MainApp:186 - Pass main object to vaccineController 
+2018-10-22 20:17:02 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:17:03 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:17:03 INFO  VaccineController:82 - method getResource
+2018-10-22 20:17:03 INFO  VaccineController:115 - /view/tableEditpages/edit1-2Table.fxml
+2018-10-22 20:17:03 INFO  MainApp:224 - method showTableVaccineEditDialog
+2018-10-22 20:17:03 DEBUG MainApp:231 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1-2Table.fxml
+2018-10-22 20:19:37 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:19:37 DEBUG MainApp:65 -  method Start
+2018-10-22 20:19:37 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:19:37 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:19:37 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:19:37 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:19:37 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:19:38 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:19:38 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:19:38 INFO  MainApp:107 - Show login page 
+2018-10-22 20:19:42 INFO  LoginController:41 - admin 1234
+2018-10-22 20:19:42 INFO  LoginController:28 - session 1
+2018-10-22 20:19:42 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:19:42 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:19:42 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:19:42 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:19:42 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:19:42 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:19:42 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:19:42 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:19:42 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:19:42 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:19:42 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:19:42 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:19:42 INFO  LoadExcel:53 - 
+2018-10-22 20:19:42 INFO  PersonOverviewController:316 - null
+2018-10-22 20:19:42 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:19:42 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:19:42 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:19:42 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:19:42 INFO  LoadExcel:53 - 
+2018-10-22 20:19:43 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:19:43 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:19:43 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:19:43 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@6e24e554
+2018-10-22 20:19:43 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:19:43 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:19:43 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:19:43 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:19:43 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:19:43 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:19:44 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:19:44 INFO  VaccineController:82 - method getResource
+2018-10-22 20:19:44 INFO  VaccineController:115 - /view/tableEditpages/edit1-2Table.fxml
+2018-10-22 20:19:44 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:19:44 DEBUG MainApp:233 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1-2Table.fxml
+2018-10-22 20:23:08 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:23:08 DEBUG MainApp:65 -  method Start
+2018-10-22 20:23:08 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:23:08 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:23:08 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:23:08 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:23:08 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:23:09 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:23:09 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:23:09 INFO  MainApp:107 - Show login page 
+2018-10-22 20:23:13 INFO  LoginController:41 - admin 1234
+2018-10-22 20:23:13 INFO  LoginController:28 - session 1
+2018-10-22 20:23:13 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:23:13 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:23:13 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:23:13 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:23:13 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:23:13 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:23:13 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:23:13 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:23:13 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:23:13 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:23:13 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:23:14 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:23:14 INFO  LoadExcel:53 - 
+2018-10-22 20:23:14 INFO  PersonOverviewController:316 - null
+2018-10-22 20:23:14 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:23:14 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:23:14 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:23:14 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:23:14 INFO  LoadExcel:53 - 
+2018-10-22 20:23:16 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:23:16 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:23:16 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:23:16 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@3db0e907
+2018-10-22 20:23:16 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:23:16 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:23:16 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:23:16 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:23:16 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:23:16 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:23:17 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:23:17 INFO  VaccineController:82 - method getResource
+2018-10-22 20:23:17 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:23:17 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:23:17 DEBUG MainApp:233 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:23:50 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:23:50 DEBUG MainApp:65 -  method Start
+2018-10-22 20:23:50 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:23:50 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:23:50 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:23:50 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:23:50 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:23:50 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:23:50 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:23:50 INFO  MainApp:107 - Show login page 
+2018-10-22 20:23:54 INFO  LoginController:41 - admin 1234
+2018-10-22 20:23:54 INFO  LoginController:28 - session 1
+2018-10-22 20:23:54 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:23:54 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:23:54 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:23:54 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:23:54 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:23:55 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:23:55 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:23:55 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:23:55 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:23:55 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:23:55 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:23:55 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:23:55 INFO  LoadExcel:53 - 
+2018-10-22 20:23:55 INFO  PersonOverviewController:316 - null
+2018-10-22 20:23:55 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:23:55 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:23:55 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:23:55 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:23:55 INFO  LoadExcel:53 - 
+2018-10-22 20:23:56 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:23:56 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:23:56 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:25:41 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:25:41 DEBUG MainApp:65 -  method Start
+2018-10-22 20:25:41 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:25:41 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:25:41 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:25:41 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:25:41 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:25:42 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:25:42 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:25:42 INFO  MainApp:107 - Show login page 
+2018-10-22 20:25:45 INFO  LoginController:41 - admin 1234
+2018-10-22 20:25:45 INFO  LoginController:28 - session 1
+2018-10-22 20:25:45 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:25:45 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:25:45 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:25:45 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:25:45 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:25:45 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:25:45 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:25:45 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:25:45 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:25:45 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:25:46 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:25:46 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:25:46 INFO  LoadExcel:53 - 
+2018-10-22 20:25:46 INFO  PersonOverviewController:316 - null
+2018-10-22 20:25:46 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:25:46 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:25:46 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:25:46 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:25:46 INFO  LoadExcel:53 - 
+2018-10-22 20:25:47 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:25:47 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:25:47 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:25:47 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@148fa70
+2018-10-22 20:25:47 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:25:47 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:25:47 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:25:47 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:25:47 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:25:47 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:25:48 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:25:48 INFO  VaccineController:82 - method getResource
+2018-10-22 20:25:48 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:25:48 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:25:48 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:25:48 INFO  VaccineController:82 - method getResource
+2018-10-22 20:25:48 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:25:48 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:25:48 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:25:48 INFO  VaccineController:82 - method getResource
+2018-10-22 20:25:48 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:25:48 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:25:48 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:25:48 INFO  VaccineController:82 - method getResource
+2018-10-22 20:25:48 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:25:48 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:26:29 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:26:29 DEBUG MainApp:65 -  method Start
+2018-10-22 20:26:29 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:26:29 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:26:29 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:26:29 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:26:29 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:26:30 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:26:30 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:26:30 INFO  MainApp:107 - Show login page 
+2018-10-22 20:26:33 INFO  LoginController:41 - admin 1234
+2018-10-22 20:26:33 INFO  LoginController:28 - session 1
+2018-10-22 20:26:33 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:26:33 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:26:33 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:26:33 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:26:33 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:26:34 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:26:34 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:26:34 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:26:34 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:26:34 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:26:34 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:26:34 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:26:34 INFO  LoadExcel:53 - 
+2018-10-22 20:26:34 INFO  PersonOverviewController:316 - null
+2018-10-22 20:26:34 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:26:34 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:26:34 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:26:34 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:26:34 INFO  LoadExcel:53 - 
+2018-10-22 20:26:35 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:26:35 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:26:35 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:26:35 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@6e24e554
+2018-10-22 20:26:35 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:26:35 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:26:35 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:26:35 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:26:35 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:26:35 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:26:35 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:26:35 INFO  VaccineController:82 - method getResource
+2018-10-22 20:26:35 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:26:35 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:26:36 INFO  PersonEditDialogController:43 -  fxml file has been loaded 
+2018-10-22 20:26:36 DEBUG MainApp:233 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonEditDialog.fxml
+2018-10-22 20:27:50 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:27:50 DEBUG MainApp:65 -  method Start
+2018-10-22 20:27:50 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:27:50 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:27:50 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:27:50 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:27:50 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:27:50 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:27:50 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:27:50 INFO  MainApp:107 - Show login page 
+2018-10-22 20:27:54 INFO  LoginController:41 - admin 1234
+2018-10-22 20:27:54 INFO  LoginController:28 - session 1
+2018-10-22 20:27:54 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:27:54 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:27:54 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:27:54 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:27:54 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:27:54 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:27:54 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:27:54 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:27:54 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:27:54 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:27:55 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:27:55 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:27:55 INFO  LoadExcel:53 - 
+2018-10-22 20:27:55 INFO  PersonOverviewController:316 - null
+2018-10-22 20:27:55 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:27:55 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:27:55 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:27:55 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:27:55 INFO  LoadExcel:53 - 
+2018-10-22 20:27:56 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:27:56 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:27:56 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:27:56 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@5bb2de2e
+2018-10-22 20:27:56 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:27:56 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:27:56 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:27:56 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:27:56 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:27:56 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:27:57 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:27:57 INFO  VaccineController:82 - method getResource
+2018-10-22 20:27:57 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:27:57 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:27:57 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:27:57 INFO  VaccineController:82 - method getResource
+2018-10-22 20:27:57 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:27:57 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:27:58 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:27:58 INFO  VaccineController:82 - method getResource
+2018-10-22 20:27:58 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:27:58 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:28:50 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:28:50 DEBUG MainApp:65 -  method Start
+2018-10-22 20:28:50 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:28:50 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:28:50 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:28:50 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:28:50 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:28:50 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:28:51 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:28:51 INFO  MainApp:107 - Show login page 
+2018-10-22 20:28:54 INFO  LoginController:41 - admin 1234
+2018-10-22 20:28:54 INFO  LoginController:28 - session 1
+2018-10-22 20:28:54 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:28:54 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:28:54 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:28:54 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:28:54 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:28:54 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:28:54 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:28:54 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:28:54 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:28:54 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:28:55 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:28:55 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:28:55 INFO  LoadExcel:53 - 
+2018-10-22 20:28:55 INFO  PersonOverviewController:316 - null
+2018-10-22 20:28:55 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:28:55 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:28:55 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:28:55 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:28:55 INFO  LoadExcel:53 - 
+2018-10-22 20:28:56 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:28:56 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:28:56 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:28:56 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@6823baf1
+2018-10-22 20:28:56 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:28:56 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:28:56 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:28:56 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:28:56 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:28:56 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:28:56 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:28:56 INFO  VaccineController:82 - method getResource
+2018-10-22 20:28:56 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:28:56 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:28:56 DEBUG MainApp:233 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/edit1_2Table.fxml
+2018-10-22 20:28:57 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:28:57 INFO  VaccineController:82 - method getResource
+2018-10-22 20:28:57 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:28:57 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:28:57 DEBUG MainApp:233 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/edit1_2Table.fxml
+2018-10-22 20:28:57 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:28:57 INFO  VaccineController:82 - method getResource
+2018-10-22 20:28:57 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:28:57 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:28:57 DEBUG MainApp:233 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/edit1_2Table.fxml
+2018-10-22 20:35:06 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:35:06 DEBUG MainApp:65 -  method Start
+2018-10-22 20:35:06 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:35:06 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:35:06 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:35:06 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:35:06 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:35:07 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:35:07 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:35:07 INFO  MainApp:107 - Show login page 
+2018-10-22 20:35:11 INFO  LoginController:41 - admin 1234
+2018-10-22 20:35:11 INFO  LoginController:28 - session 1
+2018-10-22 20:35:11 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:35:11 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:35:11 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:35:11 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:35:11 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:35:11 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:35:11 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:35:11 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:35:11 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:35:11 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:35:11 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:35:11 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:35:11 INFO  LoadExcel:53 - 
+2018-10-22 20:35:11 INFO  PersonOverviewController:316 - null
+2018-10-22 20:35:11 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:35:11 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:35:11 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:35:11 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:35:11 INFO  LoadExcel:53 - 
+2018-10-22 20:35:13 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:35:13 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:35:13 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:35:13 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@3db0e907
+2018-10-22 20:35:13 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:35:13 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:35:13 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:35:13 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:35:13 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:35:13 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:35:15 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:35:15 INFO  VaccineController:82 - method getResource
+2018-10-22 20:35:15 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:35:15 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:35:42 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:35:42 DEBUG MainApp:65 -  method Start
+2018-10-22 20:35:42 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:35:42 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:35:42 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:35:42 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:35:42 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:35:43 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:35:43 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:35:43 INFO  MainApp:107 - Show login page 
+2018-10-22 20:35:46 INFO  LoginController:41 - admin 1234
+2018-10-22 20:35:46 INFO  LoginController:28 - session 1
+2018-10-22 20:35:46 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:35:46 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:35:46 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:35:46 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:35:46 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:35:47 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:35:47 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:35:47 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:35:47 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:35:47 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:35:47 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:35:47 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:35:47 INFO  LoadExcel:53 - 
+2018-10-22 20:35:47 INFO  PersonOverviewController:316 - null
+2018-10-22 20:35:47 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:35:47 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:35:47 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:35:47 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:35:47 INFO  LoadExcel:53 - 
+2018-10-22 20:35:48 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:35:48 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:35:48 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:35:48 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@148fa70
+2018-10-22 20:35:48 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:35:48 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:35:48 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:35:48 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:35:48 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:35:48 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:35:49 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:35:49 INFO  VaccineController:82 - method getResource
+2018-10-22 20:35:49 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:35:49 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:35:49 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:35:49 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:35:49 ERROR MainApp:248 - javafx.fxml.LoadException: 
+/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+
+2018-10-22 20:35:49 INFO  VaccineController:119 - false
+2018-10-22 20:35:58 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:35:58 INFO  VaccineController:82 - method getResource
+2018-10-22 20:35:58 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:35:58 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:35:58 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:35:58 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:35:58 ERROR MainApp:248 - javafx.fxml.LoadException: 
+/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+
+2018-10-22 20:35:58 INFO  VaccineController:119 - false
+2018-10-22 20:35:59 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:35:59 INFO  VaccineController:82 - method getResource
+2018-10-22 20:35:59 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:35:59 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:35:59 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:35:59 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:35:59 ERROR MainApp:248 - javafx.fxml.LoadException: 
+/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+
+2018-10-22 20:35:59 INFO  VaccineController:119 - false
+2018-10-22 20:36:28 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:36:28 DEBUG MainApp:65 -  method Start
+2018-10-22 20:36:28 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:36:28 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:36:28 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:36:28 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:36:28 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:36:28 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:36:28 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:36:28 INFO  MainApp:107 - Show login page 
+2018-10-22 20:36:32 INFO  LoginController:41 - admin 1234
+2018-10-22 20:36:32 INFO  LoginController:28 - session 1
+2018-10-22 20:36:32 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:36:32 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:36:32 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:36:32 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:36:32 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:36:32 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:36:32 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:36:32 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:36:32 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:36:32 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:36:32 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:36:32 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:36:32 INFO  LoadExcel:53 - 
+2018-10-22 20:36:32 INFO  PersonOverviewController:316 - null
+2018-10-22 20:36:32 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:36:32 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:36:32 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:36:32 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:36:32 INFO  LoadExcel:53 - 
+2018-10-22 20:36:33 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:36:33 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:36:33 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:36:33 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@148fa70
+2018-10-22 20:36:33 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:36:33 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:36:33 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:36:33 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:36:33 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:36:33 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:36:34 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:36:34 INFO  VaccineController:82 - method getResource
+2018-10-22 20:36:34 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:36:34 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:36:34 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:36:34 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:36:34 INFO  VaccineController:119 - false
+2018-10-22 20:37:14 INFO  VaccineController:144 - combo vaccine setOnAction
+2018-10-22 20:37:14 INFO  VaccineController:149 - combo vaccine is Щеплення проти дифтерії, кашлюку, правцю
+2018-10-22 20:37:14 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:37:14 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_diphtheria_pertussis_tetanus.fxml
+2018-10-22 20:37:14 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@148fa70
+2018-10-22 20:37:14 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:37:14 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:37:14 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:37:14 INFO  VaccineTableController:27 - VaccineTableController
+2018-10-22 20:37:14 INFO  VaccineTableController:36 - initialize//////////////////////////////////////////
+2018-10-22 20:37:14 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:37:14 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:37:17 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:37:17 INFO  VaccineController:82 - method getResource
+2018-10-22 20:37:17 INFO  VaccineController:90 - 2
+2018-10-22 20:37:17 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:37:17 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:37:17 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:37:17 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:37:17 INFO  VaccineController:119 - false
+2018-10-22 20:39:51 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:39:51 DEBUG MainApp:65 -  method Start
+2018-10-22 20:39:51 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:39:51 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:39:51 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:39:51 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:39:51 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:39:51 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:39:51 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:39:51 INFO  MainApp:107 - Show login page 
+2018-10-22 20:39:55 INFO  LoginController:41 - admin 1234
+2018-10-22 20:39:55 INFO  LoginController:28 - session 1
+2018-10-22 20:39:55 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:39:55 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:39:55 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:39:55 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:39:55 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:39:55 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:39:55 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:39:55 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:39:55 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:39:55 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:39:55 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:39:55 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:39:55 INFO  LoadExcel:53 - 
+2018-10-22 20:39:55 INFO  PersonOverviewController:316 - null
+2018-10-22 20:39:55 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:39:55 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:39:55 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:39:55 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:39:55 INFO  LoadExcel:53 - 
+2018-10-22 20:39:57 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:39:57 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:39:57 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:39:57 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@77f0c0f6
+2018-10-22 20:39:57 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:39:57 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:39:57 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:39:57 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:39:57 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:39:57 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:39:58 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:39:58 INFO  VaccineController:82 - method getResource
+2018-10-22 20:39:58 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:39:58 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:39:58 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:39:58 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:39:58 INFO  VaccineController:119 - false
+2018-10-22 20:39:59 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:39:59 INFO  VaccineController:82 - method getResource
+2018-10-22 20:39:59 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:39:59 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:39:59 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:39:59 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:39:59 INFO  VaccineController:119 - false
+2018-10-22 20:39:59 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:39:59 INFO  VaccineController:82 - method getResource
+2018-10-22 20:39:59 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:39:59 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:39:59 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:39:59 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:39:59 INFO  VaccineController:119 - false
+2018-10-22 20:39:59 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:39:59 INFO  VaccineController:82 - method getResource
+2018-10-22 20:39:59 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:39:59 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:39:59 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:39:59 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:39:59 INFO  VaccineController:119 - false
+2018-10-22 20:40:06 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:40:06 INFO  VaccineController:82 - method getResource
+2018-10-22 20:40:06 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:40:06 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:40:06 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:40:06 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:40:06 INFO  VaccineController:119 - false
+2018-10-22 20:47:15 INFO  MainApp:314 - ////////////// Start//////////////// 
+2018-10-22 20:47:15 DEBUG MainApp:65 -  method Start
+2018-10-22 20:47:15 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:47:15 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:47:15 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:47:15 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:47:15 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:47:15 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:47:15 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:47:15 INFO  MainApp:107 - Show login page 
+2018-10-22 20:47:20 INFO  LoginController:41 - admin 1234
+2018-10-22 20:47:20 INFO  LoginController:28 - session 1
+2018-10-22 20:47:20 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:47:20 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:47:20 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:47:20 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:47:20 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:47:20 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:47:20 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:47:20 INFO  MainApp:278 - method getPersonFilePath
+2018-10-22 20:47:20 DEBUG MainApp:282 -  File Path = null
+2018-10-22 20:47:20 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:47:20 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:47:20 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:47:20 INFO  LoadExcel:53 - 
+2018-10-22 20:47:20 INFO  PersonOverviewController:316 - null
+2018-10-22 20:47:20 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:47:20 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:47:20 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:47:20 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:47:20 INFO  LoadExcel:53 - 
+2018-10-22 20:47:21 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:47:21 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:47:21 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:47:21 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@136c8259
+2018-10-22 20:47:21 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:47:21 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:47:21 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:47:21 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:47:21 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:47:21 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:47:22 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:47:22 INFO  VaccineController:82 - method getResource
+2018-10-22 20:47:22 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:47:22 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:47:22 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:47:22 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:47:22 INFO  VaccineController:119 - false
+2018-10-22 20:47:24 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:47:24 INFO  VaccineController:82 - method getResource
+2018-10-22 20:47:24 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:47:24 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:47:24 INFO  VaccineController:133 - ////initialize///////////null
+2018-10-22 20:47:24 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:47:24 INFO  VaccineController:119 - false
+2018-10-22 20:50:02 INFO  MainApp:316 - ////////////// Start//////////////// 
+2018-10-22 20:50:02 DEBUG MainApp:65 -  method Start
+2018-10-22 20:50:02 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:50:02 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:50:02 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:50:02 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:50:02 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:50:02 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:50:02 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:50:02 INFO  MainApp:107 - Show login page 
+2018-10-22 20:50:08 INFO  LoginController:41 - admin 1234
+2018-10-22 20:50:08 INFO  LoginController:28 - session 1
+2018-10-22 20:50:08 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:50:08 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:50:08 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:50:08 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:50:08 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:50:08 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:50:08 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:50:08 INFO  MainApp:280 - method getPersonFilePath
+2018-10-22 20:50:08 DEBUG MainApp:284 -  File Path = null
+2018-10-22 20:50:08 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:50:08 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:50:08 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:50:08 INFO  LoadExcel:53 - 
+2018-10-22 20:50:08 INFO  PersonOverviewController:316 - null
+2018-10-22 20:50:08 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:50:08 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:50:08 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:50:08 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:50:08 INFO  LoadExcel:53 - 
+2018-10-22 20:50:09 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:50:09 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:50:09 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:50:09 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@148fa70
+2018-10-22 20:50:09 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:50:09 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 20:50:09 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:50:09 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:50:09 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:50:09 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:50:10 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:50:10 INFO  VaccineController:82 - method getResource
+2018-10-22 20:50:10 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:50:10 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:50:10 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@148fa70
+2018-10-22 20:50:10 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 20:50:10 INFO  VaccineController:119 - false
+2018-10-22 20:52:31 INFO  MainApp:316 - ////////////// Start//////////////// 
+2018-10-22 20:52:31 DEBUG MainApp:65 -  method Start
+2018-10-22 20:52:31 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 20:52:31 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 20:52:31 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:52:31 DEBUG MainApp:81 - Authintication = false
+2018-10-22 20:52:31 INFO  MainApp:93 - Init Login Controller
+2018-10-22 20:52:32 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 20:52:32 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 20:52:32 INFO  MainApp:107 - Show login page 
+2018-10-22 20:52:35 INFO  LoginController:41 - admin 1234
+2018-10-22 20:52:35 INFO  LoginController:28 - session 1
+2018-10-22 20:52:35 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 20:52:35 DEBUG MainApp:80 -  method Authintication
+2018-10-22 20:52:35 DEBUG MainApp:81 - Authintication = true
+2018-10-22 20:52:35 INFO  MainApp:117 - init Root Layout
+2018-10-22 20:52:35 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 20:52:35 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 20:52:35 INFO  MainApp:130 - Show Root header 
+2018-10-22 20:52:35 INFO  MainApp:280 - method getPersonFilePath
+2018-10-22 20:52:35 DEBUG MainApp:284 -  File Path = null
+2018-10-22 20:52:35 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:52:36 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:52:36 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:52:36 INFO  LoadExcel:53 - 
+2018-10-22 20:52:36 INFO  PersonOverviewController:316 - null
+2018-10-22 20:52:36 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:52:36 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:52:36 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:52:36 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:52:36 INFO  LoadExcel:53 - 
+2018-10-22 20:52:37 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:52:37 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:52:37 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:52:37 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:52:37 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:52:37 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:52:37 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:52:38 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:52:38 INFO  VaccineController:82 - method getResource
+2018-10-22 20:52:38 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:52:38 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:52:38 DEBUG MainApp:235 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:52:42 INFO  VaccineController:119 - true
+2018-10-22 20:52:43 INFO  VaccineController:127 - moveBack
+2018-10-22 20:52:43 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 20:52:43 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 20:52:43 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 20:52:43 INFO  LoadExcel:53 - 
+2018-10-22 20:52:43 INFO  PersonOverviewController:316 - null
+2018-10-22 20:52:43 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 20:52:43 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 20:52:43 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 20:52:43 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 20:52:43 INFO  LoadExcel:53 - 
+2018-10-22 20:52:59 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:52:59 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 20:52:59 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 20:52:59 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:52:59 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 20:52:59 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 20:52:59 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 20:53:00 INFO  VaccineController:113 - handleAdd
+2018-10-22 20:53:00 INFO  VaccineController:82 - method getResource
+2018-10-22 20:53:00 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:53:00 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 20:53:00 DEBUG MainApp:235 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 20:53:05 INFO  VaccineController:119 - true
+2018-10-22 21:34:32 INFO  MainApp:316 - ////////////// Start//////////////// 
+2018-10-22 21:34:32 DEBUG MainApp:65 -  method Start
+2018-10-22 21:34:32 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 21:34:32 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 21:34:32 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:34:32 DEBUG MainApp:81 - Authintication = false
+2018-10-22 21:34:32 INFO  MainApp:93 - Init Login Controller
+2018-10-22 21:34:32 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 21:34:32 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 21:34:32 INFO  MainApp:107 - Show login page 
+2018-10-22 21:35:20 INFO  LoginController:41 - admin 1234
+2018-10-22 21:35:20 INFO  LoginController:28 - session 1
+2018-10-22 21:35:20 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 21:35:20 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:35:20 DEBUG MainApp:81 - Authintication = true
+2018-10-22 21:35:20 INFO  MainApp:117 - init Root Layout
+2018-10-22 21:35:20 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 21:35:20 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 21:35:20 INFO  MainApp:130 - Show Root header 
+2018-10-22 21:35:20 INFO  MainApp:280 - method getPersonFilePath
+2018-10-22 21:35:20 DEBUG MainApp:284 -  File Path = null
+2018-10-22 21:35:20 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 21:35:21 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 21:35:21 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 21:35:21 INFO  LoadExcel:53 - 
+2018-10-22 21:35:21 INFO  PersonOverviewController:316 - null
+2018-10-22 21:35:21 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 21:35:21 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 21:35:21 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 21:35:21 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 21:35:21 INFO  LoadExcel:53 - 
+2018-10-22 21:35:23 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:35:23 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 21:35:23 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:35:23 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:35:23 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:35:23 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 21:35:23 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 21:35:29 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:35:29 INFO  VaccineController:82 - method getResource
+2018-10-22 21:35:29 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:35:29 INFO  MainApp:226 - method showTableVaccineEditDialog
+2018-10-22 21:35:29 DEBUG MainApp:235 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:35:31 INFO  VaccineController:119 - true
+2018-10-22 21:37:14 INFO  MainApp:317 - ////////////// Start//////////////// 
+2018-10-22 21:37:14 DEBUG MainApp:65 -  method Start
+2018-10-22 21:37:14 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 21:37:14 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 21:37:14 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:37:14 DEBUG MainApp:81 - Authintication = false
+2018-10-22 21:37:14 INFO  MainApp:93 - Init Login Controller
+2018-10-22 21:37:14 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 21:37:14 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 21:37:14 INFO  MainApp:107 - Show login page 
+2018-10-22 21:37:20 INFO  LoginController:41 - admin 1234
+2018-10-22 21:37:20 INFO  LoginController:28 - session 1
+2018-10-22 21:37:20 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 21:37:20 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:37:20 DEBUG MainApp:81 - Authintication = true
+2018-10-22 21:37:20 INFO  MainApp:117 - init Root Layout
+2018-10-22 21:37:20 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 21:37:21 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 21:37:21 INFO  MainApp:130 - Show Root header 
+2018-10-22 21:37:21 INFO  MainApp:281 - method getPersonFilePath
+2018-10-22 21:37:21 DEBUG MainApp:285 -  File Path = null
+2018-10-22 21:37:21 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 21:37:21 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 21:37:21 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 21:37:21 INFO  LoadExcel:53 - 
+2018-10-22 21:37:21 INFO  PersonOverviewController:316 - null
+2018-10-22 21:37:21 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 21:37:21 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 21:37:21 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 21:37:21 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 21:37:21 INFO  LoadExcel:53 - 
+2018-10-22 21:37:22 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:37:22 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 21:37:22 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:37:22 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:37:22 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:37:22 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 21:37:22 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:37:22 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:37:22 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 21:37:22 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:37:22 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:37:22 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 21:37:22 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 21:37:26 INFO  VaccineController:143 - combo vaccine setOnAction
+2018-10-22 21:37:26 INFO  VaccineController:148 - combo vaccine is Туберкулінові проби
+2018-10-22 21:37:26 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 21:37:26 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Tuberculin_tests.fxml
+2018-10-22 21:37:26 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:37:26 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:37:26 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 21:37:26 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:37:26 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:37:26 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 21:37:26 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:37:26 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:37:26 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 21:37:28 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:37:28 INFO  VaccineController:82 - method getResource
+2018-10-22 21:37:28 INFO  VaccineController:90 - 7
+2018-10-22 21:37:28 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:37:28 INFO  MainApp:227 - method showTableVaccineEditDialog
+2018-10-22 21:37:28 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:37:28 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:37:28 INFO  VaccineController:119 - false
+2018-10-22 21:37:29 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:37:29 INFO  VaccineController:82 - method getResource
+2018-10-22 21:37:29 INFO  VaccineController:90 - 7
+2018-10-22 21:37:29 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:37:29 INFO  MainApp:227 - method showTableVaccineEditDialog
+2018-10-22 21:37:29 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:37:29 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:37:29 INFO  VaccineController:119 - false
+2018-10-22 21:37:29 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:37:29 INFO  VaccineController:82 - method getResource
+2018-10-22 21:37:29 INFO  VaccineController:90 - 7
+2018-10-22 21:37:29 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:37:29 INFO  MainApp:227 - method showTableVaccineEditDialog
+2018-10-22 21:37:29 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:37:29 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:37:29 INFO  VaccineController:119 - false
+2018-10-22 21:39:14 INFO  MainApp:318 - ////////////// Start//////////////// 
+2018-10-22 21:39:14 DEBUG MainApp:65 -  method Start
+2018-10-22 21:39:14 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 21:39:14 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 21:39:14 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:39:14 DEBUG MainApp:81 - Authintication = false
+2018-10-22 21:39:14 INFO  MainApp:93 - Init Login Controller
+2018-10-22 21:39:14 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 21:39:15 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 21:39:15 INFO  MainApp:107 - Show login page 
+2018-10-22 21:39:22 INFO  LoginController:41 - admin 1234
+2018-10-22 21:39:22 INFO  LoginController:28 - session 1
+2018-10-22 21:39:22 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 21:39:22 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:39:22 DEBUG MainApp:81 - Authintication = true
+2018-10-22 21:39:22 INFO  MainApp:117 - init Root Layout
+2018-10-22 21:39:22 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 21:39:22 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 21:39:22 INFO  MainApp:130 - Show Root header 
+2018-10-22 21:39:22 INFO  MainApp:282 - method getPersonFilePath
+2018-10-22 21:39:22 DEBUG MainApp:286 -  File Path = null
+2018-10-22 21:39:22 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 21:39:23 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 21:39:23 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 21:39:23 INFO  LoadExcel:53 - 
+2018-10-22 21:39:23 INFO  PersonOverviewController:316 - null
+2018-10-22 21:39:23 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 21:39:23 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 21:39:23 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 21:39:23 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 21:39:23 INFO  LoadExcel:53 - 
+2018-10-22 21:39:25 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:39:25 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 21:39:25 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:39:25 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:39:25 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:39:25 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 21:39:25 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:39:25 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:39:25 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 21:39:25 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:39:25 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:39:25 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 21:39:25 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 21:39:26 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:39:26 INFO  VaccineController:82 - method getResource
+2018-10-22 21:39:26 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:39:26 INFO  MainApp:228 - method showTableVaccineEditDialog
+2018-10-22 21:39:26 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:39:26 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:39:26 INFO  VaccineController:119 - false
+2018-10-22 21:39:29 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:39:29 INFO  VaccineController:82 - method getResource
+2018-10-22 21:39:29 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:39:29 INFO  MainApp:228 - method showTableVaccineEditDialog
+2018-10-22 21:39:29 INFO  VaccineController:132 - ////initialize///////////
+2018-10-22 21:39:29 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:39:29 INFO  VaccineController:119 - false
+2018-10-22 21:40:19 INFO  MainApp:318 - ////////////// Start//////////////// 
+2018-10-22 21:40:19 DEBUG MainApp:65 -  method Start
+2018-10-22 21:40:19 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 21:40:19 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 21:40:19 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:40:19 DEBUG MainApp:81 - Authintication = false
+2018-10-22 21:40:19 INFO  MainApp:93 - Init Login Controller
+2018-10-22 21:40:19 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 21:40:19 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 21:40:19 INFO  MainApp:107 - Show login page 
+2018-10-22 21:40:25 INFO  LoginController:41 - admin 1234
+2018-10-22 21:40:25 INFO  LoginController:28 - session 1
+2018-10-22 21:40:25 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 21:40:25 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:40:25 DEBUG MainApp:81 - Authintication = true
+2018-10-22 21:40:25 INFO  MainApp:117 - init Root Layout
+2018-10-22 21:40:25 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 21:40:25 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 21:40:25 INFO  MainApp:130 - Show Root header 
+2018-10-22 21:40:25 INFO  MainApp:282 - method getPersonFilePath
+2018-10-22 21:40:25 DEBUG MainApp:286 -  File Path = null
+2018-10-22 21:40:25 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 21:40:25 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 21:40:25 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 21:40:26 INFO  LoadExcel:53 - 
+2018-10-22 21:40:26 INFO  PersonOverviewController:316 - null
+2018-10-22 21:40:26 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 21:40:26 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 21:40:26 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 21:40:26 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 21:40:26 INFO  LoadExcel:53 - 
+2018-10-22 21:40:27 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:40:27 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 21:40:27 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:40:27 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@136c8259
+2018-10-22 21:40:27 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:40:27 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 21:40:27 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:40:27 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:40:27 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 21:40:27 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 21:40:29 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:40:29 INFO  VaccineController:82 - method getResource
+2018-10-22 21:40:29 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:40:29 INFO  MainApp:228 - method showTableVaccineEditDialog
+2018-10-22 21:40:29 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@136c8259
+2018-10-22 21:40:29 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:40:29 INFO  VaccineController:119 - false
+2018-10-22 21:41:16 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:41:16 INFO  VaccineController:82 - method getResource
+2018-10-22 21:41:16 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:41:16 INFO  MainApp:228 - method showTableVaccineEditDialog
+2018-10-22 21:41:16 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@136c8259
+2018-10-22 21:41:16 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:41:17 INFO  VaccineController:119 - false
+2018-10-22 21:41:35 INFO  MainApp:318 - ////////////// Start//////////////// 
+2018-10-22 21:41:35 DEBUG MainApp:65 -  method Start
+2018-10-22 21:41:35 INFO  MainApp:72 - locale was added,default UK
+2018-10-22 21:41:35 INFO  MainApp:74 - Current Lang Украинский
+2018-10-22 21:41:35 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:41:35 DEBUG MainApp:81 - Authintication = false
+2018-10-22 21:41:35 INFO  MainApp:93 - Init Login Controller
+2018-10-22 21:41:35 DEBUG MainApp:101 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 21:41:35 DEBUG MainApp:105 - Pass main object to loginController 
+2018-10-22 21:41:35 INFO  MainApp:107 - Show login page 
+2018-10-22 21:41:43 INFO  LoginController:41 - admin 1234
+2018-10-22 21:41:43 INFO  LoginController:28 - session 1
+2018-10-22 21:41:43 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 21:41:43 DEBUG MainApp:80 -  method Authintication
+2018-10-22 21:41:43 DEBUG MainApp:81 - Authintication = true
+2018-10-22 21:41:43 INFO  MainApp:117 - init Root Layout
+2018-10-22 21:41:43 DEBUG MainApp:123 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 21:41:44 DEBUG MainApp:127 - Pass main object to rootController 
+2018-10-22 21:41:44 INFO  MainApp:130 - Show Root header 
+2018-10-22 21:41:44 INFO  MainApp:282 - method getPersonFilePath
+2018-10-22 21:41:44 DEBUG MainApp:286 -  File Path = null
+2018-10-22 21:41:44 INFO  MainApp:146 - method ShowPersonOverview
+2018-10-22 21:41:44 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 21:41:44 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 21:41:44 INFO  LoadExcel:53 - 
+2018-10-22 21:41:44 INFO  PersonOverviewController:316 - null
+2018-10-22 21:41:44 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 21:41:44 DEBUG MainApp:154 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 21:41:44 INFO  MainApp:158 -  Add observer for person controller 
+2018-10-22 21:41:44 DEBUG MainApp:159 - Pass main object to personController 
+2018-10-22 21:41:44 INFO  LoadExcel:53 - 
+2018-10-22 21:41:45 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:41:45 INFO  MainApp:169 - method ShowVaccination Tables
+2018-10-22 21:41:45 INFO  MainApp:170 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:41:45 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@651affe8
+2018-10-22 21:41:45 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:41:45 INFO  VaccineController:71 - fill vaccine  into box 
+2018-10-22 21:41:45 DEBUG MainApp:178 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:41:45 DEBUG MainApp:185 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:41:45 DEBUG MainApp:188 - Pass main object to vaccineController 
+2018-10-22 21:41:45 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 21:41:46 INFO  VaccineController:113 - handleAdd
+2018-10-22 21:41:46 INFO  VaccineController:82 - method getResource
+2018-10-22 21:41:46 INFO  VaccineController:115 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:41:46 INFO  MainApp:228 - method showTableVaccineEditDialog
+2018-10-22 21:41:46 INFO  VaccineController:133 - ////initialize///////////java.util.PropertyResourceBundle@651affe8
+2018-10-22 21:41:46 INFO  VaccineController:68 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:41:46 INFO  VaccineController:119 - false
+2018-10-22 21:57:50 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 21:57:50 DEBUG MainApp:68 -  method Start
+2018-10-22 21:57:50 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 21:57:50 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 21:57:50 DEBUG MainApp:83 -  method Authintication
+2018-10-22 21:57:50 DEBUG MainApp:84 - Authintication = false
+2018-10-22 21:57:50 INFO  MainApp:96 - Init Login Controller
+2018-10-22 21:57:50 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 21:57:50 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 21:57:50 INFO  MainApp:110 - Show login page 
+2018-10-22 21:57:55 INFO  LoginController:41 - admin 1234
+2018-10-22 21:57:55 INFO  LoginController:28 - session 1
+2018-10-22 21:57:55 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 21:57:55 DEBUG MainApp:83 -  method Authintication
+2018-10-22 21:57:55 DEBUG MainApp:84 - Authintication = true
+2018-10-22 21:57:55 INFO  MainApp:120 - init Root Layout
+2018-10-22 21:57:55 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 21:57:55 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 21:57:55 INFO  MainApp:133 - Show Root header 
+2018-10-22 21:57:55 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 21:57:55 DEBUG MainApp:289 -  File Path = null
+2018-10-22 21:57:55 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 21:57:56 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 21:57:56 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 21:57:56 INFO  LoadExcel:53 - 
+2018-10-22 21:57:56 INFO  PersonOverviewController:316 - null
+2018-10-22 21:57:56 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 21:57:56 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 21:57:56 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 21:57:56 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 21:57:56 INFO  LoadExcel:53 - 
+2018-10-22 21:57:58 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:57:58 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 21:57:58 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:57:58 INFO  VaccineController:89 - ////initialize///////////java.util.PropertyResourceBundle@42de5eb6
+2018-10-22 21:57:58 INFO  VaccineController:61 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:57:58 INFO  VaccineController:64 - fill vaccine  into box 
+2018-10-22 21:57:58 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:57:58 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:57:58 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 21:57:58 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 21:58:01 INFO  VaccineController:100 - combo vaccine setOnAction
+2018-10-22 21:58:01 INFO  VaccineController:105 - combo vaccine is Щеплення проти поліомієліту
+2018-10-22 21:58:01 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 21:58:01 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_poliomyelitis.fxml
+2018-10-22 21:58:01 INFO  VaccineController:89 - ////initialize///////////java.util.PropertyResourceBundle@42de5eb6
+2018-10-22 21:58:01 INFO  VaccineController:61 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:58:01 INFO  VaccineController:64 - fill vaccine  into box 
+2018-10-22 21:58:01 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:58:01 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:58:01 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 21:58:21 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 21:58:22 DEBUG MainApp:68 -  method Start
+2018-10-22 21:58:22 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 21:58:22 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 21:58:22 DEBUG MainApp:83 -  method Authintication
+2018-10-22 21:58:22 DEBUG MainApp:84 - Authintication = false
+2018-10-22 21:58:22 INFO  MainApp:96 - Init Login Controller
+2018-10-22 21:58:22 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 21:58:22 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 21:58:22 INFO  MainApp:110 - Show login page 
+2018-10-22 21:58:26 INFO  LoginController:41 - admin 1234
+2018-10-22 21:58:26 INFO  LoginController:28 - session 1
+2018-10-22 21:58:26 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 21:58:26 DEBUG MainApp:83 -  method Authintication
+2018-10-22 21:58:26 DEBUG MainApp:84 - Authintication = true
+2018-10-22 21:58:26 INFO  MainApp:120 - init Root Layout
+2018-10-22 21:58:26 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 21:58:26 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 21:58:26 INFO  MainApp:133 - Show Root header 
+2018-10-22 21:58:26 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 21:58:26 DEBUG MainApp:289 -  File Path = null
+2018-10-22 21:58:26 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 21:58:26 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 21:58:26 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 21:58:26 INFO  LoadExcel:53 - 
+2018-10-22 21:58:26 INFO  PersonOverviewController:316 - null
+2018-10-22 21:58:26 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 21:58:26 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 21:58:26 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 21:58:26 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 21:58:26 INFO  LoadExcel:53 - 
+2018-10-22 21:58:27 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:58:27 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 21:58:27 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:58:27 INFO  VaccineController:94 - ////initialize///////////java.util.PropertyResourceBundle@4a05685c
+2018-10-22 21:58:27 INFO  VaccineController:61 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:58:27 INFO  VaccineController:64 - fill vaccine  into box 
+2018-10-22 21:58:27 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:58:27 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:58:27 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 21:58:27 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 21:58:28 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 21:58:28 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:59:43 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 21:59:43 DEBUG MainApp:68 -  method Start
+2018-10-22 21:59:43 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 21:59:43 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 21:59:43 DEBUG MainApp:83 -  method Authintication
+2018-10-22 21:59:43 DEBUG MainApp:84 - Authintication = false
+2018-10-22 21:59:43 INFO  MainApp:96 - Init Login Controller
+2018-10-22 21:59:44 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 21:59:44 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 21:59:44 INFO  MainApp:110 - Show login page 
+2018-10-22 21:59:49 INFO  LoginController:41 - admin 1234
+2018-10-22 21:59:49 INFO  LoginController:28 - session 1
+2018-10-22 21:59:49 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 21:59:49 DEBUG MainApp:83 -  method Authintication
+2018-10-22 21:59:49 DEBUG MainApp:84 - Authintication = true
+2018-10-22 21:59:49 INFO  MainApp:120 - init Root Layout
+2018-10-22 21:59:49 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 21:59:49 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 21:59:49 INFO  MainApp:133 - Show Root header 
+2018-10-22 21:59:49 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 21:59:49 DEBUG MainApp:289 -  File Path = null
+2018-10-22 21:59:49 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 21:59:49 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 21:59:49 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 21:59:49 INFO  LoadExcel:53 - 
+2018-10-22 21:59:49 INFO  PersonOverviewController:316 - null
+2018-10-22 21:59:49 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 21:59:49 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 21:59:49 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 21:59:49 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 21:59:49 INFO  LoadExcel:53 - 
+2018-10-22 21:59:50 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:59:50 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 21:59:50 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 21:59:50 INFO  VaccineController:131 - ////initialize///////////java.util.PropertyResourceBundle@516cddb2
+2018-10-22 21:59:50 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:59:50 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 21:59:50 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:59:50 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:59:50 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 21:59:50 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 21:59:52 INFO  VaccineController:142 - combo vaccine setOnAction
+2018-10-22 21:59:52 INFO  VaccineController:147 - combo vaccine is Щеплення проти поліомієліту
+2018-10-22 21:59:52 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 21:59:52 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_poliomyelitis.fxml
+2018-10-22 21:59:52 INFO  VaccineController:131 - ////initialize///////////java.util.PropertyResourceBundle@516cddb2
+2018-10-22 21:59:52 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:59:52 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 21:59:52 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:59:52 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:59:52 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 21:59:53 INFO  VaccineController:110 - handleAdd
+2018-10-22 21:59:53 INFO  VaccineController:79 - method getResource
+2018-10-22 21:59:53 INFO  VaccineController:87 - 1
+2018-10-22 21:59:53 INFO  VaccineController:112 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:59:53 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 21:59:53 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:59:56 INFO  VaccineController:116 - true
+2018-10-22 21:59:58 INFO  VaccineController:142 - combo vaccine setOnAction
+2018-10-22 21:59:58 INFO  VaccineController:147 - combo vaccine is Щеплення проти гепатиту В
+2018-10-22 21:59:58 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 21:59:58 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_hepatitis_B.fxml
+2018-10-22 21:59:58 INFO  VaccineController:131 - ////initialize///////////java.util.PropertyResourceBundle@516cddb2
+2018-10-22 21:59:58 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 21:59:58 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 21:59:58 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:59:58 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 21:59:58 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 21:59:58 INFO  VaccineController:110 - handleAdd
+2018-10-22 21:59:58 INFO  VaccineController:79 - method getResource
+2018-10-22 21:59:58 INFO  VaccineController:87 - 6
+2018-10-22 21:59:58 INFO  VaccineController:112 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 21:59:58 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 21:59:58 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:00:01 INFO  VaccineController:116 - true
+2018-10-22 22:00:26 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 22:00:26 DEBUG MainApp:68 -  method Start
+2018-10-22 22:00:26 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 22:00:26 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 22:00:26 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:00:26 DEBUG MainApp:84 - Authintication = false
+2018-10-22 22:00:26 INFO  MainApp:96 - Init Login Controller
+2018-10-22 22:00:26 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 22:00:26 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 22:00:26 INFO  MainApp:110 - Show login page 
+2018-10-22 22:00:30 INFO  LoginController:41 - admin 1234
+2018-10-22 22:00:30 INFO  LoginController:28 - session 1
+2018-10-22 22:00:30 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 22:00:30 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:00:30 DEBUG MainApp:84 - Authintication = true
+2018-10-22 22:00:30 INFO  MainApp:120 - init Root Layout
+2018-10-22 22:00:30 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 22:00:31 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 22:00:31 INFO  MainApp:133 - Show Root header 
+2018-10-22 22:00:31 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 22:00:31 DEBUG MainApp:289 -  File Path = null
+2018-10-22 22:00:31 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 22:00:31 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 22:00:31 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 22:00:31 INFO  LoadExcel:53 - 
+2018-10-22 22:00:31 INFO  PersonOverviewController:316 - null
+2018-10-22 22:00:31 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 22:00:31 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 22:00:31 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 22:00:31 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 22:00:31 INFO  LoadExcel:53 - 
+2018-10-22 22:00:33 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:00:33 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:00:33 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:00:33 INFO  VaccineController:131 - ////initialize///////////java.util.PropertyResourceBundle@52a49bc4
+2018-10-22 22:00:33 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:00:33 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:00:33 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:00:33 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:00:33 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:00:33 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 22:00:35 INFO  VaccineController:142 - combo vaccine setOnAction
+2018-10-22 22:00:35 INFO  VaccineController:147 - combo vaccine is Щеплення проти поліомієліту
+2018-10-22 22:00:35 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:00:35 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_poliomyelitis.fxml
+2018-10-22 22:00:35 INFO  VaccineController:131 - ////initialize///////////java.util.PropertyResourceBundle@52a49bc4
+2018-10-22 22:00:35 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:00:35 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:00:35 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:00:35 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:00:35 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:00:35 INFO  VaccineController:110 - handleAdd
+2018-10-22 22:00:35 INFO  VaccineController:79 - method getResource
+2018-10-22 22:00:35 INFO  VaccineController:87 - 1
+2018-10-22 22:00:35 INFO  VaccineController:112 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:00:35 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:00:35 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:00:39 INFO  VaccineController:116 - true
+2018-10-22 22:00:40 INFO  VaccineController:142 - combo vaccine setOnAction
+2018-10-22 22:00:40 INFO  VaccineController:147 - combo vaccine is Щеплення проти паротиту
+2018-10-22 22:00:40 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:00:40 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Tuberculin_tests.fxml
+2018-10-22 22:00:40 INFO  VaccineController:131 - ////initialize///////////java.util.PropertyResourceBundle@52a49bc4
+2018-10-22 22:00:40 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:00:40 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:00:40 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:00:40 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:00:40 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:00:41 INFO  VaccineController:110 - handleAdd
+2018-10-22 22:00:41 INFO  VaccineController:79 - method getResource
+2018-10-22 22:00:41 INFO  VaccineController:87 - 5
+2018-10-22 22:00:41 INFO  VaccineController:112 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:00:41 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:00:41 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:00:44 INFO  VaccineController:116 - true
+2018-10-22 22:02:01 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 22:02:01 DEBUG MainApp:68 -  method Start
+2018-10-22 22:02:01 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 22:02:01 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 22:02:01 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:02:01 DEBUG MainApp:84 - Authintication = false
+2018-10-22 22:02:01 INFO  MainApp:96 - Init Login Controller
+2018-10-22 22:02:01 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 22:02:01 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 22:02:01 INFO  MainApp:110 - Show login page 
+2018-10-22 22:02:05 INFO  LoginController:41 - admin 1234
+2018-10-22 22:02:05 INFO  LoginController:28 - session 1
+2018-10-22 22:02:05 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 22:02:05 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:02:05 DEBUG MainApp:84 - Authintication = true
+2018-10-22 22:02:05 INFO  MainApp:120 - init Root Layout
+2018-10-22 22:02:05 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 22:02:06 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 22:02:06 INFO  MainApp:133 - Show Root header 
+2018-10-22 22:02:06 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 22:02:06 DEBUG MainApp:289 -  File Path = null
+2018-10-22 22:02:06 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 22:02:06 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 22:02:06 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 22:02:06 INFO  LoadExcel:53 - 
+2018-10-22 22:02:06 INFO  PersonOverviewController:316 - null
+2018-10-22 22:02:06 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 22:02:06 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 22:02:06 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 22:02:06 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 22:02:06 INFO  LoadExcel:53 - 
+2018-10-22 22:02:07 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:02:07 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:02:07 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:02:07 INFO  VaccineController:131 - ////initialize///////////java.util.PropertyResourceBundle@634ef337
+2018-10-22 22:02:07 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:02:07 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:02:07 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:02:07 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:02:07 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:02:07 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 22:02:09 INFO  VaccineController:142 - combo vaccine setOnAction
+2018-10-22 22:02:09 INFO  VaccineController:147 - combo vaccine is Щеплення проти краснухи
+2018-10-22 22:02:09 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:02:09 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_rubella.fxml
+2018-10-22 22:02:09 INFO  VaccineController:131 - ////initialize///////////java.util.PropertyResourceBundle@634ef337
+2018-10-22 22:02:09 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:02:09 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:02:09 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:02:09 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:02:09 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:02:09 INFO  VaccineController:110 - handleAdd
+2018-10-22 22:02:09 INFO  VaccineController:79 - method getResource
+2018-10-22 22:02:09 INFO  VaccineController:87 - 4
+2018-10-22 22:02:09 INFO  VaccineController:112 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:02:09 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:02:09 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:02:12 INFO  VaccineController:116 - true
+2018-10-22 22:03:28 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 22:03:28 DEBUG MainApp:68 -  method Start
+2018-10-22 22:03:28 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 22:03:28 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 22:03:28 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:03:28 DEBUG MainApp:84 - Authintication = false
+2018-10-22 22:03:28 INFO  MainApp:96 - Init Login Controller
+2018-10-22 22:03:28 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 22:03:28 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 22:03:28 INFO  MainApp:110 - Show login page 
+2018-10-22 22:03:32 INFO  LoginController:41 - admin 1234
+2018-10-22 22:03:32 INFO  LoginController:28 - session 1
+2018-10-22 22:03:32 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 22:03:32 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:03:32 DEBUG MainApp:84 - Authintication = true
+2018-10-22 22:03:32 INFO  MainApp:120 - init Root Layout
+2018-10-22 22:03:32 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 22:03:33 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 22:03:33 INFO  MainApp:133 - Show Root header 
+2018-10-22 22:03:33 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 22:03:33 DEBUG MainApp:289 -  File Path = null
+2018-10-22 22:03:33 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 22:03:33 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 22:03:33 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 22:03:33 INFO  LoadExcel:53 - 
+2018-10-22 22:03:33 INFO  PersonOverviewController:316 - null
+2018-10-22 22:03:33 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 22:03:33 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 22:03:33 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 22:03:33 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 22:03:33 INFO  LoadExcel:53 - 
+2018-10-22 22:03:34 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:03:34 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:03:34 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:03:34 INFO  VaccineController:124 - ////initialize///////////java.util.PropertyResourceBundle@2177d8be
+2018-10-22 22:03:34 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:03:34 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:03:34 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:03:34 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:03:34 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:03:34 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 22:03:35 INFO  VaccineController:104 - handleAdd
+2018-10-22 22:03:35 INFO  VaccineController:77 - method getResource
+2018-10-22 22:03:35 INFO  VaccineController:106 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:03:35 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:03:35 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:03:37 INFO  VaccineController:110 - true
+2018-10-22 22:03:38 INFO  VaccineController:135 - combo vaccine setOnAction
+2018-10-22 22:03:38 INFO  VaccineController:140 - combo vaccine is Щеплення проти паротиту
+2018-10-22 22:03:38 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:03:38 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Tuberculin_tests.fxml
+2018-10-22 22:03:38 INFO  VaccineController:124 - ////initialize///////////java.util.PropertyResourceBundle@2177d8be
+2018-10-22 22:03:38 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:03:38 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:03:38 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:03:38 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:03:38 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:03:39 INFO  VaccineController:104 - handleAdd
+2018-10-22 22:03:39 INFO  VaccineController:77 - method getResource
+2018-10-22 22:03:39 INFO  VaccineController:84 - 5
+2018-10-22 22:03:39 INFO  VaccineController:106 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:03:39 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:03:39 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:03:42 INFO  VaccineController:110 - true
+2018-10-22 22:09:54 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 22:09:54 DEBUG MainApp:68 -  method Start
+2018-10-22 22:09:54 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 22:09:54 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 22:09:54 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:09:54 DEBUG MainApp:84 - Authintication = false
+2018-10-22 22:09:54 INFO  MainApp:96 - Init Login Controller
+2018-10-22 22:09:54 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 22:09:54 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 22:09:54 INFO  MainApp:110 - Show login page 
+2018-10-22 22:09:59 INFO  LoginController:41 - admin 1234
+2018-10-22 22:09:59 INFO  LoginController:28 - session 1
+2018-10-22 22:09:59 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 22:09:59 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:09:59 DEBUG MainApp:84 - Authintication = true
+2018-10-22 22:09:59 INFO  MainApp:120 - init Root Layout
+2018-10-22 22:09:59 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 22:09:59 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 22:09:59 INFO  MainApp:133 - Show Root header 
+2018-10-22 22:09:59 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 22:09:59 DEBUG MainApp:289 -  File Path = null
+2018-10-22 22:09:59 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 22:09:59 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 22:09:59 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 22:09:59 INFO  LoadExcel:53 - 
+2018-10-22 22:09:59 INFO  PersonOverviewController:316 - null
+2018-10-22 22:09:59 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 22:09:59 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 22:09:59 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 22:09:59 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 22:09:59 INFO  LoadExcel:53 - 
+2018-10-22 22:10:00 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:10:00 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:10:00 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:10:00 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@42de5eb6
+2018-10-22 22:10:00 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:10:00 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:10:00 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:10:00 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:10:00 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:10:00 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 22:10:01 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:10:01 INFO  VaccineController:77 - method getResource
+2018-10-22 22:10:01 INFO  VaccineController:105 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:10:01 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:10:01 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:10:04 INFO  VaccineController:109 - true
+2018-10-22 22:10:05 INFO  VaccineController:134 - combo vaccine setOnAction
+2018-10-22 22:10:05 INFO  VaccineController:139 - combo vaccine is Щеплення проти краснухи
+2018-10-22 22:10:05 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:10:05 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_rubella.fxml
+2018-10-22 22:10:05 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@42de5eb6
+2018-10-22 22:10:05 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:10:05 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:10:05 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:10:05 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:10:05 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:10:06 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:10:06 INFO  VaccineController:77 - method getResource
+2018-10-22 22:10:06 INFO  VaccineController:84 - 4
+2018-10-22 22:10:06 INFO  VaccineController:105 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:10:06 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:10:06 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:10:11 INFO  VaccineController:109 - true
+2018-10-22 22:11:15 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 22:11:15 DEBUG MainApp:68 -  method Start
+2018-10-22 22:11:15 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 22:11:15 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 22:11:15 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:11:15 DEBUG MainApp:84 - Authintication = false
+2018-10-22 22:11:15 INFO  MainApp:96 - Init Login Controller
+2018-10-22 22:11:15 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 22:11:15 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 22:11:15 INFO  MainApp:110 - Show login page 
+2018-10-22 22:11:23 INFO  LoginController:41 - admin 1234
+2018-10-22 22:11:23 INFO  LoginController:28 - session 1
+2018-10-22 22:11:23 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 22:11:23 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:11:23 DEBUG MainApp:84 - Authintication = true
+2018-10-22 22:11:23 INFO  MainApp:120 - init Root Layout
+2018-10-22 22:11:23 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 22:11:23 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 22:11:23 INFO  MainApp:133 - Show Root header 
+2018-10-22 22:11:23 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 22:11:23 DEBUG MainApp:289 -  File Path = null
+2018-10-22 22:11:23 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 22:11:23 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 22:11:23 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 22:11:23 INFO  LoadExcel:53 - 
+2018-10-22 22:11:23 INFO  PersonOverviewController:316 - null
+2018-10-22 22:11:23 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 22:11:23 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 22:11:23 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 22:11:23 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 22:11:23 INFO  LoadExcel:53 - 
+2018-10-22 22:11:24 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:11:24 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:11:24 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:11:24 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@1c068931
+2018-10-22 22:11:24 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:11:24 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:11:24 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:11:24 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:11:24 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:11:24 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 22:11:25 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:11:25 INFO  VaccineController:77 - method getResource
+2018-10-22 22:11:27 INFO  VaccineController:134 - combo vaccine setOnAction
+2018-10-22 22:11:27 INFO  VaccineController:139 - combo vaccine is Щеплення проти кору
+2018-10-22 22:11:27 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:11:27 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_measles.fxml
+2018-10-22 22:11:27 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@1c068931
+2018-10-22 22:11:27 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:11:27 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:11:27 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:11:27 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:11:27 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:12:54 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 22:12:54 DEBUG MainApp:68 -  method Start
+2018-10-22 22:12:54 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 22:12:54 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 22:12:54 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:12:54 DEBUG MainApp:84 - Authintication = false
+2018-10-22 22:12:54 INFO  MainApp:96 - Init Login Controller
+2018-10-22 22:12:55 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 22:12:55 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 22:12:55 INFO  MainApp:110 - Show login page 
+2018-10-22 22:12:59 INFO  LoginController:41 - admin 1234
+2018-10-22 22:12:59 INFO  LoginController:28 - session 1
+2018-10-22 22:12:59 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 22:12:59 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:12:59 DEBUG MainApp:84 - Authintication = true
+2018-10-22 22:12:59 INFO  MainApp:120 - init Root Layout
+2018-10-22 22:12:59 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 22:12:59 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 22:12:59 INFO  MainApp:133 - Show Root header 
+2018-10-22 22:12:59 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 22:12:59 DEBUG MainApp:289 -  File Path = null
+2018-10-22 22:12:59 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 22:12:59 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 22:12:59 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 22:13:00 INFO  LoadExcel:53 - 
+2018-10-22 22:13:00 INFO  PersonOverviewController:316 - null
+2018-10-22 22:13:00 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 22:13:00 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 22:13:00 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 22:13:00 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 22:13:00 INFO  LoadExcel:53 - 
+2018-10-22 22:13:01 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:13:01 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:13:01 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:13:01 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@2177d8be
+2018-10-22 22:13:01 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:13:01 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:13:01 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:13:01 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:13:01 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:13:01 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 22:13:03 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:13:03 INFO  VaccineController:77 - method getResourcenull
+2018-10-22 22:13:03 INFO  VaccineController:105 - /view/tableEditpages/edit3_6Table.fxml
+2018-10-22 22:13:03 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:13:03 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit3_6Table.fxml
+2018-10-22 22:13:04 INFO  VaccineController:109 - true
+2018-10-22 22:13:05 INFO  VaccineController:134 - combo vaccine setOnAction
+2018-10-22 22:13:05 INFO  VaccineController:139 - combo vaccine is Щеплення проти краснухи
+2018-10-22 22:13:05 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:13:05 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_rubella.fxml
+2018-10-22 22:13:05 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@2177d8be
+2018-10-22 22:13:05 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:13:05 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:13:05 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:13:05 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:13:05 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:13:06 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:13:06 INFO  VaccineController:77 - method getResourceЩеплення проти краснухи
+2018-10-22 22:13:06 INFO  VaccineController:84 - 4
+2018-10-22 22:13:06 INFO  VaccineController:105 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:13:06 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:13:06 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:13:08 INFO  VaccineController:109 - true
+2018-10-22 22:14:51 INFO  MainApp:321 - ////////////// Start//////////////// 
+2018-10-22 22:14:52 DEBUG MainApp:68 -  method Start
+2018-10-22 22:14:52 INFO  MainApp:75 - locale was added,default UK
+2018-10-22 22:14:52 INFO  MainApp:77 - Current Lang Украинский
+2018-10-22 22:14:52 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:14:52 DEBUG MainApp:84 - Authintication = false
+2018-10-22 22:14:52 INFO  MainApp:96 - Init Login Controller
+2018-10-22 22:14:52 DEBUG MainApp:104 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/UserAuthentication.fxml
+2018-10-22 22:14:52 DEBUG MainApp:108 - Pass main object to loginController 
+2018-10-22 22:14:52 INFO  MainApp:110 - Show login page 
+2018-10-22 22:14:56 INFO  LoginController:41 - admin 1234
+2018-10-22 22:14:56 INFO  LoginController:28 - session 1
+2018-10-22 22:14:56 INFO  LoginController:21 - method authenticated curren session number session 1
+2018-10-22 22:14:56 DEBUG MainApp:83 -  method Authintication
+2018-10-22 22:14:56 DEBUG MainApp:84 - Authintication = true
+2018-10-22 22:14:56 INFO  MainApp:120 - init Root Layout
+2018-10-22 22:14:56 DEBUG MainApp:126 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/RootLayout.fxml
+2018-10-22 22:14:56 DEBUG MainApp:130 - Pass main object to rootController 
+2018-10-22 22:14:56 INFO  MainApp:133 - Show Root header 
+2018-10-22 22:14:56 INFO  MainApp:285 - method getPersonFilePath
+2018-10-22 22:14:56 DEBUG MainApp:289 -  File Path = null
+2018-10-22 22:14:56 INFO  MainApp:149 - method ShowPersonOverview
+2018-10-22 22:14:56 INFO  PersonOverviewController:186 - ////initialize///////////uk
+2018-10-22 22:14:56 INFO  PersonOverviewController:163 - fill locale into box 
+2018-10-22 22:14:56 INFO  LoadExcel:53 - 
+2018-10-22 22:14:56 INFO  PersonOverviewController:316 - null
+2018-10-22 22:14:56 DEBUG PersonOverviewController:298 - []boxOfClasses
+2018-10-22 22:14:56 DEBUG MainApp:157 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/PersonOverview.fxml
+2018-10-22 22:14:56 INFO  MainApp:161 -  Add observer for person controller 
+2018-10-22 22:14:56 DEBUG MainApp:162 - Pass main object to personController 
+2018-10-22 22:14:56 INFO  LoadExcel:53 - 
+2018-10-22 22:14:57 DEBUG PersonOverviewController:342 - /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:14:57 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:14:57 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_tuberculosis.fxml
+2018-10-22 22:14:57 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@4a05685c
+2018-10-22 22:14:57 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:14:57 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:14:57 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:14:57 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:14:57 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:14:57 DEBUG PersonOverviewController:345 - show Tables()
+2018-10-22 22:14:59 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:14:59 INFO  VaccineController:77 - method getResourcenull
+2018-10-22 22:14:59 INFO  VaccineController:105 - /view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:14:59 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:14:59 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit1_2Table.fxml
+2018-10-22 22:15:00 INFO  VaccineController:109 - true
+2018-10-22 22:15:02 INFO  VaccineController:134 - combo vaccine setOnAction
+2018-10-22 22:15:02 INFO  VaccineController:139 - combo vaccine is Щеплення проти краснухи
+2018-10-22 22:15:02 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:15:02 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_rubella.fxml
+2018-10-22 22:15:02 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@4a05685c
+2018-10-22 22:15:02 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:15:02 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:15:02 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:15:02 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:15:02 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:15:02 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:15:02 INFO  VaccineController:77 - method getResourceЩеплення проти краснухи
+2018-10-22 22:15:02 INFO  VaccineController:87 - 4
+2018-10-22 22:15:02 INFO  VaccineController:105 - /view/tableEditpages/edit3_6Table.fxml
+2018-10-22 22:15:02 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:15:02 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit3_6Table.fxml
+2018-10-22 22:15:04 INFO  VaccineController:109 - true
+2018-10-22 22:15:05 INFO  VaccineController:134 - combo vaccine setOnAction
+2018-10-22 22:15:05 INFO  VaccineController:139 - combo vaccine is Щеплення проти гепатиту В
+2018-10-22 22:15:05 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:15:05 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Vaccination_against_hepatitis_B.fxml
+2018-10-22 22:15:05 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@4a05685c
+2018-10-22 22:15:05 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:15:05 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:15:05 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:15:06 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:15:06 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:15:06 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:15:06 INFO  VaccineController:77 - method getResourceЩеплення проти гепатиту В
+2018-10-22 22:15:06 INFO  VaccineController:87 - 6
+2018-10-22 22:15:06 INFO  VaccineController:105 - /view/tableEditpages/edit3_6Table.fxml
+2018-10-22 22:15:06 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:15:06 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit3_6Table.fxml
+2018-10-22 22:15:07 INFO  VaccineController:109 - true
+2018-10-22 22:15:10 INFO  VaccineController:134 - combo vaccine setOnAction
+2018-10-22 22:15:10 INFO  VaccineController:139 - combo vaccine is Туберкулінові проби
+2018-10-22 22:15:10 INFO  MainApp:172 - method ShowVaccination Tables
+2018-10-22 22:15:10 INFO  MainApp:173 - Locale uk_UAResource /view/vaccination/Tuberculin_tests.fxml
+2018-10-22 22:15:10 INFO  VaccineController:123 - ////initialize///////////java.util.PropertyResourceBundle@4a05685c
+2018-10-22 22:15:10 INFO  VaccineController:63 - List of vaccine =  [Щеплення проти туберкульозу, Щеплення проти поліомієліту, Щеплення проти дифтерії, кашлюку, правцю, Щеплення проти кору, Щеплення проти краснухи, Щеплення проти паротиту, Щеплення проти гепатиту В, Туберкулінові проби]
+2018-10-22 22:15:10 INFO  VaccineController:66 - fill vaccine  into box 
+2018-10-22 22:15:10 DEBUG MainApp:181 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:15:10 DEBUG MainApp:188 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/VaccinationTables.fxml
+2018-10-22 22:15:10 DEBUG MainApp:191 - Pass main object to vaccineController 
+2018-10-22 22:15:11 INFO  VaccineController:103 - handleAdd
+2018-10-22 22:15:11 INFO  VaccineController:77 - method getResourceТуберкулінові проби
+2018-10-22 22:15:11 INFO  VaccineController:90 - 7
+2018-10-22 22:15:11 INFO  VaccineController:105 - /view/tableEditpages/edit7Table.fxml
+2018-10-22 22:15:11 INFO  MainApp:231 - method showTableVaccineEditDialog
+2018-10-22 22:15:11 DEBUG MainApp:240 - Load file:/C:/Users/bigda/eclipse-workspace/SchoolMedProject/target/classes/view/tableEditpages/edit7Table.fxml
+2018-10-22 22:15:14 INFO  VaccineController:109 - true

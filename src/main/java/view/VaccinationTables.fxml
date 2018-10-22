@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -10,6 +11,13 @@
       <AnchorPane prefHeight="55.0" prefWidth="850.0" BorderPane.alignment="CENTER">
          <children>
             <ComboBox fx:id="comboVaccine" layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="427.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+            <ButtonBar layoutX="459.0" layoutY="16.0">
+               <buttons>
+                  <Button mnemonicParsing="false" onAction="#handleAdd" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#handleUpdate" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
+               </buttons>
+            </ButtonBar>
          </children>
       </AnchorPane>
    </top>

@@ -2,11 +2,12 @@ package model.vaccine;
 
 import java.time.LocalDate;
 
-
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
 public class TuberculinTest {
 
+	private IntegerProperty row;
 	private StringProperty doze;
 	private StringProperty series;
 	private LocalDate date;
@@ -33,6 +34,14 @@ public class TuberculinTest {
 	
 	public void setDate(LocalDate date) {
 		this.date = date;
+	}
+
+	public IntegerProperty getRow() {
+		return row;
+	}
+
+	public void setRow(IntegerProperty row) {
+		this.row = row;
 	}
 
 }

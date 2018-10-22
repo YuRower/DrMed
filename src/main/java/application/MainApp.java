@@ -27,6 +27,7 @@ import view.PersonEditDialogController;
 import view.PersonOverviewController;
 import view.RootLayoutController;
 import view.VaccineController;
+import view.tableEditpages.VaccineEditPageController;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -42,8 +43,12 @@ public class MainApp extends Application implements Observer {
 	RootLayoutController rootController;
 	LoginController loginController;
 	VaccineController vaccineController;
+	VaccineEditPageController vaccineEditController;
+
 	private BorderPane rootLayout;
 	private AnchorPane editPersonPage;
+	private AnchorPane editTablePage;
+
 
 	AnchorPane personOverview;
 	AnchorPane loginPage;
@@ -185,6 +190,8 @@ public class MainApp extends Application implements Observer {
 			vaccineController = loader.getController();
 			LOGGER.debug("Pass main object to vaccineController ");
 			vaccineController.setMainApp(this);
+		//	vaccineController.initialize();
+
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			LOGGER.error(ex);
@@ -219,7 +226,36 @@ public class MainApp extends Application implements Observer {
 			return false;
 		}
 	}
+	public boolean showTableVaccineEditDialog(String resource) throws ParseException {
+		try {
+			LOGGER.info("method showTableVaccineEditDialog");
 
+		//	getPrimaryStage().setFullScreen(true);
+
+			FXMLLoader loader = new FXMLLoader();
+			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, LocaleManager.UA_LOCALE));
+
+			loader.setLocation(MainApp.class.getResource(resource));
+			editTablePage = loader.load();
+			LOGGER.debug("Load " + loader.getLocation());
+
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Person");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(primaryStage);
+			Scene scene = new Scene(editTablePage);
+			dialogStage.setScene(scene);
+			vaccineEditController = loader.getController();
+		//	vaccineEditController.setDialogStage(dialogStage);
+			//controller.setPerson(person);
+			//dialogStage.getIcons().add(new Image("/images/edit.png"));
+			dialogStage.showAndWait();
+			return true;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 	@Override
 	public void update(Observable o, Object arg) {
 		LOGGER.info("method update");
