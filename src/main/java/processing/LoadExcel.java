@@ -95,26 +95,33 @@ public class LoadExcel {
 						switch (columnIndex) {
 						case 0:
 							person.setFirstName((String) getCellValue(nextCell));
+							LOGGER.info(person.getFirstName());
 							break;
 						case 1:
 							person.setLastName((String) getCellValue(nextCell));
 							break;
 						case 2:
+							person.setPatronymic((String)getCellValue(nextCell));
+							break;
+						case 3:
 							person.setStreet((String) getCellValue(nextCell));
 							break;
-
-						case 3:
-							person.setPostalCode((int) (double) getCellValue(nextCell));
-							break;
-
 						case 4:
-							person.setCity((String) getCellValue(nextCell));
+							Object postalCode = getCellValue(nextCell);
+							if(postalCode == null) {
+								LOGGER.info("null------------------");
+								break;
+							}else {
+							person.setPostalCode((int )( (double) postalCode));
+							}
 							break;
-
 						case 5:
 							DataFormatter dataFormatter = new DataFormatter();
 							String cellStringValue = dataFormatter.formatCellValue(nextCell);				
 							person.setBirthday(cellStringValue);
+							break;
+						case 6:
+							person.setPhoneNumber((String) getCellValue(nextCell));
 							break;
 						}
 

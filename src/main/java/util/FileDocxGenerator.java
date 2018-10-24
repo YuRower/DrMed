@@ -135,7 +135,7 @@ public class FileDocxGenerator {
 		map.put(title[1], person.getLastName());
 		map.put(title[2], person.getStreet());
 		map.put(title[3], person.getPostalCode());
-		map.put(title[4], person.getCity());
+		map.put(title[4], person.getPhoneNumber());
 		map.put(title[5], person.getBirthday());
 		map.put(title[6], "");
 

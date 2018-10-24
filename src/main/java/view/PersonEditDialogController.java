@@ -26,13 +26,15 @@ public class PersonEditDialogController {
 	@FXML
 	private TextField lastNameField;
 	@FXML
+	private TextField patronymicField;
+	@FXML
 	private TextField streetField;
 	@FXML
 	private TextField postalCodeField;
 	@FXML
-	private TextField cityField;
-	@FXML
 	private TextField birthdayField;
+	@FXML
+	private TextField phoneNumberField;
 	
 	private Stage dialogStage;
 	private Person person;
@@ -54,13 +56,13 @@ public class PersonEditDialogController {
 		this.person = person;
 		firstNameField.setText(person.getFirstName());
 		lastNameField.setText(person.getLastName());
+		patronymicField.setText(person.getPatronymic());
 		streetField.setText(person.getStreet());
 		postalCodeField.setText(Integer.toString(person.getPostalCode()));
-		cityField.setText(person.getCity());
 		birthdayField.setText(String.valueOf(DateUtil.parse(String.valueOf(person.getBirthday()))));
 		LOGGER.debug(String.valueOf(DateUtil.parse(String.valueOf(person.getBirthday()))));
-
 		birthdayField.setPromptText("dd.mm.yyyy");
+		phoneNumberField.setText(person.getPhoneNumber());
 	}
 
 	public boolean isOkClicked() {
@@ -74,11 +76,12 @@ public class PersonEditDialogController {
 
 			person.setFirstName(firstNameField.getText());
 			person.setLastName(lastNameField.getText());
+			person.setPatronymic(patronymicField.getText());
 			person.setStreet(streetField.getText());
 			person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
-			person.setCity(cityField.getText());
 			person.setBirthday(DateUtil.format(LocalDate.parse(birthdayField.getText())));
 			LOGGER.info(" User edit info " + DateUtil.format(LocalDate.parse(birthdayField.getText())));
+			person.setPhoneNumber(phoneNumberField.getText());
 
 			okClicked = true;
 			dialogStage.close();
@@ -101,6 +104,9 @@ public class PersonEditDialogController {
 		if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
 			errorMessage += "No valid last name!\n";
 		}
+		if (patronymicField.getText() == null || patronymicField.getText().length() == 0) {
+			errorMessage += "No valid patronymic name !\n";
+		}
 		if (streetField.getText() == null || streetField.getText().length() == 0) {
 			errorMessage += "No valid street!\n";
 		}
@@ -117,12 +123,13 @@ public class PersonEditDialogController {
 			}
 		}
 
-		if (cityField.getText() == null || cityField.getText().length() == 0) {
-			errorMessage += "No valid city!\n";
-		}
 
 		if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
 			errorMessage += "No valid birthday!\n";
+		}
+		if (phoneNumberField.getText() == null || phoneNumberField.getText().length() == 0) {
+			errorMessage += "No valid city!\n";
+		
 		} else {
 			if (!DateUtil.validDate(birthdayField.getText())) {
 				errorMessage += "No valid birthday. Use the format dd.mm.yyyy!\n";

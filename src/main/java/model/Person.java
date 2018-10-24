@@ -11,42 +11,45 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Person {
-	@Override
-	public String toString() {
-		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", street=" + street + ", postalCode="
-				+ postalCode + ", city=" + city + ", birthday=" + birthday + ", currentLocale=" + currentLocale + "]";
-	}
-
+	
 	private final static Logger LOGGER = Logger.getLogger(Person.class);
 	private StringProperty firstName;
 	private StringProperty lastName;
+	private StringProperty patronymic;
 	private StringProperty street;
 	private IntegerProperty postalCode;
-	private StringProperty city;
 	private StringProperty birthday;
+	private StringProperty phoneNumber;
 	Locale currentLocale = Locale.getDefault();
 
 	public Person() {
-		this(null, null);
+		this(null, null, null, null, 0, null, null);
 	}
 
-	public Person(String firstName, String lastName) {
+	public Person(String lastName, String firstName, String patronymic,String street,int postalCode,String birthday,String phoneNumber) {
 		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
-		this.street = new SimpleStringProperty("some street");
-		this.postalCode = new SimpleIntegerProperty(1234);
-		this.city = new SimpleStringProperty("some city");
-		this.birthday = new SimpleStringProperty(
-				String.valueOf(DateFormat.getDateInstance(DateFormat.DEFAULT, currentLocale)));
+		this.patronymic = new SimpleStringProperty(patronymic);
+		this.street = new SimpleStringProperty(street);
+		this.postalCode = new SimpleIntegerProperty(postalCode);
+		this.birthday = new SimpleStringProperty(birthday);
+		this.phoneNumber=new SimpleStringProperty(phoneNumber);
 		LOGGER.debug(birthday + " date of birthday ");
 	}
-
+	public String getPhoneNumber() {
+		return phoneNumber.get();
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber.set(phoneNumber);
+	}
+	public StringProperty phoneNumberProperty() {
+		return phoneNumber;
+	}
 	public String getFirstName() {
 		return firstName.get();
 	}
 
 	public void setFirstName(String firstName) {
-		System.out.println(firstName);
 		this.firstName.set(firstName);
 	}
 
@@ -90,16 +93,16 @@ public class Person {
 		return postalCode;
 	}
 
-	public String getCity() {
-		return city.get();
+	public String getPatronymic() {
+		return patronymic.get();
 	}
 
-	public void setCity(String city) {
-		this.city.set(city);
+	public void setPatronymic(String patronymic) {
+		this.patronymic.set(patronymic);
 	}
 
-	public StringProperty cityProperty() {
-		return city;
+	public StringProperty patronymicProperty() {
+		return patronymic;
 	}
 
 	public StringProperty birthdayProperty() {

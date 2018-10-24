@@ -46,28 +46,33 @@ public class WriteExcel {
 			row = sheet.createRow(rownum);
 
 			cell = row.createCell(0, CellType.STRING);
-			cell.setCellValue("First Name");
+			cell.setCellValue("Прізвище");
 			cell.setCellStyle(style);
 
 			cell = row.createCell(1, CellType.STRING);
-			cell.setCellValue("Last Name");
+			cell.setCellValue("Ім'я");
 			cell.setCellStyle(style);
 
 			cell = row.createCell(2, CellType.STRING);
-			cell.setCellValue("Street");
+			cell.setCellValue("По батькові");
 			cell.setCellStyle(style);
 
 			cell = row.createCell(3, CellType.STRING);
-			cell.setCellValue("Postal Code");
+			cell.setCellValue("Адреса проживання");
 			cell.setCellStyle(style);
 
 			cell = row.createCell(4, CellType.STRING);
-			cell.setCellValue("City");
+			cell.setCellValue("Індекс проживання");
 			cell.setCellStyle(style);
 
 			cell = row.createCell(5);
-			cell.setCellValue("Birthday");
+			cell.setCellValue("Д/Н");
 			cell.setCellStyle(style);
+			
+			cell = row.createCell(6, CellType.STRING);
+			cell.setCellValue("Телефон");
+			cell.setCellStyle(style);
+			
 
 			for (Person emp : list) {
 				rownum++;
@@ -78,11 +83,11 @@ public class WriteExcel {
 				cell = row.createCell(1, CellType.STRING);
 				cell.setCellValue(emp.getLastName());
 				cell = row.createCell(2, CellType.STRING);
+				cell.setCellValue(emp.getPatronymic());
+				cell = row.createCell(3, CellType.STRING);
 				cell.setCellValue(emp.getStreet());
-				cell = row.createCell(3, CellType.NUMERIC);
+				cell = row.createCell(4, CellType.NUMERIC);
 				cell.setCellValue(emp.getPostalCode());
-				cell = row.createCell(4, CellType.STRING);
-				cell.setCellValue(emp.getCity());
 
 				CellStyle cellStyle = workbook.createCellStyle();
 
@@ -93,6 +98,9 @@ public class WriteExcel {
 				cell = row.createCell(5);
 				cell.setCellValue(emp.getBirthday());
 				cell.setCellStyle(cellStyle);
+				
+				cell = row.createCell(6, CellType.STRING);
+				cell.setCellValue(emp.getPhoneNumber());
 			}
 		}
 

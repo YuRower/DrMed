@@ -192,7 +192,7 @@ public class MainApp extends Application implements Observer {
 			vaccineController = loader.getController();
 			LOGGER.debug("Pass main object to vaccineController ");
 			vaccineController.setMainApp(this);
-			vaccineController.setSelectedPerson(person);
+
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			LOGGER.error(ex);

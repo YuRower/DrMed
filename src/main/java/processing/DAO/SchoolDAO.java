@@ -40,7 +40,7 @@ public class SchoolDAO {
 				write = new WriteExcel();
 				write.writeToExcel(file);
 				LOGGER.debug("Write file " + file + " to " + file.getAbsolutePath());
-
+				DialogManager.fileSuccessfully();
 			} else if (marker == Status.LOAD) {
 				load = new LoadExcel();
 				listPerson = load.readBooksFromExcelFile(file, null);

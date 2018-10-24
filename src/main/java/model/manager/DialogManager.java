@@ -114,4 +114,14 @@ public class DialogManager {
 
 		alert.showAndWait();
 	}
+
+	public static void fileSuccessfully() {
+		LOGGER.info("method showInfoDialog with " + "file successfully written" + " " );
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle("file successfully written");
+		alert.setContentText("file successfully written");
+		alert.setHeaderText("");
+		alert.showAndWait();
+		
+	}
 }

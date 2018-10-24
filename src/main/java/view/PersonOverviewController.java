@@ -61,11 +61,13 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@FXML
 	private Label lastNameLabel;
 	@FXML
+	private Label  patronymicLabel;
+	@FXML
 	private Label streetLabel;
 	@FXML
 	private Label postalCodeLabel;
 	@FXML
-	private Label cityLabel;
+	private Label phoneNumberLabel;
 	@FXML
 	private Label birthdayLabel;
 
@@ -200,7 +202,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 		this.mainApp = mainApp;
 		if (LoadExcel.getOuter() != null) {
 			LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
-
 			personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
 		}
 	}
@@ -209,16 +210,19 @@ public class PersonOverviewController extends Observable implements Initializabl
 		if (person != null) {
 			firstNameLabel.setText(person.getFirstName());
 			lastNameLabel.setText(person.getLastName());
+			patronymicLabel.setText(person.getLastName());
+
 			streetLabel.setText(person.getStreet());
 			postalCodeLabel.setText(Integer.toString(person.getPostalCode()));
-			cityLabel.setText(person.getCity());
+			phoneNumberLabel.setText(person.getPhoneNumber());
 			birthdayLabel.setText((person.getBirthday()));
 		} else {
 			firstNameLabel.setText("");
 			lastNameLabel.setText("");
+			patronymicLabel.setText("");
 			streetLabel.setText("");
 			postalCodeLabel.setText("");
-			cityLabel.setText("");
+			phoneNumberLabel.setText("");
 			birthdayLabel.setText("");
 		}
 	}
