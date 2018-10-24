@@ -16,15 +16,15 @@ import processing.LoadExcel;
 import processing.WriteExcel;
 
 public class SchoolDAO {
-	
+
 	private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
 	private final static Logger LOGGER = Logger.getLogger(SchoolDAO.class);
 	MainApp app;
 	WriteExcel write;
 	LoadExcel load;
-	private ObservableList<Person> currClass;
-	private ObservableList<Person> personWrapper;
+	private static ObservableList<Person> currClass;
+	private static ObservableList<Person> personWrapper;
 
 	public static ObservableList<Person> getPersonData() {
 		return personData;
@@ -68,18 +68,35 @@ public class SchoolDAO {
 	}
 
 	public ObservableList<Person> update(int indexClass) throws IOException {
-		
+
 		LOGGER.info("update class ");
 
 		currClass = LoadExcel.getOuter().get(indexClass);
 		LOGGER.info(currClass);
 		personWrapper = FXCollections.observableArrayList(currClass);
+
 		return personWrapper;
 
 	}
-	public void  delete(int index) {
+
+	public void delete(int index) {
 		LOGGER.info(personWrapper);
 		personWrapper.remove(index);
 		LOGGER.info(personWrapper);
+	}
+
+	public void clearWrapperList() {
+		if (currClass == null) {
+			LOGGER.info("null");
+
+			LOGGER.info(currClass);
+			LOGGER.info(personWrapper);
+		} else {
+			LOGGER.info("not null");
+
+			currClass.clear();
+			personWrapper.clear();
+		}
+
 	}
 }

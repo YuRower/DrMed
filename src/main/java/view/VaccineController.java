@@ -1,5 +1,6 @@
 package view;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -21,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -33,11 +35,16 @@ import model.manager.ClassesManager;
 import model.manager.LocaleManager;
 import model.manager.VaccineManager;
 import model.vaccine.VaccineEntity;
+import model.wrapper.VaccineWrapper;
+import processing.LoadExcel;
+import processing.XMLProcessing;
 import processing.DAO.VaccinationTypeDAO;
 import view.vaccination.VaccineTableController;
 
 public class VaccineController implements Initializable {
 	MainApp main;
+    @FXML
+    private Label selectedPersonLabel;
 	@FXML
 	public ComboBox<VaccineTypeLocation> comboVaccine;
 	private final static Logger LOGGER = Logger.getLogger(VaccineController.class);
@@ -45,6 +52,7 @@ public class VaccineController implements Initializable {
 	private static final String FIRST_TWO_TABLES = "/view/tableEditpages/edit1_2Table.fxml";
 	private static final String FROM_THREE_TO_SIX_TABLES = "/view/tableEditpages/edit3_6Table.fxml";
 	private static final String LAST_TABLE = "/view/tableEditpages/edit7Table.fxml";
+	private static final String XML_FILE = "xmlFile//vaccineInfo.xml";
 
 	/**
 	 * @return the vaccineData
@@ -56,7 +64,7 @@ public class VaccineController implements Initializable {
 	public void setMainApp(MainApp mainApp) {
 		this.main = mainApp;
 	}
-
+     Person currentPerson ;
 	private void fillVaccineComboBox() {
 		ObservableList<VaccineTypeLocation> list = VaccinationTypeDAO.getVaccineList();
 
@@ -74,7 +82,7 @@ public class VaccineController implements Initializable {
 	}
 
 	public String getResource() {
-		LOGGER.info("method getResource"+VaccineManager.getCurrentVaccine());
+		LOGGER.info("method getResource" + VaccineManager.getCurrentVaccine());
 		String resource = null;
 		if (VaccineManager.getCurrentVaccine() == null) {
 			resource = FIRST_TWO_TABLES;
@@ -99,43 +107,45 @@ public class VaccineController implements Initializable {
 	}
 
 	@FXML
-	private void handleAdd() {
+	private void handleAdd() throws ParseException {
+		VaccineEntity newVaccine = new VaccineEntity();
+
 		LOGGER.info("handleAdd");
 		String resource = getResource();
 		LOGGER.info(resource);
+		boolean result = main.showTableVaccineEditDialog(newVaccine, resource);
+		LOGGER.info(result);
+		if (result) {
+			LOGGER.debug(newVaccine + "newVaccine");
+			XMLProcessing xmlFile = new XMLProcessing();
+			xmlFile.savePersonDataToFile(XML_FILE, newVaccine);
+			new VaccineTableController().init();;
 
-		try {
-			boolean result = main.showTableVaccineEditDialog(resource);
-			LOGGER.info(result);
-		} catch (ParseException e) {
-			e.printStackTrace();
+			/*
+			 * LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(newVaccine);
+			 * personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex(
+			 * )));
+			 * 
+			 * updateCountLabel();
+			 */
+
 		}
 	}
+
 	@FXML
 	private void handleUpdate() {
 		LOGGER.info("handleUpdate");
 		String resource = getResource();
 		LOGGER.info(resource);
 
-		try {
-			boolean result = main.showTableVaccineEditDialog(resource);
-			LOGGER.info(result);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 	}
+
 	@FXML
 	private void handleDelete() {
 		LOGGER.info("handleDelete");
 		String resource = getResource();
 		LOGGER.info(resource);
 
-		try {
-			boolean result = main.showTableVaccineEditDialog(resource);
-			LOGGER.info(result);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@FXML
@@ -147,9 +157,10 @@ public class VaccineController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		LOGGER.info("////initialize///////////" + arg1);
+		//selectedPersonLabel.setText(main.selectedPerson.getLastName());
 		fillVaccineComboBox();
 		initListeners();
-
+		new VaccineTableController();
 	}
 
 	private void initListeners() {
@@ -163,11 +174,18 @@ public class VaccineController implements Initializable {
 
 				VaccineManager.setCurrentVaccine(optionOfVaccine);
 				LOGGER.info("combo vaccine is " + VaccineManager.getCurrentVaccine());
-				main.showVaccinationTables(LocaleManager.UA_LOCALE, VaccineManager.getCurrentVaccine().getResource());
+				main.showVaccinationTables(LocaleManager.UA_LOCALE, VaccineManager.getCurrentVaccine().getResource(),currentPerson);
 
 			}
 		});
 
 	}
+
+	public void setSelectedPerson(Person person) {
+		this.selectedPersonLabel.setText(person.getLastName());
+		this.currentPerson = person;
+	}
+
+	
 
 }

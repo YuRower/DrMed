@@ -70,7 +70,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	private Label birthdayLabel;
 
 	@FXML
-	public ComboBox comboLocales;
+	public ComboBox<Lang> comboLocales;
 
 	@FXML
 	private CustomTextField txtSearch;
@@ -88,7 +88,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	private MainApp mainApp;
-	SchoolDAO schoolStorage = new SchoolDAO();
 
 	@FXML
 	private Label labelCount;
@@ -199,8 +198,9 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
-		// LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
 		if (LoadExcel.getOuter() != null) {
+			LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
+
 			personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
 		}
 	}
@@ -224,11 +224,11 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	private void initListeners() {
+		SchoolDAO schoolStorage = new SchoolDAO();
 
 		SchoolDAO.getPersonData().addListener(new ListChangeListener<Person>() {
 			@Override
 			public void onChanged(Change<? extends Person> c) {
-				LOGGER.info("error");
 				updateCountLabel();
 				fillComboBox();
 			}
@@ -244,14 +244,17 @@ public class PersonOverviewController extends Observable implements Initializabl
 						e.printStackTrace();
 					}
 				}
+
 			}
 		});
 		comboClass.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+
 				LOGGER.info("comboClass.setOnAction");
 
 				Classes selectedClass = (Classes) comboClass.getSelectionModel().getSelectedItem();
+				if ( selectedClass != null) {
 				int index = selectedClass.getIndex();
 				LOGGER.info(index + "////sortedData///////////");
 
@@ -267,8 +270,14 @@ public class PersonOverviewController extends Observable implements Initializabl
 				}
 
 				personTable.setItems(updatedClass);
+				
 				updateCountLabel();
+				}else {
+					LOGGER.info("////selectedClass is null ///////");
+
+				}
 			}
+			
 		});
 
 		comboLocales.setOnAction(new EventHandler<ActionEvent>() {
@@ -276,7 +285,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 			public void handle(ActionEvent event) {
 				LOGGER.info("combo Locales listener");
 
-				Lang selectedLang = (Lang) comboLocales.getSelectionModel().getSelectedItem();
+				Lang selectedLang = comboLocales.getSelectionModel().getSelectedItem();
 
 				LocaleManager.setCurrentLang(selectedLang);
 				LOGGER.info("selected lang " + selectedLang);
@@ -309,9 +318,13 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	private void updateCountLabel() {
 		if (LoadExcel.getOuter() != null) {
-			LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
-			labelCount.setText(resourceBundle.getString("count") + ": "
-					+ LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+			if (!LoadExcel.getOuter().isEmpty()) {
+				LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+				labelCount.setText(resourceBundle.getString("count") + ": "
+						+ LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+			} else {
+				labelCount.setText(resourceBundle.getString("count") + ": " + 0);
+			}
 		} else {
 			LOGGER.info("null");
 
@@ -337,11 +350,12 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 	private void showTables() {
+		Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
 
 		String resource = VaccinationTypeDAO.getVaccineList().get(0).getResource();
 		LOGGER.debug(resource);
 
-		mainApp.showVaccinationTables(LocaleManager.UA_LOCALE, resource);
+		mainApp.showVaccinationTables(LocaleManager.UA_LOCALE, resource, selectedPerson);
 		LOGGER.debug("show Tables()");
 	}
 

@@ -30,16 +30,18 @@ public class RootLayoutController {
 	private void handleNew() {
 		LOGGER.info(LoadExcel.getSheetName() + " " + LoadExcel.getClassList() + " " + LoadExcel.getOuter() + " "
 				+ SchoolDAO.getPersonData() + " " + PersonOverviewController.getComboClasslist());
-		LOGGER.info(LoadExcel.getSheetName() == null);
+		LOGGER.info(LoadExcel.getSheetName() != null);
 		LOGGER.info(LoadExcel.getClassList().isEmpty());
-		LOGGER.info(LoadExcel.getOuter() == null);
+		LOGGER.info(LoadExcel.getOuter() != null);
 		LOGGER.info(SchoolDAO.getPersonData().isEmpty());
-		LOGGER.info(PersonOverviewController.getComboClasslist() == null);
+		
+
+		LOGGER.info(PersonOverviewController.getComboClasslist() != null);
 
 		if (!((LoadExcel.getSheetName() == null) && (LoadExcel.getClassList().isEmpty())
 				&& (LoadExcel.getOuter() == null) && (SchoolDAO.getPersonData().isEmpty()))) {
 			LOGGER.info("ddelete");
-
+			schoolStorage.clearWrapperList();
 			LoadExcel.getClassList().clear();
 			LoadExcel.getOuter().clear();
 			LoadExcel.getSheetName().clear();

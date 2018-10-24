@@ -21,6 +21,7 @@ import model.Lang;
 import model.Person;
 import model.Status;
 import model.manager.LocaleManager;
+import model.vaccine.VaccineEntity;
 import processing.DAO.SchoolDAO;
 import view.LoginController;
 import view.PersonEditDialogController;
@@ -164,10 +165,11 @@ public class MainApp extends Application implements Observer {
 
 		} catch (IOException e) {
 			LOGGER.error(e);
+			e.printStackTrace();
 		}
 	}
 
-	public void showVaccinationTables(Locale locale, String resource) {
+	public void showVaccinationTables(Locale locale, String resource , Person person ) {
 		try {
 			LOGGER.info("method ShowVaccination Tables");
 			LOGGER.info("Locale " + locale.toString() + "Resource " + resource);
@@ -190,8 +192,7 @@ public class MainApp extends Application implements Observer {
 			vaccineController = loader.getController();
 			LOGGER.debug("Pass main object to vaccineController ");
 			vaccineController.setMainApp(this);
-		//	vaccineController.initialize();
-
+			vaccineController.setSelectedPerson(person);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			LOGGER.error(ex);
@@ -226,7 +227,7 @@ public class MainApp extends Application implements Observer {
 			return false;
 		}
 	}
-	public boolean showTableVaccineEditDialog(String resource) throws ParseException {
+	public boolean showTableVaccineEditDialog(VaccineEntity vaccine ,String resource) throws ParseException {
 		try {
 			LOGGER.info("method showTableVaccineEditDialog");
 
@@ -246,8 +247,10 @@ public class MainApp extends Application implements Observer {
 			Scene scene = new Scene(editTablePage);
 			dialogStage.setScene(scene);
 			vaccineEditController = loader.getController();
-		//	vaccineEditController.setDialogStage(dialogStage);
-			//controller.setPerson(person);
+			vaccineEditController.setDialogStage(dialogStage);
+			LOGGER.debug("set vaccine " );
+
+			vaccineEditController.setFisrtTwoTable(vaccine);
 			//dialogStage.getIcons().add(new Image("/images/edit.png"));
 			dialogStage.showAndWait();
 			return true;

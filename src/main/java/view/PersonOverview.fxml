@@ -75,9 +75,9 @@
                   </GridPane>
                   <ButtonBar layoutX="-40.0" layoutY="5.0" prefHeight="33.0" prefWidth="333.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="5.0">
                     <buttons>
-                      <Button mnemonicParsing="false" onAction="#handleNewPerson" prefWidth="100.0" text="New..." />
-                        <Button mnemonicParsing="false" onAction="#handleEditPerson" prefWidth="100.0" text="Edit..." />
-                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="33.0" prefWidth="100.0" text="Delete" />
+                      <Button mnemonicParsing="false" onAction="#handleNewPerson" prefWidth="100.0" text="%add" />
+                        <Button mnemonicParsing="false" onAction="#handleEditPerson" prefWidth="100.0" text="%edit" />
+                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="33.0" prefWidth="100.0" text="%delete" />
                     </buttons>
                   </ButtonBar>
                   <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="59.0" prefHeight="50.0" prefWidth="311.0">

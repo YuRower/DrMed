@@ -3,21 +3,24 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="505.0" prefWidth="859.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.VaccineController">
+<BorderPane prefHeight="505.0" prefWidth="905.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.VaccineController">
    <top>
       <AnchorPane prefHeight="55.0" prefWidth="850.0" BorderPane.alignment="CENTER">
          <children>
             <ComboBox fx:id="comboVaccine" layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="427.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-            <ButtonBar layoutX="459.0" layoutY="16.0">
+            <ButtonBar layoutX="608.0" layoutY="14.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#handleAdd" text="Add" />
                   <Button mnemonicParsing="false" onAction="#handleUpdate" text="Edit" />
                   <Button mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
                </buttons>
             </ButtonBar>
+            <Label fx:id="selectedPersonLabel" layoutX="460.0" layoutY="43.0" prefHeight="4.0" prefWidth="108.0" text="Label" />
+            <Label layoutX="463.0" layoutY="20.0" prefHeight="31.0" prefWidth="141.0" text="Фамилия ученика" />
          </children>
       </AnchorPane>
    </top>

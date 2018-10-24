@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vaccines>
+    <vaccine>
+        <age>w</age>
+        <date>e</date>
+        <doze>0.0</doze>
+        <id>0</id>
+        <medicalContradication>q</medicalContradication>
+        <nameOfDrug>r</nameOfDrug>
+        <series>t</series>
+        <typeVaccine>a</typeVaccine>
+    </vaccine>
+</vaccines>
