@@ -29,25 +29,28 @@ public class VaccineEntity {
 	private StringProperty medicalContradication;
 	private StringProperty age;
 	private StringProperty date;
+	private StringProperty reaction;
 	private DoubleProperty doze;
 	private StringProperty series;
 	private StringProperty nameOfDrug;
 
-	public VaccineEntity(int id, String name, String typeVaccine) {
+	public VaccineEntity(int id, String name, String typeVaccine,String medicalContradication,String age,
+			String date ,String reaction,double doze,String series,String nameOfDrug) {
 		this.id = id;
-		this.typeVaccine = new SimpleStringProperty("a");
-		this.name = new SimpleStringProperty("s");
-		this.medicalContradication = new SimpleStringProperty("q");
-		this.age = new SimpleStringProperty("w");
-		this.date = new SimpleStringProperty("e");
-		this.doze = new SimpleDoubleProperty(0.0);
-		this.nameOfDrug = new SimpleStringProperty("r");
-		this.series = new SimpleStringProperty("t");
+		this.typeVaccine = new SimpleStringProperty(typeVaccine);
+		this.name = new SimpleStringProperty(name);
+		this.medicalContradication = new SimpleStringProperty(medicalContradication);
+		this.age = new SimpleStringProperty(age);
+		this.date = new SimpleStringProperty(date);
+		this.reaction = new SimpleStringProperty(reaction);
+		this.doze = new SimpleDoubleProperty(doze);
+		this.nameOfDrug = new SimpleStringProperty(nameOfDrug);
+		this.series = new SimpleStringProperty(series);
 
 	}
 
 	public VaccineEntity() {
-		this(0, null, null);
+		this(0, null, null, null, null, null, null, 0.0, null, null);
 	}
 
 	public int getId() {
@@ -66,6 +69,17 @@ public class VaccineEntity {
 		this.name = name;
 	}
 
+	public StringProperty reactionProperty() {
+		return typeVaccine;
+	}
+
+	public void setReaction(String reaction) {
+		this.reaction.set(reaction);
+	}
+
+	public String getReaction() {
+		return reaction.get();
+	}
 	public StringProperty typeVaccineProperty() {
 		return typeVaccine;
 	}

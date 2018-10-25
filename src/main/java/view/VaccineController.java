@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -12,39 +13,30 @@ import org.apache.log4j.Logger;
 
 import application.MainApp;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.collections.ListChangeListener.Change;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import model.Classes;
-import model.Lang;
+
 import model.Person;
 import model.VaccineTypeLocation;
-import model.manager.ClassesManager;
 import model.manager.LocaleManager;
 import model.manager.VaccineManager;
 import model.vaccine.VaccineEntity;
-import model.wrapper.VaccineWrapper;
-import processing.LoadExcel;
+
 import processing.XMLProcessing;
 import processing.DAO.VaccinationTypeDAO;
 import view.vaccination.VaccineTableController;
 
 public class VaccineController implements Initializable {
+	XMLProcessing xmlFile = new XMLProcessing();
+
 	MainApp main;
-    @FXML
-    private Label selectedPersonLabel;
+	@FXML
+	private Label selectedPersonLabel;
 	@FXML
 	public ComboBox<VaccineTypeLocation> comboVaccine;
 	private final static Logger LOGGER = Logger.getLogger(VaccineController.class);
@@ -52,7 +44,9 @@ public class VaccineController implements Initializable {
 	private static final String FIRST_TWO_TABLES = "/view/tableEditpages/edit1_2Table.fxml";
 	private static final String FROM_THREE_TO_SIX_TABLES = "/view/tableEditpages/edit3_6Table.fxml";
 	private static final String LAST_TABLE = "/view/tableEditpages/edit7Table.fxml";
-	private static final String XML_FILE = "xmlFile//vaccineInfo.xml";
+	private static final File XML_FILE = new File("xmlFile//vaccineInfo.xml");
+	String currentTable;
+	Locale currentLocale;
 
 	/**
 	 * @return the vaccineData
@@ -61,10 +55,29 @@ public class VaccineController implements Initializable {
 		return vaccineData;
 	}
 
-	public void setMainApp(MainApp mainApp) {
+	public void setMainApp(MainApp mainApp, String currentTable, Locale currentLocale) {
 		this.main = mainApp;
+		this.currentTable = currentTable;
+		this.currentLocale = currentLocale;
 	}
-     Person currentPerson ;
+
+	Person currentPerson;
+
+
+	/**
+	 * @return the currentPerson
+	 */
+	public Person getCurrentPerson() {
+		return currentPerson;
+	}
+
+	/**
+	 * @param currentPerson the currentPerson to set
+	 */
+	public void setCurrentPerson(Person currentPerson) {
+		this.currentPerson = currentPerson;
+	}
+
 	private void fillVaccineComboBox() {
 		ObservableList<VaccineTypeLocation> list = VaccinationTypeDAO.getVaccineList();
 
@@ -108,7 +121,10 @@ public class VaccineController implements Initializable {
 
 	@FXML
 	private void handleAdd() throws ParseException {
+
 		VaccineEntity newVaccine = new VaccineEntity();
+		newVaccine.setId(currentPerson.getId());
+		LOGGER.info(newVaccine.getId());
 
 		LOGGER.info("handleAdd");
 		String resource = getResource();
@@ -116,10 +132,12 @@ public class VaccineController implements Initializable {
 		boolean result = main.showTableVaccineEditDialog(newVaccine, resource);
 		LOGGER.info(result);
 		if (result) {
+
 			LOGGER.debug(newVaccine + "newVaccine");
-			XMLProcessing xmlFile = new XMLProcessing();
 			xmlFile.savePersonDataToFile(XML_FILE, newVaccine);
-			new VaccineTableController().init();;
+			VaccineTableController vaccineTableController = new VaccineTableController();
+			main.showVaccinationTables(currentLocale, currentTable, currentPerson);
+			// vaccineTableController.init();
 
 			/*
 			 * LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(newVaccine);
@@ -157,10 +175,9 @@ public class VaccineController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		LOGGER.info("////initialize///////////" + arg1);
-		//selectedPersonLabel.setText(main.selectedPerson.getLastName());
+		// selectedPersonLabel.setText(main.selectedPerson.getLastName());
 		fillVaccineComboBox();
 		initListeners();
-		new VaccineTableController();
 	}
 
 	private void initListeners() {
@@ -174,7 +191,8 @@ public class VaccineController implements Initializable {
 
 				VaccineManager.setCurrentVaccine(optionOfVaccine);
 				LOGGER.info("combo vaccine is " + VaccineManager.getCurrentVaccine());
-				main.showVaccinationTables(LocaleManager.UA_LOCALE, VaccineManager.getCurrentVaccine().getResource(),currentPerson);
+				main.showVaccinationTables(LocaleManager.UA_LOCALE, VaccineManager.getCurrentVaccine().getResource(),
+						currentPerson);
 
 			}
 		});
@@ -182,10 +200,18 @@ public class VaccineController implements Initializable {
 	}
 
 	public void setSelectedPerson(Person person) {
-		this.selectedPersonLabel.setText(person.getLastName());
-		this.currentPerson = person;
-	}
 
-	
+		LOGGER.info("setSelectedPerson  " + person);
+
+		if (person == null) {
+			this.selectedPersonLabel.setText("");
+		} else {
+
+			this.selectedPersonLabel.setText(person.getFirstName());
+
+			this.currentPerson = person;
+		}
+
+	}
 
 }

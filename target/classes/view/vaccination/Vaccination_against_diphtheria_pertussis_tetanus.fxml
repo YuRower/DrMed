@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-<TableView fx:id="vaccineTable" prefHeight="400.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.vaccination.VaccineTableController">
+<TableView prefHeight="400.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.vaccination.VaccineTableController">
    <columns>
       <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="Вид щеплення" />
       <TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="Назва препарату " />

@@ -18,15 +18,17 @@ public class Person {
 	private StringProperty patronymic;
 	private StringProperty street;
 	private IntegerProperty postalCode;
+	private int id;
 	private StringProperty birthday;
 	private StringProperty phoneNumber;
 	Locale currentLocale = Locale.getDefault();
 
 	public Person() {
-		this(null, null, null, null, 0, null, null);
+		this(0,null, null, null, null, 0, null, null);
 	}
 
-	public Person(String lastName, String firstName, String patronymic,String street,int postalCode,String birthday,String phoneNumber) {
+	public Person(int id,String lastName, String firstName, String patronymic,String street,int postalCode,String birthday,String phoneNumber) {
+		this.id=id;
 		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
 		this.patronymic = new SimpleStringProperty(patronymic);
@@ -116,5 +118,19 @@ public class Person {
 	public void setBirthday(String birthday) {
 		LOGGER.debug(birthday + " date of birthday ");
 		this.birthday.set(birthday);
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 }

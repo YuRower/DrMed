@@ -19,8 +19,8 @@ import model.wrapper.VaccineWrapper;
 
 public class XMLProcessing {
 	private final static Logger LOGGER = Logger.getLogger(XMLProcessing.class);
-    private ObservableList<VaccineEntity> vaccineData = FXCollections.observableArrayList();
-	
+	private ObservableList<VaccineEntity> vaccineData = FXCollections.observableArrayList();
+	private static int vaccineToUser = -1;
 
 	/**
 	 * @return the vaccineData
@@ -36,7 +36,8 @@ public class XMLProcessing {
 	 * @param file
 	 */
 	public void loadPersonDataFromFile(File file) {
-		LOGGER.info("loadPersonDataFromFile");
+		LOGGER.info("loadPersonDataFromFile"+ vaccineToUser);
+
 		try {
 			JAXBContext context = JAXBContext.newInstance(VaccineWrapper.class);
 			Unmarshaller um = context.createUnmarshaller();
@@ -45,9 +46,16 @@ public class XMLProcessing {
 			VaccineWrapper wrapper = (VaccineWrapper) um.unmarshal(file);
 
 			vaccineData.clear();
-			vaccineData.addAll(wrapper.getListVaccines());
+			for (VaccineEntity ve : wrapper.getListVaccines()) {
+				if (ve.getId() == vaccineToUser) {
+					vaccineData.add(ve);
+					LOGGER.info("add-------------------------------------------------------------------------");
 
-		
+				}
+			}
+			LOGGER.info(wrapper.getListVaccines());
+
+			// vaccineData.addAll(wrapper.getListVaccines());
 
 		} catch (Exception e) { // catches ANY exception
 			Alert alert = new Alert(AlertType.ERROR);
@@ -66,25 +74,27 @@ public class XMLProcessing {
 	 * 
 	 * @param xmlFile
 	 */
-	public void savePersonDataToFile(String xmlFile ,VaccineEntity vaccine) {
-		LOGGER.info("savePersonDataToFile");
+	public void savePersonDataToFile(File xmlFile, VaccineEntity vaccine) {
 
 		try {
 			JAXBContext context = JAXBContext.newInstance(VaccineWrapper.class);
 			Marshaller m = context.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			LOGGER.info(vaccineData);
+
+			loadPersonDataFromFile(xmlFile);
+			LOGGER.info(vaccineData);
 
 			// Обёртываем наши данные об адресатах.
 			VaccineWrapper wrapper = new VaccineWrapper();
 			wrapper.setListVaccines(vaccineData);
-			wrapper.getListVaccines().add(new VaccineEntity());
+			wrapper.getListVaccines().add(vaccine);
 
 			LOGGER.info(vaccineData);
 
 			// Маршаллируем и сохраняем XML в файл.
-			m.marshal(wrapper, new File (xmlFile));
+			m.marshal(wrapper, xmlFile);
 
-			
 		} catch (Exception e) { // catches ANY exception
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
@@ -94,5 +104,13 @@ public class XMLProcessing {
 			alert.showAndWait();
 			e.printStackTrace();
 		}
+	}
+
+	public void setCurrentUser(int id) {
+		LOGGER.info("loadPersonDataFromFile"+ id);
+
+		this.vaccineToUser = id;
+		LOGGER.info("loadPersonDataFromFile"+ this.vaccineToUser);
+
 	}
 }

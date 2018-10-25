@@ -210,7 +210,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 		if (person != null) {
 			firstNameLabel.setText(person.getFirstName());
 			lastNameLabel.setText(person.getLastName());
-			patronymicLabel.setText(person.getLastName());
+			patronymicLabel.setText(person.getPatronymic());
 
 			streetLabel.setText(person.getStreet());
 			postalCodeLabel.setText(Integer.toString(person.getPostalCode()));

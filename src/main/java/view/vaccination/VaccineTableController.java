@@ -11,7 +11,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.vaccine.VaccineEntity;
 import processing.XMLProcessing;
-import view.VaccineController;
 
 public class VaccineTableController {
 	private final static Logger LOGGER = Logger.getLogger(VaccineTableController.class);
@@ -20,35 +19,46 @@ public class VaccineTableController {
 		@FXML
 	    private TableView<VaccineEntity> vaccineTable;
 	    @FXML
-	    private TableColumn<VaccineEntity, String> firstNameColumn;
+	    private TableColumn<VaccineEntity, String> typeOfVAccineColumn;
 	    @FXML
-	    private TableColumn<VaccineEntity, String> lastNameColumn;
+	    private TableColumn<VaccineEntity, String> ageColumn;
+	    @FXML
+	    private TableColumn<VaccineEntity, String> dataColumn;
+	    @FXML
+	    private TableColumn<VaccineEntity, Double> dozeColumn;
+	    @FXML
+	    private TableColumn<VaccineEntity, String> reactionColumn;
+	    @FXML
+	    private TableColumn<VaccineEntity, String> seriesColumn;
+	    @FXML
+	    private TableColumn<VaccineEntity, String> medicalContradicationColumn;
+	    
 
-	    private VaccineController mainApp;
 
 	    public VaccineTableController() {
 	    	LOGGER.info("VaccineTableController");
-	   
-			
-			//LOGGER.info(xmlFile.getVaccineData().get(0).getMedicalContradication()+" getVaccineData");
-
 	    }
 
 	   
-	    
-	    public void init() {
+	    @FXML
+	    public void initialize() {
 	     	XMLProcessing xmlFile = new XMLProcessing();
 			xmlFile.loadPersonDataFromFile(new File(XML_FILE));
 			LOGGER.info(xmlFile.getVaccineData()+"getVaccineData");
-	    	ObservableList<VaccineEntity> list = xmlFile.getVaccineData();
-			LOGGER.info(list+"getVaccineData");
 
-	    	vaccineTable.setItems(list);
+			
+	    	vaccineTable.setItems(xmlFile.getVaccineData());
 	    	LOGGER.info("initialize//////////////////////////////////////////");
+	    	typeOfVAccineColumn.setCellValueFactory(cellData -> cellData.getValue().typeVaccineProperty());
+	    	ageColumn.setCellValueFactory(cellData -> cellData.getValue().ageProperty());
+	    	dataColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
 	    	
-	    	
-	        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().typeVaccineProperty());
-	        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
+	    	dozeColumn.setCellValueFactory(cellData -> cellData.getValue().dozeProperty().asObject());
+	    	reactionColumn.setCellValueFactory(cellData -> cellData.getValue().reactionProperty());
+	    	seriesColumn.setCellValueFactory(cellData -> cellData.getValue().seriesProperty());
+	    	medicalContradicationColumn.setCellValueFactory(cellData -> cellData.getValue().medicalContradicationProperty());
+
+	     
 
 	    }
 

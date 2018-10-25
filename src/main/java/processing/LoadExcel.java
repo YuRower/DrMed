@@ -58,6 +58,7 @@ public class LoadExcel {
 	private ObservableList<Person> listPerson;
 
 	private Classes cls;
+	private static int counterId;
 
 	public List<Person> readBooksFromExcelFile(File excelFilePath, String sheet) throws IOException {
 		outer =FXCollections.observableArrayList();// new ArrayList<ArrayList<Person>>();
@@ -87,7 +88,8 @@ public class LoadExcel {
 				} else {
 					Iterator<Cell> cellIterator = nextRow.cellIterator();
 					Person person = new Person();
-
+                    person.setId(++counterId);
+                    
 					while (cellIterator.hasNext()) {
 						Cell nextCell = cellIterator.next();
 						int columnIndex = nextCell.getColumnIndex();
@@ -95,7 +97,7 @@ public class LoadExcel {
 						switch (columnIndex) {
 						case 0:
 							person.setFirstName((String) getCellValue(nextCell));
-							LOGGER.info(person.getFirstName());
+						//	LOGGER.info(person.getFirstName());
 							break;
 						case 1:
 							person.setLastName((String) getCellValue(nextCell));
@@ -140,6 +142,7 @@ public class LoadExcel {
 
 		workbook.close();
 		inputStream.close();
+		LOGGER.info("-----------------------------"+counterId+"----------------------");
 		return outer.get(0);
 
 	}

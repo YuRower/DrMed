@@ -22,6 +22,7 @@ import model.Person;
 import model.Status;
 import model.manager.LocaleManager;
 import model.vaccine.VaccineEntity;
+import processing.XMLProcessing;
 import processing.DAO.SchoolDAO;
 import view.LoginController;
 import view.PersonEditDialogController;
@@ -33,7 +34,6 @@ import view.tableEditpages.VaccineEditPageController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
-
 public class MainApp extends Application implements Observer {
 
 	public static final String BUNDLES_FOLDER = "property.text";
@@ -49,7 +49,7 @@ public class MainApp extends Application implements Observer {
 	private BorderPane rootLayout;
 	private AnchorPane editPersonPage;
 	private AnchorPane editTablePage;
-
+	XMLProcessing xmlProc;
 
 	AnchorPane personOverview;
 	AnchorPane loginPage;
@@ -171,11 +171,13 @@ public class MainApp extends Application implements Observer {
 
 	public void showVaccinationTables(Locale locale, String resource , Person person ) {
 		try {
+		  xmlProc =new XMLProcessing();
+		  xmlProc.setCurrentUser(person.getId());
 			LOGGER.info("method ShowVaccination Tables");
 			LOGGER.info("Locale " + locale.toString() + "Resource " + resource);
 
 			this.primaryStage.setTitle("MedApp");
-			getPrimaryStage().setFullScreen(true);
+			//getPrimaryStage().setFullScreen(true);
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/VaccinationTables.fxml"));
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
@@ -187,11 +189,13 @@ public class MainApp extends Application implements Observer {
 			tableLoader.setLocation(MainApp.class.getResource(resource));
 			tableLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
 			vaccineTable = tableLoader.load();
+			
 			LOGGER.debug("Load " + loader.getLocation());
 			tablePage.setCenter(vaccineTable);
 			vaccineController = loader.getController();
 			LOGGER.debug("Pass main object to vaccineController ");
-			vaccineController.setMainApp(this);
+			vaccineController.setMainApp(this,resource,locale);
+			vaccineController.setSelectedPerson(person);
 
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -253,7 +257,7 @@ public class MainApp extends Application implements Observer {
 			vaccineEditController.setFisrtTwoTable(vaccine);
 			//dialogStage.getIcons().add(new Image("/images/edit.png"));
 			dialogStage.showAndWait();
-			return true;
+			return vaccineEditController.isOkClicked();
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
