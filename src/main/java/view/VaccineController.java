@@ -18,11 +18,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import model.Person;
 import model.VaccineTypeLocation;
+import model.manager.DialogManager;
 import model.manager.LocaleManager;
 import model.manager.VaccineManager;
 import model.vaccine.VaccineEntity;
@@ -135,7 +137,6 @@ public class VaccineController implements Initializable {
 
 			LOGGER.debug(newVaccine + "newVaccine");
 			xmlFile.savePersonDataToFile(XML_FILE, newVaccine);
-			VaccineTableController vaccineTableController = new VaccineTableController();
 			main.showVaccinationTables(currentLocale, currentTable, currentPerson);
 			// vaccineTableController.init();
 
@@ -148,22 +149,6 @@ public class VaccineController implements Initializable {
 			 */
 
 		}
-	}
-
-	@FXML
-	private void handleUpdate() {
-		LOGGER.info("handleUpdate");
-		String resource = getResource();
-		LOGGER.info(resource);
-
-	}
-
-	@FXML
-	private void handleDelete() {
-		LOGGER.info("handleDelete");
-		String resource = getResource();
-		LOGGER.info(resource);
-
 	}
 
 	@FXML

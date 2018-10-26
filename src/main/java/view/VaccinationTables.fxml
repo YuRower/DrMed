@@ -15,8 +15,6 @@
             <ButtonBar layoutX="608.0" layoutY="14.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#handleAdd" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#handleUpdate" text="Edit" />
-                  <Button mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label fx:id="selectedPersonLabel" layoutX="460.0" layoutY="43.0" prefHeight="4.0" prefWidth="108.0" text="Label" />

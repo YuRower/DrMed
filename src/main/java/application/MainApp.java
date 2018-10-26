@@ -1,5 +1,6 @@
 package application;
 
+import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -10,6 +11,7 @@ import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -34,6 +36,7 @@ import view.tableEditpages.VaccineEditPageController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
+
 public class MainApp extends Application implements Observer {
 
 	public static final String BUNDLES_FOLDER = "property.text";
@@ -54,12 +57,14 @@ public class MainApp extends Application implements Observer {
 	AnchorPane personOverview;
 	AnchorPane loginPage;
 	BorderPane tablePage;
-	TableView<?> vaccineTable;
+	// TableView<?> vaccineTableView;'
+	AnchorPane vaccineTableView;
 
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
-	/*static {
-		new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
-	}*/
+	/*
+	 * static { new DOMConfigurator().doConfigure("log4j.xml",
+	 * LogManager.getLoggerRepository()); }
+	 */
 
 	public MainApp() {
 	}
@@ -169,34 +174,38 @@ public class MainApp extends Application implements Observer {
 		}
 	}
 
-	public void showVaccinationTables(Locale locale, String resource , Person person ) {
+	public void showVaccinationTables(Locale locale, String resource, Person person) {
 		try {
-		  xmlProc =new XMLProcessing();
-		  xmlProc.setCurrentUser(person.getId());
-			LOGGER.info("method ShowVaccination Tables");
-			LOGGER.info("Locale " + locale.toString() + "Resource " + resource);
+			if (person == null) {
 
-			this.primaryStage.setTitle("MedApp");
-			//getPrimaryStage().setFullScreen(true);
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("/view/VaccinationTables.fxml"));
-			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
-			tablePage = loader.load();
-			LOGGER.debug("Load " + loader.getLocation());
-			rootLayout.setCenter(tablePage);
+			} else {
+				xmlProc = new XMLProcessing();
+				xmlProc.setCurrentUser(person.getId());
+				LOGGER.info("method ShowVaccination Tables");
+				LOGGER.info("Locale " + locale.toString() + "Resource " + resource);
 
-			FXMLLoader tableLoader = new FXMLLoader();
-			tableLoader.setLocation(MainApp.class.getResource(resource));
-			tableLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
-			vaccineTable = tableLoader.load();
-			
-			LOGGER.debug("Load " + loader.getLocation());
-			tablePage.setCenter(vaccineTable);
-			vaccineController = loader.getController();
-			LOGGER.debug("Pass main object to vaccineController ");
-			vaccineController.setMainApp(this,resource,locale);
-			vaccineController.setSelectedPerson(person);
+				this.primaryStage.setTitle("MedApp");
 
+				// getPrimaryStage().setFullScreen(true);
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(MainApp.class.getResource("/view/VaccinationTables.fxml"));
+				loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
+				tablePage = loader.load();
+				LOGGER.debug("Load " + loader.getLocation());
+				rootLayout.setCenter(tablePage);
+
+				FXMLLoader tableLoader = new FXMLLoader();
+				tableLoader.setLocation(MainApp.class.getResource(resource));
+				tableLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
+				vaccineTableView = tableLoader.load();
+				
+				LOGGER.debug("Load " + loader.getLocation());
+				tablePage.setCenter(vaccineTableView);
+				vaccineController = loader.getController();
+				LOGGER.debug("Pass main object to vaccineController ");
+				vaccineController.setMainApp(this, resource, locale);
+				vaccineController.setSelectedPerson(person);
+			}
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			LOGGER.error(ex);
@@ -231,11 +240,12 @@ public class MainApp extends Application implements Observer {
 			return false;
 		}
 	}
-	public boolean showTableVaccineEditDialog(VaccineEntity vaccine ,String resource) throws ParseException {
+
+	public boolean showTableVaccineEditDialog(VaccineEntity vaccine, String resource) throws ParseException {
 		try {
 			LOGGER.info("method showTableVaccineEditDialog");
 
-		//	getPrimaryStage().setFullScreen(true);
+			// getPrimaryStage().setFullScreen(true);
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, LocaleManager.UA_LOCALE));
@@ -252,10 +262,10 @@ public class MainApp extends Application implements Observer {
 			dialogStage.setScene(scene);
 			vaccineEditController = loader.getController();
 			vaccineEditController.setDialogStage(dialogStage);
-			LOGGER.debug("set vaccine " );
+			LOGGER.debug("set vaccine ");
 
 			vaccineEditController.setFisrtTwoTable(vaccine);
-			//dialogStage.getIcons().add(new Image("/images/edit.png"));
+			// dialogStage.getIcons().add(new Image("/images/edit.png"));
 			dialogStage.showAndWait();
 			return vaccineEditController.isOkClicked();
 		} catch (IOException e) {
@@ -263,9 +273,10 @@ public class MainApp extends Application implements Observer {
 			return false;
 		}
 	}
+
 	@Override
 	public void update(Observable o, Object arg) {
-		LOGGER.info("method update");
+		LOGGER.info("method update Observer for changing locale");
 
 		Locale current = null;
 		Lang lang = (Lang) arg;
