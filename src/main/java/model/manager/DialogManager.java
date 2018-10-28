@@ -16,6 +16,7 @@ public class DialogManager {
 	private final static Logger LOGGER = Logger.getLogger(DialogManager.class);
 	public static final String BUNDLES_FOLDER = "property.text";
 	private static Locale currentLang = null;
+	private static Lang locale = LocaleManager.getCurrentLang();
 
 	public static void checkCinfirmationLang(Lang locale) {
 		if (locale.getIndex() == 0) {
@@ -76,10 +77,12 @@ public class DialogManager {
 		Lang locale = LocaleManager.getCurrentLang();
 		checkCinfirmationLang(locale);
 		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
-		String confirmationDialog = rb.getString("confirmationDialog");
+		String confirmationDialog = rb.getString("confirmationDialogonDelete");
+		String title = rb.getString("deleteRow");
+
 		alert.setTitle(confirmationDialog);
-		alert.setHeaderText("Look, a Confirmation Dialog");
-		alert.setContentText("Are you ok with this?");
+		//alert.setHeaderText("Look, a Confirmation Dialog");
+		alert.setContentText(title);
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			return ButtonType.OK;
@@ -93,7 +96,6 @@ public class DialogManager {
 	public static void selectPerson() {
 		
 		LOGGER.info("method selectPerson ");
-		Lang locale = LocaleManager.getCurrentLang();
 		checkCinfirmationLang(locale);
 		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
 		String title = rb.getString("confirmationDialog");
@@ -106,10 +108,17 @@ public class DialogManager {
 		alert.showAndWait();
 	}
 
-	public static void incorrectPassword(String title, String text) {
+	public static void incorrectPassword() {
 		Alert alert = new Alert(Alert.AlertType.WARNING);
+		checkCinfirmationLang(locale);
+		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+
+		String text = rb.getString("inccorectPasswordorLogin");
+		String title = rb.getString("error");
+		String headerText = rb.getString("errorAuthentication");
+
 		alert.setTitle(title);
-		alert.setHeaderText("Look, a Warning Dialog");
+		alert.setHeaderText(headerText);
 		alert.setContentText(text);
 
 		alert.showAndWait();
@@ -118,9 +127,16 @@ public class DialogManager {
 	public static void fileSuccessfully() {
 		LOGGER.info("method showInfoDialog with " + "file successfully written" + " " );
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle("file successfully written");
-		alert.setContentText("file successfully written");
-		alert.setHeaderText("");
+		checkCinfirmationLang(locale);
+		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+
+		String text = rb.getString("fileWritten");
+		String title = rb.getString("titleFileWritten");
+		String headerText = rb.getString("saveFileHeaderText");
+		
+		alert.setTitle(title);
+		alert.setContentText(text);
+		alert.setHeaderText(headerText);
 		alert.showAndWait();
 		
 	}

@@ -1,6 +1,7 @@
 package util;
 
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.TemporalAccessor;
@@ -13,7 +14,7 @@ public class DateUtil {
 
 	static DateTimeFormatter VALIDATION = DateTimeFormatter.ofPattern("yyyy[-MM[-dd]]");
 
-	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", currentLocale);
+	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 	
 	private final static Logger LOGGER = Logger.getLogger(DateUtil.class);
 
@@ -30,10 +31,11 @@ public class DateUtil {
 	public static LocalDate parse(String dateString) {
 		try {
 			LOGGER.debug(dateString + " will be parsed ");
+			//ZonedDateTime d = ZonedDateTime.parse(dateString);
 			LOGGER.debug(LocalDate.parse(dateString, formatter));
 			return LocalDate.parse(dateString, formatter);
 		} catch (DateTimeParseException e) {
-			LOGGER.error(e);
+			e.printStackTrace();
 			return null;
 		}
 	}

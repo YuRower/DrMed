@@ -31,9 +31,9 @@ import model.vaccine.VaccineEntity;
 
 import processing.XMLProcessing;
 import processing.DAO.VaccinationTypeDAO;
-import view.vaccination.VaccineTableController;
+import util.AbstractResource;
 
-public class VaccineController implements Initializable {
+public class VaccineController  extends AbstractResource implements Initializable  {
 	XMLProcessing xmlFile = new XMLProcessing();
 
 	MainApp main;
@@ -43,10 +43,10 @@ public class VaccineController implements Initializable {
 	public ComboBox<VaccineTypeLocation> comboVaccine;
 	private final static Logger LOGGER = Logger.getLogger(VaccineController.class);
 	private ObservableList<VaccineEntity> vaccineData = FXCollections.observableArrayList();
-	private static final String FIRST_TWO_TABLES = "/view/tableEditpages/edit1_2Table.fxml";
+	/*private static final String FIRST_TWO_TABLES = "/view/tableEditpages/edit1_2Table.fxml";
 	private static final String FROM_THREE_TO_SIX_TABLES = "/view/tableEditpages/edit3_6Table.fxml";
 	private static final String LAST_TABLE = "/view/tableEditpages/edit7Table.fxml";
-	private static final File XML_FILE = new File("xmlFile//vaccineInfo.xml");
+	private static final File XML_FILE = new File("xmlFile//vaccineInfo.xml");*/
 	String currentTable;
 	Locale currentLocale;
 
@@ -96,7 +96,7 @@ public class VaccineController implements Initializable {
 		}
 	}
 
-	public String getResource() {
+	/*public String getResource() {
 		LOGGER.info("method getResource" + VaccineManager.getCurrentVaccine());
 		String resource = null;
 		if (VaccineManager.getCurrentVaccine() == null) {
@@ -119,7 +119,7 @@ public class VaccineController implements Initializable {
 		}
 		return resource;
 
-	}
+	}*/
 
 	@FXML
 	private void handleAdd() throws ParseException {
@@ -138,15 +138,6 @@ public class VaccineController implements Initializable {
 			LOGGER.debug(newVaccine + "newVaccine");
 			xmlFile.savePersonDataToFile(XML_FILE, newVaccine);
 			main.showVaccinationTables(currentLocale, currentTable, currentPerson);
-			// vaccineTableController.init();
-
-			/*
-			 * LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(newVaccine);
-			 * personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex(
-			 * )));
-			 * 
-			 * updateCountLabel();
-			 */
 
 		}
 	}
@@ -160,7 +151,6 @@ public class VaccineController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		LOGGER.info("////initialize///////////" + arg1);
-		// selectedPersonLabel.setText(main.selectedPerson.getLastName());
 		fillVaccineComboBox();
 		initListeners();
 	}

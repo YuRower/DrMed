@@ -39,6 +39,7 @@ public class XMLProcessing {
 			LOGGER.info("deleteVaccineFromXMLStrorage" + wrapper.getListVaccines());
 			wrapper.getListVaccines().remove(toDelete);
 			allVaccinesPersons.remove(toDelete);
+
 			LOGGER.info("deleteVaccineFromXMLStrorage" + wrapper.getListVaccines());
 			LOGGER.info("deleteVaccineFromXMLStrorage" + allVaccinesPersons);
 			// updateXMLfile();

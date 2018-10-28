@@ -32,6 +32,7 @@ import view.PersonOverviewController;
 import view.RootLayoutController;
 import view.VaccineController;
 import view.tableEditpages.VaccineEditPageController;
+import view.vaccination.VaccineTableController;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -59,6 +60,7 @@ public class MainApp extends Application implements Observer {
 	BorderPane tablePage;
 	// TableView<?> vaccineTableView;'
 	AnchorPane vaccineTableView;
+	private VaccineTableController vaccineTableController  ;
 
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
 	/*
@@ -198,13 +200,17 @@ public class MainApp extends Application implements Observer {
 				tableLoader.setLocation(MainApp.class.getResource(resource));
 				tableLoader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
 				vaccineTableView = tableLoader.load();
-				
 				LOGGER.debug("Load " + loader.getLocation());
 				tablePage.setCenter(vaccineTableView);
+
 				vaccineController = loader.getController();
+				
 				LOGGER.debug("Pass main object to vaccineController ");
 				vaccineController.setMainApp(this, resource, locale);
 				vaccineController.setSelectedPerson(person);
+				vaccineTableController = new VaccineTableController();
+				vaccineTableController.setMainApp(this,locale,resource,person);
+
 			}
 		} catch (IOException ex) {
 			ex.printStackTrace();

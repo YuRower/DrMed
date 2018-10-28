@@ -1,83 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <vaccines>
     <vaccine>
-        <age>asdf</age>
+        <age>xzxxx</age>
         <date>10/10/2018</date>
-        <doze>0.0</doze>
+        <doze>0.1</doze>
         <id>1</id>
-        <medicalContradication>dsf</medicalContradication>
-        <reaction>sdf</reaction>
-        <series>sdf</series>
-        <typeVaccine>asdf</typeVaccine>
+        <medicalContradication>xcv</medicalContradication>
+        <reaction>cx</reaction>
+        <series>xc</series>
+        <typeVaccine>x</typeVaccine>
     </vaccine>
     <vaccine>
-        <age>asdf</age>
+        <age>sdf</age>
         <date>10/10/2018</date>
-        <doze>0.0</doze>
+        <doze>0.1</doze>
         <id>1</id>
-        <medicalContradication>dsf</medicalContradication>
-        <reaction>sdf</reaction>
-        <series>sdf</series>
-        <typeVaccine>asdf</typeVaccine>
-    </vaccine>
-    <vaccine>
-        <age>asdf</age>
-        <date>10/10/2010</date>
-        <doze>0.0</doze>
-        <id>7</id>
-        <medicalContradication>asdf</medicalContradication>
-        <reaction>sadf</reaction>
-        <series>asdf</series>
-        <typeVaccine>asdf</typeVaccine>
-    </vaccine>
-    <vaccine>
-        <age>asdf</age>
-        <date>01/10/2010</date>
-        <doze>0.0</doze>
-        <id>7</id>
-        <medicalContradication>asdf</medicalContradication>
-        <reaction>asdf</reaction>
-        <series>asdf</series>
-        <typeVaccine>asf</typeVaccine>
-    </vaccine>
-    <vaccine>
-        <age>asdf</age>
-        <date>11/11/2010</date>
-        <doze>0.0</doze>
-        <id>7</id>
-        <medicalContradication>sadf</medicalContradication>
-        <reaction>dsaf</reaction>
-        <series>asdf</series>
-        <typeVaccine>asdf</typeVaccine>
-    </vaccine>
-    <vaccine>
-        <age>asdf</age>
-        <date>11/11/2010</date>
-        <doze>0.0</doze>
-        <id>6</id>
-        <medicalContradication>asf</medicalContradication>
-        <reaction>sda</reaction>
-        <series>sadf</series>
-        <typeVaccine>asdf</typeVaccine>
+        <medicalContradication>fdg</medicalContradication>
+        <reaction>dfg</reaction>
+        <series>gfd1</series>
+        <typeVaccine>d</typeVaccine>
     </vaccine>
     <vaccine>
         <age>sadf</age>
-        <date>10/10/2010</date>
-        <doze>0.0</doze>
+        <date>10/10/2018</date>
+        <doze>3.0</doze>
         <id>1</id>
-        <medicalContradication>asf</medicalContradication>
-        <reaction>sadf</reaction>
-        <series>asfd</series>
-        <typeVaccine>sadf</typeVaccine>
+        <medicalContradication>asdf</medicalContradication>
+        <reaction>asdf</reaction>
+        <series>ads</series>
+        <typeVaccine>afsa</typeVaccine>
     </vaccine>
     <vaccine>
-        <age>111</age>
+        <age>asdf</age>
         <date>10/10/2018</date>
         <doze>0.0</doze>
-        <id>7</id>
-        <medicalContradication>cxvb</medicalContradication>
-        <reaction>cxvb</reaction>
-        <series>cxvb</series>
-        <typeVaccine>111</typeVaccine>
+        <id>8</id>
+        <medicalContradication>asdf</medicalContradication>
+        <reaction>sf</reaction>
+        <series>12</series>
+        <typeVaccine>asdf</typeVaccine>
+    </vaccine>
+    <vaccine>
+        <age>wreq</age>
+        <date>10/10/2018</date>
+        <doze>0.0</doze>
+        <id>1</id>
+        <medicalContradication>hgq</medicalContradication>
+        <reaction>gfhq</reaction>
+        <series>fgq</series>
+        <typeVaccine>rewq</typeVaccine>
     </vaccine>
 </vaccines>

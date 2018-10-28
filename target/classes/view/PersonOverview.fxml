@@ -109,7 +109,7 @@
                         <CustomTextField fx:id="txtSearch" layoutX="50.0" layoutY="10.0" onMouseClicked="#sortPerson" prefHeight="35.0" prefWidth="237.0" promptText="Search" style="-fx-background-color: #E0E3D2;" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
-                  <Label fx:id="labelCount" layoutX="11.0" layoutY="474.0" prefHeight="21.0" prefWidth="111.0" text="%count" AnchorPane.bottomAnchor="25.0" />
+                  <Label fx:id="labelCount" layoutX="11.0" layoutY="474.0" prefHeight="31.0" prefWidth="129.0" text="%count" AnchorPane.bottomAnchor="25.0" />
                   <ComboBox fx:id="comboLocales" layoutX="147.0" layoutY="449.0" prefHeight="50.0" prefWidth="158.0" promptText="Language" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="14.0" />
                </children>
             </AnchorPane>

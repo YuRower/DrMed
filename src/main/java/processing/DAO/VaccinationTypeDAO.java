@@ -24,7 +24,7 @@ public class VaccinationTypeDAO {
 
 		String rubellaResource = "/view/vaccination/Vaccination_against_rubella.fxml";
 
-		String parotitisResource = "/view/vaccination/Tuberculin_tests.fxml";
+		String parotitisResource = "/view/vaccination/Vaccination_against_parotitis.fxml";
 
 		String hepatitus_B_Resource = "/view/vaccination/Vaccination_against_hepatitis_B.fxml";
 		String tubercilinTestResource = "/view/vaccination/Tuberculin_tests.fxml";

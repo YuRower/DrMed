@@ -29,7 +29,7 @@ public class LoginController {
 	        if (sessionID != null) {
 	          loginManager.authenticated(sessionID,main);
 	        }else {
-	        	DialogManager.incorrectPassword("Incorrect Password or Login" ,"Please enter correct data" );
+	        	DialogManager.incorrectPassword();
 	        }
 	  }
 
