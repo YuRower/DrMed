@@ -1,5 +1,6 @@
 package model.manager;
 
+import java.io.File;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -28,11 +29,15 @@ public class DialogManager {
 		}
 	}
 
-	public static void showErrorDialog(String title, String text) {
+	public static void showErrorDialogOnLoadFile(File file) {
+		checkCinfirmationLang(locale);
+		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+		String title = rb.getString("error");
+		String text = rb.getString("noLoadFile");
 		LOGGER.info("method showErrorDialog with " + title + " " + text);
 		Alert alert = new Alert(Alert.AlertType.ERROR);
 		alert.setTitle(title);
-		alert.setContentText(text);
+		alert.setContentText(text + file.getPath());
 		alert.setHeaderText("");
 		alert.showAndWait();
 	}
@@ -47,12 +52,18 @@ public class DialogManager {
 	}
 
 	public static Report showOptionalDOCX() {
-		LOGGER.info(" method showOptionalDOCX");
+		checkCinfirmationLang(locale);
+		 ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
 
+		String title = rb.getString("openFile");
+		String textHeader = rb.getString("openFileFolder");
+		String setContentText = rb.getString("openFileContext");
+
+		LOGGER.info(" method showOptionalDOCX");
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-		alert.setTitle("Confirmation Dialog with Custom Actions");
-		alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
-		alert.setContentText("Choose your option.\nSelect report for whole class or specific people");
+		alert.setTitle(title);
+		alert.setHeaderText(textHeader);
+		alert.setContentText(setContentText);
 		ButtonType buttonTypeOne = new ButtonType("One");
 		ButtonType buttonTypeTwo = new ButtonType("Two");
 		ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
@@ -74,9 +85,9 @@ public class DialogManager {
 	public static ButtonType wantToDelete() {
 		LOGGER.info("method wantToDelete  ");
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-		Lang locale = LocaleManager.getCurrentLang();
 		checkCinfirmationLang(locale);
-		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+		 ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+
 		String confirmationDialog = rb.getString("confirmationDialogonDelete");
 		String title = rb.getString("deleteRow");
 
@@ -97,9 +108,9 @@ public class DialogManager {
 		
 		LOGGER.info("method selectPerson ");
 		checkCinfirmationLang(locale);
-		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
-		String title = rb.getString("confirmationDialog");
-		String text = rb.getString("confirmationDialog");
+		 ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+		String title = rb.getString("selectPerson");
+		String text = rb.getString("selectPerson");
 
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle(title);
@@ -111,8 +122,7 @@ public class DialogManager {
 	public static void incorrectPassword() {
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		checkCinfirmationLang(locale);
-		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
-
+		 ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
 		String text = rb.getString("inccorectPasswordorLogin");
 		String title = rb.getString("error");
 		String headerText = rb.getString("errorAuthentication");
@@ -128,8 +138,7 @@ public class DialogManager {
 		LOGGER.info("method showInfoDialog with " + "file successfully written" + " " );
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		checkCinfirmationLang(locale);
-		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
-
+		 ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
 		String text = rb.getString("fileWritten");
 		String title = rb.getString("titleFileWritten");
 		String headerText = rb.getString("saveFileHeaderText");

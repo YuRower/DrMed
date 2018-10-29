@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import org.apache.log4j.Logger;
 
 import application.MainApp;
+import exception.ApplicationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,6 +33,7 @@ import model.vaccine.VaccineEntity;
 import processing.XMLProcessing;
 import processing.DAO.VaccinationTypeDAO;
 import util.AbstractResource;
+import util.FileDocxGenerator;
 
 public class VaccineController  extends AbstractResource implements Initializable  {
 	XMLProcessing xmlFile = new XMLProcessing();
@@ -120,6 +122,7 @@ public class VaccineController  extends AbstractResource implements Initializabl
 		return resource;
 
 	}*/
+	
 
 	@FXML
 	private void handleAdd() throws ParseException {
@@ -145,7 +148,7 @@ public class VaccineController  extends AbstractResource implements Initializabl
 	@FXML
 	private void moveBack() {
 		LOGGER.info("moveBack");
-		main.showPersonOverview(LocaleManager.UA_LOCALE);
+		main.showPersonOverview(LocaleManager.getCurrentLang().getLocale());
 	}
 
 	@Override
@@ -166,7 +169,7 @@ public class VaccineController  extends AbstractResource implements Initializabl
 
 				VaccineManager.setCurrentVaccine(optionOfVaccine);
 				LOGGER.info("combo vaccine is " + VaccineManager.getCurrentVaccine());
-				main.showVaccinationTables(LocaleManager.UA_LOCALE, VaccineManager.getCurrentVaccine().getResource(),
+				main.showVaccinationTables(LocaleManager.getCurrentLang().getLocale(), VaccineManager.getCurrentVaccine().getResource(),
 						currentPerson);
 
 			}

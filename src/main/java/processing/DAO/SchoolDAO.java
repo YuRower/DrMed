@@ -58,7 +58,7 @@ public class SchoolDAO {
 		} catch (Exception e) {
 			LOGGER.error(e);
 			e.printStackTrace();
-			DialogManager.showErrorDialog("Error", "Could not load data from file:\n" + file.getPath());
+			DialogManager.showErrorDialogOnLoadFile(file);
 
 		}
 	}

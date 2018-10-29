@@ -359,7 +359,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 		String resource = VaccinationTypeDAO.getVaccineList().get(0).getResource();
 		LOGGER.debug(resource);
 
-		mainApp.showVaccinationTables(LocaleManager.UA_LOCALE, resource, selectedPerson);
+		mainApp.showVaccinationTables(LocaleManager.getCurrentLang().getLocale(), resource, selectedPerson);
 		LOGGER.debug("show Tables()");
 	}
 

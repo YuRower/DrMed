@@ -128,16 +128,17 @@ public class FileDocxGenerator {
 		LOGGER.debug("Load  fillDocxInfo ");
 		LOGGER.debug(file + "---------------- " + parentFile);
 
-		String title[] = new String[] { "FirstName", "LastName", "Street", "PostalCode", "City", "Birthday",
-				"testdata" };
+		String title[] = new String[] { "Name", "LastName", "Patronymic" ,"Street", "PostalCode", "Birthday",
+				"PhoneNumber","testdata" };
 
 		map.put(title[0], person.getFirstName());
 		map.put(title[1], person.getLastName());
-		map.put(title[2], person.getStreet());
-		map.put(title[3], person.getPostalCode());
-		map.put(title[4], person.getPhoneNumber());
+		map.put(title[2], person.getPatronymic());
+		map.put(title[3], person.getStreet());
+		//map.put(title[4], person.getPostalCode());
+		map.put(title[6], person.getPhoneNumber());
 		map.put(title[5], person.getBirthday());
-		map.put(title[6], "");
+		map.put(title[7], "");
 
 		LOGGER.debug(map);
 		boolean flag = GenerateDocx.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath());

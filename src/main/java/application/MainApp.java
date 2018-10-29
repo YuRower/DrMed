@@ -11,9 +11,7 @@ import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -58,7 +56,6 @@ public class MainApp extends Application implements Observer {
 	AnchorPane personOverview;
 	AnchorPane loginPage;
 	BorderPane tablePage;
-	// TableView<?> vaccineTableView;'
 	AnchorPane vaccineTableView;
 	private VaccineTableController vaccineTableController  ;
 
@@ -254,7 +251,7 @@ public class MainApp extends Application implements Observer {
 			// getPrimaryStage().setFullScreen(true);
 
 			FXMLLoader loader = new FXMLLoader();
-			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, LocaleManager.UA_LOCALE));
+			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, LocaleManager.getCurrentLang().getLocale()));
 
 			loader.setLocation(MainApp.class.getResource(resource));
 			editTablePage = loader.load();
