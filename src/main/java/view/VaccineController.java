@@ -45,10 +45,7 @@ public class VaccineController  extends AbstractResource implements Initializabl
 	public ComboBox<VaccineTypeLocation> comboVaccine;
 	private final static Logger LOGGER = Logger.getLogger(VaccineController.class);
 	private ObservableList<VaccineEntity> vaccineData = FXCollections.observableArrayList();
-	/*private static final String FIRST_TWO_TABLES = "/view/tableEditpages/edit1_2Table.fxml";
-	private static final String FROM_THREE_TO_SIX_TABLES = "/view/tableEditpages/edit3_6Table.fxml";
-	private static final String LAST_TABLE = "/view/tableEditpages/edit7Table.fxml";
-	private static final File XML_FILE = new File("xmlFile//vaccineInfo.xml");*/
+
 	String currentTable;
 	Locale currentLocale;
 
@@ -98,36 +95,15 @@ public class VaccineController  extends AbstractResource implements Initializabl
 		}
 	}
 
-	/*public String getResource() {
-		LOGGER.info("method getResource" + VaccineManager.getCurrentVaccine());
-		String resource = null;
-		if (VaccineManager.getCurrentVaccine() == null) {
-			resource = FIRST_TWO_TABLES;
-		} else {
-			int indVaccine = VaccineManager.getCurrentVaccine().getIndex();
-			if ((indVaccine >= 0) && (indVaccine <= 1)) {
-				LOGGER.info(indVaccine);
-				resource = FIRST_TWO_TABLES;
-			} else if ((indVaccine >= 2) && (indVaccine <= 6)) {
-				LOGGER.info(indVaccine);
-				resource = FROM_THREE_TO_SIX_TABLES;
-			} else if (indVaccine == 7) {
-				LOGGER.info(indVaccine);
-				resource = LAST_TABLE;
-			} else {
-				LOGGER.info("not found current table");
 
-			}
-		}
-		return resource;
-
-	}*/
-	
 
 	@FXML
 	private void handleAdd() throws ParseException {
+		VaccineTypeLocation optionOfVaccine = comboVaccine.getSelectionModel().getSelectedItem();
 
-		VaccineEntity newVaccine = new VaccineEntity();
+		VaccineEntity newVaccine = new VaccineEntity(optionOfVaccine.getName());
+		LOGGER.info(newVaccine);
+
 		newVaccine.setId(currentPerson.getId());
 		LOGGER.info(newVaccine.getId());
 
@@ -137,7 +113,6 @@ public class VaccineController  extends AbstractResource implements Initializabl
 		boolean result = main.showTableVaccineEditDialog(newVaccine, resource);
 		LOGGER.info(result);
 		if (result) {
-
 			LOGGER.debug(newVaccine + "newVaccine");
 			xmlFile.savePersonDataToFile(XML_FILE, newVaccine);
 			main.showVaccinationTables(currentLocale, currentTable, currentPerson);
@@ -159,14 +134,12 @@ public class VaccineController  extends AbstractResource implements Initializabl
 	}
 
 	private void initListeners() {
-
 		comboVaccine.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent event) {
 				LOGGER.info("combo vaccine setOnAction");
-
 				VaccineTypeLocation optionOfVaccine = comboVaccine.getSelectionModel().getSelectedItem();
-
 				VaccineManager.setCurrentVaccine(optionOfVaccine);
 				LOGGER.info("combo vaccine is " + VaccineManager.getCurrentVaccine());
 				main.showVaccinationTables(LocaleManager.getCurrentLang().getLocale(), VaccineManager.getCurrentVaccine().getResource(),

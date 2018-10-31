@@ -3,15 +3,10 @@ package processing;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -96,11 +91,11 @@ public class LoadExcel {
 
 						switch (columnIndex) {
 						case 0:
-							person.setFirstName((String) getCellValue(nextCell));
+							person.setLastName((String) getCellValue(nextCell));
 						//	LOGGER.info(person.getFirstName());
 							break;
 						case 1:
-							person.setLastName((String) getCellValue(nextCell));
+							person.setFirstName((String) getCellValue(nextCell));
 							break;
 						case 2:
 							person.setPatronymic((String)getCellValue(nextCell));
@@ -111,7 +106,7 @@ public class LoadExcel {
 						case 4:
 							Object postalCode = getCellValue(nextCell);
 							if(postalCode == null) {
-								LOGGER.info("null------------------");
+							//	LOGGER.info("null------------------");
 								break;
 							}else {
 							person.setPostalCode((int )( (double) postalCode));

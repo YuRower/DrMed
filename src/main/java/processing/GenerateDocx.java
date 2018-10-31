@@ -30,7 +30,7 @@ public class GenerateDocx {
 	private static final String MAIN_DOCUMENT_PATH = "word/document.xml";
 
 	public static Boolean generateAndSendDocx(String templateName, Map<String, Object> substitutionData,
-			String TEMPLATE_DIRECTORY_ROOT) {
+			String TEMPLATE_DIRECTORY_ROOT, boolean flagEnd) {
 		LOGGER.debug("method generateAndSendDocx ");
 		LOGGER.debug(" file for replacing data " + substitutionData);
 		LOGGER.debug("tmp file " + templateName);
@@ -46,10 +46,10 @@ public class GenerateDocx {
 			changeData(new File(userTempDir + MAIN_DOCUMENT_PATH), substitutionData);
 			zip(new File(userTempDir), new File(userTempDir + templateName));
 			deleteTempData(new File(userTempDir));
-			openDocx(new File(userTempDir + templateName));
+			if (flagEnd) {
+				openDocx(new File(userTempDir + templateName));
+			}
 		} catch (IOException ioe) {
-			ioe.printStackTrace();
-			System.out.println(ioe.getMessage());
 			LOGGER.error(ioe);
 			return false;
 		}
@@ -102,7 +102,6 @@ public class GenerateDocx {
 
 	private static void changeData(File targetFile, Map<String, Object> substitutionData) throws IOException {
 		LOGGER.debug("file wiche will be changed " + targetFile);
-
 		BufferedReader br = null;
 		String docxTemplate = "";
 		try {
@@ -121,19 +120,16 @@ public class GenerateDocx {
 		Iterator substitutionDataIterator = substitutionData.entrySet().iterator();
 		while (substitutionDataIterator.hasNext()) {
 			Map.Entry<String, String> pair = (Map.Entry<String, String>) substitutionDataIterator.next();
-
 			if (docxTemplate.contains(pair.getKey())) {
 				if (pair.getValue() != null) {
+
 					docxTemplate = docxTemplate.replace(pair.getKey(), pair.getValue());
 					LOGGER.info("Got somtinhg inside XML!!" + pair.getKey() + pair.getValue());
-
 				} else
 					docxTemplate = docxTemplate.replace(pair.getKey(), "NEDOSTAJE");
 				LOGGER.debug(docxTemplate + " NEDOSTAJE");
-
 			}
 		}
-
 		FileOutputStream fos = null;
 		try {
 			fos = new FileOutputStream(targetFile);
@@ -148,7 +144,6 @@ public class GenerateDocx {
 
 	private static void zip(File directory, File zipfile) throws IOException {
 		LOGGER.debug(directory + " " + zipfile);
-
 		URI base = directory.toURI();
 		Deque<File> queue = new LinkedList<File>();
 		queue.push(directory);
@@ -182,47 +177,27 @@ public class GenerateDocx {
 	}
 
 	public static void deleteTempData(File file) throws IOException {
-
 		if (file.isDirectory()) {
-
-			// directory is empty, then delete it
 			if (file.list().length == 0) {
-				LOGGER.debug(" 1 " + file);
-
-				 file.delete();
-
+				file.delete();
 			} else {
-				// list all the directory contents
 				String files[] = file.list();
-
 				for (String temp : files) {
-					// construct the file structure
 					File fileDelete = new File(file, temp);
-					// recursive delete
 					deleteTempData(fileDelete);
 				}
-
-				// check the directory again, if empty then delete it
 				if (file.list().length == 0) {
-					LOGGER.debug("2 " + file);
-					 file.delete();
+					file.delete();
 				}
-
 			}
 		} else {
-			// if file, then delete it
-			LOGGER.debug("3 " + file);
 			if (!file.getName().endsWith(".docx")) {
 				file.delete();
-				LOGGER.debug("deleted file " + file);
-
 			}
-
 		}
 	}
 
 	private static void copy(InputStream in, OutputStream out) throws IOException {
-
 		byte[] buffer = new byte[1024];
 		while (true) {
 			int readCount = in.read(buffer);

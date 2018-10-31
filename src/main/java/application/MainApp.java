@@ -1,6 +1,5 @@
 package application;
 
-import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;

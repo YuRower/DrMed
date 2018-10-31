@@ -66,8 +66,8 @@ public class VaccineEditPageController {
 		dozeField.setText(Double.toString(vaccine.getDoze()));
 		medicalСontraindicationsField.setText(vaccine.getMedicalContradication());
 		responseLocalvaccineField.setText(vaccine.getReaction());
-		dateField.setText(String.valueOf(DateUtil.parse(String.valueOf(vaccine.getDate()))));
-		LOGGER.debug(String.valueOf(DateUtil.parse(String.valueOf(vaccine.getDate()))));
+		dateField.setText(String.valueOf(vaccine.getDate()));
+		//LOGGER.debug(String.valueOf(DateUtil.parse(String.valueOf(vaccine.getDate()))));
 		dateField.setPromptText("dd.mm.yyyy");
 		LOGGER.info("Info about vaccine"+ vaccine);
 	}

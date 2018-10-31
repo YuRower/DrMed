@@ -18,7 +18,7 @@ import model.vaccine.VaccineEntity;
  */
 @XmlRootElement(name = "vaccines")
 public class VaccineWrapper {
-	List<VaccineEntity> vaccines = new ArrayList<VaccineEntity>();
+	List<VaccineEntity> vaccines = new ArrayList<>();
 
 
 

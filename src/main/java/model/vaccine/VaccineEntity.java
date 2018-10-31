@@ -1,17 +1,13 @@
 package model.vaccine;
 
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class VaccineEntity  {
+public class VaccineEntity {
 
 	/*
 	 * (non-Javadoc)
@@ -35,9 +31,9 @@ public class VaccineEntity  {
 	private DoubleProperty doze;
 	private StringProperty series;
 	private StringProperty nameOfDrug;
-	private Map<String, Integer> map;   // mutable field
-	public VaccineEntity(int id, String name, String typeVaccine,String medicalContradication,String age,
-			String date ,String reaction,double doze,String series,String nameOfDrug) {
+
+	public VaccineEntity(int id, String name, String typeVaccine, String medicalContradication, String age, String date,
+			String reaction, double doze, String series, String nameOfDrug) {
 		this.id = id;
 		this.typeVaccine = new SimpleStringProperty(typeVaccine);
 		this.name = new SimpleStringProperty(name);
@@ -55,7 +51,10 @@ public class VaccineEntity  {
 		this(0, null, null, null, null, null, null, 0.0, null, null);
 	}
 
-	
+	public VaccineEntity(String name) {
+		this(0, name, null, null, null, null, null, 0.0, null, null);
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -64,12 +63,13 @@ public class VaccineEntity  {
 		this.id = id;
 	}
 
-	public StringProperty namePropert() {
-		return name;
+	
+	public String getName() {
+		return name.get();
 	}
 
-	public void setName(StringProperty name) {
-		this.name = name;
+	public void setName(String name) {
+		this.name.set(name);;
 	}
 
 	public StringProperty reactionProperty() {
@@ -83,6 +83,7 @@ public class VaccineEntity  {
 	public String getReaction() {
 		return reaction.get();
 	}
+
 	public StringProperty typeVaccineProperty() {
 		return typeVaccine;
 	}
@@ -191,21 +192,21 @@ public class VaccineEntity  {
 		this.nameOfDrug = nameOfDrug;
 	}
 
-	//@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	// @XmlJavaTypeAdapter(LocalDateAdapter.class)
 	public String getDate() {
 		return date.get();
 
 	}
-	/*@Override
-	public VaccineEntity clone() throws CloneNotSupportedException {
-		VaccineEntity vaccine = (VaccineEntity) super.clone();
-
-		// primitive fields are ignored, as their content is already copied
-		// immutable fields like String are ignored
-
-		// create new objects for any non-primitive, mutable fields
-		vaccine.map = new HashMap<>();
-
-		return vaccine;		
-	}*/
+	/*
+	 * @Override public VaccineEntity clone() throws CloneNotSupportedException {
+	 * VaccineEntity vaccine = (VaccineEntity) super.clone();
+	 * 
+	 * // primitive fields are ignored, as their content is already copied //
+	 * immutable fields like String are ignored
+	 * 
+	 * // create new objects for any non-primitive, mutable fields vaccine.map = new
+	 * HashMap<>();
+	 * 
+	 * return vaccine; }
+	 */
 }

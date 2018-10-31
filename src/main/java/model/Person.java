@@ -27,7 +27,7 @@ public class Person {
 		this(0,null, null, null, null, 0, null, null);
 	}
 
-	public Person(int id,String lastName, String firstName, String patronymic,String street,int postalCode,String birthday,String phoneNumber) {
+	public Person(int id, String firstName,String lastName, String patronymic,String street,int postalCode,String birthday,String phoneNumber) {
 		this.id=id;
 		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);

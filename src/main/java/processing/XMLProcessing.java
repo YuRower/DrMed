@@ -20,6 +20,13 @@ public class XMLProcessing {
 	private static ObservableList<VaccineEntity> currentVaccinePerson = FXCollections.observableArrayList();
 	private static ObservableList<VaccineEntity> allVaccinesPersons = FXCollections.observableArrayList();
 
+	/**
+	 * @return the allVaccinesPersons
+	 */
+	public static ObservableList<VaccineEntity> getAllVaccinesPersons() {
+		return allVaccinesPersons;
+	}
+
 	private static int vaccineToUser = -1;
 	private static final File XML_FILE = new File("xmlFile//vaccineInfo.xml");
 
@@ -42,8 +49,6 @@ public class XMLProcessing {
 
 			LOGGER.info("deleteVaccineFromXMLStrorage" + wrapper.getListVaccines());
 			LOGGER.info("deleteVaccineFromXMLStrorage" + allVaccinesPersons);
-			// updateXMLfile();
-			// loadPersonDataFromFile(XML_FILE);
 			updateXMLfile();
 
 		} catch (Exception e) { // catches ANY exception
@@ -95,9 +100,6 @@ public class XMLProcessing {
 				}
 			}
 			LOGGER.info(wrapper.getListVaccines());
-
-			// vaccineData.addAll(wrapper.getListVaccines());
-
 		} catch (Exception e) { // catches ANY exception
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
@@ -143,7 +145,6 @@ public class XMLProcessing {
 
 	public void setCurrentUser(int id) {
 		LOGGER.info("loadPersonDataFromFile" + id);
-
 		this.vaccineToUser = id;
 		LOGGER.info("loadPersonDataFromFile" + this.vaccineToUser);
 

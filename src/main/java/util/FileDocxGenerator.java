@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -23,17 +24,23 @@ import model.Person;
 import model.Report;
 import model.manager.ClassesManager;
 import model.manager.DialogManager;
+import model.vaccine.VaccineEntity;
 import processing.GenerateDocx;
 import processing.LoadExcel;
+import processing.XMLProcessing;
 import view.PersonOverviewController;
 
 public class FileDocxGenerator {
 
 	private final static Logger LOGGER = Logger.getLogger(FileDocxGenerator.class);
+	private static final File XML_FILE = new File("xmlFile//vaccineInfo.xml");
+	private Map<String, Object> mapVaccine = new HashMap<>();
 
 	public void generateDOCX(MainApp mainApp, TableView<Person> personTable,
 			PersonOverviewController personOverviewController)
 			throws IOException, ParseException, ApplicationException {
+		Report report = DialogManager.showOptionalDOCX();
+
 		LOGGER.debug("metod generateDOCX");
 		ObservableList<Person> listCurrentClass = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
 		LOGGER.debug("Current class " + listCurrentClass);
@@ -46,17 +53,6 @@ public class FileDocxGenerator {
 		dirChooser.setTitle("Select a folder");
 
 		String selectedDirPath = dirChooser.showDialog(mainApp.getPrimaryStage()).getAbsolutePath();
-
-		// File downloadedFile = new File(selectedDirPath + "/" + downloadedFileName);
-
-		/*
-		 * FileChooser fileChooser = new FileChooser(); FileChooser.ExtensionFilter
-		 * docFilter = new FileChooser.ExtensionFilter("DOC files (*.doc", "*.doc");
-		 * FileChooser.ExtensionFilter docxFilter = new
-		 * FileChooser.ExtensionFilter("DOCX files (*.docx", "*.docx");
-		 * fileChooser.getExtensionFilters().add(docxFilter);
-		 * fileChooser.getExtensionFilters().add(docFilter);
-		 */
 
 		File file = new File("docxFile//063-O.docx");// fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 		File parentFile = file.getParentFile();
@@ -79,7 +75,6 @@ public class FileDocxGenerator {
 			LOGGER.debug(fileName + " -- " + extension);
 
 		}
-		Report report = DialogManager.showOptionalDOCX();
 
 		if (report == Report.ONE) {
 			DialogManager.selectPerson();
@@ -97,56 +92,72 @@ public class FileDocxGenerator {
 				return;
 			}
 			LOGGER.info(fileName + selectedPerson.getLastName() + extension + " " + file.getPath());
-			selectedDirPath = makeDir(selectedDirPath);//create dir for saving user folder
+			selectedDirPath = makeDir(selectedDirPath);// create dir for saving user folder
 			LOGGER.debug("new  Dir Path" + selectedDirPath);
 
 			File userFile = createDocFile(
 					selectedDirPath + "//" + fileName + selectedPerson.getLastName() + ++fileIndexUser + extension);
-			
+
 			copyFileUsingStream(file.getAbsoluteFile(), userFile);
 			File userParentFile = userFile.getParentFile();
 			fillDocxInfo(map, selectedPerson, userFile, userParentFile);
-
 		} else if (report == Report.MANY) {
-
 			LOGGER.info(report);
 			for (Person persons : listCurrentClass) {
-				selectedDirPath = makeDir(selectedDirPath);//create dir for saving user folder
+				selectedDirPath = makeDir(selectedDirPath);// create dir for saving user folder
 				LOGGER.debug("new  Dir Path" + selectedDirPath);
 				File userFile = createDocFile(
 						selectedDirPath + "//" + fileName + persons.getLastName() + ++fileIndexUser + extension);
 				copyFileUsingStream(file.getAbsoluteFile(), userFile);
 				File userParentFile = userFile.getParentFile();
 				fillDocxInfo(map, persons, userFile, userParentFile);
-
 			}
 		}
-
 	}
 
 	public void fillDocxInfo(Map<String, Object> map, Person person, File file, File parentFile) {
 		LOGGER.debug("Load  fillDocxInfo ");
+		XMLProcessing loadVaccine = new XMLProcessing();
+		loadVaccine.loadPersonDataFromFile(XML_FILE);
+
 		LOGGER.debug(file + "---------------- " + parentFile);
 
-		String title[] = new String[] { "Name", "LastName", "Patronymic" ,"Street", "PostalCode", "Birthday",
-				"PhoneNumber","testdata" };
-
-		map.put(title[0], person.getFirstName());
-		map.put(title[1], person.getLastName());
-		map.put(title[2], person.getPatronymic());
-		map.put(title[3], person.getStreet());
-		//map.put(title[4], person.getPostalCode());
-		map.put(title[6], person.getPhoneNumber());
-		map.put(title[5], person.getBirthday());
-		map.put(title[7], "");
-
+		String pupilInfo[] = new String[] { "Name", "LastName", "Patronymic", "Street", "PostalCode", "Birthday",
+				"PhoneNumber", "testdata" };
+		map.put(pupilInfo[0], person.getFirstName());
+		map.put(pupilInfo[1], person.getLastName());
+		map.put(pupilInfo[2], person.getPatronymic());
+		map.put(pupilInfo[3], person.getStreet());
+		// map.put(title[4], person.getPostalCode());
+		map.put(pupilInfo[6], person.getPhoneNumber());
+		map.put(pupilInfo[5], person.getBirthday());
+		map.put(pupilInfo[7], "");
+		
 		LOGGER.debug(map);
-		boolean flag = GenerateDocx.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath());
+		boolean flag = GenerateDocx.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath(),false);
+		String vaccineInfo[] = new String[] { "Age", "Date", "Doze", "Series", "Reaction", "MedContra" };
+		Iterator<VaccineEntity> list = loadVaccine.getAllVaccinesPersons().iterator();
+		int i = 0;
+		while (list.hasNext()) {
+			VaccineEntity vaccine = list.next();
+			if (vaccine.getId() == person.getId()) {
+				mapVaccine.put(vaccineInfo[0].concat(String.valueOf(i)), vaccine.getAge());
+				mapVaccine.put(vaccineInfo[1].concat(String.valueOf(i)), vaccine.getDate());
+				mapVaccine.put(vaccineInfo[2].concat(String.valueOf(i)), String.valueOf(vaccine.getDoze()));
+				mapVaccine.put(vaccineInfo[3].concat(String.valueOf(i)), vaccine.getSeries());
+				mapVaccine.put(vaccineInfo[4].concat(String.valueOf(i)), vaccine.getReaction());
+				mapVaccine.put(vaccineInfo[5].concat(String.valueOf(i)), vaccine.getMedicalContradication());
+				++i;
+			}
+		}
+		LOGGER.debug(mapVaccine.toString());
+		mapVaccine.toString();
+		boolean flag1 = GenerateDocx.generateAndSendDocx("\\" + file.getName(), mapVaccine,
+				parentFile.getAbsolutePath(),true);
 		LOGGER.debug("Status filling to file " + flag);
 		LOGGER.debug("File have written succesefully");
-
 	}
-
+	
 	public static File createDocFile(String fileName) {
 		LOGGER.debug("method createDocFile");
 		try {
@@ -192,7 +203,7 @@ public class FileDocxGenerator {
 	}
 
 	public String makeDir(String selectedDirPath) {
-		File file = new File(selectedDirPath+"//Directory1");
+		File file = new File(selectedDirPath + "//Directory1");
 		if (!file.exists()) {
 			if (file.mkdir()) {
 				LOGGER.info("Directory is created!");
