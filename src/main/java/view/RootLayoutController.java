@@ -10,7 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import model.Status;
-import processing.BirthdayStatistics;
+import processing.Statistics;
 import processing.LoadExcel;
 import processing.DAO.SchoolDAO;
 
@@ -138,6 +138,11 @@ public class RootLayoutController {
 	@FXML
 	private void handleShowBirthdayStatistics() {
 		LOGGER.info("Show Birthday Statistics ");
-		new BirthdayStatistics().showBirthdayStatistics();
+		new Statistics().showBirthdayStatistics();
+	}
+	@FXML
+	private void handleShowVaccineStatistics() {
+		LOGGER.info("Show Birthday Statistics ");
+		new Statistics().showVaccineStatistics();
 	}
 }

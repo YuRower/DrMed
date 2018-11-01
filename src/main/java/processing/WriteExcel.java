@@ -79,9 +79,9 @@ public class WriteExcel {
 				row = sheet.createRow(rownum);
 
 				cell = row.createCell(0, CellType.STRING);
-				cell.setCellValue(emp.getFirstName());
-				cell = row.createCell(1, CellType.STRING);
 				cell.setCellValue(emp.getLastName());
+				cell = row.createCell(1, CellType.STRING);
+				cell.setCellValue(emp.getFirstName());
 				cell = row.createCell(2, CellType.STRING);
 				cell.setCellValue(emp.getPatronymic());
 				cell = row.createCell(3, CellType.STRING);

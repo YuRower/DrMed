@@ -32,10 +32,10 @@
       </TableView>
       <ButtonBar buttonOrder="" layoutX="658.0" layoutY="503.0" AnchorPane.rightAnchor="50.0">
          <buttons>
-            <ButtonBar>
+            <ButtonBar prefHeight="25.0" prefWidth="368.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#handleEditVaccine" text="%editTableVaccine" />
-                  <Button mnemonicParsing="false" onAction="#handleDeleteVaccine" text="%deleteFromTableVaccine" />
+                  <Button mnemonicParsing="false" onAction="#handleDeleteVaccine" prefHeight="25.0" prefWidth="187.0" text="%deleteFromTableVaccine" />
                </buttons>
             </ButtonBar>
          </buttons>

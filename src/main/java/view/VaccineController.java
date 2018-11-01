@@ -1,39 +1,27 @@
 package view;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.ResourceBundle;
-
 import org.apache.log4j.Logger;
-
 import application.MainApp;
-import exception.ApplicationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-
 import model.Person;
 import model.VaccineTypeLocation;
-import model.manager.DialogManager;
 import model.manager.LocaleManager;
 import model.manager.VaccineManager;
 import model.vaccine.VaccineEntity;
-
 import processing.XMLProcessing;
 import processing.DAO.VaccinationTypeDAO;
 import util.AbstractResource;
-import util.FileDocxGenerator;
 
 public class VaccineController  extends AbstractResource implements Initializable  {
 	XMLProcessing xmlFile = new XMLProcessing();
@@ -49,9 +37,7 @@ public class VaccineController  extends AbstractResource implements Initializabl
 	String currentTable;
 	Locale currentLocale;
 
-	/**
-	 * @return the vaccineData
-	 */
+	
 	public ObservableList<VaccineEntity> getVaccineData() {
 		return vaccineData;
 	}
@@ -64,17 +50,10 @@ public class VaccineController  extends AbstractResource implements Initializabl
 
 	Person currentPerson;
 
-
-	/**
-	 * @return the currentPerson
-	 */
 	public Person getCurrentPerson() {
 		return currentPerson;
 	}
 
-	/**
-	 * @param currentPerson the currentPerson to set
-	 */
 	public void setCurrentPerson(Person currentPerson) {
 		this.currentPerson = currentPerson;
 	}
@@ -158,7 +137,7 @@ public class VaccineController  extends AbstractResource implements Initializabl
 			this.selectedPersonLabel.setText("");
 		} else {
 
-			this.selectedPersonLabel.setText(person.getFirstName());
+			this.selectedPersonLabel.setText(person.getLastName());
 
 			this.currentPerson = person;
 		}

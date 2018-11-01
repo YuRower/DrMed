@@ -54,17 +54,13 @@ public class FileDocxGenerator {
 
 		String selectedDirPath = dirChooser.showDialog(mainApp.getPrimaryStage()).getAbsolutePath();
 
-		File file = new File("docxFile//063-O.docx");// fileChooser.showOpenDialog(mainApp.getPrimaryStage());
+		File file = new File("docxFile//063-O.docx");
 		File parentFile = file.getParentFile();
 		LOGGER.debug("parentFile " + parentFile.getAbsolutePath() + "Load  ");
 		LOGGER.debug("file " + file.getAbsolutePath() + "Load  ");
 
-		if (file != null) {
-			LOGGER.debug("Load " + file.getPath() + "Load doc ");
-		}
-
 		String fileName;
-		String extension;// file.getName();
+		String extension;		
 		int pos = file.getName().lastIndexOf('.'); // get index of dot to divide name and extension
 		if (pos == -1) {
 			LOGGER.error(file.getName());
@@ -97,7 +93,7 @@ public class FileDocxGenerator {
 
 			File userFile = createDocFile(
 					selectedDirPath + "//" + fileName + selectedPerson.getLastName() + ++fileIndexUser + extension);
-
+            
 			copyFileUsingStream(file.getAbsoluteFile(), userFile);
 			File userParentFile = userFile.getParentFile();
 			fillDocxInfo(map, selectedPerson, userFile, userParentFile);
@@ -122,7 +118,7 @@ public class FileDocxGenerator {
 
 		LOGGER.debug(file + "---------------- " + parentFile);
 
-		String pupilInfo[] = new String[] { "Name", "LastName", "Patronymic", "Street", "PostalCode", "Birthday",
+		String [] pupilInfo = new String[] { "Name", "LastName", "Patronymic", "Street", "PostalCode", "Birthday",
 				"PhoneNumber", "testdata" };
 		map.put(pupilInfo[0], person.getFirstName());
 		map.put(pupilInfo[1], person.getLastName());
@@ -132,11 +128,14 @@ public class FileDocxGenerator {
 		map.put(pupilInfo[6], person.getPhoneNumber());
 		map.put(pupilInfo[5], person.getBirthday());
 		map.put(pupilInfo[7], "");
-		
+
 		LOGGER.debug(map);
-		boolean flag = GenerateDocx.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath(),false);
-		String vaccineInfo[] = new String[] { "Age", "Date", "Doze", "Series", "Reaction", "MedContra" };
-		Iterator<VaccineEntity> list = loadVaccine.getAllVaccinesPersons().iterator();
+		boolean flag = GenerateDocx.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath(),
+				false);
+		LOGGER.debug("Status filling to file " + flag);
+
+		String [] vaccineInfo = new String[] { "Age", "Date", "Doze", "Series", "Reaction", "MedContra" };
+		Iterator<VaccineEntity> list = XMLProcessing.getAllVaccinesPersons().iterator();
 		int i = 0;
 		while (list.hasNext()) {
 			VaccineEntity vaccine = list.next();
@@ -153,11 +152,11 @@ public class FileDocxGenerator {
 		LOGGER.debug(mapVaccine.toString());
 		mapVaccine.toString();
 		boolean flag1 = GenerateDocx.generateAndSendDocx("\\" + file.getName(), mapVaccine,
-				parentFile.getAbsolutePath(),true);
-		LOGGER.debug("Status filling to file " + flag);
+				parentFile.getAbsolutePath(), true);
+		LOGGER.debug("Status filling to file " + flag1);
 		LOGGER.debug("File have written succesefully");
 	}
-	
+
 	public static File createDocFile(String fileName) {
 		LOGGER.debug("method createDocFile");
 		try {
@@ -181,24 +180,12 @@ public class FileDocxGenerator {
 	private static void copyFileUsingStream(File source, File dest) throws IOException {
 		LOGGER.debug("method copyFileUsingStream");
 		LOGGER.debug(source + "copy" + dest);
-
-		InputStream is = null;
-		OutputStream os = null;
-		try {
-			is = new FileInputStream(source);
-			LOGGER.debug(is);
-
-			os = new FileOutputStream(dest);
-			LOGGER.debug(is);
-
+		try (InputStream is = new FileInputStream(source); OutputStream os = new FileOutputStream(dest)) {
 			byte[] buffer = new byte[1024];// check
 			int length;
 			while ((length = is.read(buffer)) > 0) {
 				os.write(buffer, 0, length);
 			}
-		} finally {
-			is.close();
-			os.close();
 		}
 	}
 

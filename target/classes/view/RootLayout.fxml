@@ -35,6 +35,7 @@
           <Menu mnemonicParsing="false" text="%statistics">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleShowBirthdayStatistics" text="Show Statistics" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleShowVaccineStatistics" text="Unspecified Action" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%help">

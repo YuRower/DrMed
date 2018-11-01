@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <vaccines>
     <vaccine>
-        <age>sadf</age>
-        <date>10/10/2018</date>
+        <age>sa</age>
+        <date>10.10.2018</date>
         <doze>0.0</doze>
         <id>1</id>
         <medicalContradication>fffff</medicalContradication>
         <name>Щеплення проти туберкульозу</name>
-        <reaction>ffff</reaction>
+        <reaction>fff</reaction>
         <series>sdf</series>
-        <typeVaccine>sadf</typeVaccine>
+        <typeVaccine>sa</typeVaccine>
     </vaccine>
     <vaccine>
-        <age>fff</age>
-        <date>10/10/2018</date>
+        <age>s</age>
+        <date>10.10.2018</date>
+        <doze>0.0</doze>
+        <id>1</id>
+        <medicalContradication>fffff</medicalContradication>
+        <name>Щеплення проти туберкульозу</name>
+        <reaction>fff</reaction>
+        <series>sdf</series>
+        <typeVaccine>s</typeVaccine>
+    </vaccine>
+    <vaccine>
+        <age>f</age>
+        <date>10.10.2018</date>
         <doze>0.0</doze>
         <id>1</id>
         <medicalContradication>ffff</medicalContradication>
         <name>Щеплення проти туберкульозу</name>
         <reaction>fffff</reaction>
         <series>fff</series>
-        <typeVaccine>fff</typeVaccine>
-    </vaccine>
-    <vaccine>
-        <age>sdfg</age>
-        <date>10/10/2018</date>
-        <doze>0.0</doze>
-        <id>2</id>
-        <medicalContradication>asdf</medicalContradication>
-        <name>Щеплення проти туберкульозу</name>
-        <reaction>sdaf</reaction>
-        <series>sadf</series>
-        <typeVaccine>sdfaag</typeVaccine>
+        <typeVaccine>f</typeVaccine>
     </vaccine>
 </vaccines>

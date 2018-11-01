@@ -12,9 +12,9 @@ import org.apache.log4j.Logger;
 public class DateUtil {
 	static Locale currentLocale = Locale.getDefault();
 
-	static DateTimeFormatter VALIDATION = DateTimeFormatter.ofPattern("yyyy[-MM[-dd]]");
+	static DateTimeFormatter VALIDATION = DateTimeFormatter.ofPattern("dd[.MM[.yyyy]]");
 
-	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+	static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 	
 	private final static Logger LOGGER = Logger.getLogger(DateUtil.class);
 
@@ -30,9 +30,8 @@ public class DateUtil {
 
 	public static LocalDate parse(String dateString) {
 		try {
-			LOGGER.debug(dateString + " will be parsed ");
-			//ZonedDateTime d = ZonedDateTime.parse(dateString);
-			LOGGER.debug(LocalDate.parse(dateString, formatter));
+			LOGGER.debug(dateString + " will be parsed ");			
+			LOGGER.debug(parseDate(dateString));
 			return LocalDate.parse(dateString, formatter);
 		} catch (DateTimeParseException e) {
 			e.printStackTrace();

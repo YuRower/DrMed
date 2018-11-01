@@ -105,16 +105,16 @@ public class DialogManager {
 	}
 
 	public static void selectPerson() {
-		
 		LOGGER.info("method selectPerson ");
 		checkCinfirmationLang(locale);
 		 ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
-		String title = rb.getString("selectPerson");
+		String title = rb.getString("error");
 		String text = rb.getString("selectPerson");
+		String headerText = rb.getString("selectPersonHeader");
 
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle(title);
-		alert.setHeaderText(null);
+		alert.setHeaderText(headerText);
 		alert.setContentText(text);
 		alert.showAndWait();
 	}

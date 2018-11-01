@@ -101,8 +101,8 @@ public class VaccineEditPageController {
 			vaccine.setDoze(Double.parseDouble(dozeField.getText()));
 			vaccine.setMedicalContradication(medicalСontraindicationsField.getText());
 			vaccine.setReaction(responseLocalvaccineField.getText());
-			vaccine.setDate(DateUtil.format(LocalDate.parse(dateField.getText())));
-			LOGGER.info(" Table edit info " + DateUtil.format(LocalDate.parse(dateField.getText())));
+			vaccine.setDate(DateUtil.format(DateUtil.parse(dateField.getText())));
+			LOGGER.info(" Table edit info " + DateUtil.format(DateUtil.parse(dateField.getText())));
 			LOGGER.info(" Table edit info " +vaccine);
 
 			okClicked = true;

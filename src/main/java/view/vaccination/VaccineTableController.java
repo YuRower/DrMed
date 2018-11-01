@@ -28,7 +28,7 @@ import util.AbstractResource;
 
 public class VaccineTableController extends AbstractResource implements Initializable {
 	private final static Logger LOGGER = Logger.getLogger(VaccineTableController.class);
-	// private static final String XML_FILE = "xmlFile//vaccineInfo.xml";
+	//private static final String XML_FILE = "xmlFile//vaccineInfo.xml";
 
 	@FXML
 	private TableView<VaccineEntity> vaccineTable;
@@ -63,26 +63,21 @@ public class VaccineTableController extends AbstractResource implements Initiali
 		LOGGER.info("handleEditVaccine");
 		VaccineEntity selectedEntity = vaccineTable.getSelectionModel().getSelectedItem();
 		int indexEntity = vaccineTable.getSelectionModel().getSelectedIndex();
-
 		String resource = getResource();
-		LOGGER.info(this.main);
-
 		LOGGER.info(resource);
 		if (selectedEntity != null) {
 			boolean okClicked = main.showTableVaccineEditDialog(selectedEntity, resource);
 			LOGGER.info("new +" + selectedEntity);
-
 			if (okClicked) {
 				XMLProcessing xmlFile = new XMLProcessing();
 				LOGGER.info("handleDeleteVaccine");
 
-				// handleDeleteVaccine();
 				LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
 				if (indexEntity >= 0) {
-					// vaccineTable.getItems().remove(indexEntity);
 					LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
 					xmlFile.deleteVaccineFromXMLStrorage(indexEntity);
-					// vaccineTable.setItems(xmlFile.getCurrentVaccinePerson());
+					
+
 				} else {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setTitle("No Selection");
@@ -92,18 +87,13 @@ public class VaccineTableController extends AbstractResource implements Initiali
 				}
 				LOGGER.info("handleDeleteVaccine");
 
-				// xmlFile.deleteVaccineFromXMLStrorage(indexEntity);
 				xmlFile.savePersonDataToFile(XML_FILE, selectedEntity);
+				xmlFile.loadPersonDataFromFile(XML_FILE);
 				vaccineTable.setItems(xmlFile.getCurrentVaccinePerson());
-				// new MainApp()\.showVaccinationTables(currentLocale, currentTable,
-				// currentPerson);
-				// main.showVaccinationTables(currentLocale, currentTable, currentPerson);
-
 			}
 
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			// alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("No Selection");
 			alert.setHeaderText("No Person Selected");
 			alert.setContentText("Please select a person in the table.");

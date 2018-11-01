@@ -1,4 +1,4 @@
-package view;
+package view.statistics;
 
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
@@ -44,19 +44,15 @@ public class BirthdayStatisticsController {
 
 	public void setPersonData(List<Person> persons) {
 		xAxis.setLabel("Month");
-
 		yAxis.setLabel("Pupils");
-
 		int[] monthCounter = new int[12];
 		for (Person p : persons) {
 			LOGGER.info(" PARSE birthday in a specific month. .");
 
 			int month = DateUtil.parse(p.getBirthday()).getMonthValue() - 1;
 			LOGGER.debug(" PARSE birthday " + month);
-
 			monthCounter[month]++;
 		}
-
 		XYChart.Series<String, Number> series = new XYChart.Series<>();
 
 		for (int i = 0; i < monthCounter.length; i++) {

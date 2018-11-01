@@ -1,6 +1,5 @@
 package view;
 
-
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -57,7 +56,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@FXML
 	private Label lastNameLabel;
 	@FXML
-	private Label  patronymicLabel;
+	private Label patronymicLabel;
 	@FXML
 	private Label streetLabel;
 	@FXML
@@ -90,18 +89,12 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@FXML
 	private Label labelCount;
 
-	// @FXML
-	// private Label currentClass;
 	private ResourceBundle resourceBundle;
 
 	private static final String RU_CODE = "ru";
 	private static final String UA_CODE = "uk";
 	private final static Logger LOGGER = Logger.getLogger(PersonOverviewController.class);
 	ObservableList<Person> updatedClass = null;
-
-	public PersonOverviewController() {
-
-	}
 
 	@FXML
 	public void generDOCX() throws IOException, ParseException, ApplicationException {
@@ -124,7 +117,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 				String lowerCaseFilter = newValue.toLowerCase();
 
 				if (person.getFirstName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-
 					return true;
 				} else if (person.getLastName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
@@ -147,7 +139,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 			m.setAccessible(true);
 			m.invoke(null, customTextField, customTextField.rightProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error(e.getStackTrace());
 		}
 	}
 
@@ -253,43 +245,38 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 				LOGGER.info("comboClass.setOnAction");
 
-				Classes selectedClass = (Classes) comboClass.getSelectionModel().getSelectedItem();
-				if ( selectedClass != null) {
-				int index = selectedClass.getIndex();
-				LOGGER.info(index + "////sortedData///////////");
+				Classes selectedClass = comboClass.getSelectionModel().getSelectedItem();
+				if (selectedClass != null) {
+					int index = selectedClass.getIndex();
+					LOGGER.info(index + "////sortedData///////////");
 
-				ClassesManager.setCurrentClass(selectedClass);
-				ClassesManager.setCurrentIndex(index);
+					ClassesManager.setCurrentClass(selectedClass);
+					ClassesManager.setCurrentIndex(index);
 
-				String str = String.valueOf(selectedClass);
-				LOGGER.info(str + "////selectedClass///////////");
-				try {
-					updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-				personTable.setItems(updatedClass);
-				
-				updateCountLabel();
-				}else {
+					String str = String.valueOf(selectedClass);
+					LOGGER.info(str + "////selectedClass///////////");
+					try {
+						updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
+					} catch (IOException e) {
+						LOGGER.error(e.fillInStackTrace());
+					}
+					personTable.setItems(updatedClass);
+					updateCountLabel();
+				} else {
 					LOGGER.info("////selectedClass is null ///////");
 
 				}
 			}
-			
+
 		});
 
 		comboLocales.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				LOGGER.info("combo Locales listener");
-
 				Lang selectedLang = comboLocales.getSelectionModel().getSelectedItem();
-
 				LocaleManager.setCurrentLang(selectedLang);
 				LOGGER.info("selected lang " + selectedLang);
-
 				setChanged();
 				notifyObservers(selectedLang);
 			}
@@ -305,11 +292,8 @@ public class PersonOverviewController extends Observable implements Initializabl
 		clearCombobox();
 		comboClasslist = LoadExcel.getClassList();
 		LOGGER.debug(comboClasslist + "boxOfClasses");
-
 		comboClass.getItems().addAll(comboClasslist);
-
 		if (ClassesManager.getCurrentClass() == null) {
-
 			comboClass.getSelectionModel().select(0);
 		} else {
 			comboClass.getSelectionModel().select(ClassesManager.getCurrentClass().getIndex());
@@ -336,13 +320,10 @@ public class PersonOverviewController extends Observable implements Initializabl
 		Person tempPerson = new Person();
 		boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
 		LOGGER.debug(okClicked + "okClicked");
-
 		if (okClicked) {
 			LOGGER.debug(tempPerson + "tempPerson");
-
 			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(tempPerson);
 			personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
-
 			updateCountLabel();
 
 		}
@@ -351,12 +332,14 @@ public class PersonOverviewController extends Observable implements Initializabl
 	@FXML
 	private void showTables() {
 		Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
-
-		String resource = VaccinationTypeDAO.getVaccineList().get(0).getResource();
-		LOGGER.debug(resource);
-
-		mainApp.showVaccinationTables(LocaleManager.getCurrentLang().getLocale(), resource, selectedPerson);
-		LOGGER.debug("show Tables()");
+		if (selectedPerson == null) {
+			DialogManager.selectPerson();
+		} else {
+			String resource = VaccinationTypeDAO.getVaccineList().get(0).getResource();
+			LOGGER.debug(resource);
+			mainApp.showVaccinationTables(LocaleManager.getCurrentLang().getLocale(), resource, selectedPerson);
+			LOGGER.debug("show Tables()");
+		}
 	}
 
 	@FXML
