@@ -76,7 +76,7 @@ public class VaccineTableController extends AbstractResource implements Initiali
 				if (indexEntity >= 0) {
 					LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
 					xmlFile.deleteVaccineFromXMLStrorage(indexEntity);
-					
+					xmlFile.savePersonDataToFile(XML_FILE, selectedEntity);
 
 				} else {
 					Alert alert = new Alert(AlertType.WARNING);
@@ -85,9 +85,7 @@ public class VaccineTableController extends AbstractResource implements Initiali
 					alert.setContentText("Please select a person in the table.");
 					alert.showAndWait();
 				}
-				LOGGER.info("handleDeleteVaccine");
 
-				xmlFile.savePersonDataToFile(XML_FILE, selectedEntity);
 				xmlFile.loadPersonDataFromFile(XML_FILE);
 				vaccineTable.setItems(xmlFile.getCurrentVaccinePerson());
 			}

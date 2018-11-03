@@ -11,12 +11,12 @@
    <children>
       <TableView fx:id="vaccineTable" layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columns>
-            <TableColumn fx:id="typeOfVAccineColumn" prefWidth="96.0" text="Вид щеплення" />
-            <TableColumn fx:id="ageColumn" prefWidth="26.0" text="Вік" />
-            <TableColumn fx:id="dataColumn" prefWidth="42.0" text="Дата" />
-            <TableColumn fx:id="dozeColumn" prefWidth="88.0" text="Доза" />
-            <TableColumn fx:id="reactionColumn" prefWidth="214.0" text="Реакція на щеплення (Місцева)" />
-            <TableColumn fx:id="seriesColumn" prefWidth="74.0" text="Серія" />
+            <TableColumn fx:id="typeOfVAccineColumn" prefWidth="96.0" text="%typeOfVaccine" />
+            <TableColumn fx:id="ageColumn" prefWidth="26.0" text="%age" />
+            <TableColumn fx:id="dataColumn" prefWidth="42.0" text="%date" />
+            <TableColumn fx:id="dozeColumn" prefWidth="88.0" text="%doze" />
+            <TableColumn fx:id="reactionColumn" prefWidth="214.0" text="%responseVaccine" />
+            <TableColumn fx:id="seriesColumn" prefWidth="74.0" text="%series" />
             <TableColumn fx:id="medicalContradicationColumn" prefWidth="137.0" text="Медичні противопоказання" />
          </columns>
          <columnResizePolicy>

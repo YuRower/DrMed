@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 
@@ -13,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import model.Lang;
+import model.manager.LocaleManager;
 import model.vaccine.VaccineEntity;
 import util.DateUtil;
 
@@ -20,7 +23,6 @@ import util.DateUtil;
 public class VaccineEditPageController {
 	private final static Logger LOGGER = Logger.getLogger(VaccineEditPageController.class);
 	Locale currentLocale = Locale.getDefault();
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 	@FXML
 	private TextField chipViewField;
 	@FXML
@@ -41,7 +43,18 @@ public class VaccineEditPageController {
 	private Stage dialogStage;
 	private VaccineEntity vaccine;
 	private boolean okClicked = false;
+	public static final String BUNDLES_FOLDER = "property.text";
+	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
 
+	/*public static void checkCinfirmationLang(Lang locale) {
+		if (locale.getIndex() == 0) {
+			currentLang = LocaleManager.RU_LOCALE;
+
+		} else if (locale.getIndex() == 1) {
+			currentLang = LocaleManager.UA_LOCALE;
+
+		}
+	}*/
 	@FXML
 	private void initialize() {
 		LOGGER.info(" fxml file has been loaded ");
@@ -67,7 +80,6 @@ public class VaccineEditPageController {
 		medicalСontraindicationsField.setText(vaccine.getMedicalContradication());
 		responseLocalvaccineField.setText(vaccine.getReaction());
 		dateField.setText(String.valueOf(vaccine.getDate()));
-		//LOGGER.debug(String.valueOf(DateUtil.parse(String.valueOf(vaccine.getDate()))));
 		dateField.setPromptText("dd.mm.yyyy");
 		LOGGER.info("Info about vaccine"+ vaccine);
 	}
@@ -116,41 +128,60 @@ public class VaccineEditPageController {
 	}
 
 	private boolean isInputValid() throws ParseException {
+		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, locale);
+		String typeVaccineProp = rb.getString("chipViewField");
+		String seriesFieldProp = rb.getString("seriesField");
+		String dozeFieldProp = rb.getString("dozeField");
+		String medicalContraindicationsFieldProp = rb.getString("medicalContraindicationsField");
+		String birthdayFieldProp = rb.getString("birthdayField");
+		String responseLocalvaccineFieldProp = rb.getString("responseLocalvaccineField");
+		String ageFieldProp = rb.getString("ageField");
+		String noValidDozeFieldProp = rb.getString("noValidDozeField");
+		String dateFieldProp = rb.getString("dateField");
+		String noValiedFields = rb.getString("noValiedFields");
+		String enterCorrectFields = rb.getString("enterCorrectFields");
+
+
+		
+		
 		LOGGER.info(" Validation user input ");
 
 		String errorMessage = "";
 
 		if (chipViewField.getText() == null || chipViewField.getText().length() == 0) {
-			errorMessage += "No valid chipViewField!\n";
+			errorMessage += typeVaccineProp+"\n";
 		}
 		if (ageField.getText() == null || ageField.getText().length() == 0) {
-			errorMessage += "No valid ageField!\n";
+			errorMessage += ageFieldProp+"\n";
 		}
 		if (seriesField.getText() == null || seriesField.getText().length() == 0) {
-			errorMessage += "No valid seriesField!\n";
+			errorMessage += seriesFieldProp+"\n";
 		}
 
 		if (dozeField.getText() == null || dozeField.getText().length() == 0) {
-			errorMessage += "No valid dozeField!\n";
+			errorMessage += dozeFieldProp+"\n";
 		} else {
 			LOGGER.info(" try to parse the dozeField  into an int. ");
 
 			try {
 				Double.parseDouble(dozeField.getText());
 			} catch (NumberFormatException e) {
-				errorMessage += "No valid dozeField (must be an double)!\n";
+				errorMessage += noValidDozeFieldProp+"\n";
 			}
 		}
 
 		if (medicalСontraindicationsField.getText() == null || medicalСontraindicationsField.getText().length() == 0) {
-			errorMessage += "No valid medicalСontraindicationsField!\n";
+			errorMessage += medicalContraindicationsFieldProp+"\n";
 		}
-
+		if (responseLocalvaccineField.getText() == null || responseLocalvaccineField.getText().length() == 0) {
+			errorMessage +=responseLocalvaccineFieldProp+ "\n";
+		}
+		
 		if (dateField.getText() == null || dateField.getText().length() == 0) {
-			errorMessage += "No valid birthday!\n";
+			errorMessage += birthdayFieldProp+"!\n";
 		} else {
 			if (!DateUtil.validDate(dateField.getText())) {
-				errorMessage += "No valid dateField. Use the format dd.mm.yyyy!\n";
+				errorMessage += dateFieldProp+"\n";
 			}
 		}
 
@@ -160,8 +191,8 @@ public class VaccineEditPageController {
 
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.initOwner(dialogStage);
-			alert.setTitle("Invalid Fields");
-			alert.setHeaderText("Please correct invalid fields");
+			alert.setTitle(noValiedFields);
+			alert.setHeaderText(enterCorrectFields);
 			alert.setContentText(errorMessage);
 
 			alert.showAndWait();

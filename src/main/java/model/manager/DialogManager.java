@@ -149,4 +149,19 @@ public class DialogManager {
 		alert.showAndWait();
 		
 	}
+
+	public static void addThroughLoad() {
+		LOGGER.info("addThroughLoad");
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		checkCinfirmationLang(locale);
+		 ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+		 String text = rb.getString("addition");
+		String title = rb.getString("additionThrough");
+		String headerText = rb.getString("additionThroughLoad");
+		
+		alert.setTitle(title);
+		alert.setContentText(text);
+		alert.setHeaderText(headerText);
+		alert.showAndWait();		
+	}
 }

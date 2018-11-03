@@ -26,12 +26,12 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="First Name" />
-            <Label text="Last Name" GridPane.rowIndex="1" />
-            <Label text="Street" GridPane.rowIndex="3" />
-            <Label text="Phone Number" GridPane.rowIndex="4" />
-            <Label text="Postal Code" GridPane.rowIndex="5" />
-            <Label text="Birthday" GridPane.rowIndex="6" />
+            <Label text="%firstName" />
+            <Label text="%Surname" GridPane.rowIndex="1" />
+            <Label text="%street" GridPane.rowIndex="3" />
+            <Label text="%phone_number" GridPane.rowIndex="4" />
+            <Label text="%postal_code" GridPane.rowIndex="5" />
+            <Label text="%birthday" GridPane.rowIndex="6" />
             <TextField fx:id="firstNameField" GridPane.columnIndex="1" />
             <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -39,14 +39,14 @@
             <TextField fx:id="phoneNumberField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="postalCodeField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="birthdayField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="Patronumic" GridPane.rowIndex="2" />
+            <Label text="%patronymic" GridPane.rowIndex="2" />
             <TextField fx:id="patronymicField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <ButtonBar layoutX="176.0" layoutY="233.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
             <Button defaultButton="true" mnemonicParsing="false" onAction="#handleOk" text="OK" />
-          <Button mnemonicParsing="false" onAction="#handleCancel" prefWidth="120.0" text="Cancel" />
+          <Button mnemonicParsing="false" onAction="#handleCancel" prefWidth="120.0" text="%cancel" />
         </buttons>
       </ButtonBar>
    </children>

@@ -222,6 +222,7 @@ public class MainApp extends Application implements Observer {
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/PersonEditDialog.fxml"));
+			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, LocaleManager.getCurrentLang().getLocale()));
 			editPersonPage = loader.load();
 			LOGGER.debug("Load " + loader.getLocation());
 
@@ -239,6 +240,7 @@ public class MainApp extends Application implements Observer {
 			return controller.isOkClicked();
 		} catch (IOException e) {
 			LOGGER.error(e);
+			e.printStackTrace();
 			return false;
 		}
 	}

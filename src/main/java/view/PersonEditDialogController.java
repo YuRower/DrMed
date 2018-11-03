@@ -58,7 +58,7 @@ public class PersonEditDialogController {
 		streetField.setText(person.getStreet());
 		postalCodeField.setText(Integer.toString(person.getPostalCode()));
 		birthdayField.setText(String.valueOf(person.getBirthday()));
-		LOGGER.debug(String.valueOf(DateUtil.parse(String.valueOf(person.getBirthday()))));
+		//LOGGER.debug(String.valueOf(DateUtil.parse(String.valueOf(person.getBirthday()))));
 		//birthdayField.setPromptText("yyyy-MM-dd");
 		phoneNumberField.setText(person.getPhoneNumber());
 	}

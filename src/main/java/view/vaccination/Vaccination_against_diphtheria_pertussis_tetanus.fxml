@@ -11,6 +11,7 @@
    <children>
       <TableView layoutX="10.0" layoutY="10.0" prefHeight="469.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columns>
+            <TableColumn prefWidth="75.0" text="%typeOfVaccine" />
             <TableColumn prefWidth="75.0" text="Вік" />
             <TableColumn prefWidth="76.0" text="Дата" />
             <TableColumn text="Доза" />

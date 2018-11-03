@@ -2,35 +2,24 @@
 <vaccines>
     <vaccine>
         <age>sa</age>
-        <date>10.10.2018</date>
+        <date>20.01.1002</date>
         <doze>0.0</doze>
-        <id>1</id>
-        <medicalContradication>fffff</medicalContradication>
+        <id>2</id>
+        <medicalContradication>gfh</medicalContradication>
         <name>Щеплення проти туберкульозу</name>
-        <reaction>fff</reaction>
-        <series>sdf</series>
-        <typeVaccine>sa</typeVaccine>
+        <reaction>fgh</reaction>
+        <series>fg</series>
+        <typeVaccine>as</typeVaccine>
     </vaccine>
     <vaccine>
-        <age>s</age>
-        <date>10.10.2018</date>
+        <age>sadf</age>
+        <date>10.10.1001</date>
         <doze>0.0</doze>
-        <id>1</id>
-        <medicalContradication>fffff</medicalContradication>
+        <id>2</id>
+        <medicalContradication>dfg</medicalContradication>
         <name>Щеплення проти туберкульозу</name>
-        <reaction>fff</reaction>
-        <series>sdf</series>
-        <typeVaccine>s</typeVaccine>
-    </vaccine>
-    <vaccine>
-        <age>f</age>
-        <date>10.10.2018</date>
-        <doze>0.0</doze>
-        <id>1</id>
-        <medicalContradication>ffff</medicalContradication>
-        <name>Щеплення проти туберкульозу</name>
-        <reaction>fffff</reaction>
-        <series>fff</series>
-        <typeVaccine>f</typeVaccine>
+        <reaction>dfg</reaction>
+        <series>df</series>
+        <typeVaccine>asdf</typeVaccine>
     </vaccine>
 </vaccines>

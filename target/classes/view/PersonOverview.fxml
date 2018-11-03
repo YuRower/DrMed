@@ -20,7 +20,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="914.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PersonOverviewController">
    <children>
-      <SplitPane dividerPositions="0.5120481927710844" layoutX="265.0" layoutY="1.0" prefHeight="499.0" prefWidth="650.0" style="-fx-background-color: #666465;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="-15.0" AnchorPane.topAnchor="1.0">
+      <SplitPane dividerPositions="0.5195783132530121" layoutX="265.0" layoutY="1.0" prefHeight="499.0" prefWidth="650.0" style="-fx-background-color: #666465;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="-15.0" AnchorPane.topAnchor="1.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="386.0" style="-fx-background-color: #6664;" styleClass="background">
                <children>
@@ -41,35 +41,35 @@
                      <children>
                         <Label text="%firstName" />
                         <Label text="%Surname" GridPane.rowIndex="1" />
-                        <Label text="%street" GridPane.rowIndex="2" />
-                        <Label text="%patronymic" GridPane.rowIndex="3" />
+                        <Label text="%patronymic" GridPane.rowIndex="2" />
+                        <Label text="%street" GridPane.rowIndex="3" />
                         <Label text="%postal_code" GridPane.rowIndex="4" />
                         <Label text="%birthday" GridPane.rowIndex="5" />
                         <Label fx:id="firstNameLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" />
                         <Label fx:id="lastNameLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label fx:id="streetLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="patronymicLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="patronymicLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="streetLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="postalCodeLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label fx:id="birthdayLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label text="%phone_number" GridPane.rowIndex="6" />
                         <Label fx:id="phoneNumberLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <ButtonBar layoutX="-40.0" layoutY="5.0" prefHeight="33.0" prefWidth="333.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="5.0">
+                  <ButtonBar layoutX="-40.0" layoutY="5.0" prefHeight="33.0" prefWidth="409.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="5.0">
                     <buttons>
                       <Button mnemonicParsing="false" onAction="#handleNewPerson" prefWidth="100.0" text="%add" />
-                        <Button mnemonicParsing="false" onAction="#handleEditPerson" prefWidth="100.0" text="%edit" />
-                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="33.0" prefWidth="100.0" text="%delete" />
+                        <Button mnemonicParsing="false" onAction="#handleEditPerson" prefHeight="33.0" prefWidth="100.0" text="%edit" />
+                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="33.0" prefWidth="133.0" text="%delete" />
                     </buttons>
                   </ButtonBar>
                   <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="59.0" prefHeight="50.0" prefWidth="195.0">
                      <children>
-                        <ComboBox fx:id="comboClass" prefHeight="50.0" prefWidth="158.0" promptText="Classes" />
+                        <ComboBox fx:id="comboClass" prefHeight="50.0" prefWidth="158.0" />
                      </children>
                   </HBox>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #666465;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="297.0" style="-fx-background-color: #666465;">
                <children>
                   <TableView fx:id="personTable" layoutX="-12.0" layoutY="99.0" prefHeight="335.0" prefWidth="319.0" style="-fx-background-color: #666465;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="135.0">
                     <columns>
@@ -82,7 +82,7 @@
                   </TableView>
                   <AnchorPane layoutX="-40.0" layoutY="22.0" prefHeight="42.0" prefWidth="241.0" AnchorPane.rightAnchor="180.0">
                      <children>
-                        <CustomTextField fx:id="txtSearch" layoutX="50.0" layoutY="10.0" onMouseClicked="#sortPerson" prefHeight="35.0" prefWidth="237.0" promptText="Search" style="-fx-background-color: #E0E3D2;" AnchorPane.rightAnchor="0.0" />
+                        <CustomTextField fx:id="txtSearch" layoutX="50.0" layoutY="10.0" onMouseClicked="#sortPerson" prefHeight="35.0" prefWidth="237.0" promptText="%search" style="-fx-background-color: #E0E3D2;" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <Label fx:id="labelCount" layoutX="11.0" layoutY="474.0" prefHeight="31.0" prefWidth="129.0" text="%count" AnchorPane.bottomAnchor="25.0" />

@@ -317,15 +317,20 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 	private void handleNewPerson() throws ParseException {
-		Person tempPerson = new Person();
-		boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
-		LOGGER.debug(okClicked + "okClicked");
-		if (okClicked) {
-			LOGGER.debug(tempPerson + "tempPerson");
-			LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(tempPerson);
-			personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
-			updateCountLabel();
+		if (LoadExcel.getOuter() != null) {
 
+			Person tempPerson = new Person();
+			boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+			LOGGER.debug(okClicked + "okClicked");
+			if (okClicked) {
+				LOGGER.debug(tempPerson + "tempPerson");
+				LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).add(tempPerson);
+				personTable.setItems(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()));
+				updateCountLabel();
+
+			}
+		} else {
+			DialogManager.addThroughLoad();
 		}
 	}
 
@@ -343,24 +348,21 @@ public class PersonOverviewController extends Observable implements Initializabl
 	}
 
 	@FXML
-	private void handleDeletePerson() {
+	private void handleDeletePerson() throws IOException {
+		SchoolDAO schoolStorage = new SchoolDAO();
+		updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
+		personTable.setItems(updatedClass);
 		ButtonType checkUserInputOnDelete = DialogManager.wantToDelete();
 		if (checkUserInputOnDelete == ButtonType.OK) {
 			int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
 			LOGGER.info("handleDeletePerson");
 			LOGGER.info(selectedIndex);
+			LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
 
 			if (selectedIndex >= 0) {
 				personTable.getItems().remove(selectedIndex);
-				LOGGER.info(LoadExcel.getOuter());
-
-				// personTable.getItems().remove(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).get(selectedIndex));
 				LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).remove(selectedIndex);
-				LOGGER.info(LoadExcel.getOuter());
 				updateCountLabel();
-
-				// SchoolCollection.getPersonData().remove(selectedIndex);
-
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.initOwner(mainApp.getPrimaryStage());

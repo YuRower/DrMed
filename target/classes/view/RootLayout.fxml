@@ -12,30 +12,33 @@
         <menus>
           <Menu mnemonicParsing="false" text="%file">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleNew" text="New">
+                  <MenuItem mnemonicParsing="false" onAction="#handleNew" text="%new">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
-                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Open...">
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="%open">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
-                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Save">
+                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="%save">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
-                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Save As..." />
-                  <MenuItem mnemonicParsing="false" onAction="#handleLogOut" text="Log out" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="%saveAs" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLogOut" text="%logOut">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="ESCAPE" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="%exit" />
                </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%statistics">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleShowBirthdayStatistics" text="Show Statistics" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleShowVaccineStatistics" text="Unspecified Action" />
+              <MenuItem mnemonicParsing="false" onAction="#handleShowBirthdayStatistics" text="%birthdayStat" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleShowVaccineStatistics" text="%vaccineStat" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%help">
