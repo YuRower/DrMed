@@ -9,16 +9,16 @@ import javafx.beans.property.StringProperty;
 
 public class VaccineEntity {
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	
+
+	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "VaccineEntity [id=" + id + ", name=" + name + ", typeVaccine=" + typeVaccine
-				+ ", medicalContradication=" + medicalContradication + ", age=" + age + ", date=" + date + ", doze="
-				+ doze + ", series=" + series + ", nameOfDrug=" + nameOfDrug + "]";
+				+ ", medicalContradication=" + medicalContradication + ", age=" + age + ", date=" + date + ", reaction="
+				+ reaction + ", doze=" + doze + ", series=" + series + ", nameOfDrug=" + nameOfDrug + "]";
 	}
 
 	private int id;
@@ -73,7 +73,7 @@ public class VaccineEntity {
 	}
 
 	public StringProperty reactionProperty() {
-		return typeVaccine;
+		return reaction;
 	}
 
 	public void setReaction(String reaction) {

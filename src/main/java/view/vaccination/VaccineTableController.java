@@ -148,13 +148,12 @@ public class VaccineTableController extends AbstractResource implements Initiali
 		seriesColumn.setCellValueFactory(cellData -> cellData.getValue().seriesProperty());
 		medicalContradicationColumn
 				.setCellValueFactory(cellData -> cellData.getValue().medicalContradicationProperty());
+		
 		}
 	}
 
 	public void setMainApp(MainApp mainApp, Locale locale, String currentTable, Person currentPerson) {
-
 		LOGGER.info(main);
-
 		main = mainApp;
 		this.currentLocale = locale;
 		this.currentTable = currentTable;

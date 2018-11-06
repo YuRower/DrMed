@@ -67,6 +67,7 @@
                         <ComboBox fx:id="comboClass" prefHeight="50.0" prefWidth="158.0" />
                      </children>
                   </HBox>
+                  <ComboBox fx:id="comboLocales" layoutX="-48.0" layoutY="431.0" prefHeight="50.0" prefWidth="158.0" promptText="Language" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="10.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="297.0" style="-fx-background-color: #666465;">
@@ -86,7 +87,6 @@
                      </children>
                   </AnchorPane>
                   <Label fx:id="labelCount" layoutX="11.0" layoutY="474.0" prefHeight="31.0" prefWidth="129.0" text="%count" AnchorPane.bottomAnchor="25.0" />
-                  <ComboBox fx:id="comboLocales" layoutX="147.0" layoutY="449.0" prefHeight="50.0" prefWidth="158.0" promptText="Language" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="14.0" />
                </children>
             </AnchorPane>
         </items>

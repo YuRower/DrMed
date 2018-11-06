@@ -56,7 +56,7 @@ public class LoadExcel {
 	private static int counterId;
 
 	public List<Person> readBooksFromExcelFile(File excelFilePath, String sheet) throws IOException {
-		outer =FXCollections.observableArrayList();// new ArrayList<ArrayList<Person>>();
+		outer =FXCollections.observableArrayList();
 		listPerson = FXCollections.observableArrayList();
 		FileInputStream inputStream = new FileInputStream(excelFilePath);
 		Sheet firstSheet;

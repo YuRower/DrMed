@@ -1,25 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <vaccines>
     <vaccine>
-        <age>sa</age>
-        <date>20.01.1002</date>
+        <age>віфа</age>
+        <date>10.10.1000</date>
         <doze>0.0</doze>
         <id>2</id>
-        <medicalContradication>gfh</medicalContradication>
+        <medicalContradication>івфа</medicalContradication>
         <name>Щеплення проти туберкульозу</name>
-        <reaction>fgh</reaction>
-        <series>fg</series>
-        <typeVaccine>as</typeVaccine>
+        <reaction>іфвафвіа</reaction>
+        <series>іфв</series>
+        <typeVaccine>івааів</typeVaccine>
     </vaccine>
     <vaccine>
-        <age>sadf</age>
-        <date>10.10.1001</date>
+        <age>ds</age>
+        <date>20.12.1000</date>
+        <doze>0.1</doze>
+        <id>2</id>
+        <medicalContradication>hj</medicalContradication>
+        <name>Щеплення проти туберкульозу</name>
+        <reaction>fh</reaction>
+        <series>k</series>
+        <typeVaccine>sda</typeVaccine>
+    </vaccine>
+    <vaccine>
+        <age>ds</age>
+        <date>20.12.1000</date>
+        <doze>0.5</doze>
+        <id>2</id>
+        <medicalContradication>hj</medicalContradication>
+        <name>Щеплення проти туберкульозу</name>
+        <reaction>fh</reaction>
+        <series>k</series>
+        <typeVaccine>sdaf</typeVaccine>
+    </vaccine>
+    <vaccine>
+        <age>ds</age>
+        <date>10.10.1000</date>
         <doze>0.0</doze>
         <id>2</id>
-        <medicalContradication>dfg</medicalContradication>
+        <medicalContradication>sdaf</medicalContradication>
         <name>Щеплення проти туберкульозу</name>
-        <reaction>dfg</reaction>
-        <series>df</series>
-        <typeVaccine>asdf</typeVaccine>
+        <reaction>sadf</reaction>
+        <series>sadf</series>
+        <typeVaccine>sda</typeVaccine>
     </vaccine>
 </vaccines>

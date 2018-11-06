@@ -97,7 +97,7 @@ public class FileDocxGenerator {
 			copyFileUsingStream(file.getAbsoluteFile(), userFile);
 			File userParentFile = userFile.getParentFile();
 			fillDocxInfo(map, selectedPerson, userFile, userParentFile);
-		} else if (report == Report.MANY) {
+		}/* else if (report == Report.MANY) {
 			LOGGER.info(report);
 			for (Person persons : listCurrentClass) {
 				selectedDirPath = makeDir(selectedDirPath);// create dir for saving user folder
@@ -108,7 +108,7 @@ public class FileDocxGenerator {
 				File userParentFile = userFile.getParentFile();
 				fillDocxInfo(map, persons, userFile, userParentFile);
 			}
-		}
+		}*/
 	}
 
 	public void fillDocxInfo(Map<String, Object> map, Person person, File file, File parentFile) {
@@ -128,13 +128,12 @@ public class FileDocxGenerator {
 		map.put(pupilInfo[6], person.getPhoneNumber());
 		map.put(pupilInfo[5], person.getBirthday());
 		map.put(pupilInfo[7], "");
-
 		LOGGER.debug(map);
 		boolean flag = GenerateDocx.generateAndSendDocx("\\" + file.getName(), map, parentFile.getAbsolutePath(),
 				false);
 		LOGGER.debug("Status filling to file " + flag);
 
-		String [] vaccineInfo = new String[] { "Age", "Date", "Doze", "Series", "Reaction", "MedContra" };
+		String [] vaccineInfo = new String[] { "Age", "Date", "Doze", "Series", "Reaction", "MedContra" ,"TypeVaccine" };
 		Iterator<VaccineEntity> list = XMLProcessing.getAllVaccinesPersons().iterator();
 		int i = 0;
 		while (list.hasNext()) {
@@ -146,6 +145,7 @@ public class FileDocxGenerator {
 				mapVaccine.put(vaccineInfo[3].concat(String.valueOf(i)), vaccine.getSeries());
 				mapVaccine.put(vaccineInfo[4].concat(String.valueOf(i)), vaccine.getReaction());
 				mapVaccine.put(vaccineInfo[5].concat(String.valueOf(i)), vaccine.getMedicalContradication());
+				mapVaccine.put(vaccineInfo[6].concat(String.valueOf(i)), vaccine.getTypeVaccine());
 				++i;
 			}
 		}

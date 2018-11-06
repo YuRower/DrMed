@@ -74,7 +74,6 @@ public class MainApp extends Application implements Observer {
 		primaryStage.setMaximized(true);
 		this.primaryStage.setTitle("MedApp");
 		this.primaryStage.getIcons().add(new Image("/images/address_book_32.png"));
-		Lang langRU = new Lang(0, "ru", "Русский", LocaleManager.RU_LOCALE);
 		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UA_LOCALE);
 		LOGGER.info("locale was added,default UK");
 		LocaleManager.setCurrentLang(langUK);

@@ -46,15 +46,7 @@ public class VaccineEditPageController {
 	public static final String BUNDLES_FOLDER = "property.text";
 	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
 
-	/*public static void checkCinfirmationLang(Lang locale) {
-		if (locale.getIndex() == 0) {
-			currentLang = LocaleManager.RU_LOCALE;
-
-		} else if (locale.getIndex() == 1) {
-			currentLang = LocaleManager.UA_LOCALE;
-
-		}
-	}*/
+	
 	@FXML
 	private void initialize() {
 		LOGGER.info(" fxml file has been loaded ");
@@ -79,6 +71,8 @@ public class VaccineEditPageController {
 		dozeField.setText(Double.toString(vaccine.getDoze()));
 		medicalСontraindicationsField.setText(vaccine.getMedicalContradication());
 		responseLocalvaccineField.setText(vaccine.getReaction());
+		LOGGER.info("Info about vaccine"+ vaccine.getReaction());
+
 		dateField.setText(String.valueOf(vaccine.getDate()));
 		dateField.setPromptText("dd.mm.yyyy");
 		LOGGER.info("Info about vaccine"+ vaccine);
@@ -90,7 +84,6 @@ public class VaccineEditPageController {
 		try {
 			setFisrtTwoTable(vaccine);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		nameOfDrugField.setText(vaccine.getNameOfDrug());
@@ -112,7 +105,10 @@ public class VaccineEditPageController {
 			vaccine.setAge(ageField.getText());
 			vaccine.setDoze(Double.parseDouble(dozeField.getText()));
 			vaccine.setMedicalContradication(medicalСontraindicationsField.getText());
+
 			vaccine.setReaction(responseLocalvaccineField.getText());
+			LOGGER.info("Info about vaccine"+ responseLocalvaccineField.getText());
+
 			vaccine.setDate(DateUtil.format(DateUtil.parse(dateField.getText())));
 			LOGGER.info(" Table edit info " + DateUtil.format(DateUtil.parse(dateField.getText())));
 			LOGGER.info(" Table edit info " +vaccine);

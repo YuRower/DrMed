@@ -81,7 +81,7 @@ public class VaccineController  extends AbstractResource implements Initializabl
 		VaccineTypeLocation optionOfVaccine = comboVaccine.getSelectionModel().getSelectedItem();
 
 		VaccineEntity newVaccine = new VaccineEntity(optionOfVaccine.getName());
-		LOGGER.info(newVaccine);
+		LOGGER.info(newVaccine+"new vaccine");
 
 		newVaccine.setId(currentPerson.getId());
 		LOGGER.info(newVaccine.getId());

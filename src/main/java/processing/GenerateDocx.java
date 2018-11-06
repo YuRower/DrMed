@@ -9,8 +9,6 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.Map;
 import java.awt.Desktop;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -44,6 +42,8 @@ public class GenerateDocx {
 		try {
 			unzip(new File(templateLocation), new File(userTempDir));
 			changeData(new File(userTempDir + MAIN_DOCUMENT_PATH), substitutionData);
+	//		clearTmpinformation(new File(userTempDir + MAIN_DOCUMENT_PATH), substitutionData);
+
 			zip(new File(userTempDir), new File(userTempDir + templateName));
 			deleteTempData(new File(userTempDir));
 			if (flagEnd) {
@@ -82,8 +82,6 @@ public class GenerateDocx {
 		while (entries.hasMoreElements()) {
 			ZipEntry entry = entries.nextElement();
 			File file = new File(directory, entry.getName());
-			LOGGER.debug(directory + " directory file" + file + "  entry.getName() " + entry.getName());
-
 			if (entry.isDirectory()) {
 				file.mkdirs();
 			} else {
@@ -112,35 +110,39 @@ public class GenerateDocx {
 			br.close();
 			targetFile.delete();
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error(e.fillInStackTrace());
 			br.close();
 			throw e;
 		}
 		LOGGER.info("docx template" + docxTemplate);
-		Iterator substitutionDataIterator = substitutionData.entrySet().iterator();
+		Iterator<?> substitutionDataIterator = substitutionData.entrySet().iterator();
 		while (substitutionDataIterator.hasNext()) {
+			@SuppressWarnings("unchecked")
 			Map.Entry<String, String> pair = (Map.Entry<String, String>) substitutionDataIterator.next();
+			LOGGER.info("===================>" + pair.getKey() + " " + pair.getValue());
 			if (docxTemplate.contains(pair.getKey())) {
 				if (pair.getValue() != null) {
-
 					docxTemplate = docxTemplate.replace(pair.getKey(), pair.getValue());
 					LOGGER.info("Got somtinhg inside XML!!" + pair.getKey() + pair.getValue());
-				} else
-					docxTemplate = docxTemplate.replace(pair.getKey(), "NEDOSTAJE");
-				LOGGER.debug(docxTemplate + " NEDOSTAJE");
+				} else {
+					docxTemplate = docxTemplate.replace(pair.getKey(), "");
+					LOGGER.debug(docxTemplate + "");
+				}
 			}
 		}
 		FileOutputStream fos = null;
 		try {
 			fos = new FileOutputStream(targetFile);
 			fos.write(docxTemplate.getBytes("UTF-8"));
-			System.out.println("Successfully wrote to the targetFile!!" + targetFile);
+			LOGGER.debug("Successfully wrote to the targetFile!!" + targetFile);
 			fos.close();
 		} catch (IOException e) {
 			fos.close();
 			throw e;
 		}
 	}
+
+
 
 	private static void zip(File directory, File zipfile) throws IOException {
 		LOGGER.debug(directory + " " + zipfile);

@@ -3,6 +3,7 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Person;
+import model.manager.LocaleManager;
 import util.DateUtil;
 
 public class PersonEditDialogController {
@@ -37,6 +39,8 @@ public class PersonEditDialogController {
 	private Stage dialogStage;
 	private Person person;
 	private boolean okClicked = false;
+	public static final String BUNDLES_FOLDER = "property.text";
+	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
 
 	@FXML
 	private void initialize() {
@@ -58,8 +62,6 @@ public class PersonEditDialogController {
 		streetField.setText(person.getStreet());
 		postalCodeField.setText(Integer.toString(person.getPostalCode()));
 		birthdayField.setText(String.valueOf(person.getBirthday()));
-		//LOGGER.debug(String.valueOf(DateUtil.parse(String.valueOf(person.getBirthday()))));
-		//birthdayField.setPromptText("yyyy-MM-dd");
 		phoneNumberField.setText(person.getPhoneNumber());
 	}
 
@@ -78,7 +80,6 @@ public class PersonEditDialogController {
 			person.setStreet(streetField.getText());
 			person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
 			person.setBirthday(DateUtil.format(DateUtil.parse(birthdayField.getText())));
-		//	LOGGER.info(" User edit info " + DateUtil.format(LocalDate.parse(birthdayField.getText())));
 			person.setPhoneNumber(phoneNumberField.getText());
 
 			okClicked = true;
@@ -92,25 +93,38 @@ public class PersonEditDialogController {
 	}
 
 	private boolean isInputValid() throws ParseException {
+		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, locale);
+		String firstNameProp = rb.getString("firstNameField");
+		String lastNameProp = rb.getString("lastNameField");
+		String patronymicProp = rb.getString("patronymicProp");
+		String streetProp = rb.getString("streetProp");
+		String birthdayProp = rb.getString("birthdayProp");
+		String postalCodeProp = rb.getString("postalCodeProp");
+		String phoneNumberProp = rb.getString("phoneNumberField");
+		String dateField = rb.getString("dateField");
+		String noValiedFields = rb.getString("noValiedFields");
+		String enterCorrectFields = rb.getString("enterCorrectFields");
+	
+
 		LOGGER.info(" Validation user input ");
 
 		String errorMessage = "";
 
 		if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
-			errorMessage += "No valid first name!\n";
+			errorMessage += firstNameProp+"\n";
 		}
 		if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
-			errorMessage += "No valid last name!\n";
+			errorMessage += lastNameProp+"\n";
 		}
 		if (patronymicField.getText() == null || patronymicField.getText().length() == 0) {
-			errorMessage += "No valid patronymic name !\n";
+			errorMessage += patronymicProp+"\n";
 		}
 		if (streetField.getText() == null || streetField.getText().length() == 0) {
-			errorMessage += "No valid street!\n";
+			errorMessage += streetProp+"\n";
 		}
 
 		if (postalCodeField.getText() == null || postalCodeField.getText().length() == 0) {
-			errorMessage += "No valid postal code!\n";
+			errorMessage += postalCodeProp+"\n";
 		} else {
 			LOGGER.info(" try to parse the postal code into an int. ");
 
@@ -123,25 +137,24 @@ public class PersonEditDialogController {
 
 
 		if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
-			errorMessage += "No valid birthday!\n";
+			errorMessage += birthdayProp+"\n";
 		}
 		if (phoneNumberField.getText() == null || phoneNumberField.getText().length() == 0) {
-			errorMessage += "No valid city!\n";
+			errorMessage += phoneNumberProp+"\n";
 		
 		} else {
 			if (!DateUtil.validDate(birthdayField.getText())) {
-				errorMessage += "No valid birthday. Use the format dd.mm.yyyy!\n";
+				errorMessage += dateField+"\n";
 			}
 		}
 
 		if (errorMessage.length() == 0) {
 			return true;
 		} else {
-
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.initOwner(dialogStage);
-			alert.setTitle("Invalid Fields");
-			alert.setHeaderText("Please correct invalid fields");
+			alert.setTitle(noValiedFields);
+			alert.setHeaderText(enterCorrectFields);
 			alert.setContentText(errorMessage);
 
 			alert.showAndWait();
