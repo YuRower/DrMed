@@ -39,6 +39,8 @@ public class VaccineEditPageController {
 	private TextField medicalСontraindicationsField;
 	@FXML
 	private TextField nameOfDrugField;
+	
+	
 
 	private Stage dialogStage;
 	private VaccineEntity vaccine;
@@ -59,7 +61,7 @@ public class VaccineEditPageController {
 		this.dialogStage.getIcons().add(new Image("/images/edit.png"));
 	}
 
-	public void setFisrtTwoTable(VaccineEntity vaccine) throws ParseException {
+	public void setFisrtTable(VaccineEntity vaccine) throws ParseException {
 		LOGGER.info(" setFisrtTwoTable "+ vaccine);
 
 		this.vaccine = vaccine;
@@ -77,12 +79,36 @@ public class VaccineEditPageController {
 		dateField.setPromptText("dd.mm.yyyy");
 		LOGGER.info("Info about vaccine"+ vaccine);
 	}
+	
+	public void setThirdTable(VaccineEntity vaccine) throws ParseException {
+		LOGGER.info(" setFisrtTwoTable "+ vaccine);
+
+		this.vaccine = vaccine;
+		LOGGER.info(" setFisrtTwoTable "+ vaccine);
+
+		chipViewField.setText(vaccine.getTypeVaccine());
+		ageField.setText(vaccine.getAge());
+		seriesField.setText(vaccine.getSeries());
+		dozeField.setText(Double.toString(vaccine.getDoze()));
+		nameOfDrugField.setText(vaccine.getNameOfDrug());
+
+
+		medicalСontraindicationsField.setText(vaccine.getMedicalContradication());
+		responseLocalvaccineField.setText(vaccine.getReaction());
+		LOGGER.info("Info about vaccine"+ vaccine.getReaction());
+
+		dateField.setText(String.valueOf(vaccine.getDate()));
+		dateField.setPromptText("dd.mm.yyyy");
+		LOGGER.info("Info about vaccine"+ vaccine);
+	}
+	
+
 
 	public void setThreeToSixTable(VaccineEntity vaccine) {
 		LOGGER.info(" setThreeToSixTable ");
 
 		try {
-			setFisrtTwoTable(vaccine);
+			setFisrtTable(vaccine);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -105,8 +131,29 @@ public class VaccineEditPageController {
 			vaccine.setAge(ageField.getText());
 			vaccine.setDoze(Double.parseDouble(dozeField.getText()));
 			vaccine.setMedicalContradication(medicalСontraindicationsField.getText());
+ 			vaccine.setReaction(responseLocalvaccineField.getText());
+			LOGGER.info("Info about vaccine"+ responseLocalvaccineField.getText());
 
-			vaccine.setReaction(responseLocalvaccineField.getText());
+			vaccine.setDate(DateUtil.format(DateUtil.parse(dateField.getText())));
+			LOGGER.info(" Table edit info " + DateUtil.format(DateUtil.parse(dateField.getText())));
+			LOGGER.info(" Table edit info " +vaccine);
+
+			okClicked = true;
+			dialogStage.close();
+		}
+	}
+	@FXML
+	private void handleOkTable3_6() throws ParseException {
+		if (isInputValid()) {
+			LOGGER.info(" handleOkTable3_6 ");
+
+			vaccine.setTypeVaccine(chipViewField.getText());
+			vaccine.setSeries(seriesField.getText());
+			vaccine.setAge(ageField.getText());
+			vaccine.setDoze(Double.parseDouble(dozeField.getText()));
+			vaccine.setMedicalContradication(medicalСontraindicationsField.getText());
+			vaccine.setNameOfDrug(nameOfDrugField.getText());
+ 			vaccine.setReaction(responseLocalvaccineField.getText());
 			LOGGER.info("Info about vaccine"+ responseLocalvaccineField.getText());
 
 			vaccine.setDate(DateUtil.format(DateUtil.parse(dateField.getText())));

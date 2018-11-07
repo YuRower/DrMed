@@ -9,20 +9,21 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.vaccination.VaccineTableController">
    <children>
-      <TableView layoutX="10.0" layoutY="10.0" prefHeight="469.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="vaccineTable" layoutX="10.0" layoutY="10.0" prefHeight="469.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="%typeOfVaccine" />
-            <TableColumn prefWidth="75.0" text="Вік" />
-            <TableColumn prefWidth="76.0" text="Дата" />
-            <TableColumn text="Доза" />
-            <TableColumn prefWidth="75.0" text="Серія" />
-            <TableColumn prefWidth="170.0" text="Реакція">
+            <TableColumn fx:id="typeOfVAccineColumn" prefWidth="75.0" text="%typeOfVaccine" />
+            <TableColumn fx:id="ageColumn" prefWidth="75.0" text="%age" />
+            <TableColumn fx:id="dataColumn" prefWidth="76.0" text="%date" />
+            <TableColumn fx:id="dozeColumn" text="%doze" />
+            <TableColumn fx:id="seriesColumn" prefWidth="75.0" text="%series" />
+            <TableColumn fx:id="reactionColumn" prefWidth="170.0" text="%reaction">
                <columns>
-                  <TableColumn prefWidth="75.0" text="Загальна" />
-                  <TableColumn prefWidth="75.0" text="Місцева" />
+                  <TableColumn prefWidth="75.0" text="%general" />
+                  <TableColumn prefWidth="75.0" text="%local" />
                </columns>
             </TableColumn>
-            <TableColumn prefWidth="107.0" text="Медичні противопоказання" />
+            <TableColumn fx:id="medicalContradicationColumn" prefWidth="107.0" text="%medContradication" />
+            <TableColumn fx:id="nameOfDrugColumn" prefWidth="75.0" text="%nameOfDrug" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

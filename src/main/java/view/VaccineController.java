@@ -29,8 +29,8 @@ public class VaccineController  extends AbstractResource implements Initializabl
 	MainApp main;
 	@FXML
 	private Label selectedPersonLabel;
-	@FXML
-	public ComboBox<VaccineTypeLocation> comboVaccine;
+	/*@FXML
+	public ComboBox<VaccineTypeLocation> comboVaccine;*/
 	private final static Logger LOGGER = Logger.getLogger(VaccineController.class);
 	private ObservableList<VaccineEntity> vaccineData = FXCollections.observableArrayList();
 
@@ -103,6 +103,7 @@ public class VaccineController  extends AbstractResource implements Initializabl
 	private void moveBack() {
 		LOGGER.info("moveBack");
 		main.showPersonOverview(LocaleManager.getCurrentLang().getLocale());
+		VaccineManager.setCurrentVaccine(null);
 	}
 
 	@Override

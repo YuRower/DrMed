@@ -133,6 +133,20 @@ public class DialogManager {
 
 		alert.showAndWait();
 	}
+	public static void NoDatatoSave() {
+		Alert alert = new Alert(Alert.AlertType.WARNING);
+		checkCinfirmationLang(locale);
+		 ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, currentLang);
+		String text = rb.getString("NoDatatoSave");
+		String title = rb.getString("NoDatatoSave");
+		//String headerText = rb.getString("NoDatatoSave");
+
+		alert.setTitle(title);
+		//alert.setHeaderText(headerText);
+		alert.setContentText(text);
+
+		alert.showAndWait();
+	}
 
 	public static void fileSuccessfully() {
 		LOGGER.info("method showInfoDialog with " + "file successfully written" + " " );

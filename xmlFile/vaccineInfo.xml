@@ -1,47 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <vaccines>
     <vaccine>
-        <age>віфа</age>
+        <age>sdaf</age>
         <date>10.10.1000</date>
         <doze>0.0</doze>
-        <id>2</id>
-        <medicalContradication>івфа</medicalContradication>
-        <name>Щеплення проти туберкульозу</name>
-        <reaction>іфвафвіа</reaction>
-        <series>іфв</series>
-        <typeVaccine>івааів</typeVaccine>
+        <id>1</id>
+        <medicalContradication>asdf</medicalContradication>
+        <name>Щеплення проти дифтерії , кашлюку, правця</name>
+        <nameOfDrug>asdf</nameOfDrug>
+        <reaction>asdf</reaction>
+        <series>asdf</series>
+        <typeVaccine>asdf</typeVaccine>
     </vaccine>
     <vaccine>
-        <age>ds</age>
-        <date>20.12.1000</date>
-        <doze>0.1</doze>
-        <id>2</id>
-        <medicalContradication>hj</medicalContradication>
-        <name>Щеплення проти туберкульозу</name>
-        <reaction>fh</reaction>
-        <series>k</series>
-        <typeVaccine>sda</typeVaccine>
-    </vaccine>
-    <vaccine>
-        <age>ds</age>
-        <date>20.12.1000</date>
-        <doze>0.5</doze>
-        <id>2</id>
-        <medicalContradication>hj</medicalContradication>
-        <name>Щеплення проти туберкульозу</name>
-        <reaction>fh</reaction>
-        <series>k</series>
-        <typeVaccine>sdaf</typeVaccine>
-    </vaccine>
-    <vaccine>
-        <age>ds</age>
+        <age>sadf</age>
         <date>10.10.1000</date>
         <doze>0.0</doze>
-        <id>2</id>
-        <medicalContradication>sdaf</medicalContradication>
-        <name>Щеплення проти туберкульозу</name>
-        <reaction>sadf</reaction>
-        <series>sadf</series>
-        <typeVaccine>sda</typeVaccine>
+        <id>1</id>
+        <medicalContradication>dfh</medicalContradication>
+        <name>Щеплення проти дифтерії , кашлюку, правця</name>
+        <nameOfDrug>dgh</nameOfDrug>
+        <reaction>dfgh</reaction>
+        <series>gdh</series>
+        <typeVaccine>sdf</typeVaccine>
     </vaccine>
 </vaccines>

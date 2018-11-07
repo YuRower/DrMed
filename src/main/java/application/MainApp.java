@@ -20,6 +20,7 @@ import model.Lang;
 import model.Person;
 import model.Status;
 import model.manager.LocaleManager;
+import model.manager.VaccineManager;
 import model.vaccine.VaccineEntity;
 import processing.XMLProcessing;
 import processing.DAO.SchoolDAO;
@@ -56,7 +57,7 @@ public class MainApp extends Application implements Observer {
 	AnchorPane loginPage;
 	BorderPane tablePage;
 	AnchorPane vaccineTableView;
-	private VaccineTableController vaccineTableController  ;
+	private VaccineTableController vaccineTableController;
 
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
 	/*
@@ -199,12 +200,12 @@ public class MainApp extends Application implements Observer {
 				tablePage.setCenter(vaccineTableView);
 
 				vaccineController = loader.getController();
-				
+
 				LOGGER.debug("Pass main object to vaccineController ");
 				vaccineController.setMainApp(this, resource, locale);
 				vaccineController.setSelectedPerson(person);
 				vaccineTableController = new VaccineTableController();
-				vaccineTableController.setMainApp(this,locale,resource,person);
+				vaccineTableController.setMainApp(this, locale, resource, person);
 
 			}
 		} catch (IOException ex) {
@@ -266,9 +267,23 @@ public class MainApp extends Application implements Observer {
 			vaccineEditController = loader.getController();
 			vaccineEditController.setDialogStage(dialogStage);
 			LOGGER.debug("set vaccine ");
+			if (VaccineManager.getCurrentVaccine() == null) {
+				vaccineEditController.setFisrtTable(vaccine);
 
-			vaccineEditController.setFisrtTwoTable(vaccine);
-			// dialogStage.getIcons().add(new Image("/images/edit.png"));
+			} else {
+				int indVaccine = VaccineManager.getCurrentVaccine().getIndex();
+
+				if ((indVaccine >= 0) && (indVaccine < 1)) {
+					LOGGER.info(indVaccine);
+					vaccineEditController.setFisrtTable(vaccine);
+
+				} else if ((indVaccine >= 2) && (indVaccine <= 6)) {
+					LOGGER.info(indVaccine);
+					vaccineEditController.setThirdTable(vaccine);
+				} else {
+					LOGGER.info("not found");
+				}
+			}
 			dialogStage.showAndWait();
 			return vaccineEditController.isOkClicked();
 		} catch (IOException e) {

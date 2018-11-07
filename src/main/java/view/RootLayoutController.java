@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import model.Status;
+import model.manager.DialogManager;
 import processing.Statistics;
 import processing.LoadExcel;
 import processing.DAO.SchoolDAO;
@@ -34,7 +35,6 @@ public class RootLayoutController {
 		LOGGER.info(LoadExcel.getClassList().isEmpty());
 		LOGGER.info(LoadExcel.getOuter() != null);
 		LOGGER.info(SchoolDAO.getPersonData().isEmpty());
-		
 
 		LOGGER.info(PersonOverviewController.getComboClasslist() != null);
 
@@ -83,7 +83,7 @@ public class RootLayoutController {
 			LOGGER.debug("Load " + personFile.getPath() + "\nStatus " + status);
 			schoolStorage.factoryStatusFile(personFile, status);
 		} else {
-			handleSaveAs();
+			DialogManager.NoDatatoSave();
 		}
 	}
 
@@ -95,7 +95,7 @@ public class RootLayoutController {
 		fileChooser.getExtensionFilters().add(xlsxFilter);
 		fileChooser.getExtensionFilters().add(xlsFilter);
 		File file = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
-		LOGGER.debug("Load " + file.getPath());
+
 		if (file != null) {
 			if (!file.getPath().endsWith(".xlsx")) {
 				file = new File(file.getPath());
@@ -140,6 +140,7 @@ public class RootLayoutController {
 		LOGGER.info("Show Birthday Statistics ");
 		new Statistics().showBirthdayStatistics();
 	}
+
 	@FXML
 	private void handleShowVaccineStatistics() {
 		LOGGER.info("Show Birthday Statistics ");

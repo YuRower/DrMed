@@ -25,9 +25,10 @@ public class VaccineEntity {
 	private StringProperty name;
 	private StringProperty typeVaccine;
 	private StringProperty medicalContradication;
+	
+	private StringProperty reaction;
 	private StringProperty age;
 	private StringProperty date;
-	private StringProperty reaction;
 	private DoubleProperty doze;
 	private StringProperty series;
 	private StringProperty nameOfDrug;
@@ -180,8 +181,8 @@ public class VaccineEntity {
 		return nameOfDrug;
 	}
 
-	public void setNameOfDrug(String series) {
-		this.series.set(series);
+	public void setNameOfDrug(String nameOfDrug) {
+		this.nameOfDrug.set(nameOfDrug);
 	}
 
 	public String getNameOfDrug() {
