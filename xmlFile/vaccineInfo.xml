@@ -4,24 +4,23 @@
         <age>sdaf</age>
         <date>10.10.1000</date>
         <doze>0.0</doze>
-        <id>1</id>
-        <medicalContradication>asdf</medicalContradication>
-        <name>Щеплення проти дифтерії , кашлюку, правця</name>
-        <nameOfDrug>asdf</nameOfDrug>
-        <reaction>asdf</reaction>
-        <series>asdf</series>
+        <id>2</id>
+        <medicalContradication>v</medicalContradication>
+        <name>Щеплення проти туберкульозу</name>
+        <reaction>v</reaction>
+        <series>vb</series>
         <typeVaccine>asdf</typeVaccine>
     </vaccine>
     <vaccine>
-        <age>sadf</age>
+        <age>fdg</age>
         <date>10.10.1000</date>
         <doze>0.0</doze>
-        <id>1</id>
-        <medicalContradication>dfh</medicalContradication>
+        <id>2</id>
+        <medicalContradication>jhgj</medicalContradication>
         <name>Щеплення проти дифтерії , кашлюку, правця</name>
-        <nameOfDrug>dgh</nameOfDrug>
-        <reaction>dfgh</reaction>
-        <series>gdh</series>
-        <typeVaccine>sdf</typeVaccine>
+        <nameOfDrug>ghj</nameOfDrug>
+        <reactionGeneral>ghj</reactionGeneral>
+        <series>gh</series>
+        <typeVaccine>ffdg</typeVaccine>
     </vaccine>
 </vaccines>

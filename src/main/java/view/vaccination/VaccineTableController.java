@@ -1,9 +1,7 @@
 package view.vaccination;
 
-import java.io.File;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -21,11 +19,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import model.Person;
 import model.VaccineTypeLocation;
-import model.manager.ClassesManager;
 import model.manager.DialogManager;
 import model.manager.VaccineManager;
 import model.vaccine.VaccineEntity;
-import processing.LoadExcel;
 import processing.XMLProcessing;
 import processing.DAO.VaccinationTypeDAO;
 import util.AbstractResource;
@@ -50,9 +46,15 @@ public class VaccineTableController extends AbstractResource implements Initiali
 	@FXML
 	private TableColumn<VaccineEntity, String> seriesColumn;
 	@FXML
+	private TableColumn<VaccineEntity, String> reactionGeneralColumn;
+	@FXML
+	private TableColumn<VaccineEntity, String> reactionLocalColumn;
+	@FXML
 	private TableColumn<VaccineEntity, String> medicalContradicationColumn;
 	@FXML
 	private TableColumn<VaccineEntity, String> nameOfDrugColumn;
+	
+	
 	private Locale currentLocale;
 
 	private String currentTable;
@@ -82,8 +84,11 @@ public class VaccineTableController extends AbstractResource implements Initiali
 
 				LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
 				if (indexEntity >= 0) {
+					
 					LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
-					xmlFile.deleteVaccineFromXMLStrorage(indexEntity);
+					VaccineEntity toDelete = filteredList.get(indexEntity);
+
+					xmlFile.deleteVaccineFromXMLStrorage(toDelete);
 					xmlFile.savePersonDataToFile(XML_FILE, selectedEntity);
 
 				} else {
@@ -95,7 +100,8 @@ public class VaccineTableController extends AbstractResource implements Initiali
 				}
 
 				xmlFile.loadPersonDataFromFile(XML_FILE);
-				vaccineTable.setItems(xmlFile.getCurrentVaccinePerson());
+				vaccineTable.setItems(
+						 filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()));
 			}
 
 		} else {
@@ -112,20 +118,28 @@ public class VaccineTableController extends AbstractResource implements Initiali
 	private void handleDeleteVaccine() {
 		ButtonType checkUserInputOnDelete = DialogManager.wantToDelete();
 		if (checkUserInputOnDelete == ButtonType.OK) {
+			XMLProcessing xmlFile = new XMLProcessing();
+
 			LOGGER.info("handleDelete");
-			LOGGER.info(vaccineTable);
+			filteredList = filterConcreateVaccine(xmlFile.getCurrentVaccinePerson());
+		//	vaccineTable.setItems(filteredList);
 			int selectedIndex = vaccineTable.getSelectionModel().getSelectedIndex();
 			LOGGER.info("deleteVaccine");
 			LOGGER.info(selectedIndex);
-			XMLProcessing xmlFile = new XMLProcessing();
 			LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
 			if (selectedIndex >= 0) {
-				vaccineTable.getItems().remove(selectedIndex);
-				LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
-				xmlFile.deleteVaccineFromXMLStrorage(selectedIndex);
-				filteredList = filterConcreateVaccine(xmlFile.getCurrentVaccinePerson());
+				//vaccineTable.setItems(filteredList);
 
-				vaccineTable.setItems(filteredList);
+				LOGGER.info("oooooooooooooooooooooooooo"+vaccineTable.getItems() );
+
+				VaccineEntity toDelete = filteredList.get(selectedIndex);
+				LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
+				filteredList=xmlFile.deleteVaccineFromXMLStrorage(toDelete);
+				vaccineTable.setItems(
+						 filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()));	
+				vaccineTable.getItems().remove(selectedIndex);
+
+				
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("No Selection");
@@ -133,8 +147,8 @@ public class VaccineTableController extends AbstractResource implements Initiali
 				alert.setContentText("Please select a person in the table.");
 				alert.showAndWait();
 			}
-
-		} else {
+			
+			} else {
 			LOGGER.info("Cancel");
 			return;
 		}
@@ -179,12 +193,12 @@ public class VaccineTableController extends AbstractResource implements Initiali
 					typeOfVAccineColumn.setCellValueFactory(cellData -> cellData.getValue().typeVaccineProperty());
 					ageColumn.setCellValueFactory(cellData -> cellData.getValue().ageProperty());
 					dataColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
-
 					dozeColumn.setCellValueFactory(cellData -> cellData.getValue().dozeProperty().asObject());
 					reactionColumn.setCellValueFactory(cellData -> cellData.getValue().reactionProperty());
 					seriesColumn.setCellValueFactory(cellData -> cellData.getValue().seriesProperty());
 					medicalContradicationColumn
 							.setCellValueFactory(cellData -> cellData.getValue().medicalContradicationProperty());
+					
 				} else if ((indVaccine >= 2) && (indVaccine <= 6)) {
 
 					LOGGER.info(indVaccine);
@@ -193,13 +207,17 @@ public class VaccineTableController extends AbstractResource implements Initiali
 					typeOfVAccineColumn.setCellValueFactory(cellData -> cellData.getValue().typeVaccineProperty());
 					ageColumn.setCellValueFactory(cellData -> cellData.getValue().ageProperty());
 					dataColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
-
 					dozeColumn.setCellValueFactory(cellData -> cellData.getValue().dozeProperty().asObject());
-					reactionColumn.setCellValueFactory(cellData -> cellData.getValue().reactionProperty());
 					seriesColumn.setCellValueFactory(cellData -> cellData.getValue().seriesProperty());
 					medicalContradicationColumn
 							.setCellValueFactory(cellData -> cellData.getValue().medicalContradicationProperty());
 					nameOfDrugColumn.setCellValueFactory(cellData -> cellData.getValue().nameOfDrugProperty());
+					reactionLocalColumn.setCellValueFactory(cellData -> cellData.getValue().reactionLocaleProperty());
+
+					reactionGeneralColumn.setCellValueFactory(cellData -> cellData.getValue().reactionGeneralProperty());
+					//reactionLocalColumn.setCellValueFactory(cellData -> cellData.getValue().reactionLocaleProperty());
+
+
 
 				} else {
 					LOGGER.info(indVaccine);
@@ -221,8 +239,6 @@ public class VaccineTableController extends AbstractResource implements Initiali
 			for (VaccineEntity ve : currentVaccinePerson) {
 				LOGGER.info(strVaccine + "  " + ve.getName());
 				LOGGER.info(strVaccine.equals(ve.getName()));
-			//	LOGGER.info(strComboVaccine.equals(ve.getName()));
-
 				if (strVaccine.equals(ve.getName())) {
 					 vaccinePerson.add(ve);
 

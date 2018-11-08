@@ -11,14 +11,16 @@ public class VaccineEntity {
 
 	
 
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "VaccineEntity [id=" + id + ", name=" + name + ", typeVaccine=" + typeVaccine
-				+ ", medicalContradication=" + medicalContradication + ", age=" + age + ", date=" + date + ", reaction="
-				+ reaction + ", doze=" + doze + ", series=" + series + ", nameOfDrug=" + nameOfDrug + "]";
+				+ ", medicalContradication=" + medicalContradication + ", reaction=" + reaction + ", age=" + age
+				+ ", date=" + date + ", doze=" + doze + ", series=" + series + ", nameOfDrug=" + nameOfDrug
+				+ ", reactionLocale=" + reactionLocale + ", reactionGeneral=" + reactionGeneral + "]";
 	}
 
 	private int id;
@@ -32,9 +34,11 @@ public class VaccineEntity {
 	private DoubleProperty doze;
 	private StringProperty series;
 	private StringProperty nameOfDrug;
+	private StringProperty reactionLocale;
+	private StringProperty reactionGeneral;
 
 	public VaccineEntity(int id, String name, String typeVaccine, String medicalContradication, String age, String date,
-			String reaction, double doze, String series, String nameOfDrug) {
+			String reaction, double doze, String series, String nameOfDrug,String reactionLocale,String reactionGeneral) {//should fix via builder
 		this.id = id;
 		this.typeVaccine = new SimpleStringProperty(typeVaccine);
 		this.name = new SimpleStringProperty(name);
@@ -45,15 +49,17 @@ public class VaccineEntity {
 		this.doze = new SimpleDoubleProperty(doze);
 		this.nameOfDrug = new SimpleStringProperty(nameOfDrug);
 		this.series = new SimpleStringProperty(series);
+		this.reactionLocale = new SimpleStringProperty(reactionLocale);
+		this.reactionGeneral = new SimpleStringProperty(reactionGeneral);
 
 	}
 
 	public VaccineEntity() {
-		this(0, null, null, null, null, null, null, 0.0, null, null);
+		this(0, null, null, null, null, null, null, 0.0, null, null,null, null);
 	}
 
 	public VaccineEntity(String name) {
-		this(0, name, null, null, null, null, null, 0.0, null, null);
+		this(0, name, null, null, null, null, null, 0.0, null, null,null, null);
 	}
 
 	public int getId() {
@@ -193,21 +199,32 @@ public class VaccineEntity {
 		this.nameOfDrug = nameOfDrug;
 	}
 
-	// @XmlJavaTypeAdapter(LocalDateAdapter.class)
 	public String getDate() {
 		return date.get();
 
 	}
-	/*
-	 * @Override public VaccineEntity clone() throws CloneNotSupportedException {
-	 * VaccineEntity vaccine = (VaccineEntity) super.clone();
-	 * 
-	 * // primitive fields are ignored, as their content is already copied //
-	 * immutable fields like String are ignored
-	 * 
-	 * // create new objects for any non-primitive, mutable fields vaccine.map = new
-	 * HashMap<>();
-	 * 
-	 * return vaccine; }
-	 */
+	
+	public StringProperty reactionLocaleProperty() {
+		return reactionLocale;
+	}
+
+	public String getReactionLocal() {
+		return reactionLocale.get();
+	}
+	
+	public void setReactionLocale(String reactionLocale) {
+		this.reactionLocale.set(reactionLocale);
+	}
+
+	public String getReactionGeneral() {
+		return reactionGeneral.get();
+	}
+
+	public StringProperty reactionGeneralProperty() {
+		return reactionGeneral;
+	}
+	
+	public void setReactionGeneral(String reactionGeneral) {
+		this.reactionGeneral.set(reactionGeneral);
+	}
 }

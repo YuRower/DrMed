@@ -12,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import model.manager.VaccineManager;
 import model.vaccine.VaccineEntity;
 import model.wrapper.VaccineWrapper;
 
@@ -34,7 +35,7 @@ public class XMLProcessing {
 		return currentVaccinePerson;
 	}
 
-	public void deleteVaccineFromXMLStrorage(int toDelete) {
+	public ObservableList<VaccineEntity> deleteVaccineFromXMLStrorage(VaccineEntity toDelete) {
 		LOGGER.info("deleteVaccineFromXMLStrorage" + toDelete);
 		LOGGER.info("deleteVaccineFromXMLStrorage" + currentVaccinePerson);
 
@@ -49,7 +50,7 @@ public class XMLProcessing {
 
 			LOGGER.info("deleteVaccineFromXMLStrorage" + wrapper.getListVaccines());
 			LOGGER.info("deleteVaccineFromXMLStrorage" + allVaccinesPersons);
-			updateXMLfile();
+			allVaccinesPersons=updateXMLfile();
 
 		} catch (Exception e) { // catches ANY exception
 			Alert alert = new Alert(AlertType.ERROR);
@@ -59,9 +60,12 @@ public class XMLProcessing {
 			alert.showAndWait();
 			e.printStackTrace();
 		}
+		return allVaccinesPersons;
 	}
+	
 
-	public void updateXMLfile() {
+		
+	public ObservableList<VaccineEntity> updateXMLfile() {
 		LOGGER.info("updateXMLfile");
 		try {
 			JAXBContext context = JAXBContext.newInstance(VaccineWrapper.class);
@@ -78,6 +82,8 @@ public class XMLProcessing {
 			alert.showAndWait();
 			e.printStackTrace();
 		}
+		
+	return allVaccinesPersons;
 	}
 
 	public void loadPersonDataFromFile(File file) {

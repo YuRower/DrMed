@@ -32,7 +32,11 @@ public class VaccineEditPageController {
 	@FXML
 	private TextField dozeField;
 	@FXML
-	private TextField responseLocalvaccineField;
+	private TextField responseVaccineField;
+	@FXML
+	private TextField responseLocalVaccineField;
+	@FXML
+	private TextField responseGeneralVaccineField;
 	@FXML
 	private TextField dateField;
 	@FXML
@@ -72,7 +76,7 @@ public class VaccineEditPageController {
 		seriesField.setText(vaccine.getSeries());
 		dozeField.setText(Double.toString(vaccine.getDoze()));
 		medicalСontraindicationsField.setText(vaccine.getMedicalContradication());
-		responseLocalvaccineField.setText(vaccine.getReaction());
+		responseVaccineField.setText(vaccine.getReaction());
 		LOGGER.info("Info about vaccine"+ vaccine.getReaction());
 
 		dateField.setText(String.valueOf(vaccine.getDate()));
@@ -92,9 +96,9 @@ public class VaccineEditPageController {
 		dozeField.setText(Double.toString(vaccine.getDoze()));
 		nameOfDrugField.setText(vaccine.getNameOfDrug());
 
-
+		responseLocalVaccineField.setText(vaccine.getReactionLocal());
+		responseGeneralVaccineField.setText(vaccine.getReactionGeneral());
 		medicalСontraindicationsField.setText(vaccine.getMedicalContradication());
-		responseLocalvaccineField.setText(vaccine.getReaction());
 		LOGGER.info("Info about vaccine"+ vaccine.getReaction());
 
 		dateField.setText(String.valueOf(vaccine.getDate()));
@@ -131,8 +135,8 @@ public class VaccineEditPageController {
 			vaccine.setAge(ageField.getText());
 			vaccine.setDoze(Double.parseDouble(dozeField.getText()));
 			vaccine.setMedicalContradication(medicalСontraindicationsField.getText());
- 			vaccine.setReaction(responseLocalvaccineField.getText());
-			LOGGER.info("Info about vaccine"+ responseLocalvaccineField.getText());
+ 			vaccine.setReaction(responseVaccineField.getText());
+			LOGGER.info("Info about vaccine"+ responseVaccineField.getText());
 
 			vaccine.setDate(DateUtil.format(DateUtil.parse(dateField.getText())));
 			LOGGER.info(" Table edit info " + DateUtil.format(DateUtil.parse(dateField.getText())));
@@ -153,8 +157,9 @@ public class VaccineEditPageController {
 			vaccine.setDoze(Double.parseDouble(dozeField.getText()));
 			vaccine.setMedicalContradication(medicalСontraindicationsField.getText());
 			vaccine.setNameOfDrug(nameOfDrugField.getText());
- 			vaccine.setReaction(responseLocalvaccineField.getText());
-			LOGGER.info("Info about vaccine"+ responseLocalvaccineField.getText());
+ 			vaccine.setReactionLocale(responseLocalVaccineField.getText());
+ 			vaccine.setReactionGeneral(responseGeneralVaccineField.getText());
+			LOGGER.info("-------------------------" +responseLocalVaccineField.getText());
 
 			vaccine.setDate(DateUtil.format(DateUtil.parse(dateField.getText())));
 			LOGGER.info(" Table edit info " + DateUtil.format(DateUtil.parse(dateField.getText())));
@@ -164,7 +169,6 @@ public class VaccineEditPageController {
 			dialogStage.close();
 		}
 	}
-
 	@FXML
 	private void handleCancel() {
 		dialogStage.close();
@@ -177,7 +181,7 @@ public class VaccineEditPageController {
 		String dozeFieldProp = rb.getString("dozeField");
 		String medicalContraindicationsFieldProp = rb.getString("medicalContraindicationsField");
 		String birthdayFieldProp = rb.getString("birthdayField");
-		String responseLocalvaccineFieldProp = rb.getString("responseLocalvaccineField");
+		//String responseLocalvaccineFieldProp = rb.getString("responseLocalvaccineField");
 		String ageFieldProp = rb.getString("ageField");
 		String noValidDozeFieldProp = rb.getString("noValidDozeField");
 		String dateFieldProp = rb.getString("dateField");
@@ -216,9 +220,7 @@ public class VaccineEditPageController {
 		if (medicalСontraindicationsField.getText() == null || medicalСontraindicationsField.getText().length() == 0) {
 			errorMessage += medicalContraindicationsFieldProp+"\n";
 		}
-		if (responseLocalvaccineField.getText() == null || responseLocalvaccineField.getText().length() == 0) {
-			errorMessage +=responseLocalvaccineFieldProp+ "\n";
-		}
+		
 		
 		if (dateField.getText() == null || dateField.getText().length() == 0) {
 			errorMessage += birthdayFieldProp+"!\n";

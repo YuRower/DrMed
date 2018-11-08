@@ -18,8 +18,8 @@
             <TableColumn fx:id="seriesColumn" prefWidth="75.0" text="%series" />
             <TableColumn fx:id="reactionColumn" prefWidth="170.0" text="%reaction">
                <columns>
-                  <TableColumn prefWidth="75.0" text="%general" />
-                  <TableColumn prefWidth="75.0" text="%local" />
+                  <TableColumn fx:id="reactionGeneralColumn" prefWidth="75.0" text="%general" />
+                  <TableColumn fx:id="reactionLocalColumn" prefWidth="75.0" text="%local" />
                </columns>
             </TableColumn>
             <TableColumn fx:id="medicalContradicationColumn" prefWidth="107.0" text="%medContradication" />
@@ -32,14 +32,10 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </TableView>
-      <ButtonBar buttonOrder="" layoutX="658.0" layoutY="503.0" AnchorPane.rightAnchor="50.0">
+      <ButtonBar layoutX="426.0" layoutY="503.0" prefHeight="25.0" prefWidth="560.0">
          <buttons>
-            <ButtonBar prefHeight="25.0" prefWidth="368.0">
-               <buttons>
-                  <Button mnemonicParsing="false" onAction="#handleEditVaccine" text="%editTableVaccine" />
-                  <Button mnemonicParsing="false" onAction="#handleDeleteVaccine" prefHeight="25.0" prefWidth="187.0" text="%deleteFromTableVaccine" />
-               </buttons>
-            </ButtonBar>
+            <Button mnemonicParsing="false" onAction="#handleEditVaccine" prefHeight="25.0" prefWidth="247.0" text="%editTableVaccine" />
+            <Button mnemonicParsing="false" onAction="#handleDeleteVaccine" prefHeight="25.0" prefWidth="190.0" text="%deleteFromTableVaccine" />
          </buttons>
       </ButtonBar>
    </children>

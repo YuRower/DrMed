@@ -55,7 +55,7 @@
 				<TextField fx:id="dozeField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 				<TextField fx:id="seriesField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 				<TextField fx:id="medicalСontraindicationsField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-				<TextField fx:id="responseLocalvaccineField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+				<TextField fx:id="responseVaccineField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 				<Label prefHeight="63.0" prefWidth="238.0" text="%doze" GridPane.rowIndex="3">
 					<font>
 						<Font size="19.0" />
