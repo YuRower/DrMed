@@ -76,8 +76,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
+                  <TextField fx:id="responseLocalVaccineField" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" />
                   <TextField fx:id="responseGeneralVaccineField" />
-                  <TextField fx:id="responseLocalVaccineField" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>

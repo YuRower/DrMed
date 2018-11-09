@@ -10,12 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import model.vaccine.VaccineEntity;
 
-/**
- * Вспомогательный класс для обёртывания списка адресатов.
- * Используется для сохранения списка адресатов в XML.
- * 
- * @author Marco Jakob
- */
+
 @XmlRootElement(name = "vaccines")
 public class VaccineWrapper {
 	List<VaccineEntity> vaccines = new ArrayList<>();

@@ -114,7 +114,6 @@ public class GenerateDocx {
 			br.close();
 			throw e;
 		}
-		LOGGER.info("docx template" + docxTemplate);
 		Iterator<?> substitutionDataIterator = substitutionData.entrySet().iterator();
 		while (substitutionDataIterator.hasNext()) {
 			@SuppressWarnings("unchecked")

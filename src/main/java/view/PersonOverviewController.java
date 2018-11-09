@@ -84,6 +84,9 @@ public class PersonOverviewController extends Observable implements Initializabl
 		return comboClasslist;
 	}
 
+	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
+	static ResourceBundle rb = ResourceBundle.getBundle(LocaleManager.BUNDLES_FOLDER, locale);
+
 	private MainApp mainApp;
 
 	@FXML
@@ -199,7 +202,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 			firstNameLabel.setText(person.getFirstName());
 			lastNameLabel.setText(person.getLastName());
 			patronymicLabel.setText(person.getPatronymic());
-
 			streetLabel.setText(person.getStreet());
 			postalCodeLabel.setText(Integer.toString(person.getPostalCode()));
 			phoneNumberLabel.setText(person.getPhoneNumber());
@@ -248,7 +250,6 @@ public class PersonOverviewController extends Observable implements Initializabl
 				Classes selectedClass = comboClass.getSelectionModel().getSelectedItem();
 				if (selectedClass != null) {
 					int index = selectedClass.getIndex();
-					LOGGER.info(index + "////sortedData///////////");
 
 					ClassesManager.setCurrentClass(selectedClass);
 					ClassesManager.setCurrentIndex(index);
@@ -349,32 +350,30 @@ public class PersonOverviewController extends Observable implements Initializabl
 
 	@FXML
 	private void handleDeletePerson() throws IOException {
-		SchoolDAO schoolStorage = new SchoolDAO();
-		updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
-		personTable.setItems(updatedClass);
-		ButtonType checkUserInputOnDelete = DialogManager.wantToDelete();
-		if (checkUserInputOnDelete == ButtonType.OK) {
-			int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
-			LOGGER.info("handleDeletePerson");
-			LOGGER.info(selectedIndex);
-			LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+	
+		int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
 
-			if (selectedIndex >= 0) {
+		if (selectedIndex >= 0) {
+
+			ButtonType checkUserInputOnDelete = DialogManager.wantToDelete();
+			if (checkUserInputOnDelete == ButtonType.OK) {
+				SchoolDAO schoolStorage = new SchoolDAO();
+				updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
+				personTable.setItems(updatedClass);
+				LOGGER.info("handleDeletePerson");
+				LOGGER.info(selectedIndex);
+				LOGGER.info(LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).size());
+
 				personTable.getItems().remove(selectedIndex);
 				LoadExcel.getOuter().get(ClassesManager.getCurrentIndex()).remove(selectedIndex);
 				updateCountLabel();
+
 			} else {
-				Alert alert = new Alert(AlertType.WARNING);
-				alert.initOwner(mainApp.getPrimaryStage());
-				alert.setTitle("No Selection");
-				alert.setHeaderText("No Person Selected");
-				alert.setContentText("Please select a person in the table.");
-				alert.showAndWait();
+				LOGGER.info("Cancel");
 			}
 		} else {
-			LOGGER.info("Cancel");
-
-			return;
+			DialogManager.deleteEditPerson();
+			
 		}
 	}
 
@@ -386,15 +385,8 @@ public class PersonOverviewController extends Observable implements Initializabl
 			if (okClicked) {
 				showPersonDetails(selectedPerson);
 			}
-
 		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(mainApp.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
-
-			alert.showAndWait();
+			DialogManager.deleteEditPerson();
 		}
 	}
 }

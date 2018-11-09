@@ -17,9 +17,9 @@ import model.manager.LocaleManager;
 public class VaccinationTypeDAO {
 	private final static Logger LOGGER = Logger.getLogger(VaccinationTypeDAO.class);
 
-	public static final String BUNDLES_FOLDER = "property.text";
+	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
 
-	static ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, LocaleManager.getCurrentLang().getLocale());
+	static ResourceBundle rb = ResourceBundle.getBundle(LocaleManager.BUNDLES_FOLDER,locale);
 
 	public static ObservableList<VaccineTypeLocation> getVaccineList() {
 		String tuberculosisResource = "/view/vaccination/Vaccination_against_tuberculosis.fxml";

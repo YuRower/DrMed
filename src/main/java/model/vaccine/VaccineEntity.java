@@ -1,18 +1,19 @@
 package model.vaccine;
 
-
+import org.apache.log4j.Logger;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import view.tableEditpages.VaccineEditPageController;
 
 public class VaccineEntity {
+	private final static Logger LOGGER = Logger.getLogger(VaccineEntity.class);
 
-	
-
-	
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -20,25 +21,30 @@ public class VaccineEntity {
 		return "VaccineEntity [id=" + id + ", name=" + name + ", typeVaccine=" + typeVaccine
 				+ ", medicalContradication=" + medicalContradication + ", reaction=" + reaction + ", age=" + age
 				+ ", date=" + date + ", doze=" + doze + ", series=" + series + ", nameOfDrug=" + nameOfDrug
-				+ ", reactionLocale=" + reactionLocale + ", reactionGeneral=" + reactionGeneral + "]";
+				+ ", reactionLocale=" + localReaction + ", reactionGeneral=" + reactionGeneral + "]";
 	}
 
 	private int id;
 	private StringProperty name;
 	private StringProperty typeVaccine;
 	private StringProperty medicalContradication;
-	
+
 	private StringProperty reaction;
 	private StringProperty age;
 	private StringProperty date;
 	private DoubleProperty doze;
 	private StringProperty series;
 	private StringProperty nameOfDrug;
-	private StringProperty reactionLocale;
+	
+
+
+	private StringProperty localReaction;
+
 	private StringProperty reactionGeneral;
 
 	public VaccineEntity(int id, String name, String typeVaccine, String medicalContradication, String age, String date,
-			String reaction, double doze, String series, String nameOfDrug,String reactionLocale,String reactionGeneral) {//should fix via builder
+			String reaction, double doze, String series, String nameOfDrug, String reactionLocale,
+			String reactionGeneral) {// should fix via builder
 		this.id = id;
 		this.typeVaccine = new SimpleStringProperty(typeVaccine);
 		this.name = new SimpleStringProperty(name);
@@ -49,17 +55,17 @@ public class VaccineEntity {
 		this.doze = new SimpleDoubleProperty(doze);
 		this.nameOfDrug = new SimpleStringProperty(nameOfDrug);
 		this.series = new SimpleStringProperty(series);
-		this.reactionLocale = new SimpleStringProperty(reactionLocale);
+		this.localReaction = new SimpleStringProperty(reactionLocale);
 		this.reactionGeneral = new SimpleStringProperty(reactionGeneral);
 
 	}
 
 	public VaccineEntity() {
-		this(0, null, null, null, null, null, null, 0.0, null, null,null, null);
+		this(0, null, null, null, null, null, null, 0.0, null, null, null, null);
 	}
 
 	public VaccineEntity(String name) {
-		this(0, name, null, null, null, null, null, 0.0, null, null,null, null);
+		this(0, name, null, null, null, null, null, 0.0, null, null, null, null);
 	}
 
 	public int getId() {
@@ -70,13 +76,13 @@ public class VaccineEntity {
 		this.id = id;
 	}
 
-	
 	public String getName() {
 		return name.get();
 	}
 
 	public void setName(String name) {
-		this.name.set(name);;
+		this.name.set(name);
+		;
 	}
 
 	public StringProperty reactionProperty() {
@@ -203,17 +209,17 @@ public class VaccineEntity {
 		return date.get();
 
 	}
-	
+
 	public StringProperty reactionLocaleProperty() {
-		return reactionLocale;
+		return localReaction;
 	}
 
-	public String getReactionLocal() {
-		return reactionLocale.get();
+	public String getLocalReaction() {
+		return localReaction.get();
 	}
-	
-	public void setReactionLocale(String reactionLocale) {
-		this.reactionLocale.set(reactionLocale);
+
+	public void setLocalReaction(String reactionLocale) {
+		this.localReaction.set(reactionLocale);
 	}
 
 	public String getReactionGeneral() {
@@ -221,10 +227,13 @@ public class VaccineEntity {
 	}
 
 	public StringProperty reactionGeneralProperty() {
+
 		return reactionGeneral;
 	}
-	
+
 	public void setReactionGeneral(String reactionGeneral) {
+		LOGGER.info("----------------------------" + reactionGeneral);
+
 		this.reactionGeneral.set(reactionGeneral);
 	}
 }

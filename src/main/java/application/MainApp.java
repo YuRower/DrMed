@@ -74,7 +74,7 @@ public class MainApp extends Application implements Observer {
 		this.primaryStage = primaryStage;
 		primaryStage.setMaximized(true);
 		this.primaryStage.setTitle("MedApp");
-		this.primaryStage.getIcons().add(new Image("/images/address_book_32.png"));
+		this.primaryStage.getIcons().add(new Image("/images/logo.jpg"));
 		Lang langUK = new Lang(1, "uk", "Украинский", LocaleManager.UA_LOCALE);
 		LOGGER.info("locale was added,default UK");
 		LocaleManager.setCurrentLang(langUK);
@@ -205,7 +205,7 @@ public class MainApp extends Application implements Observer {
 				vaccineController.setMainApp(this, resource, locale);
 				vaccineController.setSelectedPerson(person);
 				vaccineTableController = new VaccineTableController();
-				vaccineTableController.setMainApp(this, locale, resource, person);
+				vaccineTableController.setMainApp(this);
 
 			}
 		} catch (IOException ex) {

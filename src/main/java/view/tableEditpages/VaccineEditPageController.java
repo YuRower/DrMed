@@ -49,7 +49,7 @@ public class VaccineEditPageController {
 	private Stage dialogStage;
 	private VaccineEntity vaccine;
 	private boolean okClicked = false;
-	public static final String BUNDLES_FOLDER = "property.text";
+//	public static final String BUNDLES_FOLDER = "property.text";
 	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
 
 	
@@ -96,10 +96,10 @@ public class VaccineEditPageController {
 		dozeField.setText(Double.toString(vaccine.getDoze()));
 		nameOfDrugField.setText(vaccine.getNameOfDrug());
 
-		responseLocalVaccineField.setText(vaccine.getReactionLocal());
+		responseLocalVaccineField.setText(vaccine.getLocalReaction());
 		responseGeneralVaccineField.setText(vaccine.getReactionGeneral());
 		medicalСontraindicationsField.setText(vaccine.getMedicalContradication());
-		LOGGER.info("Info about vaccine"+ vaccine.getReaction());
+		LOGGER.info("////////////Info about vaccine"+ responseLocalVaccineField.getText());
 
 		dateField.setText(String.valueOf(vaccine.getDate()));
 		dateField.setPromptText("dd.mm.yyyy");
@@ -157,7 +157,7 @@ public class VaccineEditPageController {
 			vaccine.setDoze(Double.parseDouble(dozeField.getText()));
 			vaccine.setMedicalContradication(medicalСontraindicationsField.getText());
 			vaccine.setNameOfDrug(nameOfDrugField.getText());
- 			vaccine.setReactionLocale(responseLocalVaccineField.getText());
+ 			vaccine.setLocalReaction(responseLocalVaccineField.getText());
  			vaccine.setReactionGeneral(responseGeneralVaccineField.getText());
 			LOGGER.info("-------------------------" +responseLocalVaccineField.getText());
 
@@ -175,7 +175,7 @@ public class VaccineEditPageController {
 	}
 
 	private boolean isInputValid() throws ParseException {
-		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, locale);
+		ResourceBundle rb = ResourceBundle.getBundle(LocaleManager.BUNDLES_FOLDER,locale);
 		String typeVaccineProp = rb.getString("chipViewField");
 		String seriesFieldProp = rb.getString("seriesField");
 		String dozeFieldProp = rb.getString("dozeField");

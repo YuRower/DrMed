@@ -19,7 +19,6 @@ import util.DateUtil;
 
 public class PersonEditDialogController {
 	private final static Logger LOGGER = Logger.getLogger(PersonEditDialogController.class);
-	Locale currentLocale = Locale.getDefault();
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 	@FXML
 	private TextField firstNameField;
@@ -39,7 +38,7 @@ public class PersonEditDialogController {
 	private Stage dialogStage;
 	private Person person;
 	private boolean okClicked = false;
-	public static final String BUNDLES_FOLDER = "property.text";
+//	public static final String BUNDLES_FOLDER = "property.text";
 	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
 
 	@FXML
@@ -93,14 +92,14 @@ public class PersonEditDialogController {
 	}
 
 	private boolean isInputValid() throws ParseException {
-		ResourceBundle rb = ResourceBundle.getBundle(BUNDLES_FOLDER, locale);
+		ResourceBundle rb = ResourceBundle.getBundle(LocaleManager.BUNDLES_FOLDER, locale);
 		String firstNameProp = rb.getString("firstNameField");
 		String lastNameProp = rb.getString("lastNameField");
 		String patronymicProp = rb.getString("patronymicProp");
 		String streetProp = rb.getString("streetProp");
 		String birthdayProp = rb.getString("birthdayProp");
 		String postalCodeProp = rb.getString("postalCodeProp");
-		String phoneNumberProp = rb.getString("phoneNumberField");
+		//String phoneNumberProp = rb.getString("phoneNumberField");
 		String dateField = rb.getString("dateField");
 		String noValiedFields = rb.getString("noValiedFields");
 		String enterCorrectFields = rb.getString("enterCorrectFields");
@@ -139,10 +138,10 @@ public class PersonEditDialogController {
 		if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
 			errorMessage += birthdayProp+"\n";
 		}
-		if (phoneNumberField.getText() == null || phoneNumberField.getText().length() == 0) {
+		/*if (phoneNumberField.getText() == null || phoneNumberField.getText().length() == 0) {
 			errorMessage += phoneNumberProp+"\n";
 		
-		} else {
+		}*/ else {
 			if (!DateUtil.validDate(birthdayField.getText())) {
 				errorMessage += dateField+"\n";
 			}

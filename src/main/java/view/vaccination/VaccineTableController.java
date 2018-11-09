@@ -53,13 +53,7 @@ public class VaccineTableController extends AbstractResource implements Initiali
 	private TableColumn<VaccineEntity, String> medicalContradicationColumn;
 	@FXML
 	private TableColumn<VaccineEntity, String> nameOfDrugColumn;
-	
-	
-	private Locale currentLocale;
 
-	private String currentTable;
-
-	private Person currentPerson;
 	private ObservableList<VaccineEntity> filteredList;
 	private ObservableList<VaccineEntity> vaccinePerson;
 	private static MainApp main;
@@ -84,9 +78,9 @@ public class VaccineTableController extends AbstractResource implements Initiali
 
 				LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
 				if (indexEntity >= 0) {
-					
+
 					LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
-					VaccineEntity toDelete = filteredList.get(indexEntity);
+					VaccineEntity toDelete = filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()).get(indexEntity);
 
 					xmlFile.deleteVaccineFromXMLStrorage(toDelete);
 					xmlFile.savePersonDataToFile(XML_FILE, selectedEntity);
@@ -100,57 +94,47 @@ public class VaccineTableController extends AbstractResource implements Initiali
 				}
 
 				xmlFile.loadPersonDataFromFile(XML_FILE);
-				vaccineTable.setItems(
-						 filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()));
+				vaccineTable.setItems(filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()));
 			}
 
 		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
-
-			alert.showAndWait();
+			DialogManager.deleteEditVaccine();
 		}
 	}
 
 	@FXML
 	private void handleDeleteVaccine() {
-		ButtonType checkUserInputOnDelete = DialogManager.wantToDelete();
-		if (checkUserInputOnDelete == ButtonType.OK) {
-			XMLProcessing xmlFile = new XMLProcessing();
 
-			LOGGER.info("handleDelete");
-			filteredList = filterConcreateVaccine(xmlFile.getCurrentVaccinePerson());
-		//	vaccineTable.setItems(filteredList);
-			int selectedIndex = vaccineTable.getSelectionModel().getSelectedIndex();
-			LOGGER.info("deleteVaccine");
-			LOGGER.info(selectedIndex);
-			LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
-			if (selectedIndex >= 0) {
-				//vaccineTable.setItems(filteredList);
+		int selectedIndex = vaccineTable.getSelectionModel().getSelectedIndex();
 
-				LOGGER.info("oooooooooooooooooooooooooo"+vaccineTable.getItems() );
+		if (selectedIndex >= 0) {
+			ButtonType checkUserInputOnDelete = DialogManager.wantToDelete();
+
+			if (checkUserInputOnDelete == ButtonType.OK) {
+				XMLProcessing xmlFile = new XMLProcessing();
+
+				LOGGER.info("handleDelete");
+				filteredList = filterConcreateVaccine(xmlFile.getCurrentVaccinePerson());
+				LOGGER.info("deleteVaccine");
+				LOGGER.info(selectedIndex);
+				LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
+				LOGGER.info("oooooooooooooooooooooooooo" + vaccineTable.getItems());
 
 				VaccineEntity toDelete = filteredList.get(selectedIndex);
 				LOGGER.info(xmlFile.getCurrentVaccinePerson() + "getVaccineData");
-				filteredList=xmlFile.deleteVaccineFromXMLStrorage(toDelete);
-				vaccineTable.setItems(
-						 filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()));	
+				filteredList = xmlFile.deleteVaccineFromXMLStrorage(toDelete);
+
 				vaccineTable.getItems().remove(selectedIndex);
 
-				
+				xmlFile.loadPersonDataFromFile(XML_FILE);
+				vaccineTable.setItems(filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()));
 			} else {
-				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("No Selection");
-				alert.setHeaderText("No vaccine Selected");
-				alert.setContentText("Please select a person in the table.");
-				alert.showAndWait();
+				LOGGER.info("Cancel");
+				return;
 			}
-			
-			} else {
-			LOGGER.info("Cancel");
-			return;
+		} else {
+			DialogManager.deleteEditVaccine();
+
 		}
 	}
 
@@ -162,13 +146,13 @@ public class VaccineTableController extends AbstractResource implements Initiali
 		xmlFile.loadPersonDataFromFile(XML_FILE);
 		if (vaccineTable != null) {
 
-		if (VaccineManager.getCurrentVaccine() == null) {// Should fix
-			VaccineTypeLocation vc = VaccinationTypeDAO.getVaccineList().get(0);
-			VaccineManager.setCurrentVaccine(vc);
-			filteredList = filterConcreateVaccine(xmlFile.getCurrentVaccinePerson());
-			LOGGER.info("getVaccineData<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + filteredList);
+			if (VaccineManager.getCurrentVaccine() == null) {// Should fix
+				VaccineTypeLocation vc = VaccinationTypeDAO.getVaccineList().get(0);
+				VaccineManager.setCurrentVaccine(vc);
+				filteredList = filterConcreateVaccine(xmlFile.getCurrentVaccinePerson());
+				LOGGER.info("getVaccineData<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + filteredList);
 
-			vaccineTable.setItems(filteredList);
+				vaccineTable.setItems(filteredList);
 				LOGGER.info("null table-----------------------------------");
 
 				typeOfVAccineColumn.setCellValueFactory(cellData -> cellData.getValue().typeVaccineProperty());
@@ -182,9 +166,8 @@ public class VaccineTableController extends AbstractResource implements Initiali
 						.setCellValueFactory(cellData -> cellData.getValue().medicalContradicationProperty());
 
 			} else {
-				filteredList = filterConcreateVaccine(xmlFile.getCurrentVaccinePerson());
 
-				vaccineTable.setItems(filteredList);
+				vaccineTable.setItems(filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()));
 
 				int indVaccine = VaccineManager.getCurrentVaccine().getIndex();
 				if ((indVaccine >= 0) && (indVaccine < 1)) {// Should fix
@@ -198,12 +181,12 @@ public class VaccineTableController extends AbstractResource implements Initiali
 					seriesColumn.setCellValueFactory(cellData -> cellData.getValue().seriesProperty());
 					medicalContradicationColumn
 							.setCellValueFactory(cellData -> cellData.getValue().medicalContradicationProperty());
-					
+
 				} else if ((indVaccine >= 2) && (indVaccine <= 6)) {
 
-					LOGGER.info(indVaccine);
+					LOGGER.info("<><><><><><><><><><><><><>" + vaccineTable.getItems());
 					LOGGER.info("second table--------------------------------------------------------");
-
+					vaccineTable.setItems(filterConcreateVaccine(xmlFile.getCurrentVaccinePerson()));
 					typeOfVAccineColumn.setCellValueFactory(cellData -> cellData.getValue().typeVaccineProperty());
 					ageColumn.setCellValueFactory(cellData -> cellData.getValue().ageProperty());
 					dataColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
@@ -213,11 +196,8 @@ public class VaccineTableController extends AbstractResource implements Initiali
 							.setCellValueFactory(cellData -> cellData.getValue().medicalContradicationProperty());
 					nameOfDrugColumn.setCellValueFactory(cellData -> cellData.getValue().nameOfDrugProperty());
 					reactionLocalColumn.setCellValueFactory(cellData -> cellData.getValue().reactionLocaleProperty());
-
-					reactionGeneralColumn.setCellValueFactory(cellData -> cellData.getValue().reactionGeneralProperty());
-					//reactionLocalColumn.setCellValueFactory(cellData -> cellData.getValue().reactionLocaleProperty());
-
-
+					reactionGeneralColumn
+							.setCellValueFactory(cellData -> cellData.getValue().reactionGeneralProperty());
 
 				} else {
 					LOGGER.info(indVaccine);
@@ -232,15 +212,14 @@ public class VaccineTableController extends AbstractResource implements Initiali
 
 	private ObservableList<VaccineEntity> filterConcreateVaccine(ObservableList<VaccineEntity> currentVaccinePerson) {
 		vaccinePerson = FXCollections.observableArrayList();
-		
-	
+
 		if (VaccineManager.getCurrentVaccine() != null) {
 			String strVaccine = VaccineManager.getCurrentVaccine().getName();
 			for (VaccineEntity ve : currentVaccinePerson) {
 				LOGGER.info(strVaccine + "  " + ve.getName());
 				LOGGER.info(strVaccine.equals(ve.getName()));
 				if (strVaccine.equals(ve.getName())) {
-					 vaccinePerson.add(ve);
+					vaccinePerson.add(ve);
 
 				}
 			}
@@ -249,13 +228,8 @@ public class VaccineTableController extends AbstractResource implements Initiali
 		return vaccinePerson;
 	}
 
-	public void setMainApp(MainApp mainApp, Locale locale, String currentTable, Person currentPerson) {
-		LOGGER.info(main);
+	public void setMainApp(MainApp mainApp) {
 		main = mainApp;
-		this.currentLocale = locale;
-		this.currentTable = currentTable;
-		this.currentPerson = currentPerson;
-		LOGGER.info(main);
 	}
 
 }
