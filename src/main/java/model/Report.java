@@ -1,5 +1,5 @@
 package model;
 
 public enum Report {
-    ONE,MANY;
+	ONE, MANY, CANCEL;
 }

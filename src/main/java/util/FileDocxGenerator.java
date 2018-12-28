@@ -53,7 +53,9 @@ public class FileDocxGenerator {
 
 		} else {
 			Report report = DialogManager.showOptionalDOCX();
-
+			if (report == Report.CANCEL) {
+				return;
+			}
 			ObservableList<Person> listCurrentClass = LoadExcel.getOuter().get(ClassesManager.getCurrentIndex());
 			LOGGER.debug("Current class " + listCurrentClass);
 
@@ -63,7 +65,7 @@ public class FileDocxGenerator {
 			DirectoryChooser dirChooser = new DirectoryChooser();
 
 			dirChooser.setTitle("Select a folder");
-
+			LOGGER.debug(mainApp.getPrimaryStage());
 			String selectedDirPath = dirChooser.showDialog(mainApp.getPrimaryStage()).getAbsolutePath();
 
 			File file = new File("docxFile//063-O.docx");
@@ -121,7 +123,8 @@ public class FileDocxGenerator {
 		}
 	}
 
-	public void fillDocxInfo(Map<String, Object> map, Person person, File file, File parentFile) {
+	public void fillDocxInfo(Map<String, Object> map, Person person, File file, File parentFile) {// should optimize in
+																									// next version
 		LOGGER.debug("Load  fillDocxInfo ");
 		XMLProcessing loadVaccine = new XMLProcessing();
 		loadVaccine.loadPersonDataFromFile(XML_FILE);
@@ -188,7 +191,6 @@ public class FileDocxGenerator {
 				mapVaccine1.put(vaccineInfoTable3_6[6].concat(String.valueOf(j)), vaccine.getMedicalContradication());
 				mapVaccine1.put(vaccineInfoTable3_6[7].concat(String.valueOf(j)), vaccine.getTypeVaccine());
 				mapVaccine1.put(vaccineInfoTable3_6[8].concat(String.valueOf(j)), vaccine.getNameOfDrug());
-
 				++j;
 			}
 		}
@@ -212,6 +214,7 @@ public class FileDocxGenerator {
 		}
 		return vaccinePerson;
 	}
+
 	public static File createDocFile(String fileName) {
 		LOGGER.debug("method createDocFile");
 		try {

@@ -1,6 +1,5 @@
 package model;
 
-import java.text.DateFormat;
 import java.util.Locale;
 
 import org.apache.log4j.Logger;
@@ -11,7 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Person {
-	
+
 	private final static Logger LOGGER = Logger.getLogger(Person.class);
 	private StringProperty firstName;
 	private StringProperty lastName;
@@ -24,29 +23,33 @@ public class Person {
 	Locale currentLocale = Locale.getDefault();
 
 	public Person() {
-		this(0,null, null, null, null, 0, null, null);
+		this(0, null, null, null, null, 0, null, null);
 	}
 
-	public Person(int id, String firstName,String lastName, String patronymic,String street,int postalCode,String birthday,String phoneNumber) {
-		this.id=id;
+	public Person(int id, String firstName, String lastName, String patronymic, String street, int postalCode,
+			String birthday, String phoneNumber) {
+		this.id = id;
 		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
 		this.patronymic = new SimpleStringProperty(patronymic);
 		this.street = new SimpleStringProperty(street);
 		this.postalCode = new SimpleIntegerProperty(postalCode);
 		this.birthday = new SimpleStringProperty(birthday);
-		this.phoneNumber=new SimpleStringProperty(phoneNumber);
-		LOGGER.debug(birthday + " date of birthday ");
+		this.phoneNumber = new SimpleStringProperty(phoneNumber);
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber.get();
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber.set(phoneNumber);
 	}
+
 	public StringProperty phoneNumberProperty() {
 		return phoneNumber;
 	}
+
 	public String getFirstName() {
 		return firstName.get();
 	}
@@ -116,20 +119,13 @@ public class Person {
 	}
 
 	public void setBirthday(String birthday) {
-		LOGGER.debug(birthday + " date of birthday ");
 		this.birthday.set(birthday);
 	}
 
-	/**
-	 * @return the id
-	 */
 	public int getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}

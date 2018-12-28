@@ -74,6 +74,7 @@ public class GenerateDocx {
 	}
 
 	private static void unzip(File zipfile, File directory) throws IOException {
+		LOGGER.info("method unzip");
 		LOGGER.debug(zipfile + " " + directory);
 
 		ZipFile zfile = new ZipFile(zipfile);
@@ -99,6 +100,7 @@ public class GenerateDocx {
 	}
 
 	private static void changeData(File targetFile, Map<String, Object> substitutionData) throws IOException {
+		LOGGER.info("method changeData");
 		LOGGER.debug("file wiche will be changed " + targetFile);
 		BufferedReader br = null;
 		String docxTemplate = "";
@@ -125,7 +127,7 @@ public class GenerateDocx {
 					LOGGER.info("Got somtinhg inside XML!!" + pair.getKey() + pair.getValue());
 				} else {
 					docxTemplate = docxTemplate.replace(pair.getKey(), "");
-					LOGGER.debug(docxTemplate + "");
+					LOGGER.debug("replace null");
 				}
 			}
 		}
@@ -142,15 +144,14 @@ public class GenerateDocx {
 	}
 
 
-
 	private static void zip(File directory, File zipfile) throws IOException {
+		LOGGER.info("method zip");
 		LOGGER.debug(directory + " " + zipfile);
 		URI base = directory.toURI();
 		Deque<File> queue = new LinkedList<File>();
 		queue.push(directory);
 		OutputStream out = new FileOutputStream(zipfile);
 		Closeable res = out;
-
 		try {
 			ZipOutputStream zout = new ZipOutputStream(out);
 			res = zout;
@@ -178,6 +179,7 @@ public class GenerateDocx {
 	}
 
 	public static void deleteTempData(File file) throws IOException {
+		LOGGER.info("method deleteTempData");
 		if (file.isDirectory()) {
 			if (file.list().length == 0) {
 				file.delete();

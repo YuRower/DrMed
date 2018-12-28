@@ -1,7 +1,6 @@
 package util;
 
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.TemporalAccessor;
@@ -34,7 +33,7 @@ public class DateUtil {
 			LOGGER.debug(parseDate(dateString));
 			return LocalDate.parse(dateString, formatter);
 		} catch (DateTimeParseException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getMessage());
 			return null;
 		}
 	}
@@ -49,7 +48,9 @@ public class DateUtil {
 			LOGGER.debug("Valid Date" + dateAsString);
 			return true;
 		} catch (DateTimeParseException e) {
+			LOGGER.error(e.getMessage());
 			return false;
+			
 		}
 	}
 }

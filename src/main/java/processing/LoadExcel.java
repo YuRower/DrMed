@@ -48,7 +48,6 @@ public class LoadExcel {
 		LOGGER.info(outer);
 		return outer;
 	}
-	
 
 	private ObservableList<Person> listPerson;
 
@@ -56,7 +55,7 @@ public class LoadExcel {
 	private static int counterId;
 
 	public List<Person> readBooksFromExcelFile(File excelFilePath, String sheet) throws IOException {
-		outer =FXCollections.observableArrayList();
+		outer = FXCollections.observableArrayList();
 		listPerson = FXCollections.observableArrayList();
 		FileInputStream inputStream = new FileInputStream(excelFilePath);
 		Sheet firstSheet;
@@ -79,12 +78,11 @@ public class LoadExcel {
 				Row nextRow = iterator.next();
 				if (nextRow.getRowNum() == 0) {
 					LOGGER.info("first row");
-
 				} else {
 					Iterator<Cell> cellIterator = nextRow.cellIterator();
 					Person person = new Person();
-                    person.setId(++counterId);
-                    
+					person.setId(++counterId);
+
 					while (cellIterator.hasNext()) {
 						Cell nextCell = cellIterator.next();
 						int columnIndex = nextCell.getColumnIndex();
@@ -92,29 +90,27 @@ public class LoadExcel {
 						switch (columnIndex) {
 						case 0:
 							person.setLastName((String) getCellValue(nextCell));
-						//	LOGGER.info(person.getFirstName());
 							break;
 						case 1:
 							person.setFirstName((String) getCellValue(nextCell));
 							break;
 						case 2:
-							person.setPatronymic((String)getCellValue(nextCell));
+							person.setPatronymic((String) getCellValue(nextCell));
 							break;
 						case 3:
 							person.setStreet((String) getCellValue(nextCell));
 							break;
 						case 4:
 							Object postalCode = getCellValue(nextCell);
-							if(postalCode == null) {
-							//	LOGGER.info("null------------------");
+							if (postalCode == null) {
 								break;
-							}else {
-							person.setPostalCode((int )( (double) postalCode));
+							} else {
+								person.setPostalCode((int) ((double) postalCode));
 							}
 							break;
 						case 5:
 							DataFormatter dataFormatter = new DataFormatter();
-							String cellStringValue = dataFormatter.formatCellValue(nextCell);				
+							String cellStringValue = dataFormatter.formatCellValue(nextCell);
 							person.setBirthday(cellStringValue);
 							break;
 						case 6:
@@ -133,11 +129,9 @@ public class LoadExcel {
 			outer.add(listPerson);
 			listPerson = FXCollections.observableArrayList();
 		}
-		LOGGER.info("outer" + outer.toString());
-
 		workbook.close();
 		inputStream.close();
-		LOGGER.info("-----------------------------"+counterId+"----------------------");
+		LOGGER.info("-----------------------------" + counterId + "----------------------");
 		return outer.get(0);
 
 	}
@@ -149,18 +143,13 @@ public class LoadExcel {
 			return cell;
 		case BOOLEAN:
 			return cell.getBooleanCellValue();
-
 		case NUMERIC:
 			return cell.getNumericCellValue();
-
 		case STRING:
 			return cell.getStringCellValue();
-
 		case ERROR:
 			return "!";
-
 		}
-
 		return null;
 	}
 

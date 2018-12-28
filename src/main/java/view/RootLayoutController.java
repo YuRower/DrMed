@@ -83,7 +83,7 @@ public class RootLayoutController {
 			LOGGER.debug("Load " + personFile.getPath() + "\nStatus " + status);
 			schoolStorage.factoryStatusFile(personFile, status);
 		} else {
-			DialogManager.NoDatatoSave();
+			DialogManager.noDatatoSave();
 		}
 	}
 

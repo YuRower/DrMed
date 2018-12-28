@@ -3,9 +3,7 @@ package processing.DAO;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
 import org.apache.log4j.Logger;
-
 import application.MainApp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,7 +55,7 @@ public class SchoolDAO {
 			}
 		} catch (Exception e) {
 			LOGGER.error(e);
-			e.printStackTrace();
+			LOGGER.info(e.getMessage());
 			DialogManager.showErrorDialogOnLoadFile(file);
 
 		}

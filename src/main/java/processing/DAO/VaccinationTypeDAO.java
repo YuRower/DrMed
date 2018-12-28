@@ -1,16 +1,10 @@
 package processing.DAO;
 
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.ResourceBundle;
-
 import org.apache.log4j.Logger;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
-import model.Lang;
 import model.VaccineTypeLocation;
 import model.manager.LocaleManager;
 
@@ -19,7 +13,7 @@ public class VaccinationTypeDAO {
 
 	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
 
-	static ResourceBundle rb = ResourceBundle.getBundle(LocaleManager.BUNDLES_FOLDER,locale);
+	static ResourceBundle rb = ResourceBundle.getBundle(LocaleManager.BUNDLES_FOLDER, locale);
 
 	public static ObservableList<VaccineTypeLocation> getVaccineList() {
 		String tuberculosisResource = "/view/vaccination/Vaccination_against_tuberculosis.fxml";
@@ -46,7 +40,6 @@ public class VaccinationTypeDAO {
 
 		String vaccineHepatitisB = rb.getString("vaccineHepatitisB");
 		String tuberculinTest = rb.getString("tuberculinTest");
-//String vaccineRubella = rb.getString("vaccineRubella");
 
 		VaccineTypeLocation tuberculosis = new VaccineTypeLocation(0, vaccineTuberculosis, tuberculosisResource);
 		VaccineTypeLocation poliomyelits = new VaccineTypeLocation(1, vaccinePoliomyelitis, poliomyelitsResource);

@@ -1,13 +1,8 @@
 package view.statistics;
 
-import java.text.DateFormatSymbols;
-import java.util.Arrays;
+
 import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-
 import org.apache.log4j.Logger;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,12 +10,9 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-
-import model.Person;
 import model.VaccineTypeLocation;
 import model.vaccine.VaccineEntity;
 import processing.DAO.VaccinationTypeDAO;
-import util.DateUtil;
 
 public class VaccineStatisticsController {
 	@FXML
@@ -55,7 +47,6 @@ public class VaccineStatisticsController {
 		int[] vaccineCounter = new int[8];
 		LOGGER.info(vaccineList+"-----------------------------------------");
 		for (VaccineEntity v : vaccineList) {
-		//for (int j = 0; j < vaccineList.size(); j++) {
 			LOGGER.info(" PARSE birthday in a specific month. .");
 
 			int vaccine = v.getId();
@@ -71,7 +62,7 @@ public class VaccineStatisticsController {
 		LOGGER.debug(" number of month " + vaccineCounter);
 		barChart.getData().add(series);
 
-		barChart.setTitle("Birthday Statistics");
+		barChart.setTitle("Vaccine Statistics");
 
 	}
 }

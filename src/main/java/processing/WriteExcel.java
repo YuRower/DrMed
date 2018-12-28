@@ -92,8 +92,6 @@ public class WriteExcel {
 				CellStyle cellStyle = workbook.createCellStyle();
 
 				CreationHelper createHelper = workbook.getCreationHelper();
-				DateFormat df = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault());
-
 				cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd/mm/yyyy;@"));
 				cell = row.createCell(5);
 				cell.setCellValue(emp.getBirthday());

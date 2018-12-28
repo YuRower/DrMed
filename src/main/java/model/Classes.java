@@ -2,14 +2,12 @@ package model;
 
 import java.util.List;
 
-
 import javafx.collections.FXCollections;
 
 public class Classes {
 	private int index;
 	private String schoolClass;
 	public static List<Person> classListData = FXCollections.observableArrayList();
-
 
 	public Classes(int index, String schoolClass, List<Person> classData) {
 		classListData.addAll(classData);

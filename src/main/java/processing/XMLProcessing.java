@@ -12,7 +12,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import model.manager.VaccineManager;
 import model.vaccine.VaccineEntity;
 import model.wrapper.VaccineWrapper;
 
@@ -21,9 +20,6 @@ public class XMLProcessing {
 	private static ObservableList<VaccineEntity> currentVaccinePerson = FXCollections.observableArrayList();
 	private static ObservableList<VaccineEntity> allVaccinesPersons = FXCollections.observableArrayList();
 
-	/**
-	 * @return the allVaccinesPersons
-	 */
 	public static ObservableList<VaccineEntity> getAllVaccinesPersons() {
 		return allVaccinesPersons;
 	}
@@ -36,21 +32,19 @@ public class XMLProcessing {
 	}
 
 	public ObservableList<VaccineEntity> deleteVaccineFromXMLStrorage(VaccineEntity toDelete) {
-		LOGGER.info("deleteVaccineFromXMLStrorage" + toDelete);
-		LOGGER.info("deleteVaccineFromXMLStrorage" + currentVaccinePerson);
+		LOGGER.info("method deleteVaccineFromXMLStrorage for" + toDelete);
 
 		try {
 			JAXBContext context = JAXBContext.newInstance(VaccineWrapper.class);
 			Unmarshaller um = context.createUnmarshaller();
 
 			VaccineWrapper wrapper = (VaccineWrapper) um.unmarshal(XML_FILE);
-			LOGGER.info("deleteVaccineFromXMLStrorage" + wrapper.getListVaccines());
 			wrapper.getListVaccines().remove(toDelete);
 			allVaccinesPersons.remove(toDelete);
 
 			LOGGER.info("deleteVaccineFromXMLStrorage" + wrapper.getListVaccines());
 			LOGGER.info("deleteVaccineFromXMLStrorage" + allVaccinesPersons);
-			allVaccinesPersons=updateXMLfile();
+			allVaccinesPersons = updateXMLfile();
 
 		} catch (Exception e) { // catches ANY exception
 			Alert alert = new Alert(AlertType.ERROR);
@@ -58,13 +52,11 @@ public class XMLProcessing {
 			alert.setHeaderText("Could not load data");
 			alert.setContentText("Could not load data from file:\n" + XML_FILE.getPath());
 			alert.showAndWait();
-			e.printStackTrace();
+			LOGGER.info(e.getMessage());
 		}
 		return allVaccinesPersons;
 	}
-	
 
-		
 	public ObservableList<VaccineEntity> updateXMLfile() {
 		LOGGER.info("updateXMLfile");
 		try {
@@ -80,14 +72,14 @@ public class XMLProcessing {
 			alert.setHeaderText("Could not save data");
 			alert.setContentText("Could not save data to file:\n" + XML_FILE);
 			alert.showAndWait();
-			e.printStackTrace();
+			LOGGER.info(e.getMessage());
 		}
-		
-	return allVaccinesPersons;
+
+		return allVaccinesPersons;
 	}
 
 	public void loadPersonDataFromFile(File file) {
-		LOGGER.info("loadPersonDataFromFile" + vaccineToUser);
+		LOGGER.info("method loadPersonDataFromFile" + vaccineToUser);
 
 		try {
 			JAXBContext context = JAXBContext.newInstance(VaccineWrapper.class);
@@ -101,7 +93,7 @@ public class XMLProcessing {
 			for (VaccineEntity ve : wrapper.getListVaccines()) {
 				if (ve.getId() == vaccineToUser) {
 					currentVaccinePerson.add(ve);
-					LOGGER.info("add----------------------------------------------------------");
+					LOGGER.info(ve);
 
 				}
 			}
@@ -113,8 +105,7 @@ public class XMLProcessing {
 			alert.setContentText("Could not load data from file:\n" + file.getPath());
 
 			alert.showAndWait();
-			e.printStackTrace();
-
+			LOGGER.info(e.getMessage());
 		}
 	}
 
@@ -127,7 +118,7 @@ public class XMLProcessing {
 			LOGGER.info(currentVaccinePerson);
 
 			loadPersonDataFromFile(xmlFile);
-			
+
 			LOGGER.info(currentVaccinePerson);
 			VaccineWrapper wrapper = new VaccineWrapper();
 			wrapper.setListVaccines(allVaccinesPersons);
@@ -145,14 +136,12 @@ public class XMLProcessing {
 			alert.setContentText("Could not save data to file:\n" + xmlFile);
 
 			alert.showAndWait();
-			e.printStackTrace();
+			LOGGER.info(e.getMessage());
 		}
 	}
 
 	public void setCurrentUser(int id) {
-		LOGGER.info("loadPersonDataFromFile" + id);
-		this.vaccineToUser = id;
-		LOGGER.info("loadPersonDataFromFile" + this.vaccineToUser);
-
+		LOGGER.info("setCurrentUser" + id);
+		vaccineToUser = id;
 	}
 }

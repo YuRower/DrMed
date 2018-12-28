@@ -21,12 +21,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
-
 import model.Classes;
 import model.Lang;
 import model.Person;
@@ -255,7 +252,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 					ClassesManager.setCurrentIndex(index);
 
 					String str = String.valueOf(selectedClass);
-					LOGGER.info(str + "////selectedClass///////////");
+					LOGGER.info(str + "selectedClass");
 					try {
 						updatedClass = schoolStorage.update(ClassesManager.getCurrentIndex());
 					} catch (IOException e) {
@@ -264,7 +261,7 @@ public class PersonOverviewController extends Observable implements Initializabl
 					personTable.setItems(updatedClass);
 					updateCountLabel();
 				} else {
-					LOGGER.info("////selectedClass is null ///////");
+					LOGGER.info("selectedClass is null ");
 
 				}
 			}

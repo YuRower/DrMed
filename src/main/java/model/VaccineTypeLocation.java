@@ -1,6 +1,5 @@
 package model;
 
-
 public class VaccineTypeLocation {
 
 	private int index;
@@ -13,22 +12,18 @@ public class VaccineTypeLocation {
 		this.resource = resource;
 	}
 
-
 	public String getResource() {
 		return resource;
 	}
 
-	
 	public void setResource(String resource) {
 		this.resource = resource;
 	}
 
-	
 	public int getIndex() {
 		return index;
 	}
 
-	
 	public void setIndex(int index) {
 		this.index = index;
 	}
@@ -37,12 +32,10 @@ public class VaccineTypeLocation {
 		return name;
 	}
 
-	
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	
 	@Override
 	public String toString() {
 		return name;

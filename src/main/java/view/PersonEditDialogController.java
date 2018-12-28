@@ -1,6 +1,5 @@
 package view;
 import java.text.ParseException;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -38,7 +37,6 @@ public class PersonEditDialogController {
 	private Stage dialogStage;
 	private Person person;
 	private boolean okClicked = false;
-//	public static final String BUNDLES_FOLDER = "property.text";
 	private static Locale locale = LocaleManager.getCurrentLang().getLocale();
 
 	@FXML

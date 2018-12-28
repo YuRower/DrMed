@@ -1,7 +1,5 @@
 package util;
 
-import static util.AbstractResource.FROM_THREE_TO_SIX_TABLES;
-import static util.AbstractResource.LAST_TABLE;
 
 import java.io.File;
 
@@ -11,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import model.VaccineTypeLocation;
 import model.manager.VaccineManager;
-import view.vaccination.VaccineTableController;
 
 public abstract class AbstractResource {
 	@FXML

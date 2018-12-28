@@ -6,16 +6,10 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import view.tableEditpages.VaccineEditPageController;
 
 public class VaccineEntity {
 	private final static Logger LOGGER = Logger.getLogger(VaccineEntity.class);
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "VaccineEntity [id=" + id + ", name=" + name + ", typeVaccine=" + typeVaccine
@@ -28,18 +22,13 @@ public class VaccineEntity {
 	private StringProperty name;
 	private StringProperty typeVaccine;
 	private StringProperty medicalContradication;
-
 	private StringProperty reaction;
 	private StringProperty age;
 	private StringProperty date;
 	private DoubleProperty doze;
 	private StringProperty series;
 	private StringProperty nameOfDrug;
-	
-
-
 	private StringProperty localReaction;
-
 	private StringProperty reactionGeneral;
 
 	public VaccineEntity(int id, String name, String typeVaccine, String medicalContradication, String age, String date,
@@ -227,13 +216,10 @@ public class VaccineEntity {
 	}
 
 	public StringProperty reactionGeneralProperty() {
-
 		return reactionGeneral;
 	}
 
 	public void setReactionGeneral(String reactionGeneral) {
-		LOGGER.info("----------------------------" + reactionGeneral);
-
 		this.reactionGeneral.set(reactionGeneral);
 	}
 }

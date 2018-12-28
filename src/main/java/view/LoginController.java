@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-
 import application.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -38,7 +37,6 @@ public class LoginController {
 		}
 	     
 	  private String authorize() {
-	        LOGGER.info(user.getText() + " " + password.getText());
 	    return 
 	      "admin".equals(user.getText()) && "1234".equals(password.getText()) 
 	            ? generateSessionID() 

@@ -26,7 +26,7 @@ public class Statistics {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/view/statistics/BirthdayStatistics.fxml"));
 			AnchorPane page = loader.load();
-			LOGGER.info("Load " + loader.getLocation());
+			LOGGER.info("Load showBirthdayStatistics" );
 
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Birthday Statistics");
@@ -43,7 +43,7 @@ public class Statistics {
 			dialogStage.show();
 
 		} catch (IOException e) {
-			LOGGER.error(e);
+			LOGGER.error(e.getMessage());
 		}
 	}
 	public void showVaccineStatistics() {
@@ -71,8 +71,7 @@ public class Statistics {
 			dialogStage.show();
 
 		} catch (IOException e) {
-			LOGGER.error(e);
-			e.printStackTrace();
+			LOGGER.error(e.getMessage());
 		}
 	}
 }

@@ -37,6 +37,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
 public class MainApp extends Application implements Observer {
+	public static final String FILE_PATH = "filePath";
 
 	public static final String BUNDLES_FOLDER = "property.text";
 	private Status status;
@@ -60,6 +61,7 @@ public class MainApp extends Application implements Observer {
 	private VaccineTableController vaccineTableController;
 
 	private final static Logger LOGGER = Logger.getLogger(MainApp.class);
+	
 	/*
 	 * static { new DOMConfigurator().doConfigure("log4j.xml",
 	 * LogManager.getLoggerRepository()); }
@@ -105,7 +107,7 @@ public class MainApp extends Application implements Observer {
 			loader.setLocation(MainApp.class.getResource("/view/UserAuthentication.fxml"));
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
 			loginPage = loader.load();
-			LOGGER.debug("Load " + loader.getLocation());
+			LOGGER.debug("Load Login Controller " + loader.getLocation());
 			Scene scene = new Scene(loginPage);
 			primaryStage.setScene(scene);
 			loginController = loader.getController();
@@ -166,25 +168,22 @@ public class MainApp extends Application implements Observer {
 			LOGGER.debug("Pass main object to personController ");
 			personController.setMainApp(this);
 
-		} catch (IOException e) {
-			LOGGER.error(e);
-			e.printStackTrace();
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage());
 		}
 	}
 
 	public void showVaccinationTables(Locale locale, String resource, Person person) {
 		try {
 			if (person == null) {
+				LOGGER.info("Person null");
 
 			} else {
 				xmlProc = new XMLProcessing();
 				xmlProc.setCurrentUser(person.getId());
 				LOGGER.info("method ShowVaccination Tables");
 				LOGGER.info("Locale " + locale.toString() + "Resource " + resource);
-
 				this.primaryStage.setTitle("MedApp");
-
-				// getPrimaryStage().setFullScreen(true);
 				FXMLLoader loader = new FXMLLoader();
 				loader.setLocation(MainApp.class.getResource("/view/VaccinationTables.fxml"));
 				loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, locale));
@@ -208,9 +207,8 @@ public class MainApp extends Application implements Observer {
 				vaccineTableController.setMainApp(this);
 
 			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
-			LOGGER.error(ex);
+		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
 		}
 	}
 
@@ -227,7 +225,6 @@ public class MainApp extends Application implements Observer {
 			LOGGER.debug("Load " + loader.getLocation());
 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Edit Person");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(primaryStage);
 			Scene scene = new Scene(editPersonPage);
@@ -238,9 +235,8 @@ public class MainApp extends Application implements Observer {
 			dialogStage.getIcons().add(new Image("/images/edit.png"));
 			dialogStage.showAndWait();
 			return controller.isOkClicked();
-		} catch (IOException e) {
-			LOGGER.error(e);
-			e.printStackTrace();
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage());
 			return false;
 		}
 	}
@@ -248,9 +244,6 @@ public class MainApp extends Application implements Observer {
 	public boolean showTableVaccineEditDialog(VaccineEntity vaccine, String resource) throws ParseException {
 		try {
 			LOGGER.info("method showTableVaccineEditDialog");
-
-			// getPrimaryStage().setFullScreen(true);
-
 			FXMLLoader loader = new FXMLLoader();
 			loader.setResources(ResourceBundle.getBundle(BUNDLES_FOLDER, LocaleManager.getCurrentLang().getLocale()));
 
@@ -259,7 +252,6 @@ public class MainApp extends Application implements Observer {
 			LOGGER.debug("Load " + loader.getLocation());
 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Edit Person");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(primaryStage);
 			Scene scene = new Scene(editTablePage);
@@ -286,8 +278,8 @@ public class MainApp extends Application implements Observer {
 			}
 			dialogStage.showAndWait();
 			return vaccineEditController.isOkClicked();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage());
 			return false;
 		}
 	}
@@ -321,7 +313,7 @@ public class MainApp extends Application implements Observer {
 		LOGGER.info("method getPersonFilePath");
 
 		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
-		String filePath = prefs.get("filePath", null);
+		String filePath = prefs.get(FILE_PATH, null);
 		LOGGER.debug(" File Path = " + filePath);
 
 		if (filePath != null) {
@@ -336,16 +328,17 @@ public class MainApp extends Application implements Observer {
 
 		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
 		if (file != null) {
-			prefs.put("filePath", file.getPath());
+			prefs.put(FILE_PATH, file.getPath());
 			LOGGER.debug("set File Path = " + file.getPath());
-			primaryStage.setTitle("AddressApp - " + file.getName());
+			primaryStage.setTitle("VaccineApp - " + file.getName());
 		} else {
-			prefs.remove("filePath");
-			primaryStage.setTitle("AddressApp");
+			prefs.remove(FILE_PATH);
+			primaryStage.setTitle("VaccineApp");
 		}
 	}
 
 	public Stage getPrimaryStage() {
+		
 		return primaryStage;
 	}
 
